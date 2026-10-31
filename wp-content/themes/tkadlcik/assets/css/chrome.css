@@ -1,0 +1,19 @@
+/* Header/footer/404 element styles (the prototype's inline style attributes there, R36). UNLAYERED like
+   pages/<slug>.css — see "Cascade layers" in inc/assets.php: one class per element, no class site.css also
+   styles, no !important. Values verbatim from Main.dc.html's footer. */
+
+/* Footer (footer.php) */
+.tk-ft-about{gap:10px}
+.tk-ft-name{font-weight:600;letter-spacing:-.01em}
+.tk-ft-col{gap:8px}
+/* Footer bar additions (not in the design; reference patch D8 applies the same values): the operator line under the
+   copyright, and "Nastavení cookies" (cookie consent) as a 44 px target. */
+.tk-ft-id{display:flex;flex-direction:column;gap:4px}
+.tk-ft-op{font-size:13px;line-height:1.5}
+.tk-ft-consent{display:inline-flex;align-items:center;align-self:flex-start;min-height:44px;margin-block:-12px;color:var(--ink-2);text-decoration:none}
+@media (hover:hover) and (pointer:fine){.tk-ft-consent:hover{color:var(--ink)}}
+
+/* 404 (404.php) */
+.tk-404{padding-top:clamp(56px,9vw,128px);padding-bottom:clamp(72px,10vw,136px)}
+.tk-404-stack{gap:28px;max-width:980px}
+.tk-404-links{display:flex;flex-wrap:wrap;gap:10px}

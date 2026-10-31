@@ -1,0 +1,74 @@
+{
+  "akce": {
+    "title": "Semináře s Vincentem Chu a Krkonoše | Radost v pohybu",
+    "description": "Semináře tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze a cvičení tchaj-ťi a čchi-kungu (qigong) na horách v Krkonoších – Strážné, Penzion Exnar.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.webp"
+  },
+  "clanky": {
+    "title": "Články o tchaj-ťi a čchi-kungu | Radost v pohybu",
+    "description": "Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Chen Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.webp"
+  },
+  "cviceni": {
+    "title": "Osm kusů brokátu, 13 slov a styl Yang | Radost v pohybu",
+    "description": "Cvičení, která vyučujeme: čchi-kung (qigong) Osm kusů brokátu, 13 slov tchaj-ťi a tchaj-ťi (tai chi) stylu Yang – popis, sestavy a videogalerie.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.webp"
+  },
+  "domu": {
+    "title": "Tchaj-ťi (tai chi) a čchi-kung Praha 4 a Zlín | Radost v pohybu",
+    "description": "Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.webp"
+  },
+  "kontakt": {
+    "title": "Kontakt – tchaj-ťi a čchi-kung Praha 4 a Zlín | Radost v pohybu",
+    "description": "Kontakt na lektora tchaj-ťi (tai chi) a čchi-kungu (qigong) Mgr. Daniela Tkadlčíka. Cvičíme v ZŠ Jeremenkova v Praze 4 a v Centru Jiný svět ve Zlíně.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.webp"
+  },
+  "kurzy-a-lekce": {
+    "title": "Kurzy tai chi a čchi-kungu Praha 4 a Zlín | Radost v pohybu",
+    "description": "Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong): lekce 90 a 120 minut v tělocvičně ZŠ Jeremenkova v Praze 4 a jednou měsíčně ve Zlíně.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.webp"
+  },
+  "o-mne": {
+    "title": "Mgr. Daniel Tkadlčík – lektor tchaj-ťi od 1997 | Radost v pohybu",
+    "description": "Mgr. Daniel Tkadlčík se věnuje tchaj-ťi (tai chi) od roku 1997, od roku 2007 rodinnému stylu Yang u mistra Vincenta Chu. Učí i čchi-kung (qigong).",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.webp"
+  },
+  "zasady-ochrany-osobnich-udaju": {
+    "title": "Zásady ochrany osobních údajů | Radost v pohybu",
+    "description": "Jak Radost v pohybu, kurzy tchaj-ťi a čchi-kungu (qigong), zpracovává osobní údaje: správce, účely, doba uchování, cookies, Google Analytics a vaše práva.",
+    "robots": [
+      "noindex",
+      "follow"
+    ],
+    "og": "og-default.webp"
+  }
+}

@@ -1,0 +1,51 @@
+/* Cookie banner in the site's design (port of martinadamus R45). DARK-ONLY site: every colour comes from the theme's
+   tokens in site.css :root (var(--bg), --surface, --ink, --muted, --line, --accent, --on-accent, --focus), with dark
+   fallbacks; Complianz's own colour variables (--cmplz_*, printed on :root from its banner settings) are re-pointed
+   to those tokens on the banner element, so its stored hex values are only a fallback. Geist, pills, 24 px card radius.
+   Not enqueued by the theme: `wp tk consent-setup` writes this file into the Complianz banner's "Custom CSS",
+   Complianz appends it to its generated uploads/complianz/css/banner-<id>-optin.css, the theme prints that inline in
+   @layer tk. Re-run consent-setup after editing this file. The banner is position:fixed (no layout shift); Přijmout
+   and Odmítnout are equal accent pills; every control is at least 44px tall; contrast ≥ 4.5:1 (on-accent on accent
+   5.4:1, ink/muted on surface ≥ 7:1). */
+.cmplz-cookiebanner{
+--cmplz_banner_background_color:var(--surface,#171917);--cmplz_banner_border_color:var(--line,rgba(242,242,238,.12));
+--cmplz_text_color:var(--ink,#F2F2EE);--cmplz_hyperlink_color:var(--ink,#F2F2EE);
+--cmplz_button_accept_background_color:var(--accent,#0F766E);--cmplz_button_accept_border_color:var(--accent,#0F766E);--cmplz_button_accept_text_color:var(--on-accent,#FFFFFF);
+--cmplz_button_deny_background_color:var(--accent,#0F766E);--cmplz_button_deny_border_color:var(--accent,#0F766E);--cmplz_button_deny_text_color:var(--on-accent,#FFFFFF);
+--cmplz_button_settings_background_color:transparent;--cmplz_button_settings_border_color:var(--line,rgba(242,242,238,.12));--cmplz_button_settings_text_color:var(--ink,#F2F2EE);
+--cmplz_slider_active_color:var(--accent,#0F766E);--cmplz_slider_inactive_color:var(--muted,#A9ABA5);--cmplz_slider_bullet_color:var(--bg,#0E0F0E);
+--cmplz_category_header_always_active_color:var(--focus,#5FC1B3);
+font-family:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink,#F2F2EE);-webkit-font-smoothing:antialiased}
+.cmplz-cookiebanner.cmplz-show,.cmplz-cookiebanner.cmplz-show:hover{box-shadow:0 24px 64px -16px rgba(0,0,0,.7);transition:none}
+.cmplz-cookiebanner .cmplz-title{font-family:'Geist',ui-sans-serif,system-ui,sans-serif;font-weight:500;font-size:22px;line-height:1.25;letter-spacing:-.02em;color:var(--ink,#F2F2EE)}
+.cmplz-cookiebanner .cmplz-message{line-height:1.6;color:var(--ink,#F2F2EE)}
+.cmplz-cookiebanner .cmplz-btn{min-height:44px;height:auto;padding:10px 20px;font-family:inherit;font-size:15px;font-weight:500;line-height:1.2;border-radius:999px}
+.cmplz-cookiebanner .cmplz-btn.cmplz-view-preferences,.cmplz-cookiebanner .cmplz-btn.cmplz-save-preferences{background:transparent;color:var(--ink,#F2F2EE);border-color:var(--line,rgba(242,242,238,.12))}
+.cmplz-cookiebanner .cmplz-btn:focus-visible,.cmplz-cookiebanner .cmplz-link:focus-visible,.cmplz-cookiebanner .cmplz-close:focus-visible{outline:2px solid var(--focus,#5FC1B3);outline-offset:3px}
+.cmplz-cookiebanner .cmplz-btn:focus-visible{border-radius:999px}
+.cmplz-cookiebanner .cmplz-links{gap:4px 16px}
+.cmplz-cookiebanner .cmplz-link{display:inline-flex;align-items:center;min-height:44px;color:var(--ink,#F2F2EE);text-decoration:underline;text-underline-offset:3px}
+.cmplz-cookiebanner .cmplz-close{zoom:1!important;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:-6px -6px -6px 0;border-radius:999px;color:var(--ink,#F2F2EE)}
+/* the close button's focus ring stays inside its 44 px circle, i.e. inside the card's padding */
+.cmplz-cookiebanner .cmplz-close:focus-visible{outline-offset:-4px}
+.cmplz-cookiebanner .cmplz-close svg{width:18px;height:18px}
+.cmplz-cookiebanner .cmplz-close svg path{fill:currentColor}
+.cmplz-cookiebanner .cmplz-categories .cmplz-category{background:var(--bg,#0E0F0E);border:1px solid var(--line,rgba(242,242,238,.12));border-radius:16px}
+.cmplz-cookiebanner .cmplz-categories .cmplz-category .cmplz-category-header{grid-template-columns:1fr auto 44px;min-height:44px}
+.cmplz-cookiebanner .cmplz-categories .cmplz-category .cmplz-category-header .cmplz-category-title{color:var(--ink,#F2F2EE)}
+.cmplz-cookiebanner .cmplz-categories .cmplz-category .cmplz-category-header .cmplz-category-toggle{width:44px;height:44px;display:flex;align-items:center;justify-content:center;color:var(--ink,#F2F2EE)}
+.cmplz-cookiebanner .cmplz-category-toggle svg{fill:currentColor}
+.cmplz-cookiebanner .cmplz-categories .cmplz-category .cmplz-category-header .cmplz-always-active{color:var(--focus,#5FC1B3)}
+.cmplz-cookiebanner .cmplz-categories .cmplz-category .cmplz-description{color:var(--muted,#A9ABA5);line-height:1.5}
+.cmplz-cookiebanner .cmplz-categories .cmplz-category .cmplz-banner-checkbox input.cmplz-consent-checkbox:focus-visible+.cmplz-label:before{box-shadow:0 0 0 2px var(--bg,#0E0F0E),0 0 0 4px var(--focus,#5FC1B3)}
+/* Compact phone banner (martinadamus R61): tighter padding and message type, Přijmout + Odmítnout side by side at
+   equal size and colour, preferences full width. */
+@media (max-width:600px){
+.cmplz-cookiebanner.cmplz-show{padding:14px 16px;gap:6px}
+.cmplz-cookiebanner .cmplz-divider{margin-left:-16px;margin-right:-16px}
+.cmplz-cookiebanner .cmplz-title{font-size:19px}
+.cmplz-cookiebanner .cmplz-message{font-size:13.5px;line-height:1.5;margin-bottom:0}
+.cmplz-cookiebanner .cmplz-buttons{flex-direction:row;flex-wrap:wrap;gap:8px}
+.cmplz-cookiebanner .cmplz-buttons .cmplz-btn{flex:1 1 calc(50% - 4px);width:auto;min-width:0}
+.cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-view-preferences,.cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-save-preferences,.cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-manage-options{flex-basis:100%}
+}

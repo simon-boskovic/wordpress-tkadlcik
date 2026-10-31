@@ -1,0 +1,248 @@
+{
+  "slug": "domu",
+  "title": "Domů",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [],
+  "front_page": true,
+  "elements": [
+    {
+      "id": "bbc5886",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "bbebd23",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-37532c4d\">\n<div class=\"stack tk-s-c8a2517f\">\n<span class=\"eyebrow rise\">Výuka tchaj-ťi a čchi-kungu · Radost v pohybu</span>\n<h1 class=\"h1 rise d1\">Tchaj-ťi a čchi-kung <span class=\"serif\">v Praze 4</span> a ve Zlíně</h1>\n<p class=\"lead rise d2\">Najít klid v pohybu a v klidu zase pohyb je jeden z mnoha pohledů na cvičení tchaj-ťi a čchi-kungu, stejně tak i jiných forem hledajících klid a harmonii.</p>\n<p class=\"body rise d2 tk-s-3b90b107\">Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení. Náplní kurzů jsou cvičení zaměřená zejména na uvolnění, zklidnění, protažení a posílení našeho těla a celé naší bytosti. Ve své praxi čchi-kungu a tchaj-ťi propojuji cvičení s vědomým pohybem tak, aby nás směřoval k lehkosti a radosti při jejich provádění.</p>\n<div class=\"rise d3 tk-s-bae398f3\">\n<a href=\"/kurzy-a-lekce/\" class=\"btn btn-dark\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n<a href=\"/wp-content/uploads/letak-savle.jpg\" download class=\"btn btn-ghost\">Stáhnout leták na Šavli</a>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "0fca362",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "b1751e0",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-8d9be25c\">\n<div class=\"grid rise d4 bento tk-s-ef649790\">\n<img src=\"/wp-content/uploads/louka-strom.webp\" alt=\"\" width=\"1920\" height=\"1221\" loading=\"lazy\" decoding=\"async\" class=\"tk-s-d5d1e2ba\">\n<div class=\"card card-dark on-dark stack tk-s-80c9601c\">\n<div aria-hidden=\"true\" class=\"breath tk-s-2708ae47\"><i></i><i></i><i></i><b class=\"in\">Nádech</b><b class=\"ex\">Výdech</b></div>\n<p class=\"small tk-s-fbf7f4d3\">Fyzický pohyb kombinovaný s principem dýchání tuina (nádech a výdech), tak aby energie mohla lépe cirkulovat uvnitř těla.</p>\n</div>\n<div class=\"card stack tk-s-47d0dd20\">\n<span class=\"eyebrow\">Pravidelné cvičení</span>\n<ul class=\"rows tk-s-26d3d195\">\n<li class=\"stack tk-s-41aa995a\"><span class=\"tk-s-7d09ab5e\">Pondělí</span><span class=\"mono muted\">18:00 - 19:30h</span><span class=\"small\">Sestava Yang 12 forem pro začátečníky, 13 Words of Tchaj-ťi</span></li>\n<li class=\"stack tk-s-41aa995a\"><span class=\"tk-s-7d09ab5e\">Úterý</span><span class=\"mono muted\">18:00 - 20:00h</span><span class=\"small\">Osm kusů brokátu</span></li>\n</ul>\n<p class=\"small muted\">Místo: Tělocvična ZŠ Jeremenkova</p>\n<a href=\"/kurzy-a-lekce/\" class=\"btn btn-jade btn-sm tk-s-c9adc42e\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "eded36d",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "281e826",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-7e3eae42\">\n<div class=\"sec-head\">\n<h2 class=\"h2 tk-s-6ec553ab\">Cvičení a kurzy, <span class=\"serif\">které nabízíme</span></h2>\n</div>\n<div class=\"grid tk-s-b8f6a062\">\n<a href=\"/cviceni/#brokat\" class=\"card card-link reveal\">\n<div class=\"tk-s-65427c25\"><span class=\"idx\">01</span><span class=\"chip\">Úterý 18:00 - 20:00h</span></div>\n<h3 class=\"h3 tk-s-d9f14975\">Osm kusů brokátu</h3>\n<p class=\"body small\">Známé čchi-kungové cvičení zaměřující se na rozvoj základních dovedností, posílení těla, protažení, otevření energetických kanálů a získání základních návyků a dovedností.</p>\n<svg width=\"18\" height=\"18\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr tk-s-f55bb531\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>\n</a>\n<a href=\"/cviceni/#slov\" class=\"card card-link reveal\">\n<div class=\"tk-s-65427c25\"><span class=\"idx\">02</span><span class=\"chip\">Úterý 18:00 - 19:30h</span></div>\n<h3 class=\"h3 tk-s-d9f14975\">13 Words of Tchaj-ťi</h3>\n<p class=\"body small\">Krátké a jednoduché cvičení zlepšující vnímání energie čchi, je zaměřeno zejména na otevírání energetických meridiánů.</p>\n<svg width=\"18\" height=\"18\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr tk-s-f55bb531\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>\n</a>\n<a href=\"/cviceni/#yang\" class=\"card card-link reveal\">\n<div class=\"tk-s-65427c25\"><span class=\"idx\">03</span><span class=\"chip\">Pondělí 18:00 - 19:30h</span></div>\n<h3 class=\"h3 tk-s-d9f14975\">Yang Tchaj-ťi</h3>\n<p class=\"body small\">Styl Yang tchaj-ťi je pojmenován podle členů rodiny Yang, kteří tento styl dosti proslavili. Vyučujeme tento styl podle tradice a rodinného předání mistra Vincenta Chu.</p>\n<svg width=\"18\" height=\"18\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr tk-s-f55bb531\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>\n</a>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "c410764",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "29315af",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-7e3eae42\">\n<div class=\"sec-head\">\n<h2 class=\"h2\">Náplň lekcí <span class=\"serif\">tchaj-ťi a čchi-kungu</span></h2>\n<p class=\"body tk-s-91a84cc1\">Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku. Lekce jsou buď zaměřeny na čchi-kung, nebo tchaj-ťi.</p>\n</div>\n<ol class=\"grid tk-s-4069dae7\">\n<li class=\"stack reveal tk-s-d26fbfd1\"><span class=\"idx\">01</span><h3 class=\"h3\">Kloubní rozcvičení</h3></li>\n<li class=\"stack reveal tk-s-5b19adbe\"><span class=\"idx\">02</span><h3 class=\"h3\">Základní cvičení</h3><p class=\"body small\">Statický čchi-kung, pozice zhan zhuang nebo základní postoje ze sestav tchaj-ťi.</p></li>\n<li class=\"stack reveal tk-s-5b19adbe\"><span class=\"idx\">03</span><h3 class=\"h3\">Osm kusů brokátu nebo 13 slov tchaj-ťi</h3><p class=\"body small\">Často do rozcvičky zařazuji cvičení Osm kusů brokátu nebo 13 slov tchaj-ťi, které pomáhá prohlubování základů.</p></li>\n</ol>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "f25efa0",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "aeafeba",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap\">\n<div class=\"panel-dark on-dark reveal tk-s-40e76ed4\">\n<figure class=\"stack tk-s-2c7d1347\">\n<blockquote class=\"serif tk-s-948bd941\">„Každá forma cvičení je prázdná, pokud není spojena s radostí, tichostí a klidem mysli, které jsou podstatou našeho bytí a které se snažím ve cvičení rozvíjet.“</blockquote>\n<figcaption class=\"mono tk-s-fbf7f4d3\">— Daniel Tkadlčík</figcaption>\n</figure>\n<div class=\"stack tk-s-ca026a49\">\n<p class=\"tk-s-505aa8d5\">Výuka probíhá dle instrukcí a předání od mistra Vincenta Chu, který je hlavním instruktorem a mistrem bostonské školy <a href=\"https://www.gstaichi.org/\" rel=\"nofollow noopener\" target=\"_blank\" class=\"lnk\">Gin Soon Tai Chi Chuan Federation</a>. Jeho otec Chu Gin Soon byl osobním žákem mistra Yang Sau Chunga.</p>\n<ol aria-hidden=\"true\" class=\"tk-s-b7d74b32\">\n<li class=\"tk-s-c59bba71\">Yang Sau Chung</li>\n<li class=\"tk-s-c59bba71\">Chu Gin Soon</li>\n<li class=\"tk-s-c59bba71\">Vincent Chu</li>\n<li class=\"tk-s-ae6c6823\">Daniel Tkadlčík</li>\n</ol>\n</div>\n<a href=\"/o-mne/\" class=\"btn btn-glass tk-s-c9adc42e\">O mně <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "8636a97",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "35c21a8",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap section\">\n<div class=\"sec-head\"><h2 class=\"h2\">Semináře <span class=\"serif\">a akce</span></h2></div>\n<div class=\"grid tk-s-ef649790\">\n<a href=\"/akce/#chu\" class=\"card card-link reveal\">\n<span class=\"chip chip-neutral\">27. 11. – 29. 11. 2025</span>\n<h3 class=\"h3 tk-s-583f758b\">Seminář s mistrem Vincentem Chu</h3>\n<p class=\"body small\">Korektura dlouhé formy středního řádu. DaoYinový čchi-kung – Hrátky pěti zvířat.</p>\n<svg width=\"18\" height=\"18\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr tk-s-f55bb531\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>\n</a>\n<a href=\"/akce/#hory\" class=\"card card-link reveal\">\n<span class=\"chip chip-neutral\">Strážné v Krkonoších</span>\n<h3 class=\"h3 tk-s-583f758b\">Cvičení na horách</h3>\n<p class=\"body small\">Cvičíme v příjemném prostředí Krkonoš.</p>\n<svg width=\"18\" height=\"18\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr tk-s-f55bb531\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>\n</a>\n<a href=\"/kurzy-a-lekce/#zlin\" class=\"card card-link reveal\">\n<span class=\"chip chip-neutral\">1x měsíčně vždy v pátek</span>\n<h3 class=\"h3 tk-s-583f758b\">Cvičení ve Zlíně</h3>\n<p class=\"body small\">Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.</p>\n<svg width=\"18\" height=\"18\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr tk-s-f55bb531\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg>\n</a>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "3b3a8ba",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "3fcafa4",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-7e3eae42\">\n<div class=\"panel-jade reveal tk-s-5e04629d\">\n<div class=\"stack tk-s-7aa5147b\">\n<h2 class=\"h2\">Kontakt</h2>\n<p class=\"tk-s-d370efc5\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<div class=\"tk-s-18a15274\">\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"btn btn-light\">tkadlcik@centrum.cz</a>\n<a href=\"tel:+4207732871113\" class=\"btn btn-glass\">+420 773 287 1113</a>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

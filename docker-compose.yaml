@@ -1,0 +1,202 @@
+# Local WordPress stack for tkadlcik (Radost v pohybu). Needs Docker Compose v2+ ("docker compose").
+# Self-contained: values can be overridden by a .env file without editing this file.
+name: tkadlcik
+
+x-logging: &logging
+  driver: json-file
+  options: { max-size: "10m", max-file: "3" }
+
+x-db-env: &db-env
+  WORDPRESS_DB_HOST: db:3306
+  WORDPRESS_DB_NAME: ${DB_NAME:-wordpress}
+  WORDPRESS_DB_USER: ${DB_USER:-wordpress}
+  WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-wordpress}
+  WORDPRESS_DB_CHARSET: utf8mb4
+  WORDPRESS_TABLE_PREFIX: wp_
+
+# Custom code lives in the repo and is mounted in; core, plugins and uploads stay in the volume.
+x-mount-theme: &custom-theme ./wp-content/themes/tkadlcik:/var/www/html/wp-content/themes/tkadlcik
+x-mount-mu-plugins: &custom-mu-plugins ./wp-content/mu-plugins:/var/www/html/wp-content/mu-plugins
+# Local only: PEM of this machine's TLS-intercepting CA (Avast Web Shield); tk-local.php trusts it.
+x-mount-certs: &local-certs ./docker/certs:/certs:ro
+
+# Same defines for web requests and WP-CLI, so both see one configuration. wp-config.php is never edited.
+x-wp-config-extra: &wp-config-extra |
+  define( 'WP_DEBUG_LOG', true );
+  define( 'WP_DEBUG_DISPLAY', false );
+  define( 'DISALLOW_FILE_EDIT', true );
+  define( 'WP_ENVIRONMENT_TYPE', 'local' );
+  define( 'FS_METHOD', 'direct' );
+  define( 'WP_MEMORY_LIMIT', '256M' );
+  define( 'WP_MAX_MEMORY_LIMIT', '512M' );
+  define( 'WP_POST_REVISIONS', 10 );
+  define( 'EMPTY_TRASH_DAYS', 30 );
+  // Page cache (mu-plugins/tk-page-cache): load the advanced-cache.php drop-in that
+  // `wp tk cache-setup` writes. Production needs the same define (docs/go-live-requirements.md).
+  define( 'WP_CACHE', true );
+  // Local only: `wp tk cache-warm` (wpcli container) and WP-Cron reach the site at its public URL
+  // (http://localhost:<port>), which only exists on the host; connect to the web container instead.
+  define( 'TK_PAGE_CACHE_CONNECT_TO', 'wordpress:80' );
+
+configs:
+  php-ini:
+    content: |
+      upload_max_filesize = 256M
+      post_max_size = 256M
+      memory_limit = 512M
+      max_execution_time = 300
+      max_input_time = 300
+      max_input_vars = 3000
+      error_reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT
+      display_errors = Off
+      ; Theme/mu-plugin code is bind-mounted from the host; revalidate on every request or opcache serves stale bytecode.
+      opcache.validate_timestamps = 1
+      opcache.revalidate_freq = 0
+
+  # HTTP compression + browser caching for static files. Production must provide the same:
+  # docs/go-live-requirements.md. No custom image or a2enmod: the image already enables mod_deflate and
+  # mod_expires; mod_brotli/mod_headers ship with it and are loaded here.
+  # Replaces the image's mods-available/deflate.conf so that brotli is registered BEFORE deflate (the
+  # first compression filter in the chain wins; mod_deflate skips a response that is already encoded).
+  apache-compress:
+    content: |
+      <IfModule !brotli_module>
+        LoadModule brotli_module /usr/lib/apache2/modules/mod_brotli.so
+      </IfModule>
+      <IfModule mod_filter.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/ld+json application/xml application/rss+xml image/svg+xml
+        AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/x-javascript application/json application/ld+json application/xml application/rss+xml image/svg+xml
+      </IfModule>
+      BrotliCompressionQuality 6
+  # Versioned theme/plugin assets (?ver=…) and fonts: one year. Uploaded media keep their file names when
+  # re-imported, so 30 days. HTML is not given an expiry (dynamic; the page cache sets its own Cache-Control).
+  apache-cache:
+    content: |
+      <IfModule !headers_module>
+        LoadModule headers_module /usr/lib/apache2/modules/mod_headers.so
+      </IfModule>
+      <IfModule mod_expires.c>
+        ExpiresActive On
+        ExpiresByType text/css "access plus 1 year"
+        ExpiresByType text/javascript "access plus 1 year"
+        ExpiresByType application/javascript "access plus 1 year"
+        ExpiresByType font/woff2 "access plus 1 year"
+        ExpiresByType image/webp "access plus 30 days"
+        ExpiresByType image/avif "access plus 30 days"
+        ExpiresByType image/png "access plus 30 days"
+        ExpiresByType image/jpeg "access plus 30 days"
+        ExpiresByType image/svg+xml "access plus 30 days"
+        ExpiresByType image/x-icon "access plus 30 days"
+      </IfModule>
+      <IfModule mod_headers.c>
+        <FilesMatch "\.(css|js|mjs|woff2|webp|avif|png|jpe?g|svg|ico)$">
+          Header merge Cache-Control "public"
+        </FilesMatch>
+      </IfModule>
+
+services:
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    command: ["--max-allowed-packet=64M", "--innodb-buffer-pool-size=256M"]
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-password}
+      MARIADB_DATABASE: ${DB_NAME:-wordpress}
+      MARIADB_USER: ${DB_USER:-wordpress}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-wordpress}
+    volumes:
+      - db_data:/var/lib/mysql
+    # No published port: only containers on this network need the database.
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    logging: *logging
+
+  # Catches every outgoing mail locally (tk-local.php routes wp_mail here). UI: http://localhost:8026
+  mailpit:
+    image: axllent/mailpit
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:${MAILPIT_PORT:-8026}:8025'
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    logging: *logging
+
+  wordpress:
+    image: wordpress:7.1-php8.4-apache  # pinned minor+PHP; align with the production host before go-live
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+    ports:
+      - '127.0.0.1:${WP_PORT:-8020}:80'
+    environment:
+      <<: *db-env
+      WORDPRESS_CONFIG_EXTRA: *wp-config-extra
+    volumes:
+      - wordpress_data:/var/www/html
+      - *custom-theme
+      - *custom-mu-plugins
+      - *local-certs
+    configs:
+      - source: php-ini
+        target: /usr/local/etc/php/conf.d/zz-custom.ini
+      - source: apache-compress
+        target: /etc/apache2/mods-available/deflate.conf
+      - source: apache-cache
+        target: /etc/apache2/conf-enabled/zz-tk-cache.conf
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS -o /dev/null http://localhost/wp-login.php || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    logging: *logging
+
+  # docker compose --profile tools up -d phpmyadmin   -> http://localhost:8082
+  phpmyadmin:
+    image: phpmyadmin:5.2-apache
+    profiles: [tools]
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '127.0.0.1:${PMA_PORT:-8082}:80'
+    environment:
+      PMA_HOST: db
+      UPLOAD_LIMIT: 256M
+    logging: *logging
+
+  # ./wp.sh plugin list   (wraps: docker compose run --rm wpcli …)
+  wpcli:
+    image: wordpress:cli-php8.4
+    profiles: [cli]
+    depends_on:
+      db:
+        condition: service_healthy
+    user: "33:33"  # cli image is Alpine (www-data=82); apache image is Debian (33)
+    environment:
+      <<: *db-env
+      WORDPRESS_CONFIG_EXTRA: *wp-config-extra
+      WP_CLI_CONFIG_PATH: /project/wp-cli.yml  # loads `wp tk` before WordPress (site-setup installs it)
+    volumes:
+      - wordpress_data:/var/www/html
+      - *custom-theme
+      - *custom-mu-plugins
+      - *local-certs
+      - ./:/project:ro       # repo readable from WP-CLI
+      - ./backups:/backups   # writable: db dumps
+    configs:
+      - source: php-ini
+        target: /usr/local/etc/php/conf.d/zz-custom.ini
+    entrypoint: wp
+
+volumes:
+  db_data:
+  wordpress_data:

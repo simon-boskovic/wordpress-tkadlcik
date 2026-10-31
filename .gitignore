@@ -1,0 +1,17 @@
+wp-secrets.env
+backups/*
+!backups/.gitkeep
+docker/certs/*.pem
+node_modules/
+.env
+.claude/*
+!.claude/agents/
+.DS_Store
+
+# DoD harness output and external tools (build/lib/dod/tools.mjs)
+build/shots/
+.tools/
+
+# Ad-hoc previews sent to the client
+screenshots-pro-klienta/
+*.zip

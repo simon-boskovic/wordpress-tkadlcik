@@ -1,0 +1,112 @@
+{
+  "slug": "akce",
+  "title": "Akce",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "0a5c3f3",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "a52e398",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-23e8a57c\">\n<div class=\"stack tk-s-c8a2517f\">\n<span class=\"eyebrow rise\">Akce</span>\n<h1 class=\"h1 rise d1\">Semináře tchaj-ťi s mistrem Vincentem Chu <span class=\"serif\">a cvičení na horách</span></h1>\n<p class=\"lead rise d2\">Na veškeré akce, které pořádáme, se dopravujeme po vlastní ose. Tedy většinou jedeme auty a vzájemně se odvezeme.</p>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "1d5a833",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "3f02c59",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"chu\" class=\"wrap tk-s-b0d37139\">\n<div class=\"grid tk-s-6bb33a75\">\n<div class=\"stack reveal tk-s-f6ce4d1e\">\n<span class=\"chip chip-neutral\">27. 11. – 29. 11. 2025</span>\n<h2 class=\"h2\">Seminář s mistrem Vincentem Chu <span class=\"serif\">v Praze</span></h2>\n</div>\n<div class=\"stack reveal tk-s-34d1e8e8\">\n<p class=\"body\">Dobrý den, blíží se listopadové cvičení s Vincentem.</p>\n<p class=\"body\">V Praze bude učit DaoYinový čchi-kung – Hrátky pěti zvířat v sobotu 29. 11.</p>\n<p class=\"body\">Ve čtvrtek celý den a pátek celý den je korektura dlouhé formy středního řádu. Střední řád se bude cvičit ve čtvrtek dopoledne na Dobešce a jinak na ZŠ Jeremenkova, tedy čtvrtek 27. 11. odpoledne a pátek 28. 11. celý den.</p>\n<p class=\"body\"><strong class=\"tk-s-eed0f8fb\">Pro přihlášení na seminář v Praze posílejte zálohu 1500 Kč do 15. 11. 2025 na účet 1035195033/0800.</strong></p>\n<a href=\"/kontakt/\" class=\"btn btn-dark tk-s-c9adc42e\">Kontakt - ZŠ Jeremenkova <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n</div>\n</div>\n<h3 class=\"eyebrow tk-s-87c136df\">Denní harmonogram</h3>\n<ol class=\"grid tk-s-8f3b277d\">\n<li class=\"card stack reveal tk-s-6857c69c\">\n<h4 class=\"mono muted tk-s-12c32d06\">Čtvrtek 27. 11. 2025</h4>\n<p class=\"h3 tk-s-11696618\">Korekce dlouhé sestavy středního řádu</p>\n<ul class=\"rows small\">\n<li class=\"tk-s-02221b4c\"><span>Dopolední cvičení <span class=\"mono\">9:30 - 12:00</span></span><span class=\"muted\">Dobeška</span></li>\n<li class=\"tk-s-02221b4c\"><span>Odpolední cvičení <span class=\"mono\">15:00 - 17:30</span></span><span class=\"muted\">Jeremenkova</span></li>\n</ul>\n</li>\n<li class=\"card stack reveal tk-s-6857c69c\">\n<h4 class=\"mono muted tk-s-12c32d06\">Pátek 28. 11. 2025</h4>\n<p class=\"h3 tk-s-11696618\">Korekce dlouhé sestavy středního řádu</p>\n<ul class=\"rows small\">\n<li class=\"tk-s-02221b4c\"><span>Dopolední cvičení <span class=\"mono\">9:30 - 12:30</span></span><span class=\"muted\">Jeremenkova</span></li>\n<li class=\"tk-s-02221b4c\"><span>Odpolední cvičení <span class=\"mono\">15:00 - 17:30</span></span><span class=\"muted\">ZŠ Jeremenkova</span></li>\n</ul>\n</li>\n<li class=\"card card-dark on-dark stack reveal tk-s-6857c69c\">\n<h4 class=\"mono tk-s-17a577be\">Sobota 29. 11. 2025</h4>\n<p class=\"h3 tk-s-11696618\">Hrátky pěti zvířat</p>\n<ul class=\"small\">\n<li class=\"tk-s-90f8ad94\"><span>Dopolední cvičení <span class=\"mono\">10:00 - 12:30</span></span><span class=\"tk-s-fbf7f4d3\">ZŠ Jeremenkova</span></li>\n<li class=\"tk-s-843d68a9\"><span>Odpolední cvičení <span class=\"mono\">15:30 - 18:00</span></span><span class=\"tk-s-fbf7f4d3\">ZŠ Jeremenkova</span></li>\n</ul>\n</li>\n</ol>\n<p class=\"small muted tk-s-1b0f4999\">ZŠ Jeremenkova – Jeremenkova 1003/66A</p>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "d53b9ae",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "ecc79ae",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"hory\" class=\"wrap tk-s-7e3eae42\">\n<div class=\"card reveal tk-s-fbf586fb\">\n<div class=\"grid tk-s-51e7e78f\">\n<div class=\"stack tk-s-6857c69c\">\n<span class=\"chip chip-neutral\">Strážné v Krkonoších</span>\n<h2 class=\"h2\">Cvičení na horách <span class=\"serif\">v Krkonoších</span></h2>\n<p class=\"body\">Cvičíme v příjemném prostředí Krkonoš, náplní semináře je ranní cvičení Osm kusů brokátu, dopolední průpravná cvičení tchaj-ťi kung, statické cvičení zhan zhuang a 13 slov tchaj-ťi. Dále budeme procvičovat základní sestavu 12 forem Yang tchaj-ťi.</p>\n</div>\n<div class=\"ph tk-s-79220c37\"><span>[Foto]</span></div>\n</div>\n\n<div class=\"grid tk-s-8f3b277d\">\n<div class=\"stack tk-s-c1dca82f\">\n<h3 class=\"h3\">Jarní cvičení na horách</h3>\n<dl class=\"stack small tk-s-d7676839\"><div><dt class=\"muted tk-s-cccfa456\">Termín: </dt><dd class=\"tk-s-cccfa456\">10. – 12. 5. 2024</dd></div><div><dt class=\"muted tk-s-cccfa456\">Cena: </dt><dd class=\"tk-s-cccfa456\">3 800 Kč</dd></div></dl>\n</div>\n<div class=\"stack tk-s-c1dca82f\">\n<h3 class=\"h3\">Letní týdenní kurz na horách</h3>\n<dl class=\"stack small tk-s-d7676839\"><div><dt class=\"muted tk-s-cccfa456\">Termín: </dt><dd class=\"tk-s-cccfa456\">30. 7. neděle – 7. 7. 2024 neděle</dd></div><div><dt class=\"muted tk-s-cccfa456\">Cena: </dt><dd class=\"tk-s-cccfa456\">10 000 Kč</dd></div></dl>\n</div>\n</div>\n\n<div class=\"stack tk-s-34d1e8e8\">\n<h3 class=\"eyebrow\">Denní harmonogram<span class=\"tk-s-0fd2822e\"> v Krkonoších</span></h3>\n<div class=\"tk-s-0ddf068b\">\n<ol aria-label=\"Denní harmonogram\" class=\"dayline tk-s-7b018126\">\n<li class=\"stack tk-s-8e573302\"><span class=\"mono\">7:30 - 8:30h</span><span>Ranní cvičení</span></li>\n<li class=\"stack tk-s-10fe3459\"><span class=\"mono\">8:30 - 10:00h</span><span>Snídaně</span></li>\n<li class=\"stack tk-s-8d1e56f6\"><span class=\"mono\">10:30 - 12:30h</span><span>Dopolední cvičení</span></li>\n<li class=\"stack tk-s-2ae7f8cd\"><span class=\"mono\">12:30 - 16:30h</span><span>Pauza odpočinek</span></li>\n<li class=\"stack tk-s-5debd6fe\"><span class=\"mono\">16:30 - 18:00h</span><span>Odpolední cvičení</span></li>\n<li class=\"stack tk-s-46c041cc\"><span class=\"mono\">18:30h</span><span>Večeře</span></li>\n</ol>\n</div>\n</div>\n\n<dl class=\"grid tk-s-30c80dd5\">\n<div class=\"stack tk-s-f0abc1db\"><dt class=\"tk-s-02a2d333\">Místo</dt><dd class=\"small muted\">Strážné v Krkonoších, Strážné 2. Penzion Exnar</dd><dd><a href=\"https://penzion-exnar.ubytovani-strazne-krkonose.cz/\" rel=\"nofollow noopener\" target=\"_blank\" class=\"lnk small tk-s-75239738\">penzion-exnar.ubytovani-strazne-krkonose.cz/cs/</a></dd></div>\n<div class=\"stack tk-s-f0abc1db\"><dt class=\"tk-s-02a2d333\">Ubytování</dt><dd class=\"small muted\">Polopenze, ubytování ve 2 až 3 lůžkových pokojích, výborná strava, možnost výletů po okolí, pokoje jsou se soc. zařízením.</dd></div>\n<div class=\"stack tk-s-f0abc1db\"><dt class=\"tk-s-02a2d333\">Přihlášky</dt><dd class=\"small muted\">E-mailem, nebo osobně, rezervace místa po zaplacení zálohy 1000 Kč.</dd></div>\n</dl>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

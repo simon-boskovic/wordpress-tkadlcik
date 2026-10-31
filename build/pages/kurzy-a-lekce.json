@@ -1,0 +1,149 @@
+{
+  "slug": "kurzy-a-lekce",
+  "title": "Nabídka kurzů a lekcí",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [
+    "tabs",
+    "map"
+  ],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "4e107b4",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "7a01310",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-882dd02d\">\n<div class=\"stack tk-s-bcdc1b62\">\n<span class=\"eyebrow rise\">Nabídka kurzů a lekcí</span>\n<h1 class=\"h1 rise d1\">Kurzy tchaj-ťi a čchi-kungu: <span class=\"serif\">rozvrh a ceny</span></h1>\n<p class=\"lead rise d2\">Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku. Lekce jsou buď zaměřeny na čchi-kung, nebo tchaj-ťi.</p>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "d9159ba",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "29d1d90",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section aria-label=\"Nabídka kurzů a lekcí\" class=\"wrap tk-s-b0d37139\">\n<div data-tab=\"praha\" role=\"tablist\" aria-label=\"Místo\" class=\"tabs rise d2 tk-s-c071b4ab\">\n<button type=\"button\" role=\"tab\" id=\"tab-praha\" aria-controls=\"praha\" aria-selected=\"true\" data-tab-target=\"praha\">Praha 4</button>\n<button type=\"button\" role=\"tab\" id=\"tab-zlin\" aria-controls=\"zlin\" aria-selected=\"false\" tabindex=\"-1\" data-tab-target=\"zlin\">Zlín</button>\n<div aria-hidden=\"true\" class=\"tabs-active\"><span>Praha 4</span><span>Zlín</span></div>\n</div>\n\n<div data-tab=\"praha\" class=\"tab-panels\">\n<div role=\"tabpanel\" id=\"praha\" data-panel=\"praha\" aria-labelledby=\"tab-praha\" class=\"stack tk-s-ed7b3d87\">\n\n<article class=\"card grid tk-s-c6cb4efc\">\n<div class=\"stack tk-s-ed7b3d87\">\n<h2 class=\"h3 tk-s-7afcb61e\">Osm kusů brokátu</h2>\n<p class=\"body small\">Známé čchi-kungové cvičení zaměřující se na rozvoj základních dovedností, posílení těla, protažení, otevření energetických kanálů a získání základních návyků a dovedností.</p>\n<a href=\"/cviceni/#videa\" class=\"lnk small tk-s-4f853b24\">Videogalerie</a>\n</div>\n<dl class=\"stack small tk-s-45f762a6\">\n<div class=\"tk-s-8dbaa523\"><dt class=\"muted\">Pravidelné cvičení</dt><dd><span class=\"mono\">Úterý 18:00 - 20:00h</span><br>Osm kusů brokátu</dd></div>\n<div class=\"tk-s-8dbaa523\"><dt class=\"muted\">Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div>\n<div class=\"tk-s-afcfc7b7\"><dt class=\"muted\">Cena</dt><dd>350 Kč lekce 120 minut, 10 lekcí 3 250 Kč</dd></div>\n</dl>\n</article>\n\n<article class=\"card grid tk-s-c6cb4efc\">\n<div class=\"stack tk-s-ed7b3d87\">\n<h2 class=\"h3 tk-s-7afcb61e\">13 Words of Tchaj-ťi</h2>\n<p class=\"body small\">Krátké a jednoduché cvičení zlepšující vnímání energie čchi, je zaměřeno zejména na otevírání energetických meridiánů. Řadí se mezi cvičení na principu Daoyin, která kladou důraz na fyzický pohyb kombinovaný s principem dýchání tuina (nádech a výdech), tak aby energie mohla lépe cirkulovat uvnitř těla.</p>\n<a href=\"/cviceni/#videa\" class=\"lnk small tk-s-4f853b24\">Videogalerie</a>\n</div>\n<dl class=\"stack small tk-s-45f762a6\">\n<div class=\"tk-s-8dbaa523\"><dt class=\"muted\">Pravidelné cvičení</dt><dd><span class=\"mono\">Úterý 18:00 - 19:30h</span><br>Osm kusů brokátu</dd></div>\n<div class=\"tk-s-8dbaa523\"><dt class=\"muted\">Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div>\n<div class=\"tk-s-afcfc7b7\"><dt class=\"muted\">Cena</dt><dd>350 Kč lekce 90 minut, 10 lekcí 3 250 Kč</dd></div>\n</dl>\n</article>\n\n<article class=\"card grid tk-s-c6cb4efc\">\n<div class=\"stack tk-s-ed7b3d87\">\n<h2 class=\"h3 tk-s-7afcb61e\">Tchaj-ťi stylu Yang</h2>\n<p class=\"body small\">Styl Yang tchaj-ťi je pojmenován podle členů rodiny Yang, kteří tento styl dosti proslavili. Vyučujeme tento styl podle tradice a rodinného předání mistra Vincenta Chu. Cvičíme klasickou dlouhou sestavu stylu Yang, krátké sestavy a sestavu Návrat k tchaj-ťi. Sestavy se zbraněmi meč, šavle, tyč, rychlou formu a párová cvičení.</p>\n<a href=\"/cviceni/#videa\" class=\"lnk small tk-s-4f853b24\">Video mistra Vincenta Chu styl Yang</a>\n</div>\n<dl class=\"stack small tk-s-45f762a6\">\n<div class=\"tk-s-8dbaa523\"><dt class=\"muted\">Pravidelné cvičení</dt><dd><span class=\"mono\">Pondělí 18:00 - 19:30h</span><br>Sestava Yang 12 forem pro začátečníky, 13 Words of Tchaj-ťi</dd></div>\n<div class=\"tk-s-8dbaa523\"><dt class=\"muted\">Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div>\n<div class=\"tk-s-afcfc7b7\"><dt class=\"muted\">Cena</dt><dd>350 Kč lekce 90 minut, 10 lekcí 3 250 Kč</dd></div>\n</dl>\n</article>\n</div>\n\n<div role=\"tabpanel\" id=\"zlin\" data-panel=\"zlin\" aria-labelledby=\"tab-zlin\" class=\"grid tk-s-119a0c5c\">\n<div class=\"card stack tk-s-f6ce4d1e\">\n<h2 class=\"h3 tk-s-7afcb61e\">Cvičení ve Zlíně</h2>\n<p class=\"body\">Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.</p>\n<a href=\"/kontakt/\" class=\"btn btn-jade btn-sm tk-s-5efdab8f\">Kontakt <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n</div>\n<dl class=\"card stack small tk-s-bd42c76c\">\n<div class=\"tk-s-5a546edc\"><dt class=\"muted\">Místo</dt><dd>Centrum Jiný svět, Osvoboditelů 484, Zlín</dd></div>\n<div class=\"tk-s-75515d50\"><dt class=\"muted\">Termíny</dt><dd>pátek 19. 4. 2024, od 17:30 do 20:00h</dd></div>\n<div class=\"tk-s-75515d50\"><dt class=\"muted\">Cena</dt><dd>400 Kč</dd></div>\n</dl>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "9f19c01",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "cc4fd0b",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section aria-labelledby=\"cena\" class=\"wrap tk-s-b0d37139\">\n<div class=\"sec-head\"><h2 id=\"cena\" class=\"h2\">Ceny <span class=\"serif\">lekcí</span></h2></div>\n<div class=\"grid tk-s-f92b6970\">\n<div class=\"card stack reveal tk-s-f3d7ce77\"><span class=\"tk-s-c0f0752d\">350 Kč</span><span class=\"small muted\">lekce 90 minut</span></div>\n<div class=\"card stack reveal tk-s-f3d7ce77\"><span class=\"tk-s-c0f0752d\">350 Kč</span><span class=\"small muted\">lekce 120 minut</span></div>\n<div class=\"card card-dark on-dark stack reveal tk-s-f3d7ce77\"><span class=\"tk-s-c0f0752d\">3 250 Kč</span><span class=\"small tk-s-fbf7f4d3\">10 lekcí</span></div>\n<div class=\"card stack reveal tk-s-f3d7ce77\"><span class=\"tk-s-c0f0752d\">400 Kč</span><span class=\"small muted\">Cvičení ve Zlíně</span></div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "2e8f12b",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "51f8713",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section aria-labelledby=\"misto\" class=\"wrap tk-s-7e3eae42\">\n<div class=\"sec-head\"><h2 id=\"misto\" class=\"h2\">Kde cvičíme: <span class=\"serif\">Praha 4 a Zlín</span></h2></div>\n<div class=\"grid tk-s-ebb546d6\">\n<div class=\"card stack reveal tk-s-9a49f57a\">\n<div data-tk-map-box data-src=\"https://maps.google.com/maps?q=Jeremenkova%201003%2F66A%2C%20Praha%204&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near\" data-title=\"Mapa – Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4\" class=\"tk-map tk-s-d31be0a1\">\n<span class=\"tk-map-pin\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"9.5\" r=\"2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"></circle></svg></span>\n<button type=\"button\" data-tk-map class=\"btn btn-jade btn-sm\">Zobrazit mapu</button>\n<span class=\"small muted tk-map-note\">Mapu načteme od Google až po kliknutí. <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Jeremenkova%201003%2F66A%2C%20Praha%204\" target=\"_blank\" rel=\"noopener\" class=\"lnk tk-map-link\">Otevřít v Google Maps</a></span>\n</div>\n<div class=\"stack tk-s-13fa9231\"><strong class=\"tk-s-501a067d\">Tělocvična ZŠ Jeremenkova</strong><span class=\"small muted\">Jeremenkova 1003/66A</span></div>\n</div>\n<div class=\"card stack reveal tk-s-9a49f57a\">\n<div data-tk-map-box data-src=\"https://maps.google.com/maps?q=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near\" data-title=\"Mapa – Centrum Jiný svět, Osvoboditelů 484, Zlín\" class=\"tk-map tk-s-d31be0a1\">\n<span class=\"tk-map-pin\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"9.5\" r=\"2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"></circle></svg></span>\n<button type=\"button\" data-tk-map class=\"btn btn-jade btn-sm\">Zobrazit mapu</button>\n<span class=\"small muted tk-map-note\">Mapu načteme od Google až po kliknutí. <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn\" target=\"_blank\" rel=\"noopener\" class=\"lnk tk-map-link\">Otevřít v Google Maps</a></span>\n</div>\n<div class=\"stack tk-s-13fa9231\"><strong class=\"tk-s-501a067d\">Centrum Jiný svět</strong><span class=\"small muted\">Osvoboditelů 484, Zlín</span></div>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

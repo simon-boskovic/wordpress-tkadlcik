@@ -1,0 +1,112 @@
+{
+  "slug": "o-mne",
+  "title": "O mně",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "7b5b7b8",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "7c0c52d",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-665a2c2f\">\n<div class=\"grid tk-s-dc1f9f4d\">\n<div class=\"stack tk-s-07e2d976\">\n<span class=\"eyebrow rise\">O mně</span>\n<h1 class=\"h1 rise d1 tk-s-cae07755\">Daniel Tkadlčík, <span class=\"serif\">lektor tchaj-ťi od roku 1997</span></h1>\n<p class=\"lead rise d2\">Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Prvotním důvodem, proč jsem se začal zajímat o cvičení tchaj-ťi, byly mé vleklé zdravotní problémy způsobené vrcholovým tréninkem atletiky. Tchaj-ťi mě natolik ovlivnilo, že jsem pozměnil svůj pohled na mnoho věcí, které se týkají nejen těla, ale i myšlení.</p>\n</div>\n<div class=\"rise d3 tk-s-d461c96d\">\n<img src=\"/wp-content/uploads/daniel-tkadlcik-portret.webp\" alt=\"Daniel Tkadlčík, lektor tchaj-ťi\" width=\"1440\" height=\"1920\" fetchpriority=\"high\" decoding=\"async\" class=\"tk-s-ab19e889\">\n<div class=\"card stack tk-s-01f145d7\"><span class=\"tk-s-3bde290e\">od roku 1997</span></div>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "e43b62d",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "9e646d5",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-b0d37139\">\n<div class=\"sec-head\"><h2 class=\"h2\">Cesta k tchaj-ťi <span class=\"serif\">a mistr Vincent Chu</span></h2></div>\n<ol class=\"stack tk-s-1d34c094\">\n<li class=\"reveal tk-s-ff837e4c\"><span class=\"idx\">01</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Různé styly tchaj-ťi a meditace</h3><p class=\"body small\">V průběhu času jsem se věnoval různým stylům tchaj-ťi u různých učitelů a mistrů (wudangskému tchaj-ťi, Yang tchaj-ťi, čchi-kungovým masážím a různým stylům meditace).</p></div></li>\n<li class=\"reveal tk-s-906fc147\"><span class=\"idx\">02</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Rodinný styl Yang u mistra Vincenta Chu</h3><p class=\"body small\">Od roku 2007 se intenzivně věnuji zejména rodinnému stylu Yang tchaj-ťi u mistra Vincenta Chu, který vyučuje komplexní systém rodiny Yang. Mimo jiné mě naučil rodinné předání Osmi kusů brokátu a 13 slov tchaj-ťi.</p></div></li>\n<li class=\"reveal tk-s-f607c46f\"><span class=\"idx\">03</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Masáže tuina a učitel tělesné výchovy</h3><p class=\"body small\">Několik let jsem se také věnoval zdravotním energetickým masážím tuina. Civilním povoláním jsem učitel tělesné výchovy na II. stupni základní školy.</p></div></li>\n</ol>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "99141b7",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "e6f4289",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-7e3eae42\">\n<div class=\"panel-dark on-dark reveal tk-s-d6c466a2\">\n<div class=\"grid tk-s-69a3450e\">\n<div class=\"stack tk-s-cd289aef\">\n<h2 class=\"eyebrow\">Moje filozofie</h2>\n<p class=\"serif tk-s-64b9a0e3\">„Každá forma cvičení je prázdná, pokud není spojena s radostí, tichostí a klidem mysli, které jsou podstatou našeho bytí a které se snažím ve cvičení rozvíjet.“</p>\n</div>\n<p class=\"tk-s-28f0b2dc\">Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.</p>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

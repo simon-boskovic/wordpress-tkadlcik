@@ -1,0 +1,46 @@
+{
+  "slug": "kontakt",
+  "title": "Kontakt",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [
+    "map"
+  ],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "f37456f",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "fd17527",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-665a2c2f\">\n<div class=\"grid tk-s-2fb1fd0f\">\n<div class=\"stack tk-s-8f5d1a54\">\n<div class=\"stack tk-s-ca026a49\">\n<span class=\"eyebrow rise\">Kontakt</span>\n<h1 class=\"h1 rise d1 tk-s-1e47c985\">Kontakt – tchaj-ťi <span class=\"serif\">ZŠ Jeremenkova, Praha 4</span></h1>\n<p class=\"lead rise d2\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<ul class=\"card rise d3 tk-s-410db2ea\">\n<li class=\"tk-s-394bbc6d\">Mgr. Daniel Tkadlčík</li>\n<li class=\"tk-s-7be0e493\"><a href=\"tel:+4207732871113\" class=\"lnk\">+420 773 287 1113</a></li>\n<li class=\"tk-s-45b0af64\"><a href=\"mailto:tkadlcik@centrum.cz\" class=\"lnk\">tkadlcik@centrum.cz</a></li>\n</ul>\n</div>\n<div class=\"stack rise d4 tk-s-f6ce4d1e\">\n<h2 class=\"h3\">Kde cvičíme: Praha 4 a Zlín</h2>\n<div class=\"card stack tk-s-9a49f57a\">\n<div data-tk-map-box data-src=\"https://maps.google.com/maps?q=Jeremenkova%201003%2F66A%2C%20Praha%204&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near\" data-title=\"Mapa – Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4\" class=\"tk-map tk-s-d31be0a1\">\n<span class=\"tk-map-pin\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"9.5\" r=\"2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"></circle></svg></span>\n<button type=\"button\" data-tk-map class=\"btn btn-jade btn-sm\">Zobrazit mapu</button>\n<span class=\"small muted tk-map-note\">Mapu načteme od Google až po kliknutí. <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Jeremenkova%201003%2F66A%2C%20Praha%204\" target=\"_blank\" rel=\"noopener\" class=\"lnk tk-map-link\">Otevřít v Google Maps</a></span>\n</div>\n<div class=\"stack tk-s-13fa9231\"><strong class=\"tk-s-501a067d\">Tělocvična ZŠ Jeremenkova</strong><span class=\"small muted\">Jeremenkova 1003/66A</span></div>\n</div>\n<div class=\"card stack tk-s-9a49f57a\">\n<div data-tk-map-box data-src=\"https://maps.google.com/maps?q=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near\" data-title=\"Mapa – Centrum Jiný svět, Osvoboditelů 484, Zlín\" class=\"tk-map tk-s-d31be0a1\">\n<span class=\"tk-map-pin\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"9.5\" r=\"2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"></circle></svg></span>\n<button type=\"button\" data-tk-map class=\"btn btn-jade btn-sm\">Zobrazit mapu</button>\n<span class=\"small muted tk-map-note\">Mapu načteme od Google až po kliknutí. <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn\" target=\"_blank\" rel=\"noopener\" class=\"lnk tk-map-link\">Otevřít v Google Maps</a></span>\n</div>\n<div class=\"stack tk-s-13fa9231\"><strong class=\"tk-s-501a067d\">Centrum Jiný svět</strong><span class=\"small muted\">Osvoboditelů 484, Zlín</span></div>\n</div>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

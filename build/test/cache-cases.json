@@ -1,0 +1,1876 @@
+{
+ "decide": [
+  {
+   "name": "front page",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "page",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "HEAD is served",
+   "req": {
+    "method": "HEAD",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "method is case-insensitive",
+   "req": {
+    "method": "get",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "Kontakt Trénink variant — no ?typ variants here: unknown query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kontakt/?typ=trenink",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "Děkujeme Masáže variant — no ?typ variants here: unknown query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/akce/?typ=masaze",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "variant on the front page (WordPress then refuses to store it) — no ?typ variants here: unknown query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/?typ=trenink",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "empty query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/?",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "tracking parameters are dropped (drop-in only)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/?utm_source=fb&utm_medium=cpc",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": false
+   }
+  },
+  {
+   "name": "fbclid on the front page",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/?fbclid=IwAR0abc",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "index.html",
+    "rewrite": false
+   }
+  },
+  {
+   "name": "typ plus tracking — no ?typ variants here: unknown query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kontakt/?utm_campaign=x&typ=trenink&gclid=1",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "tracking name is case-insensitive",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/?UTM_Source=x",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": false
+   }
+  },
+  {
+   "name": "POST",
+   "req": {
+    "method": "POST",
+    "host": "radostvpohybu.cz",
+    "uri": "/kontakt/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "method"
+   }
+  },
+  {
+   "name": "PUT",
+   "req": {
+    "method": "PUT",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "method"
+   }
+  },
+  {
+   "name": "OPTIONS",
+   "req": {
+    "method": "OPTIONS",
+    "host": "radostvpohybu.cz",
+    "uri": "/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "method"
+   }
+  },
+  {
+   "name": "other host",
+   "req": {
+    "method": "GET",
+    "host": "www.radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "host"
+   }
+  },
+  {
+   "name": "host compare is case-insensitive",
+   "req": {
+    "method": "GET",
+    "host": "RadostVPohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "any host when configured empty",
+   "req": {
+    "method": "GET",
+    "host": "example.test",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": ""
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "host with port",
+   "req": {
+    "method": "GET",
+    "host": "localhost:8020",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "localhost:8020"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "warm header",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "",
+    "warm": true
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "warm"
+   }
+  },
+  {
+   "name": "logged in",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "wordpress_logged_in_0123abcd=admin%7C1",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "cookie"
+   }
+  },
+  {
+   "name": "logged in after other cookies",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "_ga=GA1.1.1; wordpress_logged_in_0123abcd=x",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "cookie"
+   }
+  },
+  {
+   "name": "secure auth cookie",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "wordpress_sec_0123=x",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "cookie"
+   }
+  },
+  {
+   "name": "post password",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "wp-postpass_0123=x",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "cookie"
+   }
+  },
+  {
+   "name": "comment author",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "comment_author_0123=Jan",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "cookie"
+   }
+  },
+  {
+   "name": "no-cache switch",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "tk_nocache=1",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "cookie"
+   }
+  },
+  {
+   "name": "wordpress_no_cache",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "wordpress_no_cache=1",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "cookie"
+   }
+  },
+  {
+   "name": "cookie names are case-insensitive",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "WORDPRESS_LOGGED_IN_x=1",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "cookie"
+   }
+  },
+  {
+   "name": "analytics cookies do not bypass",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "_ga=GA1.1.1; _gid=x",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "Complianz consent cookies do not bypass (one cached page serves every consent state)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "cmplz_functional=allow; cmplz_statistics=deny; cmplz_marketing=deny; cmplz_preferences=deny; cmplz_banner-status=dismissed; cmplz_policy_id=11; cmplz_consented_services=",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "test cookie does not bypass",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "wordpress_test_cookie=WP%20Cookie%20check",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "settings cookie does not bypass",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "wp-settings-1=libraryContent; wp-settings-time-1=1",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "cookie value that only looks like one",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "note=xwordpress_logged_in_",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "unknown query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/?foo=1",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "Rezervace — empty never-cached list: ordinary page rules",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/masaze-rezervace/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "masaze-rezervace/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "Rezervace HEAD — empty never-cached list: ordinary page rules",
+   "req": {
+    "method": "HEAD",
+    "host": "radostvpohybu.cz",
+    "uri": "/masaze-rezervace/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "masaze-rezervace/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "Rezervace with a Booknetic query parameter — empty never-cached list: ordinary page rules",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/masaze-rezervace/?service=3",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "Rezervace with tracking parameters — empty never-cached list: ordinary page rules",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/masaze-rezervace/?utm_source=fb",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "masaze-rezervace/index.html",
+    "rewrite": false
+   }
+  },
+  {
+   "name": "below Rezervace (alias) — empty never-cached list: ordinary page rules",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/masaze-rezervace/2/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "masaze-rezervace/2/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "uppercase Rezervace — path rule (WordPress 301s it to lowercase)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/MASAZE-REZERVACE/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "uppercase page with a query is not cached (path first; WordPress 301s it)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/KONTAKT/?typ=trenink",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "a slug that only starts like Rezervace is cached — empty never-cached list: ordinary page rules",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/masaze-rezervace-darek/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "masaze-rezervace-darek/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "Rezervace as a lower segment is cached — empty never-cached list: ordinary page rules",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/sluzby/masaze-rezervace/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "sluzby/masaze-rezervace/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "search",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/?s=taichi",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "unknown typ value — no ?typ variants here: unknown query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kontakt/?typ=jiny",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "typ uppercase — no ?typ variants here: unknown query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kontakt/?typ=Trenink",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "typ twice — no ?typ variants here: unknown query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kontakt/?typ=trenink&typ=masaze",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "typ with extra parameter — no ?typ variants here: unknown query",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kontakt/?typ=trenink&x=1",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "legacy ElementsKit query (theme 301)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/?elementskit_template=header",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "preview",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/?page_id=5&preview=true",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "wp-admin",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/wp-admin/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "wp-json",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/wp-json/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "wp-json route",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/wp-json/wp/v2/pages/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "admin-post",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/wp-admin/admin-post.php",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "admin-ajax",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/wp-admin/admin-ajax.php",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "wp-login",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/wp-login.php",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "feed",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/feed/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "comments feed",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/comments/feed/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "page feed",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/feed/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "embed",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/embed/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "search base",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/search/taichi/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "sitemap",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/sitemap.xml",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "robots",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/robots.txt",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "llms",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/llms.txt",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "no trailing slash (WordPress 301)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/cenik",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "uppercase",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/Kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "percent-encoded",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekc%C3%AD/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "file",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/wp-content/uploads/x.webp",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "double slash",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "//kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "dot segment",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/../kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "nested page",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/clanky/detail/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "clanky/detail/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "adamus no-cache cookie does not bypass here",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/",
+    "cookie": "ma_nocache=1",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "tk_nocache after other cookies",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/",
+    "cookie": "_ga=GA1.1.1; tk_nocache=1",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "cookie"
+   }
+  },
+  {
+   "name": "every built page: o-mne",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/o-mne/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "o-mne/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "every built page: cviceni",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/cviceni/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "cviceni/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "every built page: clanky",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/clanky/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "clanky/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "trackback",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/trackback/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "wp-content asset",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/wp-content/themes/tkadlcik/style.css",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "segment starting with wp- below a page",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/clanky/wp-x/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "segment merely containing feed is cached",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/feedback/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "feedback/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "underscore in a slug",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/o_mne/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "path longer than 255 bytes",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "path of exactly 255 bytes",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "trailing newline in the path (PCRE $ without D would accept it)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/\n",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "tracking name with an encoded trailing newline is not tracking (PCRE $ without D would accept it)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/?utm_source%0A=x",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "percent-encoded tracking name",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/?%75tm_source=x",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": false
+   }
+  },
+  {
+   "name": "tracking parameter without a value",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/?gclid",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "index.html",
+    "rewrite": false
+   }
+  },
+  {
+   "name": "only ampersands",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/?&&",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kurzy-a-lekce/index.html",
+    "rewrite": false
+   }
+  },
+  {
+   "name": "invalid percent-encoding in a name",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/?%E9=1",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "Kelvin sign is not ASCII K (PHP strtolower is ASCII-only)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce/?MSCL%E2%84%AAID=1",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "query"
+   }
+  },
+  {
+   "name": "missing method defaults to GET",
+   "req": {
+    "host": "radostvpohybu.cz",
+    "uri": "/kontakt/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": true,
+    "file": "kontakt/index.html",
+    "rewrite": true
+   }
+  },
+  {
+   "name": "double slash inside the path",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "/kurzy-a-lekce//",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "double slash only (front page)",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "//",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "double slash with tracking parameters",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "//kurzy-a-lekce/?utm_source=x",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  },
+  {
+   "name": "triple slash",
+   "req": {
+    "method": "GET",
+    "host": "radostvpohybu.cz",
+    "uri": "///kurzy-a-lekce/",
+    "cookie": "",
+    "warm": false
+   },
+   "cfg": {
+    "host": "radostvpohybu.cz"
+   },
+   "expect": {
+    "cache": false,
+    "reason": "path"
+   }
+  }
+ ],
+ "pick": [
+  {
+   "name": "browser prefers br, only gz stored",
+   "pick": {
+    "accept": "gzip, deflate, br, zstd",
+    "br": false,
+    "gz": true
+   },
+   "expect": "gzip"
+  },
+  {
+   "name": "br stored and accepted",
+   "pick": {
+    "accept": "gzip, deflate, br",
+    "br": true,
+    "gz": true
+   },
+   "expect": "br"
+  },
+  {
+   "name": "gzip only",
+   "pick": {
+    "accept": "gzip",
+    "br": true,
+    "gz": true
+   },
+   "expect": "gzip"
+  },
+  {
+   "name": "identity",
+   "pick": {
+    "accept": "identity",
+    "br": true,
+    "gz": true
+   },
+   "expect": ""
+  },
+  {
+   "name": "no header",
+   "pick": {
+    "accept": "",
+    "br": true,
+    "gz": true
+   },
+   "expect": ""
+  },
+  {
+   "name": "nothing precompressed",
+   "pick": {
+    "accept": "gzip, br",
+    "br": false,
+    "gz": false
+   },
+   "expect": ""
+  },
+  {
+   "name": "x-gzip counts (RFC 9110 alias of gzip)",
+   "pick": {
+    "accept": "x-gzip",
+    "br": false,
+    "gz": true
+   },
+   "expect": "gzip"
+  },
+  {
+   "name": "br as a substring does not count",
+   "pick": {
+    "accept": "brotli-ish, gzip",
+    "br": true,
+    "gz": true
+   },
+   "expect": "gzip"
+  },
+  {
+   "name": "case-insensitive",
+   "pick": {
+    "accept": "GZIP",
+    "br": false,
+    "gz": true
+   },
+   "expect": "gzip"
+  },
+  {
+   "name": "gzip;q=0 is refused",
+   "pick": {
+    "accept": "gzip;q=0, identity",
+    "br": false,
+    "gz": true
+   },
+   "expect": ""
+  },
+  {
+   "name": "gzip; q=0.0 is refused",
+   "pick": {
+    "accept": "gzip; q=0.0",
+    "br": false,
+    "gz": true
+   },
+   "expect": ""
+  },
+  {
+   "name": "gzip;q=0.5 is accepted",
+   "pick": {
+    "accept": "gzip;q=0.5",
+    "br": false,
+    "gz": true
+   },
+   "expect": "gzip"
+  },
+  {
+   "name": "gzip;q=0.001 is accepted",
+   "pick": {
+    "accept": "gzip;q=0.001",
+    "br": false,
+    "gz": true
+   },
+   "expect": "gzip"
+  },
+  {
+   "name": "br;q=0 falls back to gzip",
+   "pick": {
+    "accept": "br;q=0, gzip",
+    "br": true,
+    "gz": true
+   },
+   "expect": "gzip"
+  },
+  {
+   "name": "GZIP;Q=0 is refused",
+   "pick": {
+    "accept": "GZIP;Q=0",
+    "br": false,
+    "gz": true
+   },
+   "expect": ""
+  },
+  {
+   "name": "x-gzip;q=0 is refused",
+   "pick": {
+    "accept": "x-gzip;q=0",
+    "br": false,
+    "gz": true
+   },
+   "expect": ""
+  },
+  {
+   "name": "br;q=0.000 is refused, no gzip stored",
+   "pick": {
+    "accept": "br;q=0.000",
+    "br": true,
+    "gz": false
+   },
+   "expect": ""
+  },
+  {
+   "name": "br;q=0.0001 is not a valid q (more than 3 decimals) and counts",
+   "pick": {
+    "accept": "br;q=0.0001",
+    "br": true,
+    "gz": false
+   },
+   "expect": "br"
+  },
+  {
+   "name": "br;q=1 accepted",
+   "pick": {
+    "accept": "gzip;q=0.5, br;q=1",
+    "br": true,
+    "gz": true
+   },
+   "expect": "br"
+  }
+ ],
+ "request_line": [
+  {
+   "name": "clean path",
+   "line": "GET /kurzy-a-lekce/ HTTP/1.1",
+   "double": false
+  },
+  {
+   "name": "front page",
+   "line": "GET / HTTP/1.1",
+   "double": false
+  },
+  {
+   "name": "leading double slash",
+   "line": "GET //kurzy-a-lekce/ HTTP/1.1",
+   "double": true
+  },
+  {
+   "name": "double slash front page",
+   "line": "HEAD // HTTP/1.1",
+   "double": true
+  },
+  {
+   "name": "double slash inside",
+   "line": "GET /kurzy-a-lekce//detail/ HTTP/1.1",
+   "double": true
+  },
+  {
+   "name": "trailing double slash",
+   "line": "GET /kurzy-a-lekce// HTTP/2.0",
+   "double": true
+  },
+  {
+   "name": "double slash only in the query",
+   "line": "GET /kurzy-a-lekce/?u=http://x//y HTTP/1.1",
+   "double": false
+  },
+  {
+   "name": "absolute-form target, clean path",
+   "line": "GET http://radostvpohybu.cz/kurzy-a-lekce/ HTTP/1.1",
+   "double": false
+  },
+  {
+   "name": "absolute-form target, double slash",
+   "line": "GET https://radostvpohybu.cz//kurzy-a-lekce/ HTTP/1.1",
+   "double": true
+  },
+  {
+   "name": "absolute-form uppercase scheme, double slash",
+   "line": "GET HTTP://radostvpohybu.cz/a//b/ HTTP/1.1",
+   "double": true
+  }
+ ]
+}

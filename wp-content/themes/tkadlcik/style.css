@@ -1,0 +1,9 @@
+/*
+Theme Name: Radost v pohybu
+Theme URI: https://dan24.webnode.cz/
+Template: hello-elementor
+Version: 0.1.0
+Requires PHP: 8.1
+Text Domain: tkadlcik
+Description: Child theme for Radost v pohybu (Mgr. Daniel Tkadlčík, čchi-kung a tchaj-ťi). Header, footer, global CSS and behaviour ported from the Claude Design prototype; page content is generated into Elementor (build/generate.mjs -> wp tk page-upsert). All styles live in assets/css/.
+*/

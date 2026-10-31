@@ -1,0 +1,78 @@
+{
+  "slug": "clanky",
+  "title": "Články",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "ca27ddb",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "de7a551",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-882dd02d\">\n<div class=\"stack tk-s-bcdc1b62\">\n<span class=\"eyebrow rise\">Články</span>\n<h1 class=\"h1 rise d1\">Články o tchaj-ťi <span class=\"serif\">a čchi-kungu</span></h1>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "a37de4c",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "996ea95",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-7e3eae42\">\n<article class=\"card card-dark on-dark reveal tk-s-aab00b26\">\n<h2 class=\"h2 tk-s-7b6ef1f8\">Co je čchi-kung <span class=\"serif\">a tchaj-ťi</span></h2>\n<p class=\"tk-s-28f0b2dc\">Tato cvičení byla vždy pouze přirozenými metodami meditace a boje. Původní názvy byly spočinutí v klidu a Pěst velkého předělu. Čchi-kung je komerční název pro spočinutí v klidu a stejně tak tchaj-ťi, které dnes tvoří jednu ze součástí zdravého životního stylu.</p>\n</article>\n<div class=\"grid tk-s-aac63188\">\n<article class=\"card stack reveal tk-s-dd2cf572\">\n<span aria-hidden=\"true\" class=\"tk-s-73665d11\">10</span>\n<h2 class=\"h3 tk-s-cfce6a6d\">10 principů mistra Yang Chen Fu</h2>\n<a href=\"/wp-content/uploads/10-principu-mistra-yang-chen-fu.docx\" download class=\"btn btn-ghost btn-sm tk-s-c9adc42e\">Stáhnout <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n</article>\n<article class=\"card stack reveal tk-s-dd2cf572\">\n<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" aria-hidden=\"true\"><circle cx=\"28\" cy=\"28\" r=\"26\" fill=\"none\" stroke=\"var(--accent-ink)\" stroke-width=\"1.5\"></circle></svg>\n<h2 class=\"h3 tk-s-cfce6a6d\">Pojednání o Wu-ťi (WuChi)</h2>\n<a href=\"/wp-content/uploads/pojednani-o-wu-ti.docx\" download class=\"btn btn-ghost btn-sm tk-s-c9adc42e\">Stáhnout <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M8 2.5v8M4.5 7.5 8 11l3.5-3.5M3 13.5h10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n</article>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

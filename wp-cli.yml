@@ -1,0 +1,5 @@
+# WP-CLI config for the wpcli container (WP_CLI_CONFIG_PATH=/project/wp-cli.yml in docker-compose.yaml).
+# Loads the `wp tk` commands before WordPress, so `wp tk site-setup` can run `wp core install` on an
+# empty database. mu-plugins/tk-build.php registers the same commands where this file is not used.
+require:
+  - wp-content/mu-plugins/tk-build/class-tk-build-command.php

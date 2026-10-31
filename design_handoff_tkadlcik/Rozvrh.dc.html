@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Nabídka kurzů a lekcí – tchaj-ťi a čchi-kung Praha 4 a Zlín</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&amp;family=Figtree:wght@400;500;600&amp;family=Onest:wght@400;500;600&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div class="site" data-font="{{font}}" ref="{{siteRef}}">
+
+<div class="top wrap" data-open="{{menuOpen}}" onKeyDown="{{menuKey}}">
+<header class="bar">
+<a class="brand" href="Main.dc.html" aria-label="Radost v pohybu">
+<svg width="30" height="30" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="none" stroke="currentColor" stroke-width="1.5"></circle><path d="M14 1 A13 13 0 0 1 14 27 A6.5 6.5 0 0 1 14 14 A6.5 6.5 0 0 0 14 1Z" fill="currentColor"></path><circle cx="14" cy="7.5" r="2" fill="currentColor"></circle><circle class="yin" cx="14" cy="20.5" r="2" fill="#0E0F0E"></circle></svg>
+<span>Radost v pohybu<small>Čchi-kung a tchaj-ťi</small></span>
+</a>
+<nav class="nav" aria-label="Hlavní menu">
+<a href="Main.dc.html">Domů</a>
+<a href="Cviceni.dc.html">Cvičení</a>
+<a href="Rozvrh.dc.html" aria-current="page">Nabídka kurzů a lekcí</a>
+<a href="Seminare.dc.html">Akce</a>
+<a href="OMne.dc.html">O mně</a>
+<a href="Clanky.dc.html">Články</a>
+<a class="btn btn-dark btn-sm" href="Kontakt.dc.html">Kontakt</a>
+</nav>
+<div class="m-actions"><a class="btn btn-jade btn-sm" href="Kontakt.dc.html">Kontakt</a><a class="icon-btn" href="tel:+4207732871113" aria-label="+420 773 287 1113"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><button class="menu-btn" type="button" aria-expanded="{{menuOpen}}" aria-controls="mnav" aria-label="Menu" onClick="{{toggleMenu}}"><span></span><span></span></button></div>
+</header>
+<div id="mnav" class="mnav">
+<nav class="mnav-links" aria-label="Mobilní menu">
+<a href="Main.dc.html">Domů</a>
+<a href="Cviceni.dc.html">Cvičení</a>
+<a href="Rozvrh.dc.html" aria-current="page">Nabídka kurzů a lekcí</a>
+<a href="Seminare.dc.html">Akce</a>
+<a href="OMne.dc.html">O mně</a>
+<a href="Clanky.dc.html">Články</a>
+<a href="Kontakt.dc.html">Kontakt</a>
+</nav>
+<div class="mnav-info">
+<a href="tel:+4207732871113">+420 773 287 1113</a>
+<a href="mailto:tkadlcik@centrum.cz">tkadlcik@centrum.cz</a>
+<span>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A</span>
+<span>Centrum Jiný svět, Osvoboditelů 484, Zlín</span>
+</div>
+</div>
+</div>
+
+<main>
+<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: 48px">
+<div class="stack" style="gap: 28px; max-width: 980px">
+<span class="eyebrow rise">Nabídka kurzů a lekcí</span>
+<h1 class="h1 rise d1">Kurzy tchaj-ťi a čchi-kungu: <span class="serif">rozvrh a ceny</span></h1>
+<p class="lead rise d2">Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku. Lekce jsou buď zaměřeny na čchi-kung, nebo tchaj-ťi.</p>
+</div>
+</section>
+
+<section class="wrap" aria-label="Nabídka kurzů a lekcí" style="padding-bottom: clamp(72px, 10vw, 128px)">
+<div class="tabs rise d2" data-tab="{{tab}}" role="tablist" aria-label="Místo" style="margin-bottom: 28px">
+<button type="button" role="tab" aria-selected="{{isPraha}}" onClick="{{showPraha}}">Praha 4</button>
+<button type="button" role="tab" aria-selected="{{isZlin}}" onClick="{{showZlin}}">Zlín</button>
+<div class="tabs-active" aria-hidden="true"><span>Praha 4</span><span>Zlín</span></div>
+</div>
+
+<div class="tab-panels" data-tab="{{tab}}">
+<div class="stack" role="tabpanel" data-panel="praha" aria-label="Praha 4" style="gap: 12px">
+
+<article class="card grid" style="--min: 380px; gap: 24px 48px; align-items: start">
+<div class="stack" style="gap: 12px">
+<h2 class="h3" style="font-size: 26px">Osm kusů brokátu</h2>
+<p class="body small">Známé čchi-kungové cvičení zaměřující se na rozvoj základních dovedností, posílení těla, protažení, otevření energetických kanálů a získání základních návyků a dovedností.</p>
+<a class="lnk small" href="Cviceni.dc.html#videa" style="align-self: flex-start; padding: 6px 0">Videogalerie</a>
+</div>
+<dl class="stack small" style="gap: 0">
+<div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Pravidelné cvičení</dt><dd><span class="mono">Úterý 18:00 - 20:00h</span><br>Osm kusů brokátu</dd></div>
+<div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div>
+<div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)"><dt class="muted">Cena</dt><dd>350 Kč lekce 120 minut, 10 lekcí 3 250 Kč</dd></div>
+</dl>
+</article>
+
+<article class="card grid" style="--min: 380px; gap: 24px 48px; align-items: start">
+<div class="stack" style="gap: 12px">
+<h2 class="h3" style="font-size: 26px">13 Words of Tchaj-ťi</h2>
+<p class="body small">Krátké a jednoduché cvičení zlepšující vnímání energie čchi, je zaměřeno zejména na otevírání energetických meridiánů. Řadí se mezi cvičení na principu Daoyin, která kladou důraz na fyzický pohyb kombinovaný s principem dýchání tuina (nádech a výdech), tak aby energie mohla lépe cirkulovat uvnitř těla.</p>
+<a class="lnk small" href="Cviceni.dc.html#videa" style="align-self: flex-start; padding: 6px 0">Videogalerie</a>
+</div>
+<dl class="stack small" style="gap: 0">
+<div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Pravidelné cvičení</dt><dd><span class="mono">Úterý 18:00 - 19:30h</span><br>Osm kusů brokátu</dd></div>
+<div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div>
+<div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)"><dt class="muted">Cena</dt><dd>350 Kč lekce 90 minut, 10 lekcí 3 250 Kč</dd></div>
+</dl>
+</article>
+
+<article class="card grid" style="--min: 380px; gap: 24px 48px; align-items: start">
+<div class="stack" style="gap: 12px">
+<h2 class="h3" style="font-size: 26px">Tchaj-ťi stylu Yang</h2>
+<p class="body small">Styl Yang tchaj-ťi je pojmenován podle členů rodiny Yang, kteří tento styl dosti proslavili. Vyučujeme tento styl podle tradice a rodinného předání mistra Vincenta Chu. Cvičíme klasickou dlouhou sestavu stylu Yang, krátké sestavy a sestavu Návrat k tchaj-ťi. Sestavy se zbraněmi meč, šavle, tyč, rychlou formu a párová cvičení.</p>
+<a class="lnk small" href="Cviceni.dc.html#videa" style="align-self: flex-start; padding: 6px 0">Video mistra Vincenta Chu styl Yang</a>
+</div>
+<dl class="stack small" style="gap: 0">
+<div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Pravidelné cvičení</dt><dd><span class="mono">Pondělí 18:00 - 19:30h</span><br>Sestava Yang 12 forem pro začátečníky, 13 Words of Tchaj-ťi</dd></div>
+<div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div>
+<div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)"><dt class="muted">Cena</dt><dd>350 Kč lekce 90 minut, 10 lekcí 3 250 Kč</dd></div>
+</dl>
+</article>
+</div>
+
+<div class="grid" role="tabpanel" data-panel="zlin" aria-label="Zlín" style="--min: 400px; gap: 12px; align-items: stretch">
+<div class="card stack" style="gap: 16px">
+<h2 class="h3" style="font-size: 26px">Cvičení ve Zlíně</h2>
+<p class="body">Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.</p>
+<a class="btn btn-jade btn-sm" href="Kontakt.dc.html" style="align-self: flex-start; margin-top: auto">Kontakt <svg class="arr" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+</div>
+<dl class="card stack small" style="gap: 0; padding: 12px 28px">
+<div style="display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 14px 0"><dt class="muted">Místo</dt><dd>Centrum Jiný svět, Osvoboditelů 484, Zlín</dd></div>
+<div style="display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line)"><dt class="muted">Termíny</dt><dd>pátek 19. 4. 2024, od 17:30 do 20:00h</dd></div>
+<div style="display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line)"><dt class="muted">Cena</dt><dd>400 Kč</dd></div>
+</dl>
+</div>
+</div>
+</section>
+
+<section class="wrap" aria-labelledby="cena" style="padding-bottom: clamp(72px, 10vw, 128px)">
+<div class="sec-head"><h2 id="cena" class="h2">Ceny <span class="serif">lekcí</span></h2></div>
+<div class="grid" style="--min: 250px; gap: 12px">
+<div class="card stack reveal" style="gap: 10px"><span style="font-size: 48px; font-weight: 500; letter-spacing: -.045em; line-height: 1">350 Kč</span><span class="small muted">lekce 90 minut</span></div>
+<div class="card stack reveal" style="gap: 10px"><span style="font-size: 48px; font-weight: 500; letter-spacing: -.045em; line-height: 1">350 Kč</span><span class="small muted">lekce 120 minut</span></div>
+<div class="card card-dark on-dark stack reveal" style="gap: 10px"><span style="font-size: 48px; font-weight: 500; letter-spacing: -.045em; line-height: 1">3 250 Kč</span><span class="small" style="color: var(--on-dark-muted)">10 lekcí</span></div>
+<div class="card stack reveal" style="gap: 10px"><span style="font-size: 48px; font-weight: 500; letter-spacing: -.045em; line-height: 1">400 Kč</span><span class="small muted">Cvičení ve Zlíně</span></div>
+</div>
+</section>
+
+<section class="wrap" aria-labelledby="misto" style="padding-bottom: clamp(72px, 10vw, 136px)">
+<div class="sec-head"><h2 id="misto" class="h2">Kde cvičíme: <span class="serif">Praha 4 a Zlín</span></h2></div>
+<div class="grid" style="--min: 440px; gap: 16px">
+<div class="card stack reveal" style="gap: 20px; padding: 12px">
+<div class="ph" style="aspect-ratio: 16 / 9; min-height: 0; border-radius: 16px"><span>[Mapa]</span></div>
+<div class="stack" style="gap: 2px; padding: 4px 12px 12px"><strong style="font-weight: 500; font-size: 19px">Tělocvična ZŠ Jeremenkova</strong><span class="small muted">Jeremenkova 1003/66A</span></div>
+</div>
+<div class="card stack reveal" style="gap: 20px; padding: 12px">
+<div class="ph" style="aspect-ratio: 16 / 9; min-height: 0; border-radius: 16px"><span>[Mapa]</span></div>
+<div class="stack" style="gap: 2px; padding: 4px 12px 12px"><strong style="font-weight: 500; font-size: 19px">Centrum Jiný svět</strong><span class="small muted">Osvoboditelů 484, Zlín</span></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="foot">
+<div class="wrap">
+<div class="foot-grid">
+<div class="stack" style="gap: 10px"><strong style="font-weight: 600; letter-spacing: -.01em">Radost v pohybu</strong><span class="small muted">Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.</span></div>
+<div class="stack small" style="gap: 8px"><span class="eyebrow">Místo</span><span>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A</span><span>Centrum Jiný svět, Osvoboditelů 484, Zlín</span></div>
+<div class="stack small" style="gap: 8px"><span class="eyebrow">Kontakt</span><span>Mgr. Daniel Tkadlčík</span><a href="tel:+4207732871113">+420 773 287 1113</a><a href="mailto:tkadlcik@centrum.cz">tkadlcik@centrum.cz</a></div>
+<nav class="stack small" aria-label="Patička" style="gap: 8px"><a href="Main.dc.html">Domů</a><a href="Cviceni.dc.html">Cvičení</a><a href="Rozvrh.dc.html">Nabídka kurzů a lekcí</a><a href="Seminare.dc.html">Akce</a><a href="OMne.dc.html">O mně</a><a href="Clanky.dc.html">Články</a></nav>
+</div>
+<div class="wordmark" aria-hidden="true">Radost v pohybu</div>
+<div class="foot-bottom"><span>© Mgr. Daniel Tkadlčík</span></div>
+</div>
+</footer>
+<div class="font-picker">
+<label for="font-picker">Písmo</label>
+<select id="font-picker" value="{{font}}" onChange="{{pickFont}}">
+<option value="Geist">Geist</option>
+<option value="Manrope">Manrope</option>
+<option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+<option value="DM Sans">DM Sans</option>
+<option value="Figtree">Figtree</option>
+<option value="Onest">Onest</option>
+<option value="Bricolage Grotesque">Bricolage Grotesque</option>
+<option value="Fraunces + Inter">Fraunces + Inter</option>
+</select>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"font":{"editor":"enum","options":["Geist","Manrope","Plus Jakarta Sans","DM Sans","Figtree","Onest","Bricolage Grotesque","Fraunces + Inter"],"default":"Geist","section":"Písmo"},"$preview":{"width":1440,"height":3300}}'>
+class Component extends DCLogic {
+  componentDidMount() {
+    this.initReveal();
+    this._onStorage = (e) => { if (e.key === 'dan24-font' && e.newValue) this.setState({ font: e.newValue }); };
+    window.addEventListener('storage', this._onStorage);
+  }
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    if (this._onStorage) window.removeEventListener('storage', this._onStorage);
+  }
+  initReveal() {
+    const root = this.siteEl;
+    if (!root || !('IntersectionObserver' in window)) return;
+    const els = Array.prototype.slice.call(root.querySelectorAll('.reveal'));
+    root.setAttribute('data-reveal-ready', '');
+    this.io = new IntersectionObserver((entries) => {
+      let n = 0;
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.style.setProperty('--reveal-delay', Math.min(n, 4) * 60 + 'ms');
+        entry.target.setAttribute('data-visible', '');
+        this.io.unobserve(entry.target);
+        n++;
+      });
+    }, { threshold: 0.12 });
+    els.forEach((el) => this.io.observe(el));
+  }
+  renderVals() {
+    if (!this._siteRef) this._siteRef = (el) => { this.siteEl = el; };
+    let stored = null;
+    try { stored = window.localStorage.getItem('dan24-font'); } catch (err) {}
+    const font = (this.state && this.state.font) || stored || this.props.font || 'Geist';
+    if (!this._pickFont) this._pickFont = (e) => { const v = e.target.value; try { window.localStorage.setItem('dan24-font', v); } catch (err) {} this.setState({ font: v }); };
+    const menuOpen = !!(this.state && this.state.menuOpen);
+    const tab = (this.state && this.state.tab) || 'praha';
+    return {
+      siteRef: this._siteRef,
+      font: font,
+      pickFont: this._pickFont,
+      menuOpen: menuOpen,
+      toggleMenu: () => this.setState({ menuOpen: !menuOpen }),
+      menuKey: (e) => { if (e.key === 'Escape') this.setState({ menuOpen: false }); },
+      tab: tab,
+      isPraha: tab === 'praha',
+      isZlin: tab === 'zlin',
+      showPraha: () => this.setState({ tab: 'praha' }),
+      showZlin: () => this.setState({ tab: 'zlin' })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-31T12:00:00Z"
+  },
+  "title": "dan24 – Radost v pohybu (redesign)",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 4300,
+      "title": "Domů",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Cviceni.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 4700,
+      "title": "Cvičení",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Rozvrh.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 3300,
+      "title": "Nabídka kurzů a lekcí",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Seminare.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 1440,
+      "h": 3900,
+      "title": "Akce",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "OMne.dc.html": {
+      "x": 6080,
+      "y": 0,
+      "w": 1440,
+      "h": 3200,
+      "title": "O mně",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Clanky.dc.html": {
+      "x": 7600,
+      "y": 0,
+      "w": 1440,
+      "h": 2200,
+      "title": "Články",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "Kontakt.dc.html": {
+      "x": 9120,
+      "y": 0,
+      "w": 1440,
+      "h": 2400,
+      "title": "Kontakt",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "MainMobile.dc.html": {
+      "x": 0,
+      "y": 5120,
+      "w": 390,
+      "h": 7600,
+      "title": "Domů – mobil",
+      "is_interactive": true
+    },
+    "CviceniMobile.dc.html": {
+      "x": 1520,
+      "y": 5120,
+      "w": 390,
+      "h": 8600,
+      "title": "Cvičení – mobil",
+      "is_interactive": true
+    },
+    "RozvrhMobile.dc.html": {
+      "x": 3040,
+      "y": 5120,
+      "w": 390,
+      "h": 4300,
+      "title": "Nabídka kurzů a lekcí – mobil",
+      "is_interactive": true
+    },
+    "SeminareMobile.dc.html": {
+      "x": 4560,
+      "y": 5120,
+      "w": 390,
+      "h": 5600,
+      "title": "Akce – mobil",
+      "is_interactive": true
+    },
+    "OMneMobile.dc.html": {
+      "x": 6080,
+      "y": 5120,
+      "w": 390,
+      "h": 3900,
+      "title": "O mně – mobil",
+      "is_interactive": true
+    },
+    "ClankyMobile.dc.html": {
+      "x": 7600,
+      "y": 5120,
+      "w": 390,
+      "h": 2600,
+      "title": "Články – mobil",
+      "is_interactive": true
+    },
+    "KontaktMobile.dc.html": {
+      "x": 9120,
+      "y": 5120,
+      "w": 390,
+      "h": 3400,
+      "title": "Kontakt – mobil",
+      "is_interactive": true
+    },
+    "MenuMobile.dc.html": {
+      "x": -520,
+      "y": 5120,
+      "w": 390,
+      "h": 844,
+      "title": "Mobilní menu – otevřené",
+      "is_interactive": true
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Cviceni.dc.html",
+    "Rozvrh.dc.html",
+    "Seminare.dc.html",
+    "OMne.dc.html",
+    "Clanky.dc.html",
+    "Kontakt.dc.html",
+    "MainMobile.dc.html",
+    "CviceniMobile.dc.html",
+    "RozvrhMobile.dc.html",
+    "SeminareMobile.dc.html",
+    "OMneMobile.dc.html",
+    "ClankyMobile.dc.html",
+    "KontaktMobile.dc.html",
+    "MenuMobile.dc.html"
+  ],
+  "notes": {
+    "rowtitle": {
+      "x": 0,
+      "y": -320,
+      "text": "dan24.webnode.cz → Radost v pohybu · celý web",
+      "kind": "title1",
+      "maxW": 10560
+    },
+    "tone": {
+      "x": -640,
+      "y": 0,
+      "w": 520,
+      "size": "m",
+      "fill": "teal",
+      "text": "TÓN HLASU\n• První osoba, klidně a osobně – Dan mluví sám za sebe („propojuji“, „vyučuji“).\n• Pokorný, ne prodejní. Žádné superlativy, žádný tlak.\n• Tradice a linie: mistr Vincent Chu, rodinný styl Yang, od roku 1997.\n• Komunitní: „na akce jezdíme po vlastní ose a vzájemně se svezeme“.\n• Klíčové hodnoty: klid, lehkost, radost, tichost mysli.\n\nVIZUÁL v2 (moderní)\nKameň #F7F7F4 · Tuš #0E0F0E · Jade #0F766E (bílý text 5.4:1) · karty 24px, pilulky.\nPísmo: vyber v pravidle „Písmo“ vlevo dole (Geist / Manrope / … ). Bez kurzívy.\nLogo: minimalistický taiji kruh. Styly sdílené v project/site.css.\n\nPOHYB (Emil Kowalski)\n• Tlačítka scale(.97), 160 ms, ease-out cubic-bezier(.23,1,.32,1).\n• Hover jen na myši (hover:hover).\n• Dechový kruh: 5 s nádech / 5 s výdech, symetrický sinus.\n• Záložky Praha/Zlín: clip-path přechod barvy.\n• Scroll reveal jednou při zobrazení (IntersectionObserver), stagger 60 ms.\n• Odeslat → Odesláno: crossfade s blur(2px).\n• prefers-reduced-motion → jen fade.\n\nTEXTY: pouze z původního webu (opraveny jen překlepy). Nadpisy H1/H2 upraveny pro SEO. [Foto]/[Mapa]/[Video] = doplnit."
+    },
+    "mobiletitle": {
+      "x": -520,
+      "y": 4860,
+      "text": "Mobil · 390 px",
+      "kind": "title1",
+      "maxW": 11080
+    }
+  },
+  "designSystems": []
+}

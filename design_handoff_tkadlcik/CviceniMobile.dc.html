@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Cvičení – mobil</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./site.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;family=Instrument+Serif:ital@0;1&amp;family=Manrope:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&amp;family=Figtree:wght@400;500;600&amp;family=Onest:wght@400;500;600&amp;family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&amp;family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 390px; background: var(--bg)">
+<dc-import font="{{font}}" name="Cviceni" hint-size="390px,8600px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"font":{"editor": "enum", "options": ["Geist", "Manrope", "Plus Jakarta Sans", "DM Sans", "Figtree", "Onest", "Bricolage Grotesque", "Fraunces + Inter"], "default": "Geist", "section": "Písmo"},"$preview":{"width":390,"height":8600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { font: this.props.font || 'Geist' };
+  }
+}
+</script>
+</body>
+</html>

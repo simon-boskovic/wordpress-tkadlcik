@@ -1,0 +1,104 @@
+{
+  "brand": {
+    "name": "Radost v pohybu",
+    "tagline": "Čchi-kung a tchaj-ťi"
+  },
+  "contact": {
+    "name": "Mgr. Daniel Tkadlčík",
+    "person": "Daniel Tkadlčík",
+    "phone": "+420 773 287 1113",
+    "phoneHref": "tel:+4207732871113",
+    "email": "tkadlcik@centrum.cz"
+  },
+  "business": {
+    "name": "Mgr. Daniel Tkadlčík",
+    "ico": "75979390",
+    "address": "Pod vinohradem 68/18, 147 00 Praha 4 – Braník",
+    "register": "Zapsán v živnostenském rejstříku, Úřad městské části Praha 4"
+  },
+  "places": [
+    {
+      "key": "praha",
+      "name": "Tělocvična ZŠ Jeremenkova",
+      "street": "Jeremenkova 1003/66A",
+      "city": "Praha 4",
+      "locality": "Praha",
+      "line": "Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A",
+      "map": "Jeremenkova 1003/66A, Praha 4"
+    },
+    {
+      "key": "zlin",
+      "name": "Centrum Jiný svět",
+      "street": "Osvoboditelů 484",
+      "city": "Zlín",
+      "locality": "Zlín",
+      "line": "Centrum Jiný svět, Osvoboditelů 484, Zlín",
+      "map": "Osvoboditelů 484, Zlín"
+    }
+  ],
+  "nav": [
+    {
+      "href": "/",
+      "label": "Domů"
+    },
+    {
+      "href": "/cviceni/",
+      "label": "Cvičení"
+    },
+    {
+      "href": "/kurzy-a-lekce/",
+      "label": "Nabídka kurzů a lekcí"
+    },
+    {
+      "href": "/akce/",
+      "label": "Akce"
+    },
+    {
+      "href": "/o-mne/",
+      "label": "O mně"
+    },
+    {
+      "href": "/clanky/",
+      "label": "Články"
+    },
+    {
+      "href": "/kontakt/",
+      "label": "Kontakt",
+      "cta": true
+    }
+  ],
+  "footer": {
+    "about": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+    "links": [
+      {
+        "href": "/",
+        "label": "Domů"
+      },
+      {
+        "href": "/cviceni/",
+        "label": "Cvičení"
+      },
+      {
+        "href": "/kurzy-a-lekce/",
+        "label": "Nabídka kurzů a lekcí"
+      },
+      {
+        "href": "/akce/",
+        "label": "Akce"
+      },
+      {
+        "href": "/o-mne/",
+        "label": "O mně"
+      },
+      {
+        "href": "/clanky/",
+        "label": "Články"
+      },
+      {
+        "href": "/zasady-ochrany-osobnich-udaju/",
+        "label": "Zásady ochrany osobních údajů"
+      }
+    ],
+    "copyright": "© Mgr. Daniel Tkadlčík"
+  }
+}

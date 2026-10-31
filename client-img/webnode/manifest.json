@@ -1,0 +1,42 @@
+[
+  {
+    "file": "daniel-portret-1.jpg",
+    "sourceUrl": "https://9d8f1c78e7.cbaul-cdnwnd.com/7dab81d2fe55d3c2dfb4edf11542a72e/200000001-5debc5debe/IMG_20191230_202943.jpg?ph=9d8f1c78e7",
+    "sourcePage": "https://dan24.webnode.cz/o-mne/",
+    "width": 1440, "height": 1920, "bytes": 292243,
+    "description": "Daniel Tkadlčík, poloportrét v interiéru (venkovská kuchyně s kachlovými kamny a dřevěným stropem), černé tričko, brýle, usmívá se do objektivu, ruce opřené před sebou.",
+    "people": "daniel-only",
+    "quality": "usable",
+    "notes": "Originál z mobilu (název IMG_20191230_202943 = 30. 12. 2019). Ostrý obličej, ale foceno s bleskem: tvrdé světlo, lehce přepálená pleť, tmavé pozadí s modrou stěnou. Neformální, není to cvičení. Na webnode i WebP varianta 1440x1920 (stejný obsah, přeuloženo) – ponechán JPEG originál."
+  },
+  {
+    "file": "louka-strom-slunce-pixabay.jpg",
+    "sourceUrl": "https://9d8f1c78e7.cbaul-cdnwnd.com/7dab81d2fe55d3c2dfb4edf11542a72e/200000000-5e6e45e6e6/spring-276014_1920.jpg?ph=9d8f1c78e7",
+    "sourcePage": "https://dan24.webnode.cz/",
+    "width": 1920, "height": 1221, "bytes": 538065,
+    "description": "Jarní louka s bílými sasankami u kmene stromu, slunce prosvítá rozostřenými stromy v pozadí.",
+    "people": "none",
+    "quality": "good",
+    "notes": "Fotobanka, NE vlastní fotka klienta: Pixabay obrázek č. 276014 ('spring', 1920 px verze). Pixabay licence dovoluje komerční užití bez uvedení autora, ale je to generický obrázek bez vztahu k tchaj-ťi, Krkonoším ani Danielovi. Byl jako pozadí hlavičky na úvodní stránce. WebP varianta 1920x1221 = stejný obsah."
+  },
+  {
+    "file": "logo-postava-kresba.jpg",
+    "sourceUrl": "https://9d8f1c78e7.cbaul-cdnwnd.com/7dab81d2fe55d3c2dfb4edf11542a72e/200000002-7f6747f676/l64gi.jpg?ph=9d8f1c78e7",
+    "sourcePage": "https://dan24.webnode.cz/ (logo v hlavičce všech stránek)",
+    "width": 200, "height": 200, "bytes": 8491,
+    "description": "Logo starého webu: černá linková kresba stojící postavy s rukama u pasu v bílém kruhu na černém pozadí.",
+    "people": "none",
+    "quality": "poor",
+    "notes": "Jen 200x200 px (Webnode nemá větší originál; /700/ varianta je stejná). Nový web má vlastní taiji logo (client-img/site-icon.png). Uloženo jen pro archiv / případnou vektorizaci."
+  },
+  {
+    "file": "letak-seminar-savle-vincent-chu.jpg",
+    "sourceUrl": "https://9d8f1c78e7.cbaul-cdnwnd.com/7dab81d2fe55d3c2dfb4edf11542a72e/200000015-5ceb25ceb4/V%C3%BDukov%C3%BD%20semin%C3%A1%C5%99%20s%20%C5%A0avl%C3%AD%20stylu%20Yang%20Tchaj-%C5%A4i.jpeg?ph=9d8f1c78e7",
+    "sourcePage": "https://dan24.webnode.cz/",
+    "width": 1587, "height": 2245, "bytes": 233801,
+    "description": "Leták A4 'Výukový seminář s Šavlí stylu Yang Tchaj-Ťi' (Plující oblaka, 28.–29. 11., 3 900 Kč); uprostřed fotografie mistra Gin Soon Chu (otec Vincenta Chu) v postoji se šavlí, pozadí soumrak nad horami.",
+    "people": "group/others",
+    "quality": "good",
+    "notes": "DOKUMENT, ne fotka. Bajtově identický s client-files/letak-savle.jpg (SHA-256 208cdebf…), který už web nabízí ke stažení. Fotka Gin Soon Chu je cizí (třetí strana, sken z publikace) – nevyřezávat pro web bez svolení. Na letáku překlepy ('Radostv pohybu', 'dan24.wbnoce..cz')."
+  }
+]
