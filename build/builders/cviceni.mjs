@@ -8,7 +8,7 @@
  *   1nFm6-XwGpU "10. července 2020" (Daniel Tkadlčík), NeVzb5hGM7A "Vincent Chu - http://www.gstaichi.org"
  *   (third-party channel), oZB6Gq4QzC4 "Tyč, sestava stylu Yang tchaj-ťi", 1Mmz_QpYk9s "Osm kusů brokátu",
  *   1UPJuzGC1UY "13 Words of Tchaj ťi - 13 Slov Tchaj-ťi".
- * No VideoObject in the JSON-LD: the upload dates are not known (a required property).
+ * JSON-LD: seo.mjs buildSchema emits one VideoObject per gallery video (upload dates: content.mjs videoUploadDates).
  */
 import { videoBox } from '../fragments.mjs';
 

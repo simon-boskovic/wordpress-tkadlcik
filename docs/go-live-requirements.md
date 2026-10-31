@@ -66,6 +66,12 @@ Google request. Production needs the client's Google account.
 | 23 | **The page cache stores the blocked page and Complianz sets no cookie.** `tk_pc_nest_complianz_buffer()` nests Complianz's output buffer inside the capture (proven: without it the HIT HTML loaded googletagmanager directly); consent per service stays off (it would add `Set-Cookie` deletions); the `cmplz_*` cookies are not bypass cookies (the banner logic is client-side: one cached page serves every consent state). After connecting Site Kit (#21): `wp tk cache-purge && wp tk cache-warm`. | A HIT is served without PHP: whatever the file holds goes to every visitor. | `page-cache.int.mjs` (consent test), `interact.mjs consent`. | `curl -sI https://<domain>/` → `X-TK-Cache: HIT`, no `Set-Cookie`; the `curl … grep google_gtagjs-js` of #22 on the cached page shows `type="text/plain"`. |
 | 24 | **Complianz's cookie path is `/`.** Complianz derives it from the home URL; with a port in the home URL (only locally) it is invalid, which `tk-local.php` corrects. Production's home URL has no port and no sub-directory. | Otherwise a choice made on `/kontakt/` would only apply there. | `tk-local.php` `cmplz_cookie_path`. | After "Odmítnout", DevTools → Cookies: every `cmplz_*` cookie has Path `/`. |
 
+## Content blockers (client)
+
+| # | Requirement | Why | Local stand-in | Check on production |
+|---|---|---|---|---|
+| 25 | **Go-live blocker: the contact phone is confirmed and no placeholder is visible.** The phone in `build/content.mjs` `contact` (header, footer, Kontakt, JSON-LD `telephone`, llms.txt) must be a real Czech number, `+420` + 9 digits — the design's `+420 773 287 1113` has 10 and awaits the client (`node build/generate.mjs` prints a WARNING while it does not match). No page may show a `[Foto]` placeholder (Akce) or a `[doplnit …]` placeholder (the privacy page: effective date, hosting, …). | A wrong phone number in the footer and the structured data of every page; placeholders read as an unfinished site. | `node build/verify.mjs --golive` (fails on each open item; the default run is unaffected). | `node build/verify.mjs --golive --base=https://<domain>` → passes. |
+
 ## PHP and database
 
 | # | Requirement | Why | Check on production |

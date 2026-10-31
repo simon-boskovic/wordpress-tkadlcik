@@ -1,11 +1,11 @@
 // The generated page definitions: format wp tk page-upsert reads, one <h1> per page, no prototype leftovers.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildPages, definePage, SCRIPTS, siteJson } from '../generate.mjs';
+import { buildPages, definePage, phoneWarning, SCRIPTS, siteJson } from '../generate.mjs';
 import { createFinalizer } from '../lib/finalize.mjs';
 import { VIDEO_NOTE } from '../fragments.mjs';
 import { existsSync } from 'node:fs';
-import { buildSeo, OG_IMAGE } from '../seo.mjs';
+import { buildSeo, OG_IMAGE, OG_IMAGES } from '../seo.mjs';
 
 const { pages, fin } = buildPages();
 
@@ -96,7 +96,7 @@ test('videos on Cvičení: click-to-load facades, self-hosted thumbnails, no You
 test('media.json lists the images the pages use: the two client photos + the five self-hosted YouTube thumbnails', () => {
   assert.deepEqual(fin.media().map((m) => m.file), ['daniel-tkadlcik-portret.jpg', 'louka-strom.jpg', 'yt-1Mmz_QpYk9s.jpg', 'yt-1nFm6-XwGpU.jpg', 'yt-1UPJuzGC1UY.jpg', 'yt-NeVzb5hGM7A.jpg', 'yt-oZB6Gq4QzC4.jpg']);
   for (const m of fin.media()) assert.ok(existsSync(new URL(`../../client-img/${m.file}`, import.meta.url)), m.file);
-  assert.ok(existsSync(new URL(`../../client-img/${OG_IMAGE}`, import.meta.url)), OG_IMAGE);
+  for (const f of [OG_IMAGE, ...Object.values(OG_IMAGES)]) assert.ok(/\.jpg$/.test(f) && existsSync(new URL(`../../client-files/${f}`, import.meta.url)), f);
   assert.equal(fin.media().find((m) => m.file === 'daniel-tkadlcik-portret.jpg').alt, 'Daniel Tkadlčík, lektor tchaj-ťi');
   assert.doesNotMatch(all, /\[Foto\][\s\S]{0,0}<\/span><\/div>\s*<div class="card stack" style="position: absolute/);
 });
@@ -147,7 +147,8 @@ test('seo.json covers every page: brand suffix, title ≤ 64, description 120–
     assert.deepEqual(s.robots, slug === 'zasady-ochrany-osobnich-udaju' ? ['noindex', 'follow'] : ['index', 'follow'], slug);
     assert.ok(s.title.endsWith(' | Radost v pohybu') && s.title.length <= 64, slug);
     assert.ok(s.description.length >= 120 && s.description.length <= 155, `${slug}: ${s.description.length}`);
-    assert.equal(s.og, 'og-default.webp', slug);
+    assert.equal(s.og, slug === 'o-mne' ? 'og-o-mne.jpg' : 'og-default.jpg', slug);
+    assert.ok(s.og_alt, slug);
     assert.doesNotMatch(s.description, /\d{3} \d{3}|Kč/, slug);
     assert.match(s.description, /\(tai chi\)|\(qigong\)/, slug);
   }
@@ -179,4 +180,9 @@ test('privacy page: one <h1>, the operator\'s register data, the e-mail only (no
   assert.doesNotMatch(html, /tel:|773 287|narozen/);
   assert.doesNotMatch(html, /kontaktní formulář(?! nemá)/i);
   for (const p of pages) if (p.slug !== 'zasady-ochrany-osobnich-udaju') assert.doesNotMatch(htmlOf(p.slug), /\[doplnit|\[HOSTING/, p.slug);
+});
+
+test('phone guard: a WARNING (not an error) while the phone is not +420 + 9 digits', () => {
+  assert.match(phoneWarning({ phone: '+420 773 287 1113', phoneHref: 'tel:+4207732871113' }), /^WARNING: .*not \+420 \+ 9 digits/);
+  assert.equal(phoneWarning({ phone: '+420 773 287 111', phoneHref: 'tel:+420773287111' }), '');
 });

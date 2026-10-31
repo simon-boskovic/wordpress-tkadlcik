@@ -280,15 +280,15 @@ export const SCENARIOS = {
     try {
       await b.send('Page.addScriptToEvaluateOnNewDocument', { source: PROBE });
       await b.goto(BASE + '/kurzy-a-lekce/', 800);
-      await go(b, 'main a[href$="/cviceni/#videa"]');
+      await go(b, 'main a[href$="/cviceni/#brokat"]');
       const p = await probe(b);
       assert(p && p.vt && p.ready, 'phone: tap navigation without a view transition: ' + JSON.stringify(p));
       const at = await b.evaluate('location.pathname + location.hash');
-      assert(at === '/cviceni/#videa', `phone: landed on ${at}`);
+      assert(at === '/cviceni/#brokat', `phone: landed on ${at}`);
       let y = 9999;   // the page scrolls smoothly to the anchor (scroll-behavior: smooth): poll until it arrives
-      for (let i = 0; i < 30 && !(y >= 0 && y < 400); i++) { await sleep(150); y = await b.evaluate(`Math.round(document.getElementById('videa').getBoundingClientRect().top)`); }
-      assert(y >= 0 && y < 400, `phone: #videa not scrolled into view after the transition (top ${y}px)`);
-      out.push(`phone tap → /cviceni/#videa: ${p.pseudo.length} animations, anchor at ${y}px`);
+      for (let i = 0; i < 30 && !(y >= 0 && y < 400); i++) { await sleep(150); y = await b.evaluate(`Math.round(document.getElementById('brokat').getBoundingClientRect().top)`); }
+      assert(y >= 0 && y < 400, `phone: #brokat not scrolled into view after the transition (top ${y}px)`);
+      out.push(`phone tap → /cviceni/#brokat: ${p.pseudo.length} animations, anchor at ${y}px`);
     } finally { await b.close(); }
 
     b = await openBrowser({ width: 1440, height: 900, reducedMotion: true });

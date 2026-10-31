@@ -8,11 +8,20 @@
  * the generated page text (buildLlms throws on a fact the pages do not contain).
  */
 import { mapsLinkUrl } from './content.mjs';
+import { VIDEOS } from './builders/cviceni.mjs';
+import { PHOTOS, youtubeEmbedUrl, youtubeWatchUrl } from './fragments.mjs';
 
 /** Brand suffix of every title (= WordPress blogname = og:site_name = the JSON-LD WebSite/Organization name). */
 export const TITLE_SUFFIX = ' | Radost v pohybu';
-/** Upload file name of the share image (client-img/og-default.png -> media-import -> og-default.webp). */
-export const OG_IMAGE = 'og-default.png';
+/**
+ * Upload file names of the share images. Social scrapers mishandle WebP, so these are JPGs in client-files/
+ * (imported as-is by `wp tk media-import --files-dir`): og-default.jpg = client-img/og-default.png exported at
+ * 1200x630 (q85); og-o-mne.jpg = the portrait cropped to 1200x630 around the face (O mně only).
+ */
+export const OG_IMAGE = 'og-default.jpg';
+export const OG_IMAGES = { 'o-mne': 'og-o-mne.jpg' };
+/** og:image:alt per share image (seo-setup writes it to the attachment's alt text). */
+export const OG_ALT = { 'og-default.jpg': 'Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín', 'og-o-mne.jpg': 'Daniel Tkadlčík, lektor tchaj-ťi' };
 /** Title limits: the complete <title> incl. the suffix (Google shows ~60 chars), description 120–155 chars. */
 export const TITLE_MAX = 64;
 export const DESCRIPTION_RANGE = [120, 155];
@@ -47,7 +56,7 @@ export const SEO = {
   },
   clanky: {
     title: `Články o tchaj-ťi a čchi-kungu${TITLE_SUFFIX}`,
-    description: 'Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Chen Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.',
+    description: 'Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Cheng Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.',
   },
   kontakt: {
     title: `Kontakt – tchaj-ťi a čchi-kung Praha 4 a Zlín${TITLE_SUFFIX}`,
@@ -70,7 +79,7 @@ export const NOINDEX = new Set(['zasady-ochrany-osobnich-udaju']);
  * seo.json for the given pages (+ the share image's upload file name as `og` on every page); throws when a page
  * has no entry, an entry has no page, a title lacks the suffix or is too long, or a description is out of range.
  */
-export function buildSeo(pages, { og = OG_IMAGE.replace(/\.png$/, '.webp') } = {}) {
+export function buildSeo(pages, { og = OG_IMAGE } = {}) {
   const out = {};
   const [dMin, dMax] = DESCRIPTION_RANGE;
   for (const p of pages) {
@@ -79,7 +88,8 @@ export function buildSeo(pages, { og = OG_IMAGE.replace(/\.png$/, '.webp') } = {
     if (!s.title.endsWith(TITLE_SUFFIX)) throw new Error(`seo: title of ${p.slug} does not end with "${TITLE_SUFFIX}"`);
     if (s.title.length > TITLE_MAX) throw new Error(`seo: title of ${p.slug} is ${s.title.length} chars (max ${TITLE_MAX})`);
     if (s.description.length < dMin || s.description.length > dMax) throw new Error(`seo: description of ${p.slug} is ${s.description.length} chars (${dMin}–${dMax})`);
-    out[p.slug] = { title: s.title, description: s.description, robots: NOINDEX.has(p.slug) ? ['noindex', 'follow'] : ['index', 'follow'], ...(og ? { og } : {}) };
+    out[p.slug] = { title: s.title, description: s.description, robots: NOINDEX.has(p.slug) ? ['noindex', 'follow'] : ['index', 'follow'], ...(og ? { og: OG_IMAGES[p.slug] || og } : {}) };
+    if (out[p.slug].og && OG_ALT[out[p.slug].og]) out[p.slug].og_alt = OG_ALT[out[p.slug].og];
   }
   for (const slug of Object.keys(SEO)) if (!out[slug]) throw new Error(`seo: entry ${slug} has no page`);
   return Object.fromEntries(Object.entries(out).sort(([a], [b]) => a.localeCompare(b)));
@@ -115,6 +125,20 @@ export const FEDERATION = { name: 'Gin Soon Tai Chi Chuan Federation', url: 'htt
 
 /** Person description: verbatim sentences from O mně. */
 const PERSON_DESCRIPTION = ['Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997.', 'Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.'];
+/** Place descriptions: verbatim sentences about each place (Kontakt for Praha, the Zlín panel on Nabídka kurzů). */
+export const PLACE_DESCRIPTION = {
+  praha: ['Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.'],
+  zlin: ['Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek.', 'Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.'],
+};
+/** VideoObject description where the page has a fuller sentence next to the video (else the caption). */
+const VIDEO_DESCRIPTION = { '1Mmz_QpYk9s': 'Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje.' };
+
+/** The portrait on O mně as an image node (media-import: WebP, longest edge 1600 px). Person image + ProfilePage primaryImageOfPage. */
+const portraitSize = (({ w, h }) => { const k = Math.min(1, 1600 / Math.max(w, h)); return { width: Math.round(w * k), height: Math.round(h * k) }; })(PHOTOS.portret);
+export const PORTRAIT = {
+  '@type': 'ImageObject', '@id': '/#portrait', url: '/wp-content/uploads/daniel-tkadlcik-portret.webp', contentUrl: '/wp-content/uploads/daniel-tkadlcik-portret.webp',
+  ...portraitSize, caption: PHOTOS.portret.alt,
+};
 const VINCENT_DESCRIPTION = 'Výuka probíhá dle instrukcí a předání od mistra Vincenta Chu, který je hlavním instruktorem a mistrem bostonské školy Gin Soon Tai Chi Chuan Federation';
 
 /** Visible text of one page (tags stripped, entities decoded, whitespace collapsed). */
@@ -136,7 +160,7 @@ export function taughtForms(pages) {
 export function legalData(content, fact = (s) => s) {
   const b = content.business;
   const a = content.businessAddress;
-  if (`${a.streetAddress}, ${a.postalCode} ${a.addressRegion}` !== b.address) throw new Error('schema: content.businessAddress does not match business.address');
+  if (`${a.streetAddress}, ${a.postalCode} ${a.addressLocality}` !== b.address) throw new Error('schema: content.businessAddress does not match business.address');
   fact(b.address);
   return {
     legalName: fact(b.name),
@@ -151,8 +175,10 @@ export function legalData(content, fact = (s) => s) {
  * WebSite, the page's WebPage (ContactPage / ProfilePage) and, below the front page, its BreadcrumbList; on Akce
  * the future seminars as Events. inc/seo.php adds the page's dateModified and the organisation logo (the site
  * icon) at print time and absolutizes the paths.
+ * On Cvičení the gallery videos as VideoObjects (name/description = the caption on the page, self-hosted thumbnail,
+ * upload date from content.videoUploadDates; a video without a date is left out), referenced by the page's `video`.
  * Deliberately absent: Course/CourseInstance/openingHours (the schedule in the design is contradictory, pending
- * the client), postalCode/geo (unknown), VideoObject (upload dates unknown), Events for past dates.
+ * the client), postalCode/geo of the venues (unknown), Events for past dates.
  *
  * @param {object[]} pages page definitions
  * @param {{ content: object, today?: string }} opts content.mjs; today = YYYY-MM-DD (default: the build date)
@@ -173,12 +199,13 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
     price.facts.forEach(fact);
     return {
       '@type': 'SportsActivityLocation', '@id': `/#${pl.key}`, name: `${content.brand.name} – ${pl.name}`,
-      description: content.footer.about, url: `/kurzy-a-lekce/#${pl.key}`, telephone: phone, email: c.email,
-      address: { '@type': 'PostalAddress', streetAddress: pl.city === pl.locality ? pl.street : `${pl.street}, ${pl.city}`, addressLocality: pl.locality, addressCountry: 'CZ' },
+      description: PLACE_DESCRIPTION[pl.key].map(fact).join(' '), url: `/kurzy-a-lekce/#${pl.key}`, telephone: phone, email: c.email,
+      address: { '@type': 'PostalAddress', streetAddress: fact(pl.street), addressLocality: pl.locality, addressCountry: 'CZ' },
       priceRange: price.range, currenciesAccepted: 'CZK',
       hasMap: mapsLinkUrl(pl.map), parentOrganization: { '@id': '/#organization' },
     };
   };
+  for (const pl of content.places) if (!PLACE_DESCRIPTION[pl.key]) throw new Error(`schema: no description for place ${pl.key}`);
   const places = content.places.map(placeNode);
   const organization = {
     '@type': 'Organization', '@id': '/#organization', name: content.brand.name, alternateName: `${content.brand.tagline} ${content.brand.name}`,
@@ -201,6 +228,8 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
     '@type': 'Person', '@id': '/#daniel', name: c.person, honorificPrefix: 'Mgr.', jobTitle: 'Lektor tchaj-ťi a čchi-kungu',
     description: PERSON_DESCRIPTION.map(fact).join(' '),
     url: '/o-mne/', email: c.email, telephone: phone, worksFor: { '@id': '/#organization' }, knows: { '@id': '/#vincent-chu' },
+    image: { '@id': PORTRAIT['@id'] },
+    ...(content.personSameAs?.length ? { sameAs: content.personSameAs } : {}),
     knowsAbout: ['Tchaj-ťi', 'Tai chi', 'Čchi-kung', 'Qigong', 'Tchaj-ťi stylu Yang', 'Osm kusů brokátu', '13 slov tchaj-ťi', 'Meditace'],
   };
   const website = { '@type': 'WebSite', '@id': '/#website', url: '/', name: content.brand.name, inLanguage: 'cs-CZ', publisher: { '@id': '/#organization' } };
@@ -208,6 +237,13 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
   for (const e of SEMINARS) {
     for (const t of [e.name, e.text]) if (!text.includes(t)) throw new Error(`schema: seminar "${t}" is not on the pages (keep SEMINARS in step with Akce)`);
   }
+
+  const cviceniHtml = pages.filter((p) => p.slug === 'cviceni').flatMap((p) => p.elements.map((e) => e.elements[0].settings.html)).join('\n');
+  const videos = VIDEOS.filter((v) => cviceniHtml.includes(`data-src="${youtubeEmbedUrl(v.id)}"`) && content.videoUploadDates?.[v.id]).map((v) => ({
+    '@type': 'VideoObject', '@id': `/cviceni/#video-${v.id}`, name: fact(v.title), description: fact(VIDEO_DESCRIPTION[v.id] || v.title),
+    thumbnailUrl: `/wp-content/uploads/yt-${v.id}.webp`, uploadDate: content.videoUploadDates[v.id],
+    embedUrl: youtubeEmbedUrl(v.id).replace(/\?.*$/, ''), url: youtubeWatchUrl(v.id),
+  }));
 
   const schema = {};
   for (const p of pages) {
@@ -217,11 +253,12 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
     if (!label[path]) throw new Error(`schema: ${path} is not in the nav (breadcrumb name)`);
     const type = p.slug === 'kontakt' ? 'ContactPage' : p.slug === 'o-mne' ? 'ProfilePage' : 'WebPage';
     const mentionsVincent = ['o-mne', 'akce'].includes(p.slug) && textOf(p).includes('Vincent');
-    const graph = [organization, ...places, person, vincent, website, {
+    const graph = [organization, ...places, person, PORTRAIT, vincent, website, {
       '@type': type, '@id': `${path}#webpage`, url: path, name: s.title, description: s.description, inLanguage: 'cs-CZ',
       isPartOf: { '@id': '/#website' }, about: { '@id': '/#organization' }, author: { '@id': '/#daniel' },
       ...(path !== '/' ? { breadcrumb: { '@id': `${path}#breadcrumb` } } : {}),
-      ...(p.slug === 'o-mne' ? { mainEntity: { '@id': '/#daniel' } } : {}),
+      ...(p.slug === 'o-mne' ? { mainEntity: { '@id': '/#daniel' }, primaryImageOfPage: { '@id': PORTRAIT['@id'] } } : {}),
+      ...(p.slug === 'cviceni' && videos.length ? { video: videos.map((v) => ({ '@id': v['@id'] })) } : {}),
       ...(p.slug === 'kontakt' ? { mainEntity: { '@id': '/#organization' } } : {}),
       ...(mentionsVincent ? { mentions: [{ '@id': '/#vincent-chu' }] } : {}),
     }];
@@ -241,6 +278,7 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
         });
       }
     }
+    if (p.slug === 'cviceni') graph.push(...videos);
     schema[p.slug] = graph;
   }
   return schema;

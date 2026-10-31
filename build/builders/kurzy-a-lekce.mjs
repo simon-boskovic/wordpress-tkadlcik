@@ -9,6 +9,9 @@
  * place directly ("/kurzy-a-lekce/#zlin", e.g. the home "Cvičení ve Zlíně" card; tabs.js opens the panel named by
  * the hash).
  *
+ * The three video links of the Praha cards (design: all "Cviceni.dc.html#videa") point to the matching section on
+ * Cvičení (#brokat, #slov, #yang); link texts unchanged.
+ *
  * The two "[Mapa]" placeholders are click-to-load maps (fragments.mjs mapBox, _tk_scripts "map").
  */
 import { ARROW, mapBox } from '../fragments.mjs';
@@ -42,7 +45,7 @@ export function build({ content, page }) {
 <div class="stack" style="gap: 12px">
 <h2 class="h3" style="font-size: 26px">Osm kusů brokátu</h2>
 <p class="body small">Známé čchi-kungové cvičení zaměřující se na rozvoj základních dovedností, posílení těla, protažení, otevření energetických kanálů a získání základních návyků a dovedností.</p>
-<a class="lnk small" href="Cviceni.dc.html#videa" style="align-self: flex-start; padding: 6px 0">Videogalerie</a>
+<a class="lnk small" href="Cviceni.dc.html#brokat" style="align-self: flex-start; padding: 6px 0">Videogalerie</a>
 </div>
 <dl class="stack small" style="gap: 0">
 <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Pravidelné cvičení</dt><dd><span class="mono">Úterý 18:00 - 20:00h</span><br>Osm kusů brokátu</dd></div>
@@ -55,7 +58,7 @@ export function build({ content, page }) {
 <div class="stack" style="gap: 12px">
 <h2 class="h3" style="font-size: 26px">13 Words of Tchaj-ťi</h2>
 <p class="body small">Krátké a jednoduché cvičení zlepšující vnímání energie čchi, je zaměřeno zejména na otevírání energetických meridiánů. Řadí se mezi cvičení na principu Daoyin, která kladou důraz na fyzický pohyb kombinovaný s principem dýchání tuina (nádech a výdech), tak aby energie mohla lépe cirkulovat uvnitř těla.</p>
-<a class="lnk small" href="Cviceni.dc.html#videa" style="align-self: flex-start; padding: 6px 0">Videogalerie</a>
+<a class="lnk small" href="Cviceni.dc.html#slov" style="align-self: flex-start; padding: 6px 0">Videogalerie</a>
 </div>
 <dl class="stack small" style="gap: 0">
 <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Pravidelné cvičení</dt><dd><span class="mono">Úterý 18:00 - 19:30h</span><br>Osm kusů brokátu</dd></div>
@@ -68,7 +71,7 @@ export function build({ content, page }) {
 <div class="stack" style="gap: 12px">
 <h2 class="h3" style="font-size: 26px">Tchaj-ťi stylu Yang</h2>
 <p class="body small">Styl Yang tchaj-ťi je pojmenován podle členů rodiny Yang, kteří tento styl dosti proslavili. Vyučujeme tento styl podle tradice a rodinného předání mistra Vincenta Chu. Cvičíme klasickou dlouhou sestavu stylu Yang, krátké sestavy a sestavu Návrat k tchaj-ťi. Sestavy se zbraněmi meč, šavle, tyč, rychlou formu a párová cvičení.</p>
-<a class="lnk small" href="Cviceni.dc.html#videa" style="align-self: flex-start; padding: 6px 0">Video mistra Vincenta Chu styl Yang</a>
+<a class="lnk small" href="Cviceni.dc.html#yang" style="align-self: flex-start; padding: 6px 0">Video mistra Vincenta Chu styl Yang</a>
 </div>
 <dl class="stack small" style="gap: 0">
 <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Pravidelné cvičení</dt><dd><span class="mono">Pondělí 18:00 - 19:30h</span><br>Sestava Yang 12 forem pro začátečníky, 13 Words of Tchaj-ťi</dd></div>

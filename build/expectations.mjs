@@ -38,7 +38,7 @@ export default {
     h1: 'Kurzy tchaj-ťi a čchi-kungu: rozvrh a ceny',
     title: SEO['kurzy-a-lekce'].title,
     texts: ['Osm kusů brokátu', '13 Words of Tchaj-ťi', 'Tchaj-ťi stylu Yang', 'Cvičení ve Zlíně', 'Ceny lekcí', '3 250 Kč', '400 Kč', 'Kde cvičíme: Praha 4 a Zlín', 'Tělocvična ZŠ Jeremenkova', 'Centrum Jiný svět'],
-    selectors: ['[role=tablist] button[role=tab][aria-controls="praha"][aria-selected="true"]', '[role=tablist] button[role=tab][aria-controls="zlin"]', '[role=tabpanel]#praha', '[role=tabpanel]#zlin', 'a[href$="/cviceni/#videa"]', '[data-tk-map-box] button[data-tk-map]'],
+    selectors: ['[role=tablist] button[role=tab][aria-controls="praha"][aria-selected="true"]', '[role=tablist] button[role=tab][aria-controls="zlin"]', '[role=tabpanel]#praha', '[role=tabpanel]#zlin', 'a[href$="/cviceni/#brokat"]', 'a[href$="/cviceni/#slov"]', 'a[href$="/cviceni/#yang"]', '[data-tk-map-box] button[data-tk-map]'],
     unique: ['[id="cena"]', '[id="misto"]', '[id="praha"]', '[id="zlin"]'],
     scripts: ['tabs', 'map'],
   },

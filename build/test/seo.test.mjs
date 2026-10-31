@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import * as content from '../content.mjs';
 import { buildPages } from '../generate.mjs';
 import { buildLlms, buildSchema, legalData, NOINDEX, SEMINARS, SEO, taughtForms } from '../seo.mjs';
+import { VIDEOS } from '../builders/cviceni.mjs';
 
 const { pages } = buildPages();
 const TODAY = '2026-10-31';
@@ -14,7 +15,7 @@ test('a graph for every page: Organization, both places, Person, WebSite, the pa
   assert.deepEqual(Object.keys(schema).sort(), pages.map((p) => p.slug).sort());
   for (const [slug, graph] of Object.entries(schema)) {
     assert.equal(byType(graph, 'Organization').length, 1, slug);
-    assert.deepEqual(byType(graph, 'SportsActivityLocation').map((n) => n.address.streetAddress), ['Jeremenkova 1003/66A, Praha 4', 'Osvoboditelů 484'], slug);
+    assert.deepEqual(byType(graph, 'SportsActivityLocation').map((n) => n.address.streetAddress), ['Jeremenkova 1003/66A', 'Osvoboditelů 484'], slug);
     assert.deepEqual(byType(graph, 'Person').map((n) => n.name), ['Daniel Tkadlčík', 'Vincent Chu'], slug);
     assert.equal(byType(graph, 'WebSite').length, 1, slug);
     const page = graph.find((n) => /#webpage$/.test(n['@id']));
@@ -28,7 +29,7 @@ test('a graph for every page: Organization, both places, Person, WebSite, the pa
 
 test('paths stay root-relative (absolutized by inc/seo.php), never a host', () => {
   const json = JSON.stringify(schema);
-  assert.doesNotMatch(json, /localhost|https?:\/\/(?!schema\.org|www\.google\.com\/maps|www\.gstaichi\.org\/")/);
+  assert.doesNotMatch(json, /localhost|https?:\/\/(?!schema\.org|www\.google\.com\/maps|www\.gstaichi\.org\/"|www\.youtube(?:-nocookie)?\.com\/)/);
   assert.equal(schema.domu.find((n) => n['@id'] === '/#webpage').url, '/');
 });
 
@@ -47,9 +48,12 @@ test('Events only for seminars that have not started yet (the design dates are a
   for (const slug of Object.keys(early)) if (slug !== 'akce') assert.equal(byType(early[slug], 'Event').length, 0, slug);
 });
 
-test('places: Praha locality with the district in the street, priceRange from the Ceny section, own url, map', () => {
+test('places: street + locality (Praha 4), verbatim own description, priceRange from the Ceny section, own url, map', () => {
   const [praha, zlin] = byType(schema.domu, 'SportsActivityLocation');
-  assert.deepEqual([praha.address.addressLocality, praha.priceRange, praha.url], ['Praha', '350–3 250 Kč', '/kurzy-a-lekce/#praha']);
+  assert.deepEqual([praha.address.streetAddress, praha.address.addressLocality, praha.priceRange, praha.url], ['Jeremenkova 1003/66A', 'Praha 4', '350–3 250 Kč', '/kurzy-a-lekce/#praha']);
+  assert.equal(praha.description, 'Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.');
+  assert.equal(zlin.description, 'Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.');
+  assert.doesNotMatch(zlin.description, /víkendové semináře/);
   assert.deepEqual([zlin.address.addressLocality, zlin.priceRange, zlin.url], ['Zlín', '400 Kč', '/kurzy-a-lekce/#zlin']);
   for (const pl of [praha, zlin]) for (const k of ['postalCode', 'geo', 'openingHours', 'openingHoursSpecification']) assert.ok(!(k in pl) && !(k in pl.address), k);
   assert.deepEqual(byType(schema.domu, 'Organization')[0].areaServed, ['Praha 4', 'Zlín']);
@@ -68,10 +72,39 @@ test('Person: verbatim O mně description, knowsAbout, knows Vincent Chu (Gin So
   assert.deepEqual(page('kontakt').mainEntity, { '@id': '/#organization' });
 });
 
-test('no Course/CourseInstance, no VideoObject, every @id reference resolves inside its graph', () => {
+test('Person: portrait image (also the ProfilePage primaryImageOfPage), sameAs = his own YouTube channels only', () => {
+  const daniel = schema['o-mne'].find((n) => n['@id'] === '/#daniel');
+  assert.deepEqual(daniel.image, { '@id': '/#portrait' });
+  const img = schema['o-mne'].find((n) => n['@id'] === '/#portrait');
+  assert.deepEqual([img['@type'], img.url, img.width, img.height], ['ImageObject', '/wp-content/uploads/daniel-tkadlcik-portret.webp', 1200, 1600]);
+  assert.deepEqual(schema['o-mne'].find((n) => n['@id'] === '/o-mne/#webpage').primaryImageOfPage, { '@id': '/#portrait' });
+  assert.deepEqual(daniel.sameAs, ['https://www.youtube.com/@daniello2151974', 'https://www.youtube.com/@danieltkadlcik7684']);
+  assert.ok(!JSON.stringify(schema).includes('Biztraumer'));
+});
+
+test('VideoObjects on Cvičení only: caption as name, self-hosted thumbnail, fetched upload date, referenced by the page', () => {
+  const vids = byType(schema.cviceni, 'VideoObject');
+  assert.deepEqual(vids.map((v) => v.name), VIDEOS.map((v) => v.title));
+  for (const v of vids) {
+    const id = v['@id'].replace('/cviceni/#video-', '');
+    assert.equal(v.thumbnailUrl, `/wp-content/uploads/yt-${id}.webp`);
+    assert.equal(v.embedUrl, `https://www.youtube-nocookie.com/embed/${id}`);
+    assert.equal(v.url, `https://www.youtube.com/watch?v=${id}`);
+    assert.equal(v.uploadDate, content.videoUploadDates[id]);
+    assert.match(v.uploadDate, /^\d{4}-\d{2}-\d{2}T/);
+    assert.ok(v.description);
+  }
+  assert.deepEqual(schema.cviceni.find((n) => n['@id'] === '/cviceni/#webpage').video, vids.map((v) => ({ '@id': v['@id'] })));
+  for (const slug of Object.keys(schema)) if (slug !== 'cviceni') assert.equal(byType(schema[slug], 'VideoObject').length, 0, slug);
+  const { '1nFm6-XwGpU': _drop, ...dates } = content.videoUploadDates;
+  const without = buildSchema(pages, { content: { ...content, videoUploadDates: dates }, today: TODAY });
+  assert.ok(!byType(without.cviceni, 'VideoObject').some((v) => v['@id'].endsWith('1nFm6-XwGpU')), 'no date -> no VideoObject');
+});
+
+test('no Course/CourseInstance, every @id reference resolves inside its graph', () => {
   for (const [slug, graph] of Object.entries(schema)) {
     const types = graph.map((n) => n['@type']);
-    for (const t of ['Course', 'CourseInstance', 'VideoObject']) assert.ok(!types.includes(t), `${slug}: ${t}`);
+    for (const t of ['Course', 'CourseInstance']) assert.ok(!types.includes(t), `${slug}: ${t}`);
     const ids = new Set(graph.map((n) => n['@id']));
     const refs = JSON.stringify(graph).match(/\{"@id":"[^"]+"\}/g) || [];
     for (const r of refs) assert.ok(ids.has(JSON.parse(r)['@id']), `${slug}: dangling ${r}`);
@@ -91,6 +124,8 @@ test('llms.txt: {{home}} links to every page, AI-readable sections, no own host'
   assert.match(llms, /Gin Soon Tai Chi Chuan Federation \(\[www\.gstaichi\.org\]\(https:\/\/www\.gstaichi\.org\/\)\)/);
   assert.match(llms, /Strážné v Krkonoších, Strážné 2\. Penzion Exnar/);
   assert.match(llms, /1x měsíčně vždy v pátek/);
+  assert.match(llms, /Yang Cheng Fu/);
+  assert.doesNotMatch(llms, /Yang Chen Fu/);
   assert.match(llms, /\{\{home\}\}\/kurzy-a-lekce\/#zlin/);
   assert.deepEqual(taughtForms(pages).length, 10);
   for (const f of taughtForms(pages)) assert.ok(llms.includes(`- ${f}\n`), f);
@@ -108,8 +143,8 @@ test('Organization carries the legal data from the trade register; the venues st
     const org = byType(graph, 'Organization')[0];
     assert.equal(org.legalName, 'Mgr. Daniel Tkadlčík', slug);
     assert.deepEqual(org.identifier, { '@type': 'PropertyValue', propertyID: 'IČO', value: '75979390' }, slug);
-    assert.deepEqual(org.address, { '@type': 'PostalAddress', streetAddress: 'Pod vinohradem 68/18', postalCode: '147 00', addressLocality: 'Praha', addressRegion: 'Praha 4 – Braník', addressCountry: 'CZ' }, slug);
-    assert.ok(!('vatID' in org), slug);
+    assert.deepEqual(org.address, { '@type': 'PostalAddress', streetAddress: 'Pod vinohradem 68/18', postalCode: '147 00', addressLocality: 'Praha 4 – Braník', addressCountry: 'CZ' }, slug);
+    assert.ok(!('vatID' in org) && !('addressRegion' in org.address), slug);
     assert.equal(byType(graph, 'SportsActivityLocation').length, 2, slug);
   }
   assert.throws(() => legalData({ ...content, businessAddress: { ...content.businessAddress, postalCode: '140 00' } }), /does not match/);

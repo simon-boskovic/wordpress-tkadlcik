@@ -16,11 +16,11 @@ export const contact = {
 
 /**
  * The two places the lessons happen (`key` = the place's tab panel id on /kurzy-a-lekce/: #praha, #zlin;
- * `city` as the site prints it, `locality` = the postal town for the JSON-LD address). `map` is the address the click-to-load Google map and the "Otevřít
+ * `city` as the site prints it, `locality` = the JSON-LD addressLocality, `street` = its streetAddress). `map` is the address the click-to-load Google map and the "Otevřít
  * v Google Maps" link search for (fragments.mjs mapBox; also the JSON-LD hasMap).
  */
 export const places = [
-  { key: 'praha', name: 'Tělocvična ZŠ Jeremenkova', street: 'Jeremenkova 1003/66A', city: 'Praha 4', locality: 'Praha', line: 'Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A', map: 'Jeremenkova 1003/66A, Praha 4' },
+  { key: 'praha', name: 'Tělocvična ZŠ Jeremenkova', street: 'Jeremenkova 1003/66A', city: 'Praha 4', locality: 'Praha 4', line: 'Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A', map: 'Jeremenkova 1003/66A, Praha 4' },
   { key: 'zlin', name: 'Centrum Jiný svět', street: 'Osvoboditelů 484', city: 'Zlín', locality: 'Zlín', line: 'Centrum Jiný svět, Osvoboditelů 484, Zlín', map: 'Osvoboditelů 484, Zlín' },
 ];
 
@@ -53,8 +53,8 @@ export const business = {
   address: 'Pod vinohradem 68/18, 147 00 Praha 4 – Braník',
   register: 'Zapsán v živnostenském rejstříku, Úřad městské části Praha 4',
 };
-/** The sídlo split for the schema.org PostalAddress (same facts as business.address). */
-export const businessAddress = { streetAddress: 'Pod vinohradem 68/18', postalCode: '147 00', addressLocality: 'Praha', addressRegion: 'Praha 4 – Braník', addressCountry: 'CZ' };
+/** The sídlo split for the schema.org PostalAddress (same facts as business.address: street, PSČ, obec/část as printed). */
+export const businessAddress = { streetAddress: 'Pod vinohradem 68/18', postalCode: '147 00', addressLocality: 'Praha 4 – Braník', addressCountry: 'CZ' };
 
 /** The privacy page (builders/zasady.mjs): path, link label (footer) and the date the text takes effect. */
 export const privacy = { href: '/zasady-ochrany-osobnich-udaju/', label: 'Zásady ochrany osobních údajů', effectiveDate: '[doplnit: datum spuštění webu]' };
@@ -65,4 +65,26 @@ export const footer = {
   // (not in the design: every page must reach it, it is not in the header nav).
   links: [...nav.filter((l) => !l.cta), { href: privacy.href, label: privacy.label }],
   copyright: '© Mgr. Daniel Tkadlčík',
+};
+
+/**
+ * The instructor's own YouTube channels (JSON-LD Person sameAs). Source: YouTube oEmbed
+ * (https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=<id>&format=json, fetched 31. 10. 2026):
+ *   1nFm6-XwGpU, oZB6Gq4QzC4 -> author_name "Daniel Tkadlčík", author_url https://www.youtube.com/@daniello2151974
+ *   1Mmz_QpYk9s, 1UPJuzGC1UY -> author_name "Daniel Tkadlcik", author_url https://www.youtube.com/@danieltkadlcik7684
+ * (NeVzb5hGM7A belongs to the third-party channel @Biztraumer: not his.)
+ */
+export const personSameAs = ['https://www.youtube.com/@daniello2151974', 'https://www.youtube.com/@danieltkadlcik7684'];
+
+/**
+ * Upload dates of the Cvičení videos (JSON-LD VideoObject uploadDate), keyed by YouTube id. Source: each watch page
+ * https://www.youtube.com/watch?v=<id>, <meta itemprop="uploadDate" content="…"> (= "uploadDate" in its page JSON),
+ * fetched 31. 10. 2026. A video without a date here gets no VideoObject (uploadDate is required).
+ */
+export const videoUploadDates = {
+  '1nFm6-XwGpU': '2020-07-10T04:27:49-07:00',
+  'NeVzb5hGM7A': '2007-07-27T09:25:16-07:00',
+  'oZB6Gq4QzC4': '2019-08-02T02:39:59-07:00',
+  '1Mmz_QpYk9s': '2024-03-13T00:31:56-07:00',
+  '1UPJuzGC1UY': '2024-03-13T01:18:28-07:00',
 };

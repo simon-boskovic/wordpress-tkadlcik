@@ -34,8 +34,7 @@
         "@type": "PostalAddress",
         "streetAddress": "Pod vinohradem 68/18",
         "postalCode": "147 00",
-        "addressLocality": "Praha",
-        "addressRegion": "Praha 4 – Braník",
+        "addressLocality": "Praha 4 – Braník",
         "addressCountry": "CZ"
       }
     },
@@ -43,14 +42,14 @@
       "@type": "SportsActivityLocation",
       "@id": "/#praha",
       "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
       "url": "/kurzy-a-lekce/#praha",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Jeremenkova 1003/66A, Praha 4",
-        "addressLocality": "Praha",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "addressLocality": "Praha 4",
         "addressCountry": "CZ"
       },
       "priceRange": "350–3 250 Kč",
@@ -64,7 +63,7 @@
       "@type": "SportsActivityLocation",
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
       "url": "/kurzy-a-lekce/#zlin",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
@@ -97,6 +96,13 @@
       "knows": {
         "@id": "/#vincent-chu"
       },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
       "knowsAbout": [
         "Tchaj-ťi",
         "Tai chi",
@@ -107,6 +113,15 @@
         "13 slov tchaj-ťi",
         "Meditace"
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
     },
     {
       "@type": "Person",
@@ -214,8 +229,7 @@
         "@type": "PostalAddress",
         "streetAddress": "Pod vinohradem 68/18",
         "postalCode": "147 00",
-        "addressLocality": "Praha",
-        "addressRegion": "Praha 4 – Braník",
+        "addressLocality": "Praha 4 – Braník",
         "addressCountry": "CZ"
       }
     },
@@ -223,14 +237,14 @@
       "@type": "SportsActivityLocation",
       "@id": "/#praha",
       "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
       "url": "/kurzy-a-lekce/#praha",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Jeremenkova 1003/66A, Praha 4",
-        "addressLocality": "Praha",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "addressLocality": "Praha 4",
         "addressCountry": "CZ"
       },
       "priceRange": "350–3 250 Kč",
@@ -244,7 +258,7 @@
       "@type": "SportsActivityLocation",
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
       "url": "/kurzy-a-lekce/#zlin",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
@@ -277,6 +291,13 @@
       "knows": {
         "@id": "/#vincent-chu"
       },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
       "knowsAbout": [
         "Tchaj-ťi",
         "Tai chi",
@@ -287,6 +308,15 @@
         "13 slov tchaj-ťi",
         "Meditace"
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
     },
     {
       "@type": "Person",
@@ -320,7 +350,7 @@
       "@id": "/clanky/#webpage",
       "url": "/clanky/",
       "name": "Články o tchaj-ťi a čchi-kungu | Radost v pohybu",
-      "description": "Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Chen Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.",
+      "description": "Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Cheng Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.",
       "inLanguage": "cs-CZ",
       "isPartOf": {
         "@id": "/#website"
@@ -389,8 +419,7 @@
         "@type": "PostalAddress",
         "streetAddress": "Pod vinohradem 68/18",
         "postalCode": "147 00",
-        "addressLocality": "Praha",
-        "addressRegion": "Praha 4 – Braník",
+        "addressLocality": "Praha 4 – Braník",
         "addressCountry": "CZ"
       }
     },
@@ -398,14 +427,14 @@
       "@type": "SportsActivityLocation",
       "@id": "/#praha",
       "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
       "url": "/kurzy-a-lekce/#praha",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Jeremenkova 1003/66A, Praha 4",
-        "addressLocality": "Praha",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "addressLocality": "Praha 4",
         "addressCountry": "CZ"
       },
       "priceRange": "350–3 250 Kč",
@@ -419,7 +448,7 @@
       "@type": "SportsActivityLocation",
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
       "url": "/kurzy-a-lekce/#zlin",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
@@ -452,6 +481,13 @@
       "knows": {
         "@id": "/#vincent-chu"
       },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
       "knowsAbout": [
         "Tchaj-ťi",
         "Tai chi",
@@ -462,6 +498,15 @@
         "13 slov tchaj-ťi",
         "Meditace"
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
     },
     {
       "@type": "Person",
@@ -508,7 +553,24 @@
       },
       "breadcrumb": {
         "@id": "/cviceni/#breadcrumb"
-      }
+      },
+      "video": [
+        {
+          "@id": "/cviceni/#video-1nFm6-XwGpU"
+        },
+        {
+          "@id": "/cviceni/#video-NeVzb5hGM7A"
+        },
+        {
+          "@id": "/cviceni/#video-oZB6Gq4QzC4"
+        },
+        {
+          "@id": "/cviceni/#video-1Mmz_QpYk9s"
+        },
+        {
+          "@id": "/cviceni/#video-1UPJuzGC1UY"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -527,6 +589,56 @@
           "item": "/cviceni/"
         }
       ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/cviceni/#video-1nFm6-XwGpU",
+      "name": "Začátečnická sestava 12 forem Yang tchaj-ťi",
+      "description": "Začátečnická sestava 12 forem Yang tchaj-ťi",
+      "thumbnailUrl": "/wp-content/uploads/yt-1nFm6-XwGpU.webp",
+      "uploadDate": "2020-07-10T04:27:49-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/1nFm6-XwGpU",
+      "url": "https://www.youtube.com/watch?v=1nFm6-XwGpU"
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/cviceni/#video-NeVzb5hGM7A",
+      "name": "Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu",
+      "description": "Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu",
+      "thumbnailUrl": "/wp-content/uploads/yt-NeVzb5hGM7A.webp",
+      "uploadDate": "2007-07-27T09:25:16-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/NeVzb5hGM7A",
+      "url": "https://www.youtube.com/watch?v=NeVzb5hGM7A"
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/cviceni/#video-oZB6Gq4QzC4",
+      "name": "Ukázka sestavy s holí",
+      "description": "Ukázka sestavy s holí",
+      "thumbnailUrl": "/wp-content/uploads/yt-oZB6Gq4QzC4.webp",
+      "uploadDate": "2019-08-02T02:39:59-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/oZB6Gq4QzC4",
+      "url": "https://www.youtube.com/watch?v=oZB6Gq4QzC4"
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/cviceni/#video-1Mmz_QpYk9s",
+      "name": "Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje",
+      "description": "Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje.",
+      "thumbnailUrl": "/wp-content/uploads/yt-1Mmz_QpYk9s.webp",
+      "uploadDate": "2024-03-13T00:31:56-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/1Mmz_QpYk9s",
+      "url": "https://www.youtube.com/watch?v=1Mmz_QpYk9s"
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/cviceni/#video-1UPJuzGC1UY",
+      "name": "13 slov tchaj-ťi",
+      "description": "13 slov tchaj-ťi",
+      "thumbnailUrl": "/wp-content/uploads/yt-1UPJuzGC1UY.webp",
+      "uploadDate": "2024-03-13T01:18:28-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/1UPJuzGC1UY",
+      "url": "https://www.youtube.com/watch?v=1UPJuzGC1UY"
     }
   ],
   "domu": [
@@ -564,8 +676,7 @@
         "@type": "PostalAddress",
         "streetAddress": "Pod vinohradem 68/18",
         "postalCode": "147 00",
-        "addressLocality": "Praha",
-        "addressRegion": "Praha 4 – Braník",
+        "addressLocality": "Praha 4 – Braník",
         "addressCountry": "CZ"
       }
     },
@@ -573,14 +684,14 @@
       "@type": "SportsActivityLocation",
       "@id": "/#praha",
       "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
       "url": "/kurzy-a-lekce/#praha",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Jeremenkova 1003/66A, Praha 4",
-        "addressLocality": "Praha",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "addressLocality": "Praha 4",
         "addressCountry": "CZ"
       },
       "priceRange": "350–3 250 Kč",
@@ -594,7 +705,7 @@
       "@type": "SportsActivityLocation",
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
       "url": "/kurzy-a-lekce/#zlin",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
@@ -627,6 +738,13 @@
       "knows": {
         "@id": "/#vincent-chu"
       },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
       "knowsAbout": [
         "Tchaj-ťi",
         "Tai chi",
@@ -637,6 +755,15 @@
         "13 slov tchaj-ťi",
         "Meditace"
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
     },
     {
       "@type": "Person",
@@ -718,8 +845,7 @@
         "@type": "PostalAddress",
         "streetAddress": "Pod vinohradem 68/18",
         "postalCode": "147 00",
-        "addressLocality": "Praha",
-        "addressRegion": "Praha 4 – Braník",
+        "addressLocality": "Praha 4 – Braník",
         "addressCountry": "CZ"
       }
     },
@@ -727,14 +853,14 @@
       "@type": "SportsActivityLocation",
       "@id": "/#praha",
       "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
       "url": "/kurzy-a-lekce/#praha",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Jeremenkova 1003/66A, Praha 4",
-        "addressLocality": "Praha",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "addressLocality": "Praha 4",
         "addressCountry": "CZ"
       },
       "priceRange": "350–3 250 Kč",
@@ -748,7 +874,7 @@
       "@type": "SportsActivityLocation",
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
       "url": "/kurzy-a-lekce/#zlin",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
@@ -781,6 +907,13 @@
       "knows": {
         "@id": "/#vincent-chu"
       },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
       "knowsAbout": [
         "Tchaj-ťi",
         "Tai chi",
@@ -791,6 +924,15 @@
         "13 slov tchaj-ťi",
         "Meditace"
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
     },
     {
       "@type": "Person",
@@ -896,8 +1038,7 @@
         "@type": "PostalAddress",
         "streetAddress": "Pod vinohradem 68/18",
         "postalCode": "147 00",
-        "addressLocality": "Praha",
-        "addressRegion": "Praha 4 – Braník",
+        "addressLocality": "Praha 4 – Braník",
         "addressCountry": "CZ"
       }
     },
@@ -905,14 +1046,14 @@
       "@type": "SportsActivityLocation",
       "@id": "/#praha",
       "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
       "url": "/kurzy-a-lekce/#praha",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Jeremenkova 1003/66A, Praha 4",
-        "addressLocality": "Praha",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "addressLocality": "Praha 4",
         "addressCountry": "CZ"
       },
       "priceRange": "350–3 250 Kč",
@@ -926,7 +1067,7 @@
       "@type": "SportsActivityLocation",
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
       "url": "/kurzy-a-lekce/#zlin",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
@@ -959,6 +1100,13 @@
       "knows": {
         "@id": "/#vincent-chu"
       },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
       "knowsAbout": [
         "Tchaj-ťi",
         "Tai chi",
@@ -969,6 +1117,15 @@
         "13 slov tchaj-ťi",
         "Meditace"
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
     },
     {
       "@type": "Person",
@@ -1071,8 +1228,7 @@
         "@type": "PostalAddress",
         "streetAddress": "Pod vinohradem 68/18",
         "postalCode": "147 00",
-        "addressLocality": "Praha",
-        "addressRegion": "Praha 4 – Braník",
+        "addressLocality": "Praha 4 – Braník",
         "addressCountry": "CZ"
       }
     },
@@ -1080,14 +1236,14 @@
       "@type": "SportsActivityLocation",
       "@id": "/#praha",
       "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
       "url": "/kurzy-a-lekce/#praha",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Jeremenkova 1003/66A, Praha 4",
-        "addressLocality": "Praha",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "addressLocality": "Praha 4",
         "addressCountry": "CZ"
       },
       "priceRange": "350–3 250 Kč",
@@ -1101,7 +1257,7 @@
       "@type": "SportsActivityLocation",
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
       "url": "/kurzy-a-lekce/#zlin",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
@@ -1134,6 +1290,13 @@
       "knows": {
         "@id": "/#vincent-chu"
       },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
       "knowsAbout": [
         "Tchaj-ťi",
         "Tai chi",
@@ -1144,6 +1307,15 @@
         "13 slov tchaj-ťi",
         "Meditace"
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
     },
     {
       "@type": "Person",
@@ -1193,6 +1365,9 @@
       },
       "mainEntity": {
         "@id": "/#daniel"
+      },
+      "primaryImageOfPage": {
+        "@id": "/#portrait"
       },
       "mentions": [
         {
@@ -1254,8 +1429,7 @@
         "@type": "PostalAddress",
         "streetAddress": "Pod vinohradem 68/18",
         "postalCode": "147 00",
-        "addressLocality": "Praha",
-        "addressRegion": "Praha 4 – Braník",
+        "addressLocality": "Praha 4 – Braník",
         "addressCountry": "CZ"
       }
     },
@@ -1263,14 +1437,14 @@
       "@type": "SportsActivityLocation",
       "@id": "/#praha",
       "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
       "url": "/kurzy-a-lekce/#praha",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Jeremenkova 1003/66A, Praha 4",
-        "addressLocality": "Praha",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "addressLocality": "Praha 4",
         "addressCountry": "CZ"
       },
       "priceRange": "350–3 250 Kč",
@@ -1284,7 +1458,7 @@
       "@type": "SportsActivityLocation",
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
-      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
       "url": "/kurzy-a-lekce/#zlin",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
@@ -1317,6 +1491,13 @@
       "knows": {
         "@id": "/#vincent-chu"
       },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
       "knowsAbout": [
         "Tchaj-ťi",
         "Tai chi",
@@ -1327,6 +1508,15 @@
         "13 slov tchaj-ťi",
         "Meditace"
       ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
     },
     {
       "@type": "Person",

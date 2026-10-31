@@ -14,7 +14,7 @@ Aktualizováno: 2026-10-31
 - [Nabídka kurzů a lekcí]({{home}}/kurzy-a-lekce/): Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong): lekce 90 a 120 minut v tělocvičně ZŠ Jeremenkova v Praze 4 a jednou měsíčně ve Zlíně.
 - [Akce]({{home}}/akce/): Semináře tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze a cvičení tchaj-ťi a čchi-kungu (qigong) na horách v Krkonoších – Strážné, Penzion Exnar.
 - [O mně]({{home}}/o-mne/): Mgr. Daniel Tkadlčík se věnuje tchaj-ťi (tai chi) od roku 1997, od roku 2007 rodinnému stylu Yang u mistra Vincenta Chu. Učí i čchi-kung (qigong).
-- [Články]({{home}}/clanky/): Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Chen Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.
+- [Články]({{home}}/clanky/): Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Cheng Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.
 - [Kontakt]({{home}}/kontakt/): Kontakt na lektora tchaj-ťi (tai chi) a čchi-kungu (qigong) Mgr. Daniela Tkadlčíka. Cvičíme v ZŠ Jeremenkova v Praze 4 a v Centru Jiný svět ve Zlíně.
 
 ## Linie a škola

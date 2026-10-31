@@ -1026,7 +1026,7 @@ class TK_Build_Command {
 	/**
 	 * Write per-page The SEO Framework title, description, robots, canonical and OG image from build/seo.json.
 	 *
-	 * seo.json: { "<slug>": { title, description, robots?: [index|noindex, follow|nofollow], og?: "<upload file name>",
+	 * seo.json: { "<slug>": { title, description, robots?: [index|noindex, follow|nofollow], og?: "<upload file name>", og_alt?: "<its alt text>",
 	 * canonical?: "<absolute URL>" }, … }. TSF's own JSON-LD is switched off (structured data is the theme's
 	 * job), the sitemap is on, the site name goes after the page title ("… | Radost v pohybu"). Every
 	 * title in seo.json is the complete one, so each page also gets `_tsf_title_no_blogname`. The entry for
@@ -1107,6 +1107,10 @@ class TK_Build_Command {
 			if ( $og_url ) {
 				$meta['_social_image_url'] = $og_url;
 				$meta['_social_image_id']  = $og_id;
+				// og:image:alt = the attachment's alt text (files imported with --files-dir have none).
+				if ( ! empty( $entry['og_alt'] ) && (string) $entry['og_alt'] !== (string) get_post_meta( $og_id, '_wp_attachment_image_alt', true ) ) {
+					update_post_meta( $og_id, '_wp_attachment_image_alt', sanitize_text_field( (string) $entry['og_alt'] ) );
+				}
 			}
 
 			foreach ( $meta as $key => $value ) {

@@ -12,6 +12,9 @@
  *            the indexable pages (7 of the 8; not the privacy page), robots.txt, llms.txt (every indexable page,
  *            never a noindex one), search noindex, no user enumeration.
  *   --cache  the static page cache checks (build/lib/cache-check.mjs, owned by the cache port).
+ *   --golive go-live blockers (docs/go-live-requirements.md #25), FAIL until the client delivers: every tel: link
+ *            is a Czech number (+420 and 9 digits) and no page (the noindex one included) shows a "[Foto]" or
+ *            "[doplnit" placeholder. Off by default (those items are known open, the default run stays green).
  */
 import { readdirSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -26,6 +29,7 @@ const BASE = arg('base', 'http://localhost:8020').replace(/\/$/, '');
 const ONLY = arg('only', '').split(',').filter(Boolean);
 const SEO = process.argv.includes('--seo');
 const CACHE = process.argv.includes('--cache');
+const GOLIVE = process.argv.includes('--golive');
 
 const defs = readdirSync(join(HERE, 'pages')).filter((f) => f.endsWith('.json')).map((f) => JSON.parse(readFileSync(join(HERE, 'pages', f), 'utf8')));
 const pages = defs.filter((d) => !ONLY.length || ONLY.includes(d.slug));
@@ -131,7 +135,7 @@ if (SEO) {
     if (!types.includes('WebPage') && !types.some((t) => /Page$/.test(t))) failPage(d.slug, `JSON-LD has no WebPage node (types: ${types.join(', ')})`);
     const org = nodes.find((n) => n['@type'] === 'Organization');
     if (!org || org.identifier?.propertyID !== 'IČO' || !org.identifier?.value || org.address?.['@type'] !== 'PostalAddress') failPage(d.slug, 'JSON-LD Organization lacks the IČO identifier / PostalAddress (legal data)');
-    const strings = JSON.stringify(nodes).match(/"(?:@id|url|item|image|logo)":"[^"]+"/g) || [];
+    const strings = JSON.stringify(nodes).match(/"(?:@id|url|item|image|logo|contentUrl|thumbnailUrl)":"[^"]+"/g) || [];
     for (const kv of strings) {
       const v = kv.split('":"')[1].slice(0, -1);
       if (v.startsWith('/')) failPage(d.slug, `relative URL left in JSON-LD: ${v}`);
@@ -169,6 +173,27 @@ if (SEO) {
     if (users.status !== 404) failSite('/wp-json/wp/v2/users', `expected 404, got ${users.status}`);
     const author = await fetch(`${BASE}/?author=1`, { redirect: 'manual' });
     if (/\/author\//.test(author.headers.get('location') || '') || author.status === 200) failSite('/?author=1', `reveals the author (${author.status} ${author.headers.get('location') || ''})`);
+  });
+}
+
+if (GOLIVE) {
+  /** Visible text of a page's HTML (scripts, styles, templates and tags removed, entities decoded). */
+  const visibleText = (html) => (html.match(/<body[\s\S]*<\/body>/i)?.[0] || html)
+    .replace(/<(script|style|template|noscript)\b[\s\S]*?<\/\1>/gi, ' ').replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/g, ' ').replace(/&#0?91;/g, '[').replace(/&#0?93;/g, ']').replace(/&amp;/g, '&').replace(/\s+/g, ' ');
+  siteChecks.push(async (failSite) => {
+    const phones = new Set();
+    for (const d of defs) {
+      const html = await (await fetch(BASE + pathOf(d))).text();
+      for (const [, tel] of html.matchAll(/href="tel:([^"]*)"/g)) phones.add(tel);
+      const text = visibleText(html);
+      for (const ph of ['[Foto]', '[doplnit']) {
+        const hits = text.split(ph).length - 1;
+        if (hits) failSite(`golive ${pathOf(d)}`, `${hits}× placeholder "${ph}" on the page: ${text.slice(Math.max(0, text.indexOf(ph) - 40), text.indexOf(ph) + 60).trim()}`);
+      }
+    }
+    for (const tel of phones) if (!/^\+420\d{9}$/.test(tel)) failSite('golive phone', `tel:${tel} is not +420 + 9 digits (confirm the number with the client: build/content.mjs contact)`);
+    if (!phones.size) failSite('golive phone', 'no tel: link on any page');
   });
 }
 
@@ -261,4 +286,4 @@ if (failures.length) {
   console.error(`\n${failures.length} failure(s):\n- ${failures.join('\n- ')}`);
   process.exit(1);
 }
-console.log(`\nAll checks passed (${pages.length} pages${SEO ? ', SEO' : ''}${CACHE ? ', page cache' : ''}).`);
+console.log(`\nAll checks passed (${pages.length} pages${SEO ? ', SEO' : ''}${CACHE ? ', page cache' : ''}${GOLIVE ? ', go-live blockers' : ''}).`);
