@@ -320,3 +320,30 @@ function tk_sitemap_stylesheet_send_headers() {
 	header( 'Expires: ' . gmdate( 'D, d M Y H:i:s', time() + 3600 ) . ' GMT' );
 	header( 'X-Robots-Tag: noindex, nofollow' );
 }
+
+/**
+ * Search results (/?s=…) are noindex in the response header too, not only in TSF's robots meta: a crawler that
+ * fetches a search URL some site linked sees it without parsing the HTML (robots.txt also disallows /?s=).
+ */
+function tk_search_noindex_header() {
+	if ( is_search() && ! headers_sent() ) {
+		header( 'X-Robots-Tag: noindex' );
+	}
+}
+add_action( 'template_redirect', 'tk_search_noindex_header', 0 );
+
+/**
+ * No feeds. The site publishes pages only (no posts) and comments are closed, so /feed/, /comments/feed/,
+ * ?feed=rss2 and every /<page>/feed/ answered 200 with an empty RSS document. They are a real 404 now
+ * (martinadamus has no ruling; a 301 to the home page would be a soft 404): the request's query becomes
+ * error=404, so WordPress itself sends the 404 status with no-store headers (WP::send_headers()) and renders the
+ * theme's 404.php; the page cache never stores a 404 (BYPASS (404)). Feed links are already out of <head>
+ * (inc/cleanup.php). Sitemaps and robots.txt are no feeds and are unaffected.
+ *
+ * @param array $query_vars Parsed query vars.
+ * @return array
+ */
+function tk_no_feeds( $query_vars ) {
+	return isset( $query_vars['feed'] ) ? array( 'error' => '404' ) : $query_vars;
+}
+add_filter( 'request', 'tk_no_feeds' );

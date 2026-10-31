@@ -88,6 +88,19 @@ $ok( preg_replace( '~\s+~', '', $naive ) === preg_replace( '~\s+~', '', $site ),
 $spec = (string) file_get_contents( $theme . '/inc/speculation.php' ); // phpcs:ignore
 $ok( false === strpos( $spec, 'tk_strip_' ), 'inc/speculation.php does not call a stripper' );
 
+// 1e. CSS subsets (build/css-subset.mjs → assets/css/subsets/manifest.json): every subset is current, i.e. its
+// source still has the recorded sha1 (else the full source is served and the subset is dead weight).
+$subsets = tk_css_subsets();
+$ok( count( $subsets ) >= 1, 'subset manifest read (' . count( $subsets ) . ' entries)' );
+foreach ( $subsets as $key => $entry ) {
+	if ( 0 === strpos( $key, 'inline:' ) ) {
+		continue; // Checked on the rendered page below.
+	}
+	$src = WP_CONTENT_DIR . '/' . $key;
+	$ok( is_readable( $src ) && hash_equals( (string) $entry['sha1'], (string) sha1_file( $src ) ), "subset of $key is current (else: node build/css-subset.mjs)" );
+	$ok( '' !== tk_css_subset_path( $key, (string) $entry['sha1'] ) && '' === tk_css_subset_path( $key, str_repeat( '0', 40 ) ), "$key: subset used only while the sha1 matches" );
+}
+
 // 2. Rendered pages.
 $home  = wp_parse_url( home_url( '/' ) );
 $host  = $home['host'] . ( isset( $home['port'] ) ? ':' . $home['port'] : '' );
@@ -125,6 +138,8 @@ foreach ( $pages as $path ) {
 		$ok( 1 === preg_match( "~<script id='tk-nav-js'>[^<]{20,}</script>~", $html ) && 0 === $srcs( $html ), "$who: theme scripts inline, none with src" );
 		$ok( false === strpos( $html, '.dc.html' ), "$who: no prototype references left (comments stripped)" );
 		$ok( 1 === preg_match( '~<script id="tk-speculation">[^<]*"href_matches"~', $html ), "$who: speculation rules present, JSON untouched" );
+		$ok( 1 === preg_match( "~<style id='elementor-frontend-css'>@layer tk\{([^<]+)</style>~", $html, $ef ) && strlen( $ef[1] ) < 20000 && false !== strpos( $ef[1], '.e-con{' ) && false === strpos( $ef[1], 'elementor-lightbox' ), "$who: Elementor frontend CSS is the subset (" . strlen( $ef[1] ?? '' ) . ' B, has .e-con, no lightbox)' );
+		$ok( false === strpos( $html, 'e-paragraph-base' ), "$who: Elementor's atomic-widget inline CSS dropped (subset empty)" );
 	}
 }
 
@@ -150,6 +165,7 @@ if ( ! $admins ) {
 		// The preview loads no behaviour scripts at all (tk_enqueue_assets() returns early in the editor).
 		$ok( 0 === preg_match( "~<script id='tk-[a-z-]+-js'>[^<]~", $html ) && ( 0 === strpos( $who, 'Elementor' ) || $srcs( $html ) >= 1 ), "$who: no theme script inline" . ( 0 === strpos( $who, 'Elementor' ) ? '' : ', all as <script src>' ) );
 		$ok( false === strpos( $html, '<script id="tk-speculation">' ), "$who: no speculation rules (logged-in/editor)" );
+		$ok( 0 === preg_match( "~<style id='elementor-frontend-css'>(?!@import)~", $html ), "$who: Elementor frontend CSS not inlined (the full file, no subset)" );
 	}
 	list( , $html ) = $fetch( $pages[1], $auth );
 	$ok( false !== strpos( $html, 'id="wpadminbar"' ), 'logged-in: admin bar shows (what turns the inlining off)' );

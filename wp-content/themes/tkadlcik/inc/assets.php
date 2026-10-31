@@ -267,6 +267,96 @@ function tk_resolve_url( $rel, $base ) {
 	return $p['scheme'] . '://' . $p['host'] . ( isset( $p['port'] ) ? ':' . $p['port'] : '' ) . implode( '/', $out );
 }
 
+/*
+ * ---- Curated subsets of third-party CSS ----------------------------------------------------------
+ *
+ * Elementor's frontend.min.css (~55 kB: sections/columns, every widget, lightbox, editor states) and its
+ * atomic-widget inline CSS were printed whole on every page, though the pages only use containers + HTML
+ * widgets. build/css-subset.mjs writes assets/css/subsets/<id>.css (the source's rules that can match some
+ * element of some built page, JS-added states counted as present; exact source text, never rewritten) and
+ * manifest.json with each source's sha1. A subset replaces its source only while that sha1 still matches, so a
+ * plugin update falls back to the full CSS until the script is re-run (`node build/css-subset.mjs --check`
+ * reports stale subsets; inline-assets-test.php fails on one). Front end only (tk_perf_enabled()): the editor
+ * and logged-in views get the full files.
+ */
+
+/**
+ * The subset manifest: key (path under wp-content/, or "inline:<handle>") => entry. Empty for a request with the
+ * cookie tk_nocache=full-css (how build/css-subset.mjs reads the full sources off the page; any tk_nocache cookie
+ * already makes the page cache bypass, so such a render is never stored).
+ *
+ * @return array<string, array{sha1: string, subset: string}>
+ */
+function tk_css_subsets() {
+	static $sources = null;
+	if ( isset( $_COOKIE['tk_nocache'] ) && 'full-css' === $_COOKIE['tk_nocache'] ) {
+		return array();
+	}
+	if ( null === $sources ) {
+		$file    = TK_THEME_DIR . '/assets/css/subsets/manifest.json';
+		$data    = is_readable( $file ) ? json_decode( (string) file_get_contents( $file ), true ) : null; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- local theme file.
+		$sources = is_array( $data['sources'] ?? null ) ? $data['sources'] : array();
+	}
+	return $sources;
+}
+
+/**
+ * The subset file for a source, or '' when there is none or the source no longer has the recorded sha1.
+ *
+ * @param string $key  Manifest key.
+ * @param string $sha1 The source's current sha1.
+ * @return string Absolute path of the subset.
+ */
+function tk_css_subset_path( $key, $sha1 ) {
+	$entry = tk_css_subsets()[ $key ] ?? null;
+	if ( ! is_array( $entry ) || ! hash_equals( (string) ( $entry['sha1'] ?? '' ), $sha1 ) || ! preg_match( '~^[a-z0-9-]+\.css$~', (string) ( $entry['subset'] ?? '' ) ) ) {
+		return '';
+	}
+	$path = TK_THEME_DIR . '/assets/css/subsets/' . $entry['subset'];
+	return is_readable( $path ) ? $path : '';
+}
+
+/**
+ * A local stylesheet file to read for inlining: its subset when one matches, else the file itself.
+ *
+ * @param string $path Absolute path of the stylesheet.
+ * @return string
+ */
+function tk_css_subset_file( $path ) {
+	$content = realpath( WP_CONTENT_DIR );
+	if ( ! $content || 0 !== strpos( $path, $content . '/' ) || ! tk_perf_enabled() ) {
+		return $path;
+	}
+	$subset = tk_css_subset_path( substr( $path, strlen( $content ) + 1 ), (string) sha1_file( $path ) );
+	return '' !== $subset ? $subset : $path;
+}
+
+/**
+ * Replace a handle's inline `after` CSS by its subset ("inline:<handle>" in the manifest) when the text still has
+ * the recorded sha1; an empty subset removes it. Runs before tk_layer_inline_styles() wraps it.
+ */
+function tk_subset_inline_styles() {
+	if ( ! tk_perf_enabled() ) {
+		return;
+	}
+	$styles = wp_styles();
+	foreach ( array_keys( tk_css_subsets() ) as $key ) {
+		$handle = 0 === strpos( $key, 'inline:' ) ? substr( $key, 7 ) : '';
+		$after  = '' !== $handle ? $styles->get_data( $handle, 'after' ) : null;
+		if ( empty( $after ) || ! is_array( $after ) || in_array( TK_LAYER_OPEN, $after, true ) ) {
+			continue;
+		}
+		$subset = tk_css_subset_path( $key, sha1( implode( "\n", $after ) ) );
+		if ( '' === $subset ) {
+			continue;
+		}
+		$css = trim( (string) file_get_contents( $subset ) ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- local theme file.
+		$styles->add_data( $handle, 'after', '' === $css ? array() : array( $css ) );
+	}
+}
+add_action( 'wp_print_styles', 'tk_subset_inline_styles', PHP_INT_MAX - 1 );
+add_action( 'wp_print_footer_scripts', 'tk_subset_inline_styles', 0 );
+
 /** Stylesheets larger than this stay external (inlining is for the small render-blocking ones). */
 const TK_INLINE_CSS_MAX_BYTES = 65536;
 
@@ -439,6 +529,7 @@ function tk_strip_js_line_comments( $js ) {
  */
 function tk_inlinable_css( $href ) {
 	$path = tk_local_asset_path( $href );
+	$path = $path ? tk_css_subset_file( $path ) : '';
 	if ( ! $path || '.css' !== substr( $path, -4 ) || filesize( $path ) > TK_INLINE_CSS_MAX_BYTES ) {
 		return '';
 	}

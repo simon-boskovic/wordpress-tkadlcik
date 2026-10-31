@@ -29,6 +29,37 @@ function tk_image_sizes() {
 add_action( 'after_setup_theme', 'tk_image_sizes' );
 
 /**
+ * `sizes` for the photos whose slot is known, by upload file name (the markup carries none: build/fragments.mjs
+ * photo()). The default "(max-width: 767px) 100vw, 50vw" over-asks on phones (the slot is the content width,
+ * i.e. the viewport minus .wrap's padding clamp(20px, 4vw, 40px)) and on desktops (the slots are fixed columns),
+ * e.g. a 2× phone at 390 px asked for 780 px and fetched the portrait's 1152 px file where the 350 px slot needs
+ * the 768 one, and a 1440 px desktop the 768 px file for a 544 px slot (640 does). Derived from site.css (.wrap max 1240 px incl.
+ * padding, .grid = auto-fit minmax(var(--min), 1fr)) and the page's own --min/gap; checked against the rendered
+ * widths at 360–1920 px (build/test/responsive-sizes.int.mjs). A wrong entry only costs bytes, never layout.
+ * Lazy photos get "auto, " in front (browsers that support it use the real layout width).
+ */
+const TK_IMAGE_SIZES = array(
+	// O mně: portrait in .grid --min:440px, column gap 72px → two columns from a 952 px content box (1032 px viewport).
+	'daniel-tkadlcik-portret.webp' => '(min-width: 1240px) 544px, (min-width: 1032px) calc(50vw - 76px), (min-width: 1000px) calc(100vw - 80px), (min-width: 501px) 92vw, calc(100vw - 40px)',
+	// Domů: the meadow card of the .bento grid (--min:320px, gap 16px): one column, two from a 656 px content box
+	// (714 px viewport), three from 992 px (1072 px viewport).
+	'louka-strom.webp'             => '(min-width: 1240px) 376px, (min-width: 1072px) calc(33.34vw - 37px), (min-width: 1000px) calc(50vw - 48px), (min-width: 714px) calc(46vw - 8px), (min-width: 501px) 92vw, calc(100vw - 40px)',
+);
+
+/**
+ * The sizes attribute value for an upload without one in the markup.
+ *
+ * @param string $src  Image src as written (…/wp-content/uploads/<file>).
+ * @param bool   $lazy Whether the image is loading="lazy".
+ * @return string
+ */
+function tk_image_sizes_attr( $src, $lazy ) {
+	$file  = wp_basename( (string) strtok( $src, '?#' ) );
+	$sizes = TK_IMAGE_SIZES[ $file ] ?? '(max-width: 767px) 100vw, 50vw';
+	return ( $lazy ? 'auto, ' : '' ) . $sizes;
+}
+
+/**
  * Map of upload-relative paths (as stored in _wp_attached_file) to attachment IDs.
  *
  * @return array<string,int>
@@ -147,7 +178,7 @@ function tk_responsive_img_tag( $tag ) {
 			if ( false === strpos( $tag, ' sizes=' ) ) {
 				// "auto" (the image's real layout width) only for lazy images: on an eager one Chrome reads it
 				// as 100vw and fetched a 1536px file for a half-width hero (martinadamus R57). Heroes carry their own sizes.
-				$add .= ' sizes="' . ( preg_match( '/\sloading="lazy"/', $tag ) ? 'auto, ' : '' ) . '(max-width: 767px) 100vw, 50vw"';
+				$add .= ' sizes="' . esc_attr( tk_image_sizes_attr( $m[1], 1 === preg_match( '/\sloading="lazy"/', $tag ) ) ) . '"';
 			}
 		}
 	}

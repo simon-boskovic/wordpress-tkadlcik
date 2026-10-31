@@ -1,0 +1,20 @@
+{
+  "generator": "build/css-subset.mjs",
+  "note": "Generated; do not edit. The theme uses a subset only while the source sha1 matches.",
+  "sources": {
+    "plugins/elementor/assets/css/frontend.min.css": {
+      "sha1": "33697641c940c68153509fa7c9d7d0c3c760ce2d",
+      "subset": "elementor-frontend.css",
+      "bytes": 54666,
+      "subsetBytes": 6616,
+      "droppedRules": 493
+    },
+    "inline:elementor-frontend": {
+      "sha1": "2bc92617534d93413cb6061e8af3db8e8ff416e5",
+      "subset": "elementor-frontend-inline.css",
+      "bytes": 2974,
+      "subsetBytes": 0,
+      "droppedRules": 23
+    }
+  }
+}

@@ -38,6 +38,7 @@ ends with purge + warm.
 | 12 | **`define( 'WP_CACHE', true );` in `wp-config.php`.** | Loads the drop-in (fallback + tracking-parameter URLs). | `WORDPRESS_CONFIG_EXTRA`. | `wp tk cache-status` → `WP_CACHE true`, `Drop-in ours, current`; `curl -sI 'https://<domain>/?utm_source=x'` → `HIT-PHP`. |
 | 13 | **`wp-content/cache/` writable by PHP** (dirs 755, files 644). The root `.htaccess` writable once for `wp tk cache-setup` / `headers-setup` (else paste `--print-htaccess`). | WordPress writes the files itself (temp file + rename). | Volume owned by `www-data`. | `wp tk cache-status` → `Cache dir … (writable)`. |
 | 14 | **After every deploy or migration: set up, purge, warm**: `wp tk cache-setup && wp tk cache-purge && wp tk cache-warm`, or wp-admin *Nástroje → Stránková cache → Smazat a znovu naplnit cache*. `cache-setup` must run on the production host itself (absolute cache path, host). | A copied cache carries the old host/salts; the stamp check would purge it anyway on the first request. | `./build/rebuild.sh`, `./db-import.sh`. | `wp tk cache-warm` → `HIT ×N`. |
+| 14a | **Brotli for the cached pages: PHP `ext-brotli` on the web PHP** (recommended, not a blocker). With it the cache also writes `index.html.br` (quality 11), which the rules serve to every `br` client. | Measured 2026-10-31 (home / O mně / Cvičení): gzip −9 25.2 / 23.6 / 27.1 kB → brotli q11 21.6 / 20.4 / 23.2 kB (−14 %). Without it a browser (`gzip, deflate, br, zstd`) gets the precompressed `.gz`; Apache's on-the-fly brotli (q6, −6 %) is used only for br-only clients. Making the rules skip the `.gz` for br clients was measured and **not** done: mod_brotli adds `-br` to the ETag, so the `max-age=0, must-revalidate` revalidation of a cached page would never answer 304 again (`BrotliAlterETag` is server-config only), and the PHP drop-in cannot brotli at all. | Docker image has no ext-brotli (gzip copy only). | `wp eval 'var_dump( function_exists( "brotli_compress" ) );'` → `true`; after `wp tk cache-warm`: `ls wp-content/cache/tk-page/index.html.br`; `curl -sI -H 'Accept-Encoding: gzip, br' https://<domain>/ \| grep -i content-encoding` → `br`. |
 | 15 | **Edge/proxy cache of the host** (if any): pages send `max-age=0` and WordPress responses `private`, so it should not keep HTML; purge it after a deploy anyway. | A stale edge copy would hide a deploy. | none. | Host's purge tool. |
 | 16 | **OpenLiteSpeed / LiteSpeed** reads `.htaccess` rewrite rules but ignores `Header`/`AddType`/`AddEncoding` there: run `wp tk cache-setup --mode=php` (the drop-in sends every header itself). `cache-warm` detects this and fails with that advice. | Without the headers a `.gz` would go out without `Content-Encoding` (broken page). | n/a. | `wp tk cache-warm`. |
 | 17 | **HTTPS and the canonical host enforced before the cache, and `is_ssl()` true for HTTPS** (`$_SERVER['HTTPS']` or the `X-Forwarded-Proto` snippet in `wp-config.php`). | The rules are keyed to the home URL's host; WordPress only stores a page whose request scheme matches the home option. | n/a. | `curl -sI http://<domain>/` → 301 to HTTPS. |
@@ -77,6 +78,17 @@ Google request. Production needs the client's Google account.
 | # | Requirement | Why | Check on production |
 |---|---|---|---|
 | 20 | **PHP 8.2 or newer (web and CLI), MySQL 5.7+/MariaDB, WP-CLI over SSH** (else the wp-admin cache button and manual `.htaccess` paste). | The local stack is PHP 8.4 + MariaDB 10.11; keep code 8.2-compatible. | `wp --info`, `wp eval 'echo PHP_VERSION;'`. |
+
+## Curated third-party CSS (theme `assets/css/subsets/`)
+
+The pages print Elementor's frontend CSS inline. Only containers + HTML widgets are used, so the theme prints a
+curated subset (`elementor-frontend.css`, ~6.6 kB instead of ~55 kB; Elementor's atomic-widget inline CSS: nothing)
+made by `node build/css-subset.mjs` from the built pages. A subset is used only while its source file still has the
+sha1 recorded in `manifest.json`, so an Elementor update simply prints the full file again (larger, never broken).
+
+| # | Requirement | Why | Local stand-in | Check on production |
+|---|---|---|---|---|
+| 26 | **The same Elementor version as locally (4.3.5 on 2026-10-31) at go-live, and after any Elementor update or page change regenerate the subset locally** (`node build/css-subset.mjs`, commit, deploy). | Keeps ~48 kB raw / ~5 kB compressed off every page. | `./wp.sh eval-file /project/build/test/inline-assets-test.php` fails on a stale subset; `node build/css-subset.mjs --check` also fails when the pages need a rule the subset lacks. | `node build/css-subset.mjs --check --base=https://<domain>` → `ok` for every source. |
 
 ## Asset versioning
 

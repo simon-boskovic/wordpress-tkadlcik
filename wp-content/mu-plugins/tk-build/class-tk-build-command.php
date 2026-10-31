@@ -591,6 +591,11 @@ class TK_Build_Command {
 			WP_CLI::error( 'No image editor with WebP support (GD/Imagick) is available.' );
 		}
 
+		// The sub-sizes (480/640/768/1024/1536 px: what the srcset serves) at the import quality too, not at
+		// WordPress's WebP default 86: re-encoding a q80 file at q86 only keeps its artefacts at a higher bitrate
+		// (measured 2026-10-31: portrait 768 px 34.8 → 26.4 kB, meadow 768 px 88.5 → 68.0 kB, visually the same).
+		add_filter( 'wp_editor_set_quality', static fn( $q, $mime = '' ) => 'image/webp' === $mime ? $quality : $q, 10, 2 );
+
 		$counts  = array( 'imported' => 0, 'updated' => 0, 'replaced' => 0, 'sized' => 0 );
 		$missing = array();
 
