@@ -19,7 +19,7 @@ $tk_f    = $tk_data['footer'];
 <div class="stack tk-ft-about"><strong class="tk-ft-name"><?php echo esc_html( $tk_data['brand']['name'] ); ?></strong><span class="small muted"><?php echo esc_html( $tk_f['about'] ); ?></span></div>
 <div class="stack small tk-ft-col"><span class="eyebrow">Místo</span>
 <?php foreach ( $tk_data['places'] as $tk_p ) : ?>
-<span><?php echo esc_html( $tk_p['line'] ?? '' ); ?></span>
+<a href="<?php echo esc_url( home_url( '/kurzy-a-lekce/#' . ( $tk_p['key'] ?? '' ) ) ); ?>"><?php echo esc_html( $tk_p['line'] ?? '' ); ?></a>
 <?php endforeach; ?>
 </div>
 <div class="stack small tk-ft-col"><span class="eyebrow">Kontakt</span><span><?php echo esc_html( $tk_c['name'] ); ?></span><a href="<?php echo esc_url( $tk_c['phoneHref'] ); ?>"><?php echo esc_html( $tk_c['phone'] ); ?></a><a href="<?php echo esc_url( 'mailto:' . $tk_c['email'] ); ?>"><?php echo esc_html( $tk_c['email'] ); ?></a></div>

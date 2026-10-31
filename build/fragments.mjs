@@ -78,5 +78,5 @@ export const photo = ({ src, alt, w, h, box, pos = '50% 50%', priority = false }
 
 export const PHOTOS = {
   portret: { src: './client-img/daniel-tkadlcik-portret.jpg', alt: 'Daniel Tkadlčík, lektor tchaj-ťi', w: 1440, h: 1920, box: 'aspect-ratio: 4 / 5; height: auto', pos: '55% 30%', priority: true },
-  louka: { src: './client-img/louka-strom.jpg', alt: '', w: 1920, h: 1221, box: 'height: 100%; min-height: 440px', pos: '35% 50%' },
+  louka: { src: './client-img/louka-strom.jpg', alt: 'Rozkvetlá jarní louka u stromu v ranním slunci', w: 1920, h: 1221, box: 'height: 100%; min-height: 440px', pos: '35% 50%' },
 };

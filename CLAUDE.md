@@ -92,3 +92,8 @@ All in `wp-content/mu-plugins/tk-build/class-tk-build-command.php`:
 - Local WP-Cron cannot reach `http://localhost:8020` from inside the container; the scheduled re-warm only runs via `./wp.sh cron event run tk_page_cache_warm`. `cache-warm` uses `TK_PAGE_CACHE_CONNECT_TO=wordpress:80`.
 - Editing theme/mu-plugin files changes the build fingerprint: the next WordPress request purges the cache (a warm running at that moment reports `purged-meanwhile`; re-run `./wp.sh tk cache-warm`).
 - Author archives and `/wp-json/wp/v2/users` are 404 for anonymous visitors (`tk-hardening.php`): never link to author pages.
+
+## CSS subsets and image sizes
+- Elementor's frontend CSS is served as a curated subset (`wp-content/themes/tkadlcik/assets/css/subsets/`, sha1-pinned in `manifest.json`; an Elementor update falls back to the full file). After changing pages run `node build/css-subset.mjs --check`; if stale, `node build/css-subset.mjs` and commit. Cookie `tk_nocache=full-css` renders with the full CSS (never cached) for debugging.
+- `TK_BASE=http://localhost:8020 node --test build/test/responsive-sizes.int.mjs` checks the `sizes`/srcset picks for the photos. Run it on its own, never in the same `node --test` call as `page-cache.int.mjs` (that one purges the cache mid-run).
+- Headless browser: the Chrome for Testing build can crash on this Mac; `TK_BROWSER=~/Library/Caches/ms-playwright/chromium_headless_shell-1223/chrome-headless-shell-mac-arm64/chrome-headless-shell` makes the harness use the headless shell.

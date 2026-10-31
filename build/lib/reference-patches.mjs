@@ -99,6 +99,10 @@ PATCHES.push(
   { file: 'Main.dc.html', id: 'D7', name: 'photo (home card)', why: 'the meadow photo the old site used (Pixabay licence) replaces the home bento [Foto] placeholder', find: '<div class="ph" style="min-height: 440px"><span>[Foto]</span></div>', replace: () => photo(photoRef('louka')) },
 );
 
+/** D15: the footer's two place lines link to their schedule tab (/kurzy-a-lekce/#praha, #zlin), like footer.php. */
+const FOOT_PLACES = '<span class="eyebrow">Místo</span><span>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A</span><span>Centrum Jiný svět, Osvoboditelů 484, Zlín</span>';
+PATCHES.push(...PAGE_FILES.map((file) => ({ file, id: 'D15', name: 'footer: place lines link to their schedule', why: 'UX/SEO: each training place in the footer links to its tab on Nabídka kurzů a lekcí (#praha, #zlin), so Zlín is reachable from every page; footer.php prints the same links', find: FOOT_PLACES, replace: '<span class="eyebrow">Místo</span><a href="/kurzy-a-lekce/#praha">Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A</a><a href="/kurzy-a-lekce/#zlin">Centrum Jiný svět, Osvoboditelů 484, Zlín</a>' })));
+
 const countMatches = (text, find) => {
   if (typeof find === 'string') return find ? text.split(find).length - 1 : 0;
   const re = new RegExp(find.source, find.flags.replace('g', '') + 'g');

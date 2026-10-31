@@ -217,7 +217,10 @@ export async function pointOf(b, id, { settleMs = 150 } = {}) {
   return b.evaluate(`(() => {
     const el = document.querySelector('[data-dod="${id}"]');
     if (!el) return { error: 'gone' };
-    const r = el.getBoundingClientRect();
+    // An inline link that wraps has one client rect per line; the centre of its bounding box can fall between
+    // the lines (no link there), so aim at the largest line box instead.
+    const rects = [...el.getClientRects()].filter((q) => q.width && q.height).sort((a, z) => z.width * z.height - a.width * a.height);
+    const r = rects[0] || el.getBoundingClientRect();
     if (!r.width || !r.height) return { error: 'no box' };
     const x = r.left + r.width / 2, y = r.top + r.height / 2;
     const hit = document.elementFromPoint(x, y);
