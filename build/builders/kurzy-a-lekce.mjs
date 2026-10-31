@@ -71,7 +71,7 @@ export function build({ content, page }) {
 <div class="stack" style="gap: 12px">
 <h2 class="h3" style="font-size: 26px">Tchaj-ťi stylu Yang</h2>
 <p class="body small">Styl Yang tchaj-ťi je pojmenován podle členů rodiny Yang, kteří tento styl dosti proslavili. Vyučujeme tento styl podle tradice a rodinného předání mistra Vincenta Chu. Cvičíme klasickou dlouhou sestavu stylu Yang, krátké sestavy a sestavu Návrat k tchaj-ťi. Sestavy se zbraněmi meč, šavle, tyč, rychlou formu a párová cvičení.</p>
-<a class="lnk small" href="Cviceni.dc.html#yang" style="align-self: flex-start; padding: 6px 0">Video mistra Vincenta Chu styl Yang</a>
+<a class="lnk small" href="Cviceni.dc.html#videa" style="align-self: flex-start; padding: 6px 0">Video mistra Vincenta Chu styl Yang</a>
 </div>
 <dl class="stack small" style="gap: 0">
 <div style="display: grid; grid-template-columns: 150px 1fr; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line)"><dt class="muted">Pravidelné cvičení</dt><dd><span class="mono">Pondělí 18:00 - 19:30h</span><br>Sestava Yang 12 forem pro začátečníky, 13 Words of Tchaj-ťi</dd></div>
