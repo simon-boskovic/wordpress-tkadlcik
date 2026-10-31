@@ -320,3 +320,9 @@ a.lnk:not(p *):not(.small):not(.tk-map-link){padding-block:12px}
 @media (max-width:480px){.bar .brand>span{display:block;position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 /* tk-a11y:end */
 .wordmark[data-text]::before{content:attr(data-text)}
+
+/* tk-ux:start — pre-launch UX layer (build/builders/ux.mjs; the reference patch D11 applies this block to the
+   prototype too). The layer's visuals are inline styles in the generated markup; only what cannot be inline lives here. */
+/* the course cards on /kurzy-a-lekce/ are link targets (#kurz-brokat, #kurz-slov, #kurz-yang): clear the sticky header */
+article[id^="kurz-"]{scroll-margin-top:96px}
+/* tk-ux:end */

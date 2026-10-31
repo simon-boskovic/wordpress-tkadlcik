@@ -88,3 +88,29 @@ export const videoUploadDates = {
   '1Mmz_QpYk9s': '2024-03-13T00:31:56-07:00',
   '1UPJuzGC1UY': '2024-03-13T01:18:28-07:00',
 };
+
+/**
+ * Dated events the pages show (Akce, the home "Semináře a akce" teaser, the Zlín term on Nabídka kurzů), keyed
+ * for builders/ux.mjs: an event whose endDate is before the build date is "past" — its date is muted and gets the
+ * "Proběhlo" chip, and past blocks sort after upcoming ones. The build date is fixed at generate time, so after
+ * an event date passes the site must be regenerated (`./build/rebuild.sh --pages`, docs/HANDOVER.md).
+ * Dates exactly as the pages print them (`text`); nothing inferred beyond them.
+ */
+export const EVENTS = {
+  chu: { startDate: '2025-11-27', endDate: '2025-11-29', text: '27. 11. – 29. 11. 2025' },
+  'hory-jaro': { startDate: '2024-05-10', endDate: '2024-05-12', text: '10. – 12. 5. 2024' },
+  // Printed "30. 7. neděle – 7. 7. 2024 neděle" (inconsistent, awaits the client): the stated end date is used;
+  // every reading of it ends in summer 2024.
+  'hory-leto': { endDate: '2024-07-07', text: '30. 7. neděle – 7. 7. 2024 neděle' },
+  'zlin-termin': { startDate: '2024-04-19', endDate: '2024-04-19', text: 'pátek 19. 4. 2024, od 17:30 do 20:00h' },
+};
+
+/** Today's date in Prague as YYYY-MM-DD. */
+export const pragueDate = (d = new Date()) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Prague', year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
+/** The build date the past/upcoming split uses (TK_TODAY=YYYY-MM-DD overrides it, e.g. to preview a future state). */
+export const today = /^\d{4}-\d{2}-\d{2}$/.test(process.env.TK_TODAY || '') ? process.env.TK_TODAY : pragueDate();
+/** True when every listed event has ended before `day` (an event on `day` itself is not past; no events = never past). */
+export const isPast = (keys, day = today) => keys.length > 0 && keys.every((k) => {
+  if (!EVENTS[k]) throw new Error(`content: unknown event ${k}`);
+  return EVENTS[k].endDate < day;
+});

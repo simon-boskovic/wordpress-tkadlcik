@@ -68,7 +68,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section class=\"wrap tk-s-b0d37139\">\n<div class=\"sec-head\"><h2 class=\"h2\">Cesta k tchaj-ťi <span class=\"serif\">a mistr Vincent Chu</span></h2></div>\n<ol class=\"stack tk-s-1d34c094\">\n<li class=\"reveal tk-s-ff837e4c\"><span class=\"idx\">01</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Různé styly tchaj-ťi a meditace</h3><p class=\"body small\">V průběhu času jsem se věnoval různým stylům tchaj-ťi u různých učitelů a mistrů (wudangskému tchaj-ťi, Yang tchaj-ťi, čchi-kungovým masážím a různým stylům meditace).</p></div></li>\n<li class=\"reveal tk-s-906fc147\"><span class=\"idx\">02</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Rodinný styl Yang u mistra Vincenta Chu</h3><p class=\"body small\">Od roku 2007 se intenzivně věnuji zejména rodinnému stylu Yang tchaj-ťi u mistra Vincenta Chu, který vyučuje komplexní systém rodiny Yang. Mimo jiné mě naučil rodinné předání Osmi kusů brokátu a 13 slov tchaj-ťi.</p></div></li>\n<li class=\"reveal tk-s-f607c46f\"><span class=\"idx\">03</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Masáže tuina a učitel tělesné výchovy</h3><p class=\"body small\">Několik let jsem se také věnoval zdravotním energetickým masážím tuina. Civilním povoláním jsem učitel tělesné výchovy na II. stupni základní školy.</p></div></li>\n</ol>\n</section>"
+            "html": "<section class=\"wrap tk-s-b0d37139\">\n<div class=\"sec-head\"><h2 class=\"h2\">Cesta k tchaj-ťi <span class=\"serif\">a mistr Vincent Chu</span></h2></div>\n<ol class=\"stack tk-s-1d34c094\">\n<li class=\"reveal tk-s-ff837e4c\"><span class=\"idx\">01</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Různé styly tchaj-ťi a meditace</h3><p class=\"body small\">V průběhu času jsem se věnoval různým stylům tchaj-ťi u různých učitelů a mistrů (wudangskému tchaj-ťi, Yang tchaj-ťi, čchi-kungovým masážím a různým stylům meditace).</p></div></li>\n<li class=\"reveal tk-s-906fc147\"><span class=\"idx\">02</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Rodinný styl Yang u mistra Vincenta Chu</h3><p class=\"body small\">Od roku 2007 se intenzivně věnuji zejména <a href=\"/cviceni/#yang\" class=\"lnk\">rodinnému stylu Yang</a> tchaj-ťi u <a href=\"/akce/#chu\" class=\"lnk\">mistra Vincenta Chu</a>, který vyučuje komplexní systém rodiny Yang. Mimo jiné mě naučil rodinné předání <a href=\"/cviceni/#brokat\" class=\"lnk\">Osmi kusů brokátu</a> a <a href=\"/cviceni/#slov\" class=\"lnk\">13 slov tchaj-ťi</a>.</p></div></li>\n<li class=\"reveal tk-s-f607c46f\"><span class=\"idx\">03</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Masáže tuina a učitel tělesné výchovy</h3><p class=\"body small\">Několik let jsem se také věnoval zdravotním energetickým masážím tuina. Civilním povoláním jsem učitel tělesné výchovy na II. stupni základní školy.</p></div></li>\n</ol>\n</section>"
           },
           "elements": []
         }
@@ -103,6 +103,40 @@
           "widgetType": "html",
           "settings": {
             "html": "<section class=\"wrap tk-s-7e3eae42\">\n<div class=\"panel-dark on-dark reveal tk-s-d6c466a2\">\n<div class=\"grid tk-s-69a3450e\">\n<div class=\"stack tk-s-cd289aef\">\n<h2 class=\"eyebrow\">Moje filozofie</h2>\n<p class=\"serif tk-s-64b9a0e3\">„Každá forma cvičení je prázdná, pokud není spojena s radostí, tichostí a klidem mysli, které jsou podstatou našeho bytí a které se snažím ve cvičení rozvíjet.“</p>\n</div>\n<p class=\"tk-s-28f0b2dc\">Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.</p>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "e99e5bf",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "bf05eee",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section class=\"wrap tk-s-7e3eae42\">\n<div class=\"tk-s-104af983\">\n<a href=\"/kurzy-a-lekce/\" class=\"btn btn-dark\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n<a href=\"/kontakt/\" class=\"btn btn-ghost\">Kontakt <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n</div>\n</section>"
           },
           "elements": []
         }

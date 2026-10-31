@@ -3,14 +3,15 @@
  * prototype; lib/finalize.mjs turns the style attributes into tk-s-* classes and the *.dc.html links into site paths.
  */
 import { ARROW, CARD_ARROW, photo, PHOTOS } from '../fragments.mjs';
+import { applyUx } from './ux.mjs';
 
-export function build({ page }) {
+export function build({ content, page }) {
   return page({
     slug: 'domu',
     title: 'Domů',
     scripts: [],
     frontPage: true,
-    sections: [
+    sections: applyUx('domu', [
       `<section class="wrap" style="padding-top: clamp(56px, 9vw, 128px); padding-bottom: 40px">
 <div class="stack" style="gap: 28px; max-width: 1080px">
 <span class="eyebrow rise">Výuka tchaj-ťi a čchi-kungu · Radost v pohybu</span>
@@ -136,6 +137,6 @@ ${CARD_ARROW}
 </div>
 </div>
 </section>`,
-    ],
+    ], content.today),
   });
 }

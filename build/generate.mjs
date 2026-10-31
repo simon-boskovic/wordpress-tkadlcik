@@ -51,8 +51,9 @@ export function definePage(fin, { slug, title, scripts = [], frontPage = false, 
   // The old Webnode site's CDN goes away with the old site: files it hosted are uploads now (see builders).
   if (/cbaul-cdnwnd\.com/.test(all)) throw new Error(`${slug}: link to the old Webnode CDN (cbaul-cdnwnd.com) — use the upload instead`);
   // Contact links must match content.mjs (the header/footer use those values).
+  // A mailto may carry a ?subject= (the course registration links, builders/ux.mjs); the address must match.
   for (const [, href] of all.matchAll(/href="((?:tel|mailto):[^"]*)"/g)) {
-    if (href !== content.contact.phoneHref && href !== `mailto:${content.contact.email}`) throw new Error(`${slug}: contact link ${href} differs from content.mjs`);
+    if (href !== content.contact.phoneHref && href.replace(/\?subject=[^"&]*$/, '') !== `mailto:${content.contact.email}`) throw new Error(`${slug}: contact link ${href} differs from content.mjs`);
   }
   return { slug, title, status: 'publish', template: 'elementor_header_footer', scripts, front_page: frontPage, ...(pre.length ? { preload: pre } : {}), elements };
 }

@@ -11,6 +11,7 @@
  * JSON-LD: seo.mjs buildSchema emits one VideoObject per gallery video (upload dates: content.mjs videoUploadDates).
  */
 import { videoBox } from '../fragments.mjs';
+import { applyUx } from './ux.mjs';
 
 /** Gallery order = the design's captions (verbatim); ids corrected. */
 export const VIDEOS = [
@@ -26,13 +27,13 @@ export const INLINE_VIDEOS = {
   slov: { id: '1UPJuzGC1UY', title: '13 slov tchaj-ťi', ratio: '16 / 9' },
 };
 
-export function build({ page }) {
+export function build({ content, page }) {
   return page({
     slug: 'cviceni',
     title: 'Cvičení',
     scripts: ['video'],
     frontPage: false,
-    sections: [
+    sections: applyUx('cviceni', [
       `<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: clamp(48px, 6vw, 80px)">
 <div class="stack" style="gap: 28px; max-width: 1080px">
 <span class="eyebrow rise">Cvičení, která vyučujeme</span>
@@ -141,6 +142,6 @@ ${videoBox(INLINE_VIDEOS.slov)}
 ${VIDEOS.map((v) => `<figure class="stack reveal" style="gap: 12px">${videoBox(v)}<figcaption style="font-weight: 500; letter-spacing: -.01em">${v.title}</figcaption></figure>`).join('\n')}
 </div>
 </section>`,
-    ],
+    ], content.today),
   });
 }

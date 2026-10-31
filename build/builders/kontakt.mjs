@@ -4,6 +4,7 @@
  * The two "[Mapa Google]" placeholders are click-to-load maps (fragments.mjs mapBox, _tk_scripts "map").
  */
 import { mapBox } from '../fragments.mjs';
+import { applyUx } from './ux.mjs';
 
 export function build({ content, page }) {
   return page({
@@ -11,7 +12,7 @@ export function build({ content, page }) {
     title: 'Kontakt',
     scripts: ['map'],
     frontPage: false,
-    sections: [
+    sections: applyUx('kontakt', [
       `<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: clamp(72px, 10vw, 128px)">
 <div class="grid" style="--min: 440px; gap: 48px 72px; align-items: start">
 <div class="stack" style="gap: 32px">
@@ -39,6 +40,6 @@ ${mapBox(content.places[1], content.mapsEmbedUrl, content.mapsLinkUrl)}
 </div>
 </div>
 </section>`,
-    ],
+    ], content.today),
   });
 }

@@ -7,7 +7,7 @@
  * localhost and on the production domain. Nothing is invented: every fact in llms.txt is checked against
  * the generated page text (buildLlms throws on a fact the pages do not contain).
  */
-import { mapsLinkUrl } from './content.mjs';
+import { EVENTS, mapsLinkUrl } from './content.mjs';
 import { VIDEOS } from './builders/cviceni.mjs';
 import { PHOTOS, youtubeEmbedUrl, youtubeWatchUrl } from './fragments.mjs';
 
@@ -102,10 +102,11 @@ const pathOf = (p) => (p.front_page ? '/' : `/${p.slug}/`);
  * emitted as schema.org Events (a past event in structured data is misleading). The design's are all past
  * (2024/2025), so none is emitted today; a new seminar added to the Akce page belongs here too.
  * The summer course is left out on purpose: its dates in the design are inconsistent ("30. 7. – 7. 7. 2024").
+ * Dates come from content.mjs EVENTS (the same data marks past events "Proběhlo" on the pages, builders/ux.mjs).
  */
 export const SEMINARS = [
-  { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: '2025-11-27', endDate: '2025-11-29', place: 'praha', text: '27. 11. – 29. 11. 2025' },
-  { name: 'Jarní cvičení na horách', startDate: '2024-05-10', endDate: '2024-05-12', price: 3800, location: { name: 'Penzion Exnar', addressLocality: 'Strážné', streetAddress: 'Strážné 2' }, text: 'Termín: 10. – 12. 5. 2024' },
+  { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS.chu.startDate, endDate: EVENTS.chu.endDate, place: 'praha', text: EVENTS.chu.text },
+  { name: 'Jarní cvičení na horách', startDate: EVENTS['hory-jaro'].startDate, endDate: EVENTS['hory-jaro'].endDate, price: 3800, location: { name: 'Penzion Exnar', addressLocality: 'Strážné', streetAddress: 'Strážné 2' }, text: `Termín: ${EVENTS['hory-jaro'].text}` },
 ];
 
 /** Page text (tags stripped, entities decoded, whitespace collapsed) — what the visitor reads. */

@@ -1,15 +1,16 @@
 import { photo, PHOTOS } from '../fragments.mjs';
+import { applyUx } from './ux.mjs';
 /**
  * O mně — port of OMne.dc.html <main>, one Elementor section per <section>. Markup verbatim from the
  * prototype; lib/finalize.mjs turns the style attributes into tk-s-* classes and the *.dc.html links into site paths.
  */
-export function build({ page }) {
+export function build({ content, page }) {
   return page({
     slug: 'o-mne',
     title: 'O mně',
     scripts: [],
     frontPage: false,
-    sections: [
+    sections: applyUx('o-mne', [
       `<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: clamp(72px, 10vw, 128px)">
 <div class="grid" style="--min: 440px; gap: 48px 72px; align-items: center">
 <div class="stack" style="gap: 28px">
@@ -44,6 +45,6 @@ ${photo(PHOTOS.portret)}
 </div>
 </div>
 </section>`,
-    ],
+    ], content.today),
   });
 }

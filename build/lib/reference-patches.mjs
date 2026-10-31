@@ -15,6 +15,7 @@ import { business, mapsEmbedUrl, mapsLinkUrl, places, privacy } from '../content
 import { mapBox, videoBox, photo, PHOTOS } from '../fragments.mjs';
 import { INLINE_VIDEOS, VIDEOS } from '../builders/cviceni.mjs';
 import { DAYS, HORY_HEADING, dayHeading, dayTopic } from '../builders/akce.mjs';
+import { AKCE_SECTIONS, NEXT_STEPS, NEXT_STEPS_PAGES, akceOrderPatch, uxEdits } from '../builders/ux.mjs';
 
 /** The seven page prototypes (desktop files; the *Mobile.dc.html boards only <dc-import> them at 390 px). */
 export const PAGE_FILES = ['Main.dc.html', 'Cviceni.dc.html', 'Rozvrh.dc.html', 'Seminare.dc.html', 'OMne.dc.html', 'Clanky.dc.html', 'Kontakt.dc.html'];
@@ -117,9 +118,10 @@ export function applyPatches(file, text, patches = PATCHES) {
     const n = countMatches(out, p.find);
     const want = p.count ?? 1;
     if (n !== want) throw new Error(`reference patch ${p.id} for ${basename(file)} (${p.name}: ${p.why}) matched ${n} times, expected exactly ${want}: ${String(p.find).slice(0, 120)}`);
-    const rep = typeof p.replace === 'function' ? p.replace() : p.replace;
+    // A function replacement receives the matched text (the UX edits rebuild what they matched).
+    const rep = (m) => (typeof p.replace === 'function' ? p.replace(m) : p.replace);
     const flags = typeof p.find === 'string' ? '' : p.find.flags.replace('g', '') + (want > 1 ? 'g' : '');
-    out = typeof p.find === 'string' ? (want > 1 ? out.split(p.find).join(rep) : out.replace(p.find, () => rep)) : out.replace(new RegExp(p.find.source, flags), () => rep);
+    out = typeof p.find === 'string' ? (want > 1 ? out.split(p.find).join(rep(p.find)) : out.replace(p.find, () => rep(p.find))) : out.replace(new RegExp(p.find.source, flags), (m) => rep(m));
   }
   return out;
 }
@@ -181,3 +183,18 @@ PATCHES.push(...PAGE_FILES.map((file) => ({ file, id: 'D8', name: 'footer bar: o
 
 /** D9: the footer nav ends with the privacy page link (content.mjs `footer.links`; not in the header nav, every page must reach it). */
 PATCHES.push(...PAGE_FILES.map((file) => ({ file, id: 'D9', name: 'footer nav: privacy page link', why: 'legal: the privacy policy (Zásady ochrany osobních údajů, incl. the cookie section the consent banner links to) is linked from every page\'s footer nav, after Články, like footer.php', find: '<a href="Clanky.dc.html">Články</a></nav>\n</div>\n<div class="wordmark"', replace: () => `<a href="Clanky.dc.html">Články</a><a href="${privacy.href}">${privacy.label}</a></nav>\n</div>\n<div class="wordmark"` })));
+
+/**
+ * D10–D14: the pre-launch UX layer (build/builders/ux.mjs: past events, next steps, registration links, Kontakt
+ * H1 + place links, O mně internal links). The builders apply exactly these edits to the design markup, so the
+ * reference carries every one of them; date-dependent edits follow the build date (content.mjs today).
+ */
+PATCHES.push(...uxEdits().map(({ file, id, name, why, find, replace }) => ({ file, id, name, why, find, replace })));
+const akceOrder = akceOrderPatch();
+if (akceOrder) PATCHES.push({ file: 'Seminare.dc.html', id: 'D10', name: 'Akce: upcoming events first', why: 'past events (content.mjs EVENTS) sort after upcoming ones; the sections keep their own markup', find: AKCE_SECTIONS, replace: akceOrder });
+PATCHES.push(...Object.values(NEXT_STEPS_PAGES).map((file) => ({ file, id: 'D11', name: 'next-step row (Nabídka kurzů a lekcí + Kontakt)', why: 'next step at the end of a content page: the site\'s existing buttons and labels to the timetable and the contact page, so a reader does not dead-end at the footer', find: '</section>\n</main>', replace: `</section>\n\n${NEXT_STEPS}\n</main>` })));
+
+/** The theme's tk-ux block (site.css): rules the UX layer needs (anchor offsets of the course cards). */
+export const uxCss = () => (readFileSync(new URL('../../wp-content/themes/tkadlcik/assets/css/site.css', import.meta.url), 'utf8')
+  .match(/\/\* tk-ux:start[\s\S]*?\/\* tk-ux:end \*\//) || [''])[0];
+PATCHES.push(...[...new Set(uxEdits().map((e) => e.file).concat(Object.values(NEXT_STEPS_PAGES)))].map((file) => ({ file, id: 'D11', name: 'UX layer styles', why: 'the theme\'s tk-ux block (site.css), which the prototype stylesheet does not have; applied like D4', find: '</helmet>', replace: () => `<style id="tk-ux-css">${uxCss()}</style>\n</helmet>` })));

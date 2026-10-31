@@ -15,6 +15,7 @@
  * The two "[Mapa]" placeholders are click-to-load maps (fragments.mjs mapBox, _tk_scripts "map").
  */
 import { ARROW, mapBox } from '../fragments.mjs';
+import { applyUx } from './ux.mjs';
 
 export function build({ content, page }) {
   return page({
@@ -22,7 +23,7 @@ export function build({ content, page }) {
     title: 'Nabídka kurzů a lekcí',
     scripts: ['tabs', 'map'],
     frontPage: false,
-    sections: [
+    sections: applyUx('kurzy-a-lekce', [
       `<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: 48px">
 <div class="stack" style="gap: 28px; max-width: 980px">
 <span class="eyebrow rise">Nabídka kurzů a lekcí</span>
@@ -119,6 +120,6 @@ ${mapBox(content.places[1], content.mapsEmbedUrl, content.mapsLinkUrl)}
 </div>
 </div>
 </section>`,
-    ],
+    ], content.today),
   });
 }

@@ -12,6 +12,12 @@
  */
 
 import { SEO } from './seo.mjs';
+import { COURSES, ZLIN_COURSE, signupHref } from './builders/ux.mjs';
+
+/** The next-step row (builders/ux.mjs NEXT_STEPS) at the end of Cvičení, O mně, Články and Akce. */
+const NEXT_STEPS_SELECTORS = ['main > :last-child a.btn[href$="/kurzy-a-lekce/"]', 'main > :last-child a.btn[href$="/kontakt/"]'];
+/** One registration mailto per course card (subject = the course name). */
+const SIGNUP_SELECTORS = [...COURSES.map((c) => `#${c.id} a[href="${signupHref(c.name)}"]`), `#zlin a[href="${signupHref(ZLIN_COURSE)}"]`];
 
 /** Theme scripts that only some pages may load. */
 export const PAGE_SCRIPTS = ['tabs', 'map', 'video'];
@@ -30,7 +36,7 @@ export default {
     h1: 'Osm kusů brokátu, 13 slov a tchaj-ťi stylu Yang',
     title: SEO['cviceni'].title,
     texts: ['Osm kusů brokátu je cvičení řadící se do skupiny Daoyin', '13 slov tchaj-ťi', 'Tchaj-ťi stylu Yang', 'Videogalerie: sestavy tchaj-ťi a čchi-kungu'],
-    selectors: ['a[href="#brokat"]', 'a[href="#slov"]', 'a[href="#yang"]', 'a[href="#videa"]', '#brokat [data-tk-video-box] button[data-tk-video]', '#slov [data-tk-video-box] button[data-tk-video]', '#videa [data-tk-video-box] a[href^="https://www.youtube.com/watch?v="]'],
+    selectors: ['a[href="#brokat"]', 'a[href="#slov"]', 'a[href="#yang"]', 'a[href="#videa"]', '#brokat a[href$="/kurzy-a-lekce/#kurz-brokat"]', '#slov a[href$="/kurzy-a-lekce/#kurz-slov"]', '#yang a[href$="/kurzy-a-lekce/#kurz-yang"]', ...NEXT_STEPS_SELECTORS, '#brokat [data-tk-video-box] button[data-tk-video]', '#slov [data-tk-video-box] button[data-tk-video]', '#videa [data-tk-video-box] a[href^="https://www.youtube.com/watch?v="]'],
     unique: ['[id="brokat"]', '[id="slov"]', '[id="yang"]', '[id="videa"]'],
     scripts: ['video'],
   },
@@ -38,15 +44,15 @@ export default {
     h1: 'Kurzy tchaj-ťi a čchi-kungu: rozvrh a ceny',
     title: SEO['kurzy-a-lekce'].title,
     texts: ['Osm kusů brokátu', '13 Words of Tchaj-ťi', 'Tchaj-ťi stylu Yang', 'Cvičení ve Zlíně', 'Ceny lekcí', '3 250 Kč', '400 Kč', 'Kde cvičíme: Praha 4 a Zlín', 'Tělocvična ZŠ Jeremenkova', 'Centrum Jiný svět'],
-    selectors: ['[role=tablist] button[role=tab][aria-controls="praha"][aria-selected="true"]', '[role=tablist] button[role=tab][aria-controls="zlin"]', '[role=tabpanel]#praha', '[role=tabpanel]#zlin', 'a[href$="/cviceni/#brokat"]', 'a[href$="/cviceni/#slov"]', 'a[href$="/cviceni/#videa"]', '[data-tk-map-box] button[data-tk-map]'],
-    unique: ['[id="cena"]', '[id="misto"]', '[id="praha"]', '[id="zlin"]'],
+    selectors: ['[role=tablist] button[role=tab][aria-controls="praha"][aria-selected="true"]', '[role=tablist] button[role=tab][aria-controls="zlin"]', '[role=tabpanel]#praha', '[role=tabpanel]#zlin', 'a[href$="/cviceni/#brokat"]', 'a[href$="/cviceni/#slov"]', 'a[href$="/cviceni/#videa"]', '[data-tk-map-box] button[data-tk-map]', ...SIGNUP_SELECTORS],
+    unique: ['[id="cena"]', '[id="misto"]', '[id="praha"]', '[id="zlin"]', '[id="kurz-brokat"]', '[id="kurz-slov"]', '[id="kurz-yang"]'],
     scripts: ['tabs', 'map'],
   },
   akce: {
     h1: 'Semináře tchaj-ťi s mistrem Vincentem Chu a cvičení na horách',
     title: SEO['akce'].title,
     texts: ['Na veškeré akce, které pořádáme, se dopravujeme po vlastní ose', 'Seminář s mistrem Vincentem Chu v Praze', 'Cvičení na horách v Krkonoších', 'Denní harmonogram', '1035195033/0800'],
-    selectors: ['a[href$="/kontakt/"]'],
+    selectors: ['a[href$="/kontakt/"]', ...NEXT_STEPS_SELECTORS],
     unique: ['[id="chu"]', '[id="hory"]'],
     scripts: [],
   },
@@ -54,21 +60,21 @@ export default {
     h1: 'Daniel Tkadlčík, lektor tchaj-ťi od roku 1997',
     title: SEO['o-mne'].title,
     texts: ['Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997.', 'Cesta k tchaj-ťi a mistr Vincent Chu', 'Rodinný styl Yang u mistra Vincenta Chu', 'Moje filozofie'],
-    selectors: [],
+    selectors: ['main p a[href$="/cviceni/#yang"]', 'main p a[href$="/cviceni/#brokat"]', 'main p a[href$="/cviceni/#slov"]', 'main p a[href$="/akce/#chu"]', ...NEXT_STEPS_SELECTORS],
     scripts: [],
   },
   clanky: {
     h1: 'Články o tchaj-ťi a čchi-kungu',
     title: SEO['clanky'].title,
     texts: ['Co je čchi-kung a tchaj-ťi', '10 principů mistra Yang Chen Fu', 'Pojednání o Wu-ťi (WuChi)', 'Stáhnout'],
-    selectors: ['a[href="/wp-content/uploads/10-principu-mistra-yang-chen-fu.docx"][download]', 'a[href="/wp-content/uploads/pojednani-o-wu-ti.docx"][download]'],
+    selectors: ['a[href="/wp-content/uploads/10-principu-mistra-yang-chen-fu.docx"][download]', 'a[href="/wp-content/uploads/pojednani-o-wu-ti.docx"][download]', ...NEXT_STEPS_SELECTORS],
     scripts: [],
   },
   kontakt: {
-    h1: 'Kontakt – tchaj-ťi ZŠ Jeremenkova, Praha 4',
+    h1: 'Kontakt – tchaj-ťi Praha 4 a Zlín',
     title: SEO['kontakt'].title,
     texts: ['Mgr. Daniel Tkadlčík', '+420 773 287 1113', 'tkadlcik@centrum.cz', 'Kde cvičíme: Praha 4 a Zlín', 'Jeremenkova 1003/66A', 'Osvoboditelů 484, Zlín'],
-    selectors: ['main a[href="tel:+4207732871113"]', 'main a[href="mailto:tkadlcik@centrum.cz"]', '[data-tk-map-box] button[data-tk-map]'],
+    selectors: ['main a[href="tel:+4207732871113"]', 'main a[href="mailto:tkadlcik@centrum.cz"]', '[data-tk-map-box] button[data-tk-map]', 'main a[href$="/kurzy-a-lekce/#praha"]', 'main a[href$="/kurzy-a-lekce/#zlin"]'],
     scripts: ['map'],
   },
   // Not in the design (builders/zasady.mjs); noindex,follow + self canonical, not in sitemap/llms.txt (verify --seo).

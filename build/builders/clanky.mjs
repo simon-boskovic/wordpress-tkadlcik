@@ -3,14 +3,15 @@
  * prototype; lib/finalize.mjs turns the style attributes into tk-s-* classes and the *.dc.html links into site paths.
  */
 import { DOWNLOAD } from '../fragments.mjs';
+import { applyUx } from './ux.mjs';
 
-export function build({ page }) {
+export function build({ content, page }) {
   return page({
     slug: 'clanky',
     title: 'Články',
     scripts: [],
     frontPage: false,
-    sections: [
+    sections: applyUx('clanky', [
       `<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: 48px">
 <div class="stack" style="gap: 28px; max-width: 980px">
 <span class="eyebrow rise">Články</span>
@@ -36,6 +37,6 @@ export function build({ page }) {
 </article>
 </div>
 </section>`,
-    ],
+    ], content.today),
   });
 }

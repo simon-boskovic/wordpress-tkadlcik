@@ -49,6 +49,26 @@ Bez formuláře, analytiky a cookie lišty.
   (`cbaul-cdnwnd.com`) — přenést na web před vypnutím Webnode.
 - Potvrzení adres pro mapy, schválení textů a nadpisů upravených pro SEO.
 
+### 2.1a UX vrstva před spuštěním (bez klienta) — `build/builders/ux.mjs`
+Texty klienta beze změny (odkazy jen obalují jeho slova, utlumení je jen barva); nové popisky jen „Proběhlo“,
+„Přihlásit se e-mailem“ a existující „Nabídka kurzů a lekcí“, „Kontakt“, „Rozvrh a ceny“.
+- **Minulé akce podle data** (`build/content.mjs` `EVENTS`, datum buildu v Praze, `TK_TODAY=RRRR-MM-DD` přepíše):
+  akce s koncem před dneškem má utlumený termín + štítek „Proběhlo“ (Akce: seminář Vincenta Chu a oba termíny na
+  horách; Domů: karta semináře; Nabídka kurzů: termín Zlín 19. 4. 2024); minulé bloky jdou za aktuální (Domů:
+  Zlín → seminář → hory). U minulého semináře je věta o záloze utlumená a tlačítko Kontakt je „ghost“.
+  **Datum se počítá při generování: po uplynutí termínu akce spustit `./build/rebuild.sh --pages`** (jinak akce
+  zůstane bez štítku). Nová akce = záznam v `EVENTS` (+ `seo.mjs SEMINARS` pro JSON-LD Event) a hrany v `ux.mjs`.
+- **Další kroky:** na konci Cvičení, O mně, Článků a Akcí řádek „Nabídka kurzů a lekcí“ + „Kontakt“; v každé
+  sekci Cvičení (#brokat, #slov, #yang) odkaz „Rozvrh a ceny“ na kartu kurzu (`#kurz-brokat`, `#kurz-slov`, `#kurz-yang`).
+- **Přihláška:** každá karta kurzu (vč. Zlína) má „Přihlásit se e-mailem“ = `mailto:` s předmětem
+  „Přihláška – <název kurzu>“ (`generate.mjs` povoluje u mailto jen `?subject=`).
+- **Kontakt:** H1 „Kontakt – tchaj-ťi Praha 4 a Zlín“; obě místa odkazují „Rozvrh a ceny“ na `#praha` / `#zlin`.
+  Řádek Zlína v patičce odkaz nemá (patička je `footer.php`, mimo generátor) — případně doplnit v šabloně.
+- **O mně:** „rodinnému stylu Yang“ → `/cviceni/#yang`, „mistra Vincenta Chu“ → `/akce/#chu`,
+  „Osmi kusů brokátu“ → `/cviceni/#brokat`, „13 slov tchaj-ťi“ → `/cviceni/#slov`.
+- Referenční patche **D10–D14** nesou tytéž úpravy do návrhu (sdílený seznam `uxEdits()`), testy `build/test/ux.test.mjs`
+  (pevná data 2024-01-01 / 2025-11-01 / 2026-10-31).
+
 ### 2.2 Otevřená rozhodnutí
 - **Hosting a doména:** kde web poběží (požadavky `docs/go-live-requirements.md`, hlavně PHP ≥ 8.2, WP-CLI přes
   SSH, `.htaccess`, brotli/gzip, HTTPS + HTTP/2) a pod jakou doménou (dnes `dan24.webnode.cz`).
@@ -124,6 +144,8 @@ beze změny; každý patch má id, název a zdůvodnění a musí sedět přesn�
 - **D3** „[Mapa]“ → box mapy na kliknutí (`fragments.mjs mapBox`, styly z `site.css`),
 - **D5** „[Video YouTube]“ → box videa na kliknutí (`fragments.mjs videoBox`) včetně upozornění
   „Video načteme z YouTube až po kliknutí.“ (`VIDEO_NOTE`, obdoba poznámky u mapy).
+- **D10–D14** UX vrstva (`build/builders/ux.mjs`): minulé akce (D10, podle data buildu), další kroky + id karet
+  kurzů + styly `tk-ux` (D11), přihláška e-mailem (D12), H1 a odkazy míst na Kontaktu (D13), odkazy v textu O mně (D14).
 Každá další schválená odchylka = nový patch, ne povolení kontroly.
 
 ## 4. Pasti

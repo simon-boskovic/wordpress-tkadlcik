@@ -10,6 +10,7 @@
  * the href is the site's working https home page.
  */
 import { ARROW } from '../fragments.mjs';
+import { applyUx } from './ux.mjs';
 
 /** A harmonogram day as the card's heading, styled exactly like the design's `<span class="mono …">` it replaces. */
 const DAY_STYLE = "margin: 0; font-family: 'Geist Mono', ui-monospace, 'SFMono-Regular', monospace; font-size: 13px; font-weight: 400; letter-spacing: .01em; line-height: 1.6";
@@ -27,13 +28,13 @@ export const DAYS = [
   ['Sobota 29. 11. 2025', 'Hrátky pěti zvířat', true],
 ];
 
-export function build({ page }) {
+export function build({ content, page }) {
   return page({
     slug: 'akce',
     title: 'Akce',
     scripts: [],
     frontPage: false,
-    sections: [
+    sections: applyUx('akce', [
       `<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: clamp(48px, 6vw, 80px)">
 <div class="stack" style="gap: 28px; max-width: 1080px">
 <span class="eyebrow rise">Akce</span>
@@ -129,6 +130,6 @@ ${HORY_HEADING}
 </dl>
 </div>
 </section>`,
-    ],
+    ], content.today),
   });
 }
