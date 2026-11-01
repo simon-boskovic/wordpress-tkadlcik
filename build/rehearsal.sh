@@ -36,8 +36,8 @@ wp() { command wp --path="$W" --require="$W/wp-content/mu-plugins/tk-build/class
 echo "== PHP / WP-CLI"; wp --info | grep -E 'PHP version|WP-CLI version'
 echo "== files (§5.2)"
 mkdir -p "$W/wp-content/themes" "$W/wp-content/mu-plugins"
-cp -a "$D/bundle/wp-content/themes/tkadlcik" "$W/wp-content/themes/"
-cp -a "$D/bundle/wp-content/mu-plugins/." "$W/wp-content/mu-plugins/"
+# (cp -a warns "can't preserve ownership" here only: the bundle is a Windows bind mount)
+{ cp -a "$D/bundle/wp-content/themes/tkadlcik" "$W/wp-content/themes/" && cp -a "$D/bundle/wp-content/mu-plugins/." "$W/wp-content/mu-plugins/"; } 2>&1 | grep -v "preserve ownership" || true
 test ! -e "$W/wp-content/mu-plugins/tk-local.php" && echo "tk-local.php absent (correct)"
 echo "== pipeline (§6)"
 wp tk site-setup --allow-non-local --secrets="$D/wp-secrets.env" || exit 1
@@ -50,6 +50,7 @@ wp tk consent-setup || exit 1
 wp tk cache-setup || exit 1
 wp tk headers-setup || exit 1
 wp elementor flush_css; wp cache flush
+wp cron event run --due-now | tail -1     # first WP-Cron round (Complianz, TSF) before the warm
 wp tk cache-purge && wp tk cache-warm || exit 1
 echo "== idempotence: second run must change nothing"
 wp tk page-upsert --dir="$D/bundle/build/pages" --dry-run | grep -vc '^\[ok\]' || true
@@ -58,6 +59,8 @@ wp tk doctor
 EOF
 
 # 4. Checks from outside, like §7 against the production domain.
-node build/verify.mjs --seo --cache --base="$BASE"
-node build/interact.mjs all --base="$BASE" 2>&1 | grep -E '^[a-z-]+: '
+FAIL=0
+node build/verify.mjs --seo --cache --base="$BASE" || FAIL=1
+node build/interact.mjs all --base="$BASE" 2>&1 | grep -E '^[a-z-]+: ' || FAIL=1
 "${DC[@]}" exec -T wordpress sh -c 'test -s /var/www/html/wp-content/debug.log && cat /var/www/html/wp-content/debug.log || echo "debug.log empty"'
+exit $FAIL

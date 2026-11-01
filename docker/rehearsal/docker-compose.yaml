@@ -51,7 +51,7 @@ services:
       db:
         condition: service_healthy
     # mod_headers/mod_expires/mod_brotli: the image ships them disabled. Brotli stands in for the server compression (ask Webglobe, go-live #1).
-    command: ["bash", "-c", "a2enmod headers expires brotli >/dev/null && exec docker-entrypoint.sh apache2-foreground"]
+    command: ["bash", "-c", "a2enmod headers expires brotli >/dev/null && echo 'AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript application/javascript application/json image/svg+xml' > /etc/apache2/conf-enabled/zz-br.conf && exec docker-entrypoint.sh apache2-foreground"]
     ports:
       - '127.0.0.1:8030:80'
     environment:
