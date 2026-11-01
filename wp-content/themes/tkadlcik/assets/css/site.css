@@ -408,7 +408,7 @@ code{font-size:.92em}
 @media (max-width:899px){.tk-form{grid-template-columns:1fr}}
 
 /* Maps a little larger (on request) */
-.tk-map{aspect-ratio:4 / 3;min-height:320px}
+.tk-map{aspect-ratio:4 / 3;min-height:320px;width:100%;min-width:0}  /* explicit width: with aspect-ratio, min-height alone would widen the box past a phone screen */
 /* The loaded map (map.js swaps the box for this iframe): the same size as the box it replaces. */
 .tk-map-frame{display:block;width:100%;aspect-ratio:4 / 3;min-height:320px;border:0;background:var(--paper-2)}
 /* Without JavaScript the course tabs cannot work: hide them and show every course (picture + text) stacked. */
