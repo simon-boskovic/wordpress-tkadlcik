@@ -1,4 +1,4 @@
-# Dress rehearsal of the Webglobe migration (docs/deploy.md): a stack with the production host's versions (PHP 8.2,
+# Dress rehearsal of the Webglobe migration (docs/deploy.md): a stack with the production host's versions (PHP 8.4, MariaDB 11.8,
 # MySQL 5.6.51, Apache with .htaccess). build/rehearsal.sh installs a plain WordPress in it (the client's existing
 # site), then runs the bundle's deploy/webglobe/ scripts exactly as on the server, rollback included.
 #
@@ -27,23 +27,22 @@ x-wp-config-extra: &wp-config-extra |
 
 services:
   db:
-    image: mysql:5.6.51
-    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_520_ci", "--max-allowed-packet=64M"]
+    image: mariadb:11.8   # production (wp005.nameserver.sk, 2026-11-01): MariaDB 11.8.8
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: wordpress
     volumes:
       - db_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -ppassword --silent"]
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
       interval: 5s
       timeout: 5s
       retries: 30
 
   wordpress:
-    image: wordpress:7.1-php8.2-apache
+    image: wordpress:7.1-php8.4-apache   # production: PHP 8.4.27 on LiteSpeed (Apache stands in)
     depends_on:
       db:
         condition: service_healthy
@@ -57,9 +56,9 @@ services:
     volumes:
       - web:/var/www/html
 
-  # The "server console": WP-CLI with PHP 8.2; /deploy = $D on Webglobe (bundle in /deploy/bundle, backups in /deploy/backup).
+  # The "server console": WP-CLI with PHP 8.4; /deploy = $D on Webglobe (bundle in /deploy/bundle, backups in /deploy/backup).
   wpcli:
-    image: wordpress:cli-php8.2
+    image: wordpress:cli-php8.4
     profiles: [cli]
     depends_on:
       db:

@@ -2,15 +2,14 @@
  * Site-wide data from the prototype's shared header/footer (Main.dc.html .top / .mnav / footer.foot), written to
  * the theme's data/site.json for header.php, footer.php and the JSON-LD (inc/seo.php).
  *
- * NOTE: the phone is kept exactly as the design has it ("+420 773 287 1113": 10 digits after +420, a Czech
- * number has 9). To be confirmed by the client; change it here AND in the page markup (generate.mjs checks
- * that every tel:/mailto: link on the pages matches these values).
+ * The phone was confirmed by the client on 2026-11-01 (+420 773 287 113; the design's "773 287 1113" had a digit
+ * too many). generate.mjs checks that every tel:/mailto: link on the pages matches these values.
  */
 export const contact = {
   name: 'Mgr. Daniel Tkadlčík',
   person: 'Daniel Tkadlčík',
-  phone: '+420 773 287 1113',
-  phoneHref: 'tel:+4207732871113',
+  phone: '+420 773 287 113',
+  phoneHref: 'tel:+420773287113',
   email: 'tkadlcik@centrum.cz',
 };
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Dress rehearsal of the Webglobe migration (docs/deploy.md) on a local stack with production's versions
-# (docker/rehearsal/: PHP 8.2, MySQL 5.6.51, Apache + .htaccess), against an ALREADY RUNNING WordPress, with the
+# (docker/rehearsal/: PHP 8.4, MariaDB 11.8, Apache + .htaccess for LiteSpeed), against an ALREADY RUNNING WordPress
+# set up like Webglobe's (Host-derived WP_HOME, LiteSpeed Cache, MonsterInsights, Wordfence, default content), with the
 # bundle's own scripts deploy/webglobe/00–09 run exactly as on the server (only the paths differ):
 #   existing site -> 00 inventory -> 01 backup -> 02 --dry-run -> 02 -> 03 -> checks from outside
 #   -> 09 rollback -> the old site is back -> 02 again -> 03
@@ -18,6 +19,7 @@ if [ "${1:-}" != "--keep-bundle" ]; then ./build/deploy-bundle.sh --skip-checks;
 BUNDLE=$(ls -t backups/deploy/tk-deploy-*.tar.gz | head -1)
 rm -rf backups/rehearsal && mkdir -p backups/rehearsal/bundle
 tar xzf "$BUNDLE" -C backups/rehearsal/bundle
+cp docker/rehearsal/webglobe-home.php backups/rehearsal/
 
 # 2. The hosting as the client has it: WordPress already installed and running, with someone else's bits.
 "${DC[@]}" down -v >/dev/null 2>&1 || true
@@ -30,16 +32,16 @@ done
   wp --path=$W core install --url=http://localhost:8030 --title="Můj web" --admin_user=majitel --admin_password=heslo-heslo --admin_email=majitel@example.com --skip-email
   wp --path=$W language core install cs_CZ --activate >/dev/null
   wp --path=$W rewrite structure "/%postname%/" >/dev/null
-  wp --path=$W post create --post_type=page --post_status=publish --post_title="O nás" --post_name=o-nas >/dev/null
-  wp --path=$W post create --post_type=page --post_status=publish --post_title="Kontakt (starý)" --post_name=kontakt >/dev/null
-  wp --path=$W plugin install litespeed-cache --activate >/dev/null
-  wp --path=$W plugin install classic-editor >/dev/null
+  wp --path=$W plugin install litespeed-cache google-analytics-for-wordpress wordfence --activate >/dev/null
+  # Webglobe writes the address from the Host header into wp-config.php (copied from wp005, 2026-11-01):
+  php /deploy/webglobe-home.php $W/wp-config.php
+  grep -n "WP_HOME\|WP_SITEURL" $W/wp-config.php
   echo "User-agent: *" > $W/robots.txt
   echo "== the existing site:"; wp --path=$W theme list --status=active --field=name; wp --path=$W plugin list --fields=name,status
 ' 2>&1 | grep -v Container
 
 # 3. The server console: the bundle's scripts with this stack's paths.
-ENV='W=/var/www/html D=/deploy H=http://localhost:8030 DOMAIN=localhost:8030 PHP=php CURL_CONNECT_TO=localhost:8030:wordpress:80'
+ENV='W=/var/www/html D=/deploy H=http://localhost:8030 DOMAIN=localhost:8030 PHP=php CURL_CONNECT_TO=localhost:8030:wordpress:80'   # PHP=php is 8.4 in the CLI image
 run() { echo; echo "######## $*"; "${DC[@]}" run --rm -T wpcli -c "$ENV bash /deploy/bundle/deploy/webglobe/$*" 2>&1 | grep -v ' Container '; }
 run 00-inventar.sh
 run 01-zaloha.sh

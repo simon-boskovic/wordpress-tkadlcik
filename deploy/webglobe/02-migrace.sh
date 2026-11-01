@@ -8,8 +8,9 @@
 set -o pipefail
 DRY=0; [ "${1:-}" = "--dry-run" ] && DRY=1
 
-# Pluginy, které se s novým webem tlučou (vlastní page cache / minifikace / přesměrování 404): vypnout, nemazat.
-CONFLICTING="litespeed-cache wp-rocket w3-total-cache wp-super-cache wp-fastest-cache autoptimize sg-cachepress wp-optimize breeze hummingbird-performance cache-enabler comet-cache swift-performance-lite all-404-redirect-to-homepage redirect-404-to-homepage"
+# Pluginy, které se s novým webem tlučou (vlastní page cache / minifikace / přesměrování 404 / Google Analytics bez
+# souhlasu — GA vkládá Site Kit, blokovaný Complianzem do souhlasu): vypnout, nemazat.
+CONFLICTING="google-analytics-for-wordpress google-analytics-dashboard-for-wp litespeed-cache wp-rocket w3-total-cache wp-super-cache wp-fastest-cache autoptimize sg-cachepress wp-optimize breeze hummingbird-performance cache-enabler comet-cache swift-performance-lite all-404-redirect-to-homepage redirect-404-to-homepage"
 
 say "Kontroly před migrací"
 [ -f "$W/wp-config.php" ] || stop "V $W není wp-config.php."
@@ -20,7 +21,20 @@ ok "balík $(cat "$BUNDLE/REVISION")"
 sums_ok "$B" SHA256SUMS || stop "Záloha v $B neodpovídá SHA256SUMS."
 ok "záloha $B ($(grep '^date:' "$B/soupis.txt"))"
 "$PHP" -r 'exit(version_compare(PHP_VERSION, "8.2", ">=") ? 0 : 1);' || stop "$PHP je starší než 8.2."
-HOME_NOW=$(wp option get home)
+# Webglobe zapisuje do wp-config.php adresu z hlavičky Host ("http" . … . $_SERVER["HTTP_HOST"] . "/"): web by
+# odpovídal na jakékoli jméno (www, IP) a WP-CLI vidí jen "http:". Nahradit pevnou adresou H.
+if grep -qE "define\( *'WP_(HOME|SITEURL)'.*HTTP_HOST" "$W/wp-config.php"; then
+  if [ $DRY -eq 1 ]; then
+    warn "wp-config.php: WP_HOME/WP_SITEURL z HTTP_HOST — ostrý běh je nastaví na $H"
+  else
+    sed -i -E "s#^define\( *'WP_HOME',.*HTTP_HOST.*\);#define( 'WP_HOME', '$H' );#; s#^define\( *'WP_SITEURL',.*HTTP_HOST.*\);#define( 'WP_SITEURL', '$H' );#" "$W/wp-config.php"
+    grep -qE "HTTP_HOST" "$W/wp-config.php" && stop "WP_HOME/WP_SITEURL se nepodařilo nahradit."
+    "$PHP" "$WPCLI" --path="$W" option update home "$H" >/dev/null
+    "$PHP" "$WPCLI" --path="$W" option update siteurl "$H" >/dev/null
+    ok "wp-config.php: WP_HOME = WP_SITEURL = $H (volby home/siteurl taky)"
+  fi
+fi
+[ $DRY -eq 1 ] && grep -qE "HTTP_HOST" "$W/wp-config.php" && HOME_NOW=$H || HOME_NOW=$(wp option get home)
 [ "$HOME_NOW" = "$H" ] || stop "home je '$HOME_NOW', čeká se '$H' (upravit H nebo adresu webu)."
 if [ -f "$W/wp-content/advanced-cache.php" ] && ! grep -q 'TK Page Cache\|tk-page-cache\|TK_PAGE_CACHE' "$W/wp-content/advanced-cache.php"; then
   ACP=$(head -c 400 "$W/wp-content/advanced-cache.php" | tr '\n' ' ')
@@ -64,6 +78,15 @@ grep -nE "WP_ENVIRONMENT_TYPE|WP_CACHE|DISALLOW_FILE_EDIT|WP_MEMORY_LIMIT" "$W/w
 say "3. Konfliktní pluginy vypnout"
 for p in $ACTIVE_CONFLICT; do wp plugin deactivate "$p" && echo "$p" >> "$B/plugins-deactivated.txt"; done
 [ -z "$ACTIVE_CONFLICT" ] && ok "žádné"
+if [ -f "$W/wp-content/advanced-cache.php" ] && ! grep -q 'TK_PAGE_CACHE\|tk-page-cache' "$W/wp-content/advanced-cache.php"; then
+  mkdir -p "$B/moved"; mv "$W/wp-content/advanced-cache.php" "$B/moved/advanced-cache.php" && ok "cizí advanced-cache.php přesunut do $B/moved/"
+fi
+# LiteSpeed Cache po vypnutí nechává v .htaccess bloky LSCACHE / NON_LSCACHE (CacheLookup on = serverová cache LiteSpeedu
+# by dál ukládala HTML mimo naši page cache). Odstranit; původní .htaccess je v záloze.
+if grep -q '^# BEGIN LSCACHE\|^# BEGIN NON_LSCACHE' "$W/.htaccess" 2>/dev/null; then
+  sed -i '/^# BEGIN LSCACHE$/,/^# END LSCACHE$/d; /^# BEGIN NON_LSCACHE$/,/^# END NON_LSCACHE$/d' "$W/.htaccess"
+  ok "bloky LSCACHE odstraněny z .htaccess"
+fi
 
 say "4. Šablona a mu-pluginy"
 mkdir -p "$W/wp-content/themes" "$W/wp-content/mu-plugins"

@@ -54,8 +54,8 @@ Podklady: `docs/go-live-requirements.md` (nastavení serveru #1–27), `CLAUDE.m
 
 ## 2. Blokery obsahu (klient)
 
-- **Telefon** `+420 773 287 1113` má 10 číslic (go-live #25). Opravit v `build/content.mjs` `contact`, commit.
-  `node build/verify.mjs --golive` musí projít, jinak se nenasazuje.
+- **Telefon** potvrzený klientem 2026-11-01: `+420 773 287 113` (`build/content.mjs` `contact`). `node build/verify.mjs
+  --golive` musí projít, jinak se nenasazuje.
 - Ostatní otevřené body od klienta (termíny akcí, rozvrh, ceny, Zlín, zdroj článků) nasazení neblokují; po doplnění
   jde další balík přes §10.
 - Soubory ke stažení z Webnode (leták na Šavli, 10 principů, Wu-ťi) jsou v `client-files/` a nasazují se s balíkem.

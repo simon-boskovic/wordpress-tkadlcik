@@ -3,10 +3,10 @@
 # Generálka (build/rehearsal.sh) je takto přepisuje na cesty svého stacku.
 
 DOMAIN=${DOMAIN:-radostvpohybu.cz}
-W=${W:-/home/html/$DOMAIN/public_html/www}        # kořen WordPressu (tam, kde je wp-config.php)
+W=${W:-/home/html/$DOMAIN/public_html}            # kořen WordPressu (tam, kde je wp-config.php)
 D=${D:-/home/html/$DOMAIN/deploy}                 # složka pro nasazení, mimo web (FTP účet deploy.$DOMAIN)
 H=${H:-https://$DOMAIN}                           # adresa webu, jak ji má volba home
-PHP=${PHP:-php8.2}                                # stejná verze jako PHP webu (výchozí `php` v konzoli je 7.3)
+PHP=${PHP:-php8.4}                                # stejná verze jako PHP webu (2026-11-01: 8.4.27, LiteSpeed)
 WPCLI=${WPCLI:-/usr/local/bin/wp}
 BUNDLE=${BUNDLE:-$D/bundle}                       # rozbalený balík (build/deploy-bundle.sh)
 B=${B:-$D/backup}                                 # zálohy (01-zaloha.sh); 09-navrat.sh z nich obnovuje

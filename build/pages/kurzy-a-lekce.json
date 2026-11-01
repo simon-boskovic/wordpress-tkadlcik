@@ -240,7 +240,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+4207732871113\">+420 773 287 1113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
+            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+420773287113\">+420 773 287 113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
           },
           "elements": []
         }

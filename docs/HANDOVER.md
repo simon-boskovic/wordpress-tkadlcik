@@ -39,7 +39,7 @@ Bez formuláře, analytiky a cookie lišty.
 - **Fotky** místo všech „[Foto]“ a obrázek pro sdílení (og:image) — do `client-img/`, pak `./build/rebuild.sh`
   (`media-import` převede na WebP).
 - **Videa** pro Videogalerii (Cvičení) místo „[Video]“ — odkazy/soubory; YouTube vkládat „na kliknutí“ jako mapy.
-- **Telefon `+420 773 287 1113` má 10 číslic** (české číslo má 9) — ověřit správné číslo (je v hlavičce,
+- ✅ **Telefon** potvrzený 2026-11-01: `+420 773 287 113` (dříve chybně `773 287 1113`) (je v hlavičce,
   mobilním menu, patičce, Kontaktu, JSON-LD i `tel:` odkazech; jediný zdroj `build/content.mjs` `contact`).
 - **Karta „13 Words of Tchaj-ťi“** (Nabídka kurzů): „Úterý 18:00 – 19:30h / Osm kusů brokátu“ — čas i název lekce
   vypadají zkopírované z karty Osm kusů brokátu; potvrdit text.

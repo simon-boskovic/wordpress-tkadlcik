@@ -304,7 +304,7 @@ export const SCENARIOS = {
       const r = await rules(b);
       assert(r.count === 1 && r.eagerness === 'moderate', 'desktop: expected exactly one ruleset (ours) with eagerness moderate: ' + JSON.stringify(r));
       const yes = ['/zz-tk-plain/', '/cviceni/#videa'];
-      const no = ['/wp-login.php', '/wp-admin/', '/wp-json/', '/wp-content/uploads/x.webp', '/akce/?utm_source=x', '/?s=tchaj', '/llms.txt', '/robots.txt', '/sitemap.xml', '/feed/', 'https://example.com/', 'tel:+4207732871113', 'mailto:tkadlcik@centrum.cz'];
+      const no = ['/wp-login.php', '/wp-admin/', '/wp-json/', '/wp-content/uploads/x.webp', '/akce/?utm_source=x', '/?s=tchaj', '/llms.txt', '/robots.txt', '/sitemap.xml', '/feed/', 'https://example.com/', 'tel:+420773287113', 'mailto:tkadlcik@centrum.cz'];
       await b.evaluate(`(() => { const d = document.createElement('div'); d.id = 'tk-pf-links'; d.setAttribute('style', 'position:fixed;left:8px;top:120px;z-index:99999;background:#fff;padding:4px;display:flex;flex-direction:column;gap:4px;font:12px sans-serif');
         d.innerHTML = ${JSON.stringify([...yes, ...no].map((h) => `<a href="${h}">${h}</a>`).join('') + '<a rel="nofollow" href="/zz-tk-nofollow/">nofollow</a><a data-no-prefetch href="/zz-tk-noprefetch/">data-no-prefetch</a>')}; document.body.appendChild(d); })()`);
       await sleep(800);

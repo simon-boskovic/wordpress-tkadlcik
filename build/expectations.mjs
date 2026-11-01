@@ -109,8 +109,8 @@ export default {
   kontakt: {
     h1: 'Kontakt: tchaj-ťi Praha 4 a Zlín',
     title: SEO['kontakt'].title,
-    texts: ['Mgr. Daniel Tkadlčík', '+420 773 287 1113', 'tkadlcik@centrum.cz', 'Jeremenkova 1003/66A', 'Osvoboditelů 484, Zlín'],
-    selectors: [...COMMON, 'main a[href="tel:+4207732871113"]', '[data-tk-map-box] button[data-tk-map]', 'main a[href$="/kurzy-a-lekce/#praha"]', 'main a[href$="/cviceni-ve-zline/"]', '#formular form[data-tk-form] textarea[name="message"]'],
+    texts: ['Mgr. Daniel Tkadlčík', '+420 773 287 113', 'tkadlcik@centrum.cz', 'Jeremenkova 1003/66A', 'Osvoboditelů 484, Zlín'],
+    selectors: [...COMMON, 'main a[href="tel:+420773287113"]', '[data-tk-map-box] button[data-tk-map]', 'main a[href$="/kurzy-a-lekce/#praha"]', 'main a[href$="/cviceni-ve-zline/"]', '#formular form[data-tk-form] textarea[name="message"]'],
     scripts: ['map', 'form'],
   },
   // noindex,follow + self canonical, not in sitemap/llms.txt (verify --seo).

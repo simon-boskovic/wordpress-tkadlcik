@@ -137,7 +137,7 @@ Každý bod je buď doplněný, nebo ho klient písemně odsouhlasil jako vynech
 - ⏳ **Videa** pro Videogalerii (Cvičení) místo „[Video]“ – odkazy nebo soubory a souhlas s vložením (YouTube by
   mělo jít také „na kliknutí“ jako mapy).
 - ⏳ **Mapy:** potvrzení adres pro mapy (Jeremenkova 1003/66A, Praha 4; Osvoboditelů 484, Zlín).
-- ⏳ **Telefon** `+420 773 287 1113` má 10 číslic (české číslo má 9) – ověřit správné číslo.
+- ✅ **Telefon** potvrzený klientem 2026-11-01: `+420 773 287 113`.
 - ⏳ **„13 Words of Tchaj-ťi“** na Nabídce: karta uvádí „Úterý 18:00 – 19:30h, Osm kusů brokátu“ – čas i název
   lekce vypadají zkopírované z karty Osm kusů brokátu; potvrdit správný text.
 - ⏳ **Letní týdenní kurz na horách** (Akce): „30. 7. neděle – 7. 7. 2024 neděle“ – konec je před začátkem, opravit.
