@@ -1180,6 +1180,9 @@ class TK_Build_Command {
 				'sitemaps_output'        => 1,
 				'sitemaps_robots'        => 1,
 				'sitemaps_modified'      => 1,
+				// No XSLT stylesheet on the sitemap: Chrome/Edge are removing XSLT and warn on the styled page
+				// (2026-11-01); crawlers read the plain XML either way.
+				'sitemap_styles'         => 0,
 
 				'author_noindex'         => 1,
 				'date_noindex'           => 1,
