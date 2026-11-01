@@ -28,7 +28,9 @@ wp tk seo-setup --file="$BUNDLE/build/seo.json" | tail -1 || stop "seo-setup"
 wp tk consent-setup --dry-run | tail -2
 
 say "Cache"
+ls_cache_off
 wp elementor flush_css 2>/dev/null | tail -1; wp cache flush | tail -1
+ls_cache_purge
 wp tk cache-purge | tail -1
 wp tk cache-warm | tail -1
 wp tk cache-warm | tail -1

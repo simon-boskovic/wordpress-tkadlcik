@@ -141,7 +141,8 @@ done
 say "10. Cookies, page cache, bezpečnostní hlavičky"
 wp tk consent-setup | grep -vE '^change ' || stop "consent-setup"
 wp tk consent-setup --dry-run | tail -2
-wp tk cache-setup || stop "cache-setup"
+ls_cache_off
+wp tk cache-setup --mode=php || stop "cache-setup"
 wp tk headers-setup || stop "headers-setup"
 wp plugin auto-updates disable elementor complianz-gdpr google-site-kit 2>&1 | tail -1
 wp elementor flush_css; wp cache flush
@@ -149,6 +150,7 @@ wp cron event run --due-now | tail -1
 
 say "11. Konec údržby, cache"
 rm -f "$W/.maintenance"
+ls_cache_purge
 wp tk cache-purge
 wp tk cache-warm | tail -1
 wp tk cache-warm | tail -1

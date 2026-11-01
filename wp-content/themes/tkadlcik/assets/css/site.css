@@ -345,7 +345,7 @@ html:not(.js) .tk-map [data-tk-map]{display:none}
   .breath-box,.split2,.pair{grid-template-columns:1fr}
   .plate{grid-template-columns:minmax(160px,220px) minmax(0,1fr)}
 
-  .breath{max-width:300px}
+  .breath{max-width:300px;margin-inline:auto}
   .sheet-wrap{padding:40px 10px}
   .figures{grid-template-columns:1fr 1fr}
   .statement-in{min-height:0;gap:56px}
@@ -416,4 +416,4 @@ html:not(.js) [data-plate] .tabs{display:none}
 html:not(.js) [data-plate] [data-plate-panel][hidden]{display:flex!important}
 html:not(.js) [data-plate] [data-plate-pic][hidden]{display:block!important}
 html:not(.js) [data-plate] .plate-pics{display:flex;flex-direction:column;gap:16px}
-@media (max-width:599px){.plate{grid-template-columns:1fr}.plate .tk-video{max-width:min(260px,100%)}}
+@media (max-width:599px){.plate{grid-template-columns:1fr}.plate .tk-video{max-width:min(260px,100%);margin-inline:auto}}

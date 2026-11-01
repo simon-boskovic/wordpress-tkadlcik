@@ -33,3 +33,21 @@ sums_ok() { ( cd "$1" && out=$(sha256sum -c "$2" 2>&1); rc=$?; printf '%s\n' "$o
 
 # Generálka: curl na adresu webu přes jiný cíl (CURL_CONNECT_TO=localhost:8030:wordpress:80). Na serveru prázdné.
 curl() { if [ -n "${CURL_CONNECT_TO:-}" ]; then command curl --connect-to "$CURL_CONNECT_TO" "$@"; else command curl "$@"; fi; }
+
+# Webglobe = nginx + LiteSpeed. LiteSpeed's own server cache would serve stale copies next to our page cache, and it
+# ignores Header/AddEncoding in wp-content/cache/tk-page/.htaccess (a .gz would go out without Content-Encoding):
+# switch its cache off for the site (block at the top of .htaccess) and serve our cache from PHP (cache-setup --mode=php).
+ls_cache_off() {
+  grep -q '^# BEGIN TK LiteSpeed Cache off' "$W/.htaccess" 2>/dev/null && { ok "LiteSpeed cache už vypnutá (.htaccess)"; return 0; }
+  { printf '%s\n' '# BEGIN TK LiteSpeed Cache off' \
+      "# The site has its own page cache (TK Page Cache); LiteSpeed's server cache would serve stale copies." \
+      '<IfModule LiteSpeed>' 'CacheLookup off' 'RewriteEngine On' 'RewriteRule .* - [E=Cache-Control:no-cache]' '</IfModule>' \
+      '# END TK LiteSpeed Cache off'
+    cat "$W/.htaccess"; } > "$W/.htaccess.tk-new" && mv "$W/.htaccess.tk-new" "$W/.htaccess" && ok "LiteSpeed cache vypnutá (.htaccess)"
+}
+# Purge LiteSpeed's cache for this site: a PHP response carrying X-LiteSpeed-Purge: * (no-op on other servers).
+ls_cache_purge() {
+  local f="$W/tk-lspurge-$RANDOM$RANDOM.php"
+  echo '<?php header("X-LiteSpeed-Purge: *"); header("Cache-Control: no-store"); echo "ok";' > "$f"
+  curl -s -o /dev/null -w "LiteSpeed purge: %{http_code}\n" "$H/$(basename "$f")"; rm -f "$f"
+}

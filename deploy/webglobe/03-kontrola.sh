@@ -20,6 +20,8 @@ for s in $(our_slugs); do
   r=$(curl -s -o /dev/null -D - -H 'Accept-Encoding: gzip' "$H$path" | tr -d '\r' | awk 'NR==1{c=$2} tolower($1)=="x-tk-cache:"{x=$2} END{print c" "x}')
   printf '%-40s %s\n' "$path" "$r"
   case "$r" in "200 HIT"*|"200 HIT-PHP"*) ;; *) bad "$path: $r";; esac
+  enc=$(curl -s -o /dev/null -D - -H 'Accept-Encoding: gzip' "$H$path" | tr -d '' | grep -ic '^content-encoding:')
+  [ "$enc" -ge 1 ] || bad "$path: odpověď bez Content-Encoding"
 done
 
 say "Přesměrování, 404, soubory"
