@@ -50,8 +50,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    # Webglobe's Apache has mod_headers and mod_expires; the image only ships them.
-    command: ["bash", "-c", "a2enmod headers expires >/dev/null && exec docker-entrypoint.sh apache2-foreground"]
+    # mod_headers/mod_expires/mod_brotli: the image ships them disabled. Brotli stands in for the server compression (ask Webglobe, go-live #1).
+    command: ["bash", "-c", "a2enmod headers expires brotli >/dev/null && exec docker-entrypoint.sh apache2-foreground"]
     ports:
       - '127.0.0.1:8030:80'
     environment:

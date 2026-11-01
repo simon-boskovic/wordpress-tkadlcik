@@ -189,6 +189,17 @@ function tk_consent_unavailable() {
 }
 
 /**
+ * Whether Complianz's cookie table is missing (fresh install configured from WP-CLI only).
+ *
+ * @return bool
+ */
+function tk_consent_cookie_table_missing() {
+	global $wpdb;
+	$table = $wpdb->prefix . 'cmplz_cookies';
+	return $table !== $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $table ) ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+}
+
+/**
  * Compare the install with the desired configuration. Only the keys listed above are looked at.
  *
  * @return array{changes: array<int,array{what:string,from:mixed,to:mixed}>, ok: array<int,string>}
@@ -215,6 +226,12 @@ function tk_consent_diff() {
 		} else {
 			$changes[] = array( 'what' => $key, 'from' => $have, 'to' => $want );
 		}
+	}
+
+	if ( tk_consent_cookie_table_missing() ) {
+		$changes[] = array( 'what' => 'table ' . $GLOBALS['wpdb']->prefix . 'cmplz_cookies', 'from' => 'missing', 'to' => 'created' );
+	} else {
+		$ok[] = 'table cmplz_cookies';
 	}
 
 	$integrations = get_option( 'complianz_options_integrations', array() );
@@ -275,6 +292,19 @@ function tk_consent_apply() {
 	if ( ! get_option( 'cmplz_cbdb_version' ) ) {
 		cmplz_install_cookiebanner_table( true );
 		$log[] = 'installed the cookie banner table';
+	}
+	if ( tk_consent_cookie_table_missing() && function_exists( 'cmplz_install_cookie_table' ) ) {
+		// Complianz creates its cookie/service tables only in wp-admin or WP-Cron (cookie/class-cookie.php
+		// cmplz_install_cookie_table()); a fresh install set up from WP-CLI never had either (deploy rehearsal
+		// 2026-11-01: "Table wp_cmplz_cookies doesn't exist" on every save). Run it as WP-Cron would.
+		$as_cron = static function () {
+			return true;
+		};
+		add_filter( 'wp_doing_cron', $as_cron );
+		delete_option( 'cmplz_cookietable_version' );
+		cmplz_install_cookie_table();
+		remove_filter( 'wp_doing_cron', $as_cron );
+		$log[] = tk_consent_cookie_table_missing() ? 'could NOT create the cookie table' : 'installed the cookie and service tables';
 	}
 
 	$cmplz = get_option( 'cmplz_options', array() );
