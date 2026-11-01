@@ -17,6 +17,7 @@ The site of Daniel Tkadlčík, a Czech tai-chi/qigong instructor ("Radost v pohy
 - `build/` — generator (`generate.mjs` → `build/pages/*.json`, `seo.json`, optional `media.json`, `kit.json`) and `rebuild.sh`; verification: `verify.mjs`, `interact.mjs`, `dod.mjs` (+ `lib/dod/`), `serve-prototype.mjs`, `screenshot.mjs`, `dod-evidence.mjs`.
 - `design_handoff_tkadlcik/` — the Claude Design prototype (read-only reference for the DoD harness).
 - `docs/` — `definition-of-done.md` (acceptance gate), `HANDOVER.md`, `deploy.md`, `go-live-requirements.md`.
+- **Deploy: radostvpohybu.cz on Webglobe** (PHP 8.2/8.4, MySQL 5.6, WebSSH; the user pastes commands, Claude reads the output and never runs anything on the server). Runbook `docs/deploy.md`; bundle `./build/deploy-bundle.sh` (from HEAD, no `tk-local.php`); dress rehearsal `./build/rehearsal.sh` (`docker/rehearsal/`, :8030, fresh PHP 8.2 + MySQL 5.6.51 install from the bundle only; `--down` removes it). Keep PHP 8.2- and MySQL 5.6-compatible.
 - `client-img/` — source images for `wp tk media-import` (converted to WebP).
 - `client-files/` — downloadable files (flyer, .docx articles) imported as-is by `wp tk media-import --files-dir=/project/client-files`, served flat at `/wp-content/uploads/<name>`.
 - `docker-compose.yaml`, `wp-cli.yml`, `wp.sh`, `db-export.sh`, `db-import.sh`, `docs/go-live-requirements.md`.

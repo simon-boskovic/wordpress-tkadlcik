@@ -12,8 +12,9 @@ Bez formuláře, analytiky a cookie lišty.
   ikona webu, page cache, bezpečnostní hlavičky.
 - **Ověřovací nástroje přenesené z martinadamus:** `verify.mjs`, `interact.mjs`, DoD harness (`dod.mjs`),
   `serve-prototype.mjs` s referenčními patchi, `dod-evidence.mjs`. Výsledky posledního běhu: §5.
-- **Nenasazeno.** Hosting a doména nejsou vybrané (§2). Runbook: `docs/deploy.md` (obecný, místa závislá na
-  hostingu označená TODO).
+- **Nenasazeno.** Doména **radostvpohybu.cz**, hosting **Webglobe** (2026-11-01). Runbook: `docs/deploy.md`
+  (balík `./build/deploy-bundle.sh`, generálka na PHP 8.2 + MySQL 5.6 `./build/rehearsal.sh` prošla 2026-11-01).
+  Stav redesignu 2026-11-01: `CLAUDE.md` „Redesign of 2026-11-01“ (tento soubor popisuje stav před ním).
 - **Čeká na klienta:** fotky, videa, potvrzení obsahu (§2).
 - **Zásady ochrany osobních údajů** (`/zasady-ochrany-osobnich-udaju/`, 8. stránka, mimo návrh): noindex,follow
   + vlastní canonical (R21), mimo sitemap a `llms.txt`, odkaz v patičce; doplňky od klienta viz §2.4.

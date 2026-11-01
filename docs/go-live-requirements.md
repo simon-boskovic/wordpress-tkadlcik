@@ -83,7 +83,7 @@ Google request. Production needs the client's Google account.
 
 | # | Requirement | Why | Check on production |
 |---|---|---|---|
-| 20 | **PHP 8.2 or newer (web and CLI), MySQL 5.7+/MariaDB, WP-CLI over SSH** (else the wp-admin cache button and manual `.htaccess` paste). | The local stack is PHP 8.4 + MariaDB 10.11; keep code 8.2-compatible. | `wp --info`, `wp eval 'echo PHP_VERSION;'`. |
+| 20 | **PHP 8.2 or newer (web and CLI, the same version), MySQL 5.6+/MariaDB, WP-CLI over SSH** (else the wp-admin cache button and manual `.htaccess` paste). Webglobe (radostvpohybu.cz): PHP 8.2/8.4 selectable, MySQL 5.6.51, WebSSH, WP-CLI as `php8.2 /usr/local/bin/wp`. | The local stack is PHP 8.4 + MariaDB 10.11; keep code 8.2-compatible. Proven by the dress rehearsal on PHP 8.2.34 + MySQL 5.6.51 (`./build/rehearsal.sh`, 2026-11-01). | `wp --info`, `wp eval 'echo PHP_VERSION;'`. |
 
 ## Curated third-party CSS (theme `assets/css/subsets/`)
 

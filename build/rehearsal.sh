@@ -39,6 +39,21 @@ mkdir -p "$W/wp-content/themes" "$W/wp-content/mu-plugins"
 # (cp -a warns "can't preserve ownership" here only: the bundle is a Windows bind mount)
 { cp -a "$D/bundle/wp-content/themes/tkadlcik" "$W/wp-content/themes/" && cp -a "$D/bundle/wp-content/mu-plugins/." "$W/wp-content/mu-plugins/"; } 2>&1 | grep -v "preserve ownership" || true
 test ! -e "$W/wp-content/mu-plugins/tk-local.php" && echo "tk-local.php absent (correct)"
+# A fresh Webglobe install has no .htaccess (the image ships one): write WordPress's block like §5.2.
+rm -f "$W/.htaccess"
+cat > "$W/.htaccess" <<'HT'
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+HT
 echo "== pipeline (§6)"
 wp tk site-setup --allow-non-local --secrets="$D/wp-secrets.env" || exit 1
 wp tk kit-setup || exit 1
@@ -46,12 +61,12 @@ wp tk media-import --dir="$D/bundle/client-img" --manifest="$D/bundle/build/medi
 wp tk site-icon --file="$D/bundle/client-img/site-icon.png" || exit 1
 wp tk page-upsert --dir="$D/bundle/build/pages" || exit 1
 wp tk seo-setup --file="$D/bundle/build/seo.json" || exit 1
-wp tk consent-setup || exit 1
+wp tk consent-setup | grep -vE "^change " || exit 1
 wp tk cache-setup || exit 1
 wp tk headers-setup || exit 1
 wp elementor flush_css; wp cache flush
 wp cron event run --due-now | tail -1     # first WP-Cron round (Complianz, TSF) before the warm
-wp tk cache-purge && wp tk cache-warm || exit 1
+wp tk cache-purge && wp tk cache-warm | tail -1 && wp tk cache-warm | tail -1 || exit 1
 echo "== idempotence: second run must change nothing"
 wp tk page-upsert --dir="$D/bundle/build/pages" --dry-run | grep -vc '^\[ok\]' || true
 wp tk consent-setup --dry-run | tail -1
