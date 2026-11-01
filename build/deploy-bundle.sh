@@ -34,7 +34,7 @@ trap 'rm -rf "$T"' EXIT
 git -c core.autocrlf=false -c core.eol=lf archive HEAD \
   wp-content/themes/tkadlcik wp-content/mu-plugins \
   build/pages build/seo.json build/media.json \
-  client-img client-files wp-cli.yml \
+  client-img client-files wp-cli.yml deploy/webglobe \
   | tar -x -C "$T"
 rm -f "$T/wp-content/mu-plugins/tk-local.php"
 git rev-parse HEAD > "$T/REVISION"

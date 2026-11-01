@@ -1,81 +1,62 @@
 #!/usr/bin/env bash
-# Dress rehearsal of the Webglobe deploy on a local stack with production's versions (docker/rehearsal/).
-#   ./build/rehearsal.sh [--keep-bundle]   bundle (HEAD) -> fresh PHP 8.2 + MySQL 5.6 stack -> runbook §5–§6 -> checks
+# Dress rehearsal of the Webglobe migration (docs/deploy.md) on a local stack with production's versions
+# (docker/rehearsal/: PHP 8.2, MySQL 5.6.51, Apache + .htaccess), against an ALREADY RUNNING WordPress, with the
+# bundle's own scripts deploy/webglobe/00–09 run exactly as on the server (only the paths differ):
+#   existing site -> 00 inventory -> 01 backup -> 02 --dry-run -> 02 -> 03 -> checks from outside
+#   -> 09 rollback -> the old site is back -> 02 again -> 03
+#   ./build/rehearsal.sh [--keep-bundle]   run it all
 #   ./build/rehearsal.sh --down            remove the rehearsal stack and its volumes
-# The deploy steps below are the runbook's (docs/deploy.md §5–§6) with the paths of this stack:
-#   W=/var/www/html (web root), D=/deploy (bundle in /deploy/bundle, secrets in /deploy/wp-secrets.env).
 set -euo pipefail
 cd "$(dirname "$0")/.."
 export MSYS_NO_PATHCONV=1
 DC=(docker compose -f docker/rehearsal/docker-compose.yaml)
 BASE=http://localhost:8030
-
 if [ "${1:-}" = "--down" ]; then "${DC[@]}" down -v; exit 0; fi
 
-# 1. Bundle (§4.2) and "upload" (§4.3): extracted into backups/rehearsal/bundle, mounted read-only at /deploy.
+# 1. Bundle and "upload": extracted into backups/rehearsal/bundle (= $D/bundle), mounted at /deploy.
 if [ "${1:-}" != "--keep-bundle" ]; then ./build/deploy-bundle.sh --skip-checks; fi
 BUNDLE=$(ls -t backups/deploy/tk-deploy-*.tar.gz | head -1)
 rm -rf backups/rehearsal && mkdir -p backups/rehearsal/bundle
 tar xzf "$BUNDLE" -C backups/rehearsal/bundle
-(cd backups/rehearsal/bundle && sha256sum -c --quiet MANIFEST.sha256) && echo "MANIFEST OK"
-printf 'WP_URL=%s\nWP_ADMIN_USER=spravce\nWP_ADMIN_PASSWORD=%s\nWP_ADMIN_EMAIL=admin@example.com\n' \
-  "$BASE" "$(openssl rand -hex 16)" > backups/rehearsal/wp-secrets.env
 
-# 2. Empty hosting: database + web server with WordPress core, no theme/plugins of ours.
+# 2. The hosting as the client has it: WordPress already installed and running, with someone else's bits.
 "${DC[@]}" down -v >/dev/null 2>&1 || true
 "${DC[@]}" up -d db wordpress
 for i in $(seq 1 60); do
   curl -s -o /dev/null -w '%{http_code}' "$BASE/wp-admin/install.php" 2>/dev/null | grep -q 200 && break; sleep 2
 done
+"${DC[@]}" run --rm -T --entrypoint sh wpcli -c '
+  set -e; W=/var/www/html
+  wp --path=$W core install --url=http://localhost:8030 --title="Můj web" --admin_user=majitel --admin_password=heslo-heslo --admin_email=majitel@example.com --skip-email
+  wp --path=$W language core install cs_CZ --activate >/dev/null
+  wp --path=$W rewrite structure "/%postname%/" >/dev/null
+  wp --path=$W post create --post_type=page --post_status=publish --post_title="O nás" --post_name=o-nas >/dev/null
+  wp --path=$W post create --post_type=page --post_status=publish --post_title="Kontakt (starý)" --post_name=kontakt >/dev/null
+  wp --path=$W plugin install litespeed-cache --activate >/dev/null
+  wp --path=$W plugin install classic-editor >/dev/null
+  echo "User-agent: *" > $W/robots.txt
+  echo "== the existing site:"; wp --path=$W theme list --status=active --field=name; wp --path=$W plugin list --fields=name,status
+' 2>&1 | grep -v Container
 
-# 3. The runbook's console steps, verbatim apart from W/D.
-"${DC[@]}" run --rm -T wpcli -s <<'EOF'
-set -u
-W=/var/www/html; D=/deploy
-wp() { command wp --path="$W" --require="$W/wp-content/mu-plugins/tk-build/class-tk-build-command.php" "$@"; }
-echo "== PHP / WP-CLI"; wp --info | grep -E 'PHP version|WP-CLI version'
-echo "== files (§5.2)"
-mkdir -p "$W/wp-content/themes" "$W/wp-content/mu-plugins"
-# (cp -a warns "can't preserve ownership" here only: the bundle is a Windows bind mount)
-{ cp -a "$D/bundle/wp-content/themes/tkadlcik" "$W/wp-content/themes/" && cp -a "$D/bundle/wp-content/mu-plugins/." "$W/wp-content/mu-plugins/"; } 2>&1 | grep -v "preserve ownership" || true
-test ! -e "$W/wp-content/mu-plugins/tk-local.php" && echo "tk-local.php absent (correct)"
-# A fresh Webglobe install has no .htaccess (the image ships one): write WordPress's block like §5.2.
-rm -f "$W/.htaccess"
-cat > "$W/.htaccess" <<'HT'
-# BEGIN WordPress
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
-# END WordPress
-HT
-echo "== pipeline (§6)"
-wp tk site-setup --allow-non-local --secrets="$D/wp-secrets.env" || exit 1
-wp tk kit-setup || exit 1
-wp tk media-import --dir="$D/bundle/client-img" --manifest="$D/bundle/build/media.json" --files-dir="$D/bundle/client-files" || exit 1
-wp tk site-icon --file="$D/bundle/client-img/site-icon.png" || exit 1
-wp tk page-upsert --dir="$D/bundle/build/pages" || exit 1
-wp tk seo-setup --file="$D/bundle/build/seo.json" || exit 1
-wp tk consent-setup | grep -vE "^change " || exit 1
-wp tk cache-setup || exit 1
-wp tk headers-setup || exit 1
-wp elementor flush_css; wp cache flush
-wp cron event run --due-now | tail -1     # first WP-Cron round (Complianz, TSF) before the warm
-wp tk cache-purge && wp tk cache-warm | tail -1 && wp tk cache-warm | tail -1 || exit 1
-echo "== idempotence: second run must change nothing"
-wp tk page-upsert --dir="$D/bundle/build/pages" --dry-run | grep -vc '^\[ok\]' || true
-wp tk consent-setup --dry-run | tail -1
-wp tk doctor
-EOF
+# 3. The server console: the bundle's scripts with this stack's paths.
+ENV='W=/var/www/html D=/deploy H=http://localhost:8030 DOMAIN=localhost:8030 PHP=php CURL_CONNECT_TO=localhost:8030:wordpress:80'
+run() { echo; echo "######## $*"; "${DC[@]}" run --rm -T wpcli -c "$ENV bash /deploy/bundle/deploy/webglobe/$*" 2>&1 | grep -v ' Container '; }
+run 00-inventar.sh
+run 01-zaloha.sh
+run 02-migrace.sh --dry-run
+run 02-migrace.sh
+run 03-kontrola.sh
 
-# 4. Checks from outside, like §7 against the production domain.
+# 4. Checks from outside, like docs/deploy.md §8 against the production domain.
 FAIL=0
 node build/verify.mjs --seo --cache --base="$BASE" || FAIL=1
-node build/interact.mjs all --base="$BASE" 2>&1 | grep -E '^[a-z-]+: ' || FAIL=1
-"${DC[@]}" exec -T wordpress sh -c 'test -s /var/www/html/wp-content/debug.log && cat /var/www/html/wp-content/debug.log || echo "debug.log empty"'
+node build/interact.mjs all --base="$BASE" 2>&1 | grep -E '^[a-z-]+: ' || true   # consent: FAIL until Site Kit is connected
+
+# 5. Rollback, then the old site must be back exactly; then migrate again.
+run 09-navrat.sh --ano
+echo "== after rollback:"
+"${DC[@]}" run --rm -T wpcli -c 'W=/var/www/html; wp --path=$W theme list --status=active --field=name; wp --path=$W plugin list --fields=name,status; wp --path=$W post list --post_type=page --fields=post_name,post_status; ls $W/robots.txt $W/wp-content/advanced-cache.php $W/wp-content/mu-plugins 2>&1; wp --path=$W db tables | grep -c cmplz || true' 2>&1 | grep -v ' Container '
+run 02-migrace.sh
+run 03-kontrola.sh || FAIL=1
+"${DC[@]}" exec -T wordpress sh -c 'test -s /var/www/html/wp-content/debug.log && tail -20 /var/www/html/wp-content/debug.log || echo "debug.log empty"'
 exit $FAIL
