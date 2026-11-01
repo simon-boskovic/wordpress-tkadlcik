@@ -9,7 +9,8 @@ say "WordPress"
 wp tk doctor
 [ -e "$W/.maintenance" ] && bad "údržba je pořád zapnutá ($W/.maintenance)"
 [ -e "$W/wp-content/mu-plugins/tk-local.php" ] && bad "tk-local.php na serveru"
-[ "$(wp eval 'echo wp_get_environment_type();')" = production ] && ok "prostředí production" || bad "prostředí není production"
+wp eval 'echo "ENV=", wp_get_environment_type(), "
+";' 2>/dev/null | grep -q '^ENV=production$' && ok "prostředí production" || bad "prostředí není production"
 wp tk consent-setup --dry-run | tail -2
 wp tk page-upsert --dir="$BUNDLE/build/pages" --dry-run | grep -vE '^\[ok\]' | head -5
 

@@ -67,15 +67,7 @@ say "1. Údržba"
 echo '<?php $upgrading = time(); ?>' > "$W/.maintenance"   # time() při každém požadavku: platí, dokud se nesmaže
 ok "údržba zapnutá ($W/.maintenance); WP-CLI pod ní funguje"
 
-say "2. wp-config.php"
-wp config set WP_ENVIRONMENT_TYPE production || stop "config set"
-wp config set WP_CACHE true --raw || stop "config set"
-wp config set DISALLOW_FILE_EDIT true --raw || stop "config set"
-MEM=$(wp eval 'echo (int) wp_convert_hr_to_bytes( WP_MEMORY_LIMIT );')
-[ "${MEM:-0}" -lt 134217728 ] && { wp config set WP_MEMORY_LIMIT 128M || stop "config set"; }
-grep -nE "WP_ENVIRONMENT_TYPE|WP_CACHE|DISALLOW_FILE_EDIT|WP_MEMORY_LIMIT" "$W/wp-config.php"
-
-say "3. Konfliktní pluginy vypnout"
+say "2. Konfliktní pluginy vypnout (před wp-config: LiteSpeed Cache při vypnutí přepisuje WP_CACHE)"
 for p in $ACTIVE_CONFLICT; do wp plugin deactivate "$p" && echo "$p" >> "$B/plugins-deactivated.txt"; done
 [ -z "$ACTIVE_CONFLICT" ] && ok "žádné"
 if [ -f "$W/wp-content/advanced-cache.php" ] && ! grep -q 'TK_PAGE_CACHE\|tk-page-cache' "$W/wp-content/advanced-cache.php"; then
@@ -87,6 +79,15 @@ if grep -q '^# BEGIN LSCACHE\|^# BEGIN NON_LSCACHE' "$W/.htaccess" 2>/dev/null; 
   sed -i '/^# BEGIN LSCACHE$/,/^# END LSCACHE$/d; /^# BEGIN NON_LSCACHE$/,/^# END NON_LSCACHE$/d' "$W/.htaccess"
   ok "bloky LSCACHE odstraněny z .htaccess"
 fi
+
+say "3. wp-config.php"
+wp config set WP_ENVIRONMENT_TYPE production || stop "config set"
+wp config set WP_CACHE true --raw || stop "config set"
+wp config set DISALLOW_FILE_EDIT true --raw || stop "config set"
+MEM=$(wp eval 'echo (int) wp_convert_hr_to_bytes( WP_MEMORY_LIMIT );')
+[ "${MEM:-0}" -lt 134217728 ] && { wp config set WP_MEMORY_LIMIT 128M || stop "config set"; }
+grep -nE "WP_ENVIRONMENT_TYPE|WP_CACHE|DISALLOW_FILE_EDIT|WP_MEMORY_LIMIT" "$W/wp-config.php"
+[ "$(wp eval 'echo "C=", (defined("WP_CACHE") && WP_CACHE) ? 1 : 0;' 2>/dev/null | grep -o 'C=[01]')" = C=1 ] || stop "WP_CACHE není true"
 
 say "4. Šablona a mu-pluginy"
 mkdir -p "$W/wp-content/themes" "$W/wp-content/mu-plugins"
@@ -151,6 +152,7 @@ rm -f "$W/.maintenance"
 wp tk cache-purge
 wp tk cache-warm | tail -1
 wp tk cache-warm | tail -1
+[ "$(wp eval 'echo "C=", (defined("WP_CACHE") && WP_CACHE) ? 1 : 0;' 2>/dev/null | grep -o 'C=[01]')" = C=1 ] && ok "WP_CACHE true" || warn "WP_CACHE není true (drop-in neběží)"
 wp tk doctor
 grep -n '^# BEGIN\|^# END' "$W/.htaccess"
 say "Migrace hotová. Dál 03-kontrola.sh."
