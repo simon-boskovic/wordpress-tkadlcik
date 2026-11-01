@@ -1,0 +1,82 @@
+# Dress rehearsal of the Webglobe deploy (docs/deploy.md §3): a fresh, empty stack with the production host's
+# versions (PHP 8.2, MySQL 5.6.51, Apache with .htaccess), into which ONLY the deploy bundle is installed, with the
+# runbook's own commands (wp --path=… --require=…, no repo mounts, no wp-cli.yml, no tk-local.php).
+#
+#   ./build/rehearsal.sh            build the bundle, start this stack, run the deploy steps, verify
+#   ./build/rehearsal.sh --down     remove the stack and its volumes
+#
+# Site: http://localhost:8030 (separate project name, volumes and port; the main stack on :8020 is untouched).
+name: tkadlcik-rehearsal
+
+x-db-env: &db-env
+  WORDPRESS_DB_HOST: db:3306
+  WORDPRESS_DB_NAME: wordpress
+  WORDPRESS_DB_USER: wordpress
+  WORDPRESS_DB_PASSWORD: wordpress
+  WORDPRESS_DB_CHARSET: utf8
+  WORDPRESS_TABLE_PREFIX: wp_
+
+# What production's wp-config.php gets in the runbook (§5), plus the local stand-in for reaching the site from
+# the CLI container (on Webglobe the server reaches its own domain).
+x-wp-config-extra: &wp-config-extra |
+  define( 'WP_ENVIRONMENT_TYPE', 'production' );
+  define( 'WP_CACHE', true );
+  define( 'WP_MEMORY_LIMIT', '128M' );
+  define( 'DISALLOW_FILE_EDIT', true );
+  define( 'WP_DEBUG_LOG', true );
+  define( 'WP_DEBUG_DISPLAY', false );
+  define( 'FS_METHOD', 'direct' );
+  define( 'TK_PAGE_CACHE_CONNECT_TO', 'wordpress:80' );
+
+services:
+  db:
+    image: mysql:5.6.51
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_520_ci", "--max-allowed-packet=64M"]
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -uroot -ppassword --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  wordpress:
+    image: wordpress:7.1-php8.2-apache
+    depends_on:
+      db:
+        condition: service_healthy
+    # Webglobe's Apache has mod_headers and mod_expires; the image only ships them.
+    command: ["bash", "-c", "a2enmod headers expires >/dev/null && exec docker-entrypoint.sh apache2-foreground"]
+    ports:
+      - '127.0.0.1:8030:80'
+    environment:
+      <<: *db-env
+      WORDPRESS_CONFIG_EXTRA: *wp-config-extra
+    volumes:
+      - web:/var/www/html
+
+  # The "server console": WP-CLI with PHP 8.2 and the bundle at /deploy/bundle (read-only), like $D on Webglobe.
+  wpcli:
+    image: wordpress:cli-php8.2
+    profiles: [cli]
+    depends_on:
+      db:
+        condition: service_healthy
+    user: "33:33"
+    working_dir: /deploy
+    environment:
+      <<: *db-env
+      WORDPRESS_CONFIG_EXTRA: *wp-config-extra
+    volumes:
+      - web:/var/www/html
+      - ../../backups/rehearsal:/deploy:ro
+    entrypoint: ["sh"]
+
+volumes:
+  db_data:
+  web:
