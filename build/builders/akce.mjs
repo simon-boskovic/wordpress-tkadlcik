@@ -5,6 +5,7 @@
  */
 import { stage, contactStatement, more } from '../fragments.mjs';
 import { hero, sec, rows, pastBadge } from './parts.mjs';
+import { SUNDAYS } from './kurzy-a-lekce.mjs';
 
 export function build({ content, page }) {
   const day = content.today;
@@ -20,6 +21,14 @@ export function build({ content, page }) {
         h1: 'Semináře tchaj-ťi a cvičení na horách',
         lead: 'Na veškeré akce, které pořádáme, se dopravujeme po vlastní ose. Tedy většinou jedeme auty a vzájemně se odvezeme.',
         stageKey: 'wangmeng',
+      }),
+
+      sec({
+        id: 'nedele', stageKey: 'wangmeng',
+        h2: SUNDAYS.title,
+        intro: `${SUNDAYS.text} Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4.`,
+        body: `${rows(SUNDAYS.dates.map((d) => ({ name: `Neděle ${d.date}`, val: `${SUNDAYS.time}${pastBadge([d.key], day)}` })))}
+<div class="actions reveal" style="margin-top: 28px">${more('/kurzy-a-lekce/#nedele', 'Nabídka kurzů a lekcí')}</div>`,
       }),
 
       sec({

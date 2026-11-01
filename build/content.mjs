@@ -44,7 +44,8 @@ export const nav = [
   { href: '/cviceni-na-horach/', label: 'Cvičení na horách' },
   { href: '/o-mne/', label: 'O mně', bar: true },
   { href: '/clanky/', label: 'Články' },
-  { href: '/kontakt/', label: 'Kontakt', cta: true },
+  // The header button says what it does and opens the form (approved 2026-11-01); the menu panel and footer keep "Kontakt".
+  { href: '/kontakt/', label: 'Kontakt', cta: true, button: 'Napište mi', buttonHref: '/kontakt/#formular' },
 ];
 
 /**
@@ -122,6 +123,9 @@ export const EVENTS = {
   // every reading of it ends in summer 2024.
   'hory-leto': { endDate: '2024-07-07', text: '30. 7. neděle – 7. 7. 2024 neděle' },
   'zlin-termin': { startDate: '2024-04-19', endDate: '2024-04-19', text: 'pátek 19. 4. 2024, od 17:30 do 20:00h' },
+  // Owner's "Rozpis cvičení" (PDF, 1. 11. 2026): all-day Sunday sessions in Praha 4.
+  'nedele-11': { startDate: '2026-11-15', endDate: '2026-11-15', text: '15. 11. 2026' },
+  'nedele-12': { startDate: '2026-12-13', endDate: '2026-12-13', text: '13. 12. 2026' },
 };
 
 /** Today's date in Prague as YYYY-MM-DD. */

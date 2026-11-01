@@ -39,12 +39,15 @@ test('breadcrumbs below the front page: Domů -> page, names = nav labels', () =
   assert.deepEqual(bc.itemListElement.map((x) => [x.position, x.name, x.item]), [[1, 'Domů', '/'], [2, 'Nabídka kurzů a lekcí', '/kurzy-a-lekce/']]);
 });
 
-test('Events only for seminars that have not started yet (the design dates are all past)', () => {
-  assert.equal(byType(schema.akce, 'Event').length, 0);
+test('Events only for seminars that have not started yet (the owner\'s Sundays 15. 11. and 13. 12. 2026)', () => {
+  const at = (today) => byType(buildSchema(pages, { content, today }).akce, 'Event');
   const early = buildSchema(pages, { content, today: '2024-01-01' });
   assert.deepEqual(byType(early.akce, 'Event').map((e) => e.startDate), SEMINARS.map((e) => e.startDate));
-  const mid = buildSchema(pages, { content, today: '2025-01-01' });
-  assert.deepEqual(byType(mid.akce, 'Event').map((e) => e.name), ['Seminář s mistrem Vincentem Chu v Praze']);
+  assert.deepEqual(at('2025-01-01').map((e) => e.name), ['Seminář s mistrem Vincentem Chu v Praze', 'Celodenní cvičení v neděli', 'Celodenní cvičení v neděli']);
+  assert.deepEqual(at('2026-11-01').map((e) => e.startDate), ['2026-11-15', '2026-12-13']);
+  assert.deepEqual(at('2026-11-16').map((e) => e.startDate), ['2026-12-13']);
+  assert.equal(at('2026-12-14').length, 0);
+  for (const e of at('2026-11-01')) assert.deepEqual(e.location, { '@id': '/#praha' });
   for (const slug of Object.keys(early)) if (slug !== 'akce') assert.equal(byType(early[slug], 'Event').length, 0, slug);
 });
 

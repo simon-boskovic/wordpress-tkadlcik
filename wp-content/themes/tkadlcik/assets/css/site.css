@@ -146,7 +146,7 @@ html.tk-menu-open .menu-info{opacity:1;transition:opacity 280ms var(--ease-out) 
 .rows .r-val{font-size:var(--t-s);color:var(--soft);font-variant-numeric:tabular-nums;text-align:right;flex:0 1 auto}
 .rows a.r-name{text-decoration:none;display:inline-flex;align-items:center;min-height:44px}
 .rows a.r-name:hover{color:var(--accent-text)}
-.rows .r-desc{flex-basis:100%;font-size:var(--t-b);color:var(--soft);margin-top:-2px;max-width:56ch}
+.rows .r-desc{flex:0 0 100%;font-size:var(--t-b);color:var(--soft);margin-top:-2px;padding-right:max(0px,calc(100% - 56ch))}  /* always its own line (a max-width let it sit beside a short name) */
 .rows-group{margin-top:36px}
 .rows-group:first-child{margin-top:0}
 .rows-label{font-size:var(--t-s);color:var(--soft);margin-bottom:6px}

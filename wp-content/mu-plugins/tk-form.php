@@ -33,7 +33,7 @@ const TK_FORM_LIMITS      = array(
 	'message' => 2000,
 );
 /** The topics offered (fixed list; anything else is stored as empty). Course names as the site prints them. */
-const TK_FORM_TOPICS = array( 'Osm kusů brokátu', '13 Words of Tchaj-ťi', 'Tchaj-ťi stylu Yang', 'Cvičení ve Zlíně', 'Semináře a akce', 'Jiný dotaz' );
+const TK_FORM_TOPICS = array( 'Osm kusů brokátu', '13 Words of Tchaj-ťi', 'Tchaj-ťi stylu Yang', 'Cvičení ve Zlíně', 'Semináře a akce', 'Nový kurz pro začátečníky', 'Jiný dotaz' );
 
 /**
  * Signed render timestamp "<unix>.<hmac20>".

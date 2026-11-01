@@ -8,6 +8,7 @@
  * the generated page text (buildLlms throws on a fact the pages do not contain).
  */
 import { EVENTS, mapsLinkUrl } from './content.mjs';
+import { SCHEDULE, NEW_COURSE, SUNDAYS, PRICE_NOTE } from './builders/kurzy-a-lekce.mjs';
 import { VIDEOS } from './builders/cviceni.mjs';
 import { PICTURES, youtubeEmbedUrl, youtubeWatchUrl } from './fragments.mjs';
 const PHOTOS = PICTURES;
@@ -65,7 +66,7 @@ export const SEO = {
   },
   'kurzy-a-lekce': {
     title: `Kurzy tai chi a čchi-kungu Praha 4 a Zlín${TITLE_SUFFIX}`,
-    description: 'Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong): lekce 90 a 120 minut v tělocvičně ZŠ Jeremenkova v Praze 4 a jednou měsíčně ve Zlíně.',
+    description: 'Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: lekce 120 minut, nový kurz pro začátečníky od 7. 12. 2026.',
   },
   akce: {
     title: `Semináře s Vincentem Chu a Krkonoše${TITLE_SUFFIX}`,
@@ -127,6 +128,9 @@ const pathOf = (p) => (p.front_page ? '/' : `/${p.slug}/`);
  */
 export const SEMINARS = [
   { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS.chu.startDate, endDate: EVENTS.chu.endDate, place: 'praha', text: EVENTS.chu.text },
+  // The owner's all-day Sundays (PDF, 1. 11. 2026); the name is the Akce section heading.
+  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-11'].startDate, endDate: EVENTS['nedele-11'].endDate, place: 'praha', text: EVENTS['nedele-11'].text },
+  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-12'].startDate, endDate: EVENTS['nedele-12'].endDate, place: 'praha', text: EVENTS['nedele-12'].text },
   { name: 'Jarní cvičení na horách', startDate: EVENTS['hory-jaro'].startDate, endDate: EVENTS['hory-jaro'].endDate, price: 3800, location: { name: 'Penzion Exnar', addressLocality: 'Strážné', streetAddress: 'Strážné 2' }, text: EVENTS['hory-jaro'].text },
 ];
 
@@ -345,12 +349,14 @@ export function buildLlms(pages, { content, today = new Date().toISOString().sli
     '## Vyučované sestavy a cvičení', '',
     ...forms.map((f) => `- ${f}`), `- Popis cvičení: ${url('/cviceni/')}`, `- Videogalerie: ${url('/videogalerie/')}`, '',
     '## Pravidelné cvičení', '',
-    `- Praha 4, ${praha.name}, ${praha.street}: ${fact('Pondělí 18:00 - 19:30h')} – ${fact('Sestava Yang 12 forem pro začátečníky, 13 Words of Tchaj-ťi')}; ${fact('Úterý 18:00 - 20:00h')} – ${fact('Osm kusů brokátu')}.`,
+    `- Praha 4, ${praha.name}, ${praha.street}: ${SCHEDULE.map((s) => `${fact(`${s.day} ${s.time}`)} – ${fact(s.name)}`).join('; ')}.`,
+    `- ${fact(NEW_COURSE.title)}: ${fact(`${NEW_COURSE.day} ${NEW_COURSE.time}`)} – ${fact(NEW_COURSE.text)} (${url('/kurzy-a-lekce/#novy-kurz')})`,
+    `- ${fact(SUNDAYS.title)}: ${SUNDAYS.dates.map((d) => fact(d.date)).join(', ')}, ${fact(SUNDAYS.time)}. ${fact(SUNDAYS.text)}`,
     `- Zlín, ${zlin.name}, ${zlin.street}: ${fact('Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek.')} ${fact('Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.')} (${url('/cviceni-ve-zline/')})`,
     `- ${fact('Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku.')}`,
     `- Rozvrh a ceny: ${url('/kurzy-a-lekce/')}`, '',
     '## Ceny', '',
-    `- ${fact('350 Kč lekce 90 minut')}, ${fact('350 Kč lekce 120 minut')}, ${fact('3 250 Kč 10 lekcí')}, ${fact('400 Kč Cvičení ve Zlíně')}.`, '',
+    `- ${fact('350 Kč lekce 120 minut')}, ${fact('3 250 Kč 10 lekcí')}, ${fact('400 Kč Cvičení ve Zlíně')}. ${fact(PRICE_NOTE)}`, '',
     '## Akce', '',
     `- ${fact('Semináře tchaj-ťi a cvičení na horách')}: ${url('/akce/')}`,
     `- ${fact('Seminář s mistrem Vincentem Chu v Praze')}: ${url('/seminar-vincent-chu/')}`,

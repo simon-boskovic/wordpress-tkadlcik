@@ -102,7 +102,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"chu\" data-stage=\"weiqi\" aria-labelledby=\"chu-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"chu-h\" class=\"h2 reveal\">Seminář s mistrem Vincentem Chu v Praze</h2>\n<p class=\"body reveal\">V Praze bude učit DaoYinový čchi-kung – Hrátky pěti zvířat v sobotu 29. 11. Ve čtvrtek celý den a pátek celý den je korektura dlouhé formy středního řádu.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Čtvrtek 27. 11. 2025</span><span class=\"r-val\">Korekce dlouhé sestavy středního řádu <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Pátek 28. 11. 2025</span><span class=\"r-val\">Korekce dlouhé sestavy středního řádu <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Sobota 29. 11. 2025</span><span class=\"r-val\">Hrátky pěti zvířat <span class=\"badge\">Proběhlo</span></span></li>\n</ul></div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/seminar-vincent-chu/\" class=\"more\">Seminář s Vincentem Chu <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+            "html": "<section id=\"nedele\" data-stage=\"wangmeng\" aria-labelledby=\"nedele-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"nedele-h\" class=\"h2 reveal\">Celodenní cvičení v neděli</h2>\n<p class=\"body reveal\">Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích. Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Neděle 15. 11. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30</span></li>\n<li><span class=\"r-name\">Neděle 13. 12. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30</span></li>\n</ul></div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kurzy-a-lekce/#nedele\" class=\"more\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
           },
           "elements": []
         }
@@ -136,7 +136,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"letak\" data-stage=\"weiqi\" aria-labelledby=\"letak-h\" class=\"sec\">\n<div class=\"stack-l\">\n<div class=\"sec-head\">\n<h2 id=\"letak-h\" class=\"h2 reveal\">Výukový seminář se šavlí stylu Yang tchaj-ťi</h2>\n<div class=\"actions reveal\"><a href=\"/wp-content/uploads/letak-savle.jpg\" download class=\"btn btn-quiet\">Stáhnout leták na Šavli</a></div>\n</div>\n<figure class=\"media reveal tk-s-55210628\"><img src=\"/wp-content/uploads/letak-savle.jpg\" alt=\"Leták: Výukový seminář s šavlí stylu Yang tchaj-ťi\" width=\"1587\" height=\"2245\" loading=\"lazy\" decoding=\"async\" class=\"pic\"></figure>\n</div>\n</section>"
+            "html": "<section id=\"chu\" data-stage=\"weiqi\" aria-labelledby=\"chu-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"chu-h\" class=\"h2 reveal\">Seminář s mistrem Vincentem Chu v Praze</h2>\n<p class=\"body reveal\">V Praze bude učit DaoYinový čchi-kung – Hrátky pěti zvířat v sobotu 29. 11. Ve čtvrtek celý den a pátek celý den je korektura dlouhé formy středního řádu.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Čtvrtek 27. 11. 2025</span><span class=\"r-val\">Korekce dlouhé sestavy středního řádu <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Pátek 28. 11. 2025</span><span class=\"r-val\">Korekce dlouhé sestavy středního řádu <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Sobota 29. 11. 2025</span><span class=\"r-val\">Hrátky pěti zvířat <span class=\"badge\">Proběhlo</span></span></li>\n</ul></div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/seminar-vincent-chu/\" class=\"more\">Seminář s Vincentem Chu <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
           },
           "elements": []
         }
@@ -170,7 +170,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"hory\" data-stage=\"strazne\" aria-labelledby=\"hory-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"hory-h\" class=\"h2 reveal\">Cvičení na horách v Krkonoších</h2>\n<p class=\"body reveal\">Cvičíme v příjemném prostředí Krkonoš, náplní semináře je ranní cvičení Osm kusů brokátu, dopolední průpravná cvičení tchaj-ťi kung, statické cvičení zhan zhuang a 13 slov tchaj-ťi. Dále budeme procvičovat základní sestavu 12 forem Yang tchaj-ťi.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><a href=\"/cviceni-na-horach/\" class=\"r-name\">Jarní cvičení na horách</a><span class=\"r-val\">10. – 12. 5. 2024 <span class=\"badge\">Proběhlo</span></span><span class=\"r-desc\">Strážné v Krkonoších, Strážné 2. Penzion Exnar. Cena: 3 800 Kč</span></li>\n<li><a href=\"/cviceni-na-horach/\" class=\"r-name\">Letní týdenní kurz na horách</a><span class=\"r-val\">30. 7. neděle – 7. 7. 2024 neděle <span class=\"badge\">Proběhlo</span></span><span class=\"r-desc\">Strážné v Krkonoších, Strážné 2. Penzion Exnar. Cena: 10 000 Kč</span></li>\n</ul></div>\n</section>"
+            "html": "<section id=\"letak\" data-stage=\"weiqi\" aria-labelledby=\"letak-h\" class=\"sec\">\n<div class=\"stack-l\">\n<div class=\"sec-head\">\n<h2 id=\"letak-h\" class=\"h2 reveal\">Výukový seminář se šavlí stylu Yang tchaj-ťi</h2>\n<div class=\"actions reveal\"><a href=\"/wp-content/uploads/letak-savle.jpg\" download class=\"btn btn-quiet\">Stáhnout leták na Šavli</a></div>\n</div>\n<figure class=\"media reveal tk-s-55210628\"><img src=\"/wp-content/uploads/letak-savle.jpg\" alt=\"Leták: Výukový seminář s šavlí stylu Yang tchaj-ťi\" width=\"1587\" height=\"2245\" loading=\"lazy\" decoding=\"async\" class=\"pic\"></figure>\n</div>\n</section>"
           },
           "elements": []
         }
@@ -204,7 +204,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"zlin\" data-stage=\"zlin\" aria-labelledby=\"zlin-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"zlin-h\" class=\"h2 reveal\">Cvičení ve Zlíně</h2>\n<p class=\"body reveal\">Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.</p>\n</div>\n<div class=\"actions reveal\"><a href=\"/cviceni-ve-zline/\" class=\"more\">Cvičení ve Zlíně <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+            "html": "<section id=\"hory\" data-stage=\"strazne\" aria-labelledby=\"hory-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"hory-h\" class=\"h2 reveal\">Cvičení na horách v Krkonoších</h2>\n<p class=\"body reveal\">Cvičíme v příjemném prostředí Krkonoš, náplní semináře je ranní cvičení Osm kusů brokátu, dopolední průpravná cvičení tchaj-ťi kung, statické cvičení zhan zhuang a 13 slov tchaj-ťi. Dále budeme procvičovat základní sestavu 12 forem Yang tchaj-ťi.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><a href=\"/cviceni-na-horach/\" class=\"r-name\">Jarní cvičení na horách</a><span class=\"r-val\">10. – 12. 5. 2024 <span class=\"badge\">Proběhlo</span></span><span class=\"r-desc\">Strážné v Krkonoších, Strážné 2. Penzion Exnar. Cena: 3 800 Kč</span></li>\n<li><a href=\"/cviceni-na-horach/\" class=\"r-name\">Letní týdenní kurz na horách</a><span class=\"r-val\">30. 7. neděle – 7. 7. 2024 neděle <span class=\"badge\">Proběhlo</span></span><span class=\"r-desc\">Strážné v Krkonoších, Strážné 2. Penzion Exnar. Cena: 10 000 Kč</span></li>\n</ul></div>\n</section>"
           },
           "elements": []
         }
@@ -235,6 +235,40 @@
       "elements": [
         {
           "id": "31474d5",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"zlin\" data-stage=\"zlin\" aria-labelledby=\"zlin-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"zlin-h\" class=\"h2 reveal\">Cvičení ve Zlíně</h2>\n<p class=\"body reveal\">Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.</p>\n</div>\n<div class=\"actions reveal\"><a href=\"/cviceni-ve-zline/\" class=\"more\">Cvičení ve Zlíně <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "da81ab9",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "a09b9f6",
           "elType": "widget",
           "widgetType": "html",
           "settings": {

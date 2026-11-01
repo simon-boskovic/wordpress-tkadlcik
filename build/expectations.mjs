@@ -26,7 +26,7 @@ export default {
   domu: {
     h1: 'Tchaj-ťi a čchi-kung v Praze 4 a ve Zlíně',
     title: SEO['domu'].title,
-    texts: ['Najít klid v pohybu a v klidu zase pohyb', 'Cvičení a kurzy, které nabízíme', 'Náplň lekcí tchaj-ťi a čchi-kungu', 'Semináře a akce', 'Nádech', 'Pravidelné cvičení', '18:00 - 19:30h', '3 250 Kč'],
+    texts: ['Najít klid v pohybu a v klidu zase pohyb', 'Cvičení a kurzy, které nabízíme', 'Náplň lekcí tchaj-ťi a čchi-kungu', 'Semináře a akce', 'Nádech', 'Pravidelné cvičení', '18:00 - 20:00', 'Nový kurz od 7. 12. 2026', 'Celodenní cvičení v neděli', '3 250 Kč'],
     selectors: [...COMMON, 'a[href$="/kurzy-a-lekce/"]', 'a[href$="/seminar-vincent-chu/"]', 'a[href$="/cviceni-na-horach/"]', 'a[href$="/cviceni-ve-zline/"]', 'a[href="/wp-content/uploads/letak-savle.jpg"][download]', '[data-breath] .breath-disc', '[data-breath-toggle]', '[role=tablist] [role=tab][aria-selected="true"]', '.wordmark'],
     unique: ['[id="rozvrh"]', '[id="dech"]'],
     scripts: ['breath', 'plate', 'video'],
@@ -34,7 +34,7 @@ export default {
   cviceni: {
     h1: 'Osm kusů brokátu, 13 slov a styl Yang',
     title: SEO['cviceni'].title,
-    texts: ['Celá sestava nás dovede k harmonizaci energie qi v těle', '13 slov tchaj-ťi', 'Tchaj-ťi stylu Yang', 'Vyučuji', 'Videogalerie'],
+    texts: ['Yang rodinný styl vyučujeme pod dohledem mistra Vincenta Chu', 'Guo Yang Tzu', 'Sestavy se zbraněmi', 'Celá sestava nás dovede k harmonizaci energie qi v těle', '13 slov tchaj-ťi', 'Tchaj-ťi stylu Yang', 'Vyučuji', 'Videogalerie'],
     selectors: [...COMMON, 'a[href="#brokat"]', 'a[href="#slov"]', 'a[href="#yang"]', '#brokat a[href$="/kurzy-a-lekce/#kurz-brokat"]', '#slov a[href$="/kurzy-a-lekce/#kurz-slov"]', '#yang a[href$="/kurzy-a-lekce/#kurz-yang"]', '#brokat [data-tk-video-box] button[data-tk-video]', '#slov [data-tk-video-box] button[data-tk-video]', '#videa a[href$="/videogalerie/"]', '#brokat a[href$="/osm-kusu-brokatu/"]'],
     unique: ['[id="brokat"]', '[id="slov"]', '[id="yang"]', '[id="videa"]'],
     scripts: ['video'],
@@ -42,7 +42,7 @@ export default {
   'osm-kusu-brokatu': {
     h1: 'Osm kusů brokátu: čchi-kung pro zdraví',
     title: SEO['osm-kusu-brokatu'].title,
-    texts: ['Osm kusů brokátu je cvičení řadící se do skupiny Daoyin', 'Názvy jednotlivých brokátů', 'Podpírání nebes oběma pažemi', 'Dopadem na paty masírujeme páteř', 'Úterý 18:00 - 20:00h'],
+    texts: ['Osm kusů brokátu je cvičení řadící se do skupiny Daoyin', 'Názvy jednotlivých brokátů', 'Podpírání nebes oběma pažemi', 'Dopadem na paty masírujeme páteř', 'Rozpis cvičení v Praze 4'],
     selectors: [...COMMON, 'a[href$="/kurzy-a-lekce/#kurz-brokat"]', '[data-tk-video-box] button[data-tk-video]'],
     unique: ['[id="cviky"]'],
     scripts: ['video'],
@@ -57,9 +57,9 @@ export default {
   'kurzy-a-lekce': {
     h1: 'Kurzy tchaj-ťi a čchi-kungu: rozvrh a ceny',
     title: SEO['kurzy-a-lekce'].title,
-    texts: ['Osm kusů brokátu', '13 Words of Tchaj-ťi', 'Tchaj-ťi stylu Yang', 'Pravidelné cvičení', 'Místo', 'Cena', 'Cvičení ve Zlíně', 'Ceny lekcí', '3 250 Kč', '400 Kč', 'Kde cvičíme: Praha 4 a Zlín', 'Tělocvična ZŠ Jeremenkova', 'Centrum Jiný svět'],
+    texts: ['Osm kusů brokátu', '13 Words of Tchaj-ťi', 'Tchaj-ťi stylu Yang', 'Rozpis cvičení v Praze 4', 'Nový kurz od 7. 12. 2026', 'Celodenní cvičení v neděli', 'platí na 3 měsíce od data zaplacení', 'Pravidelné cvičení', 'Místo', 'Cena', 'Cvičení ve Zlíně', 'Ceny lekcí', '3 250 Kč', '400 Kč', 'Kde cvičíme: Praha 4 a Zlín', 'Tělocvična ZŠ Jeremenkova', 'Centrum Jiný svět'],
     selectors: [...COMMON, 'a[href$="/cviceni/#brokat"]', 'a[href$="/cviceni/#slov"]', 'a[href$="/videogalerie/"]', '[data-tk-map-box] button[data-tk-map]', ...SIGNUP_SELECTORS],
-    unique: ['[id="cena"]', '[id="misto"]', '[id="praha"]', '[id="zlin"]', '[id="kurz-brokat"]', '[id="kurz-slov"]', '[id="kurz-yang"]'],
+    unique: ['[id="cena"]', '[id="misto"]', '[id="praha"]', '[id="novy-kurz"]', '[id="nedele"]', '[id="zlin"]', '[id="kurz-brokat"]', '[id="kurz-slov"]', '[id="kurz-yang"]'],
     scripts: ['map'],
   },
   'cviceni-ve-zline': {
@@ -72,7 +72,7 @@ export default {
   akce: {
     h1: 'Semináře tchaj-ťi a cvičení na horách',
     title: SEO['akce'].title,
-    texts: ['Na veškeré akce, které pořádáme, se dopravujeme po vlastní ose', 'Seminář s mistrem Vincentem Chu v Praze', 'Cvičení na horách v Krkonoších', 'Cvičení ve Zlíně', 'Stáhnout leták na Šavli'],
+    texts: ['Na veškeré akce, které pořádáme, se dopravujeme po vlastní ose', 'Celodenní cvičení v neděli', '15. 11. 2026', '13. 12. 2026', 'Seminář s mistrem Vincentem Chu v Praze', 'Cvičení na horách v Krkonoších', 'Cvičení ve Zlíně', 'Stáhnout leták na Šavli'],
     selectors: [...COMMON, 'a[href$="/seminar-vincent-chu/"]', 'a[href$="/cviceni-na-horach/"]', 'a[href$="/cviceni-ve-zline/"]'],
     unique: ['[id="chu"]', '[id="hory"]'],
     scripts: [],
