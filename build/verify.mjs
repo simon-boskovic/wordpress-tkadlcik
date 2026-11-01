@@ -54,7 +54,7 @@ async function pageProbe(exp) {
     h1: [...document.querySelectorAll('h1')].filter(vis).map((h) => h.innerText.trim().replace(/\s+/g, ' ')),
     title: document.title,
     leftovers: /\{\{|<sc-|dc-import|data-dc-tpl/.test(document.body.innerHTML),
-    header: !!document.querySelector('.top header.bar'),
+    header: !!document.querySelector('header.bar'),
     footer: !!document.querySelector('footer.foot'),
     main: document.querySelectorAll('main').length,
     broken: [...document.images].filter((i) => i.getClientRects().length && !i.naturalWidth).map((i) => i.currentSrc || i.src),
@@ -118,7 +118,7 @@ if (SEO) {
     else if ((await fetch(s.ogImage)).status !== 200) failPage(d.slug, `og:image ${s.ogImage} not 200`);
     if (!s.icon) failPage(d.slug, 'no <link rel=icon> (site icon)');
     else if ((await fetch(s.icon)).status !== 200) failPage(d.slug, `site icon ${s.icon} not 200`);
-    if (s.themeColor.toLowerCase() !== '#0e0f0e') failPage(d.slug, `theme-color "${s.themeColor}" ≠ #0E0F0E`);
+    if (s.themeColor.toLowerCase() !== '#161c1a') failPage(d.slug, `theme-color "${s.themeColor}" ≠ #161C1A`);
     const noindex = NOINDEX.has(d.slug);
     if (noindex !== /noindex/.test(s.robots)) failPage(d.slug, `robots meta "${s.robots}" (noindex expected: ${noindex})`);
     if (/nofollow/.test(s.robots)) failPage(d.slug, `robots meta "${s.robots}" (links must stay followed)`);
@@ -250,7 +250,7 @@ try {
     if (exp.title && r.title !== exp.title) fail(d.slug, `<title> "${r.title}" ≠ expected "${exp.title}"`);
     if (r.main !== 1) fail(d.slug, `${r.main} <main> elements`);
     if (r.leftovers) fail(d.slug, 'prototype template syntax left in the markup');
-    if (!r.header) fail(d.slug, 'no site header (.top header.bar)');
+    if (!r.header) fail(d.slug, 'no site header (header.bar)');
     if (!r.footer) fail(d.slug, 'no site footer (footer.foot)');
     if (r.broken.length) fail(d.slug, `broken images: ${r.broken.join(', ')}`);
     if (r.noAlt.length) fail(d.slug, `images without alt: ${r.noAlt.join(', ')}`);

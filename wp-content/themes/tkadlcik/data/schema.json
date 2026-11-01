@@ -49,8 +49,14 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
         "addressLocality": "Praha 4",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
       },
       "priceRange": "350–3 250 Kč",
       "currenciesAccepted": "CZK",
@@ -64,14 +70,20 @@
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
       "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
-      "url": "/kurzy-a-lekce/#zlin",
+      "url": "/cviceni-ve-zline/",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
         "addressLocality": "Zlín",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
       },
       "priceRange": "400 Kč",
       "currenciesAccepted": "CZK",
@@ -194,6 +206,208 @@
       ]
     }
   ],
+  "osm-kusu-brokatu": [
+    {
+      "@type": "Organization",
+      "@id": "/#organization",
+      "name": "Radost v pohybu",
+      "alternateName": "Čchi-kung a tchaj-ťi Radost v pohybu",
+      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "url": "/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "areaServed": [
+        "Praha 4",
+        "Zlín"
+      ],
+      "founder": {
+        "@id": "/#daniel"
+      },
+      "location": [
+        {
+          "@id": "/#praha"
+        },
+        {
+          "@id": "/#zlin"
+        }
+      ],
+      "legalName": "Mgr. Daniel Tkadlčík",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "IČO",
+        "value": "75979390"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pod vinohradem 68/18",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4 – Braník",
+        "addressCountry": "CZ"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#praha",
+      "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
+      "url": "/kurzy-a-lekce/#praha",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
+      },
+      "priceRange": "350–3 250 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Jeremenkova%201003%2F66A%2C%20Praha%204",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#zlin",
+      "name": "Radost v pohybu – Centrum Jiný svět",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
+      "url": "/cviceni-ve-zline/",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
+        "addressLocality": "Zlín",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
+      },
+      "priceRange": "400 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "/#daniel",
+      "name": "Daniel Tkadlčík",
+      "honorificPrefix": "Mgr.",
+      "jobTitle": "Lektor tchaj-ťi a čchi-kungu",
+      "description": "Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.",
+      "url": "/o-mne/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "worksFor": {
+        "@id": "/#organization"
+      },
+      "knows": {
+        "@id": "/#vincent-chu"
+      },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
+      "knowsAbout": [
+        "Tchaj-ťi",
+        "Tai chi",
+        "Čchi-kung",
+        "Qigong",
+        "Tchaj-ťi stylu Yang",
+        "Osm kusů brokátu",
+        "13 slov tchaj-ťi",
+        "Meditace"
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
+    },
+    {
+      "@type": "Person",
+      "@id": "/#vincent-chu",
+      "name": "Vincent Chu",
+      "honorificPrefix": "Mistr",
+      "jobTitle": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation",
+      "description": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation. Jeho otec Chu Gin Soon byl osobním žákem mistra Yang Sau Chunga.",
+      "affiliation": {
+        "@type": "SportsOrganization",
+        "name": "Gin Soon Tai Chi Chuan Federation",
+        "url": "https://www.gstaichi.org/"
+      },
+      "parent": {
+        "@type": "Person",
+        "name": "Chu Gin Soon"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "/#website",
+      "url": "/",
+      "name": "Radost v pohybu",
+      "inLanguage": "cs-CZ",
+      "publisher": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "/osm-kusu-brokatu/#webpage",
+      "url": "/osm-kusu-brokatu/",
+      "name": "Osm kusů brokátu – čchi-kung (qigong) cvičení | Radost v pohybu",
+      "description": "Osm kusů brokátu, čchi-kungové (qigong) cvičení ze skupiny Daoyin: názvy všech osmi cviků, video a pravidelný úterní kurz v Praze 4.",
+      "inLanguage": "cs-CZ",
+      "isPartOf": {
+        "@id": "/#website"
+      },
+      "about": {
+        "@id": "/#organization"
+      },
+      "author": {
+        "@id": "/#daniel"
+      },
+      "breadcrumb": {
+        "@id": "/osm-kusu-brokatu/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "/osm-kusu-brokatu/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domů",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Osm kusů brokátu",
+          "item": "/osm-kusu-brokatu/"
+        }
+      ]
+    }
+  ],
   "clanky": [
     {
       "@type": "Organization",
@@ -244,8 +458,14 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
         "addressLocality": "Praha 4",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
       },
       "priceRange": "350–3 250 Kč",
       "currenciesAccepted": "CZK",
@@ -259,14 +479,20 @@
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
       "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
-      "url": "/kurzy-a-lekce/#zlin",
+      "url": "/cviceni-ve-zline/",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
         "addressLocality": "Zlín",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
       },
       "priceRange": "400 Kč",
       "currenciesAccepted": "CZK",
@@ -434,8 +660,14 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
         "addressLocality": "Praha 4",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
       },
       "priceRange": "350–3 250 Kč",
       "currenciesAccepted": "CZK",
@@ -449,14 +681,20 @@
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
       "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
-      "url": "/kurzy-a-lekce/#zlin",
+      "url": "/cviceni-ve-zline/",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
         "addressLocality": "Zlín",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
       },
       "priceRange": "400 Kč",
       "currenciesAccepted": "CZK",
@@ -553,24 +791,7 @@
       },
       "breadcrumb": {
         "@id": "/cviceni/#breadcrumb"
-      },
-      "video": [
-        {
-          "@id": "/cviceni/#video-1nFm6-XwGpU"
-        },
-        {
-          "@id": "/cviceni/#video-NeVzb5hGM7A"
-        },
-        {
-          "@id": "/cviceni/#video-oZB6Gq4QzC4"
-        },
-        {
-          "@id": "/cviceni/#video-1Mmz_QpYk9s"
-        },
-        {
-          "@id": "/cviceni/#video-1UPJuzGC1UY"
-        }
-      ]
+      }
     },
     {
       "@type": "BreadcrumbList",
@@ -589,56 +810,6 @@
           "item": "/cviceni/"
         }
       ]
-    },
-    {
-      "@type": "VideoObject",
-      "@id": "/cviceni/#video-1nFm6-XwGpU",
-      "name": "Začátečnická sestava 12 forem Yang tchaj-ťi",
-      "description": "Začátečnická sestava 12 forem Yang tchaj-ťi",
-      "thumbnailUrl": "/wp-content/uploads/yt-1nFm6-XwGpU.webp",
-      "uploadDate": "2020-07-10T04:27:49-07:00",
-      "embedUrl": "https://www.youtube-nocookie.com/embed/1nFm6-XwGpU",
-      "url": "https://www.youtube.com/watch?v=1nFm6-XwGpU"
-    },
-    {
-      "@type": "VideoObject",
-      "@id": "/cviceni/#video-NeVzb5hGM7A",
-      "name": "Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu",
-      "description": "Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu",
-      "thumbnailUrl": "/wp-content/uploads/yt-NeVzb5hGM7A.webp",
-      "uploadDate": "2007-07-27T09:25:16-07:00",
-      "embedUrl": "https://www.youtube-nocookie.com/embed/NeVzb5hGM7A",
-      "url": "https://www.youtube.com/watch?v=NeVzb5hGM7A"
-    },
-    {
-      "@type": "VideoObject",
-      "@id": "/cviceni/#video-oZB6Gq4QzC4",
-      "name": "Ukázka sestavy s holí",
-      "description": "Ukázka sestavy s holí",
-      "thumbnailUrl": "/wp-content/uploads/yt-oZB6Gq4QzC4.webp",
-      "uploadDate": "2019-08-02T02:39:59-07:00",
-      "embedUrl": "https://www.youtube-nocookie.com/embed/oZB6Gq4QzC4",
-      "url": "https://www.youtube.com/watch?v=oZB6Gq4QzC4"
-    },
-    {
-      "@type": "VideoObject",
-      "@id": "/cviceni/#video-1Mmz_QpYk9s",
-      "name": "Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje",
-      "description": "Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje.",
-      "thumbnailUrl": "/wp-content/uploads/yt-1Mmz_QpYk9s.webp",
-      "uploadDate": "2024-03-13T00:31:56-07:00",
-      "embedUrl": "https://www.youtube-nocookie.com/embed/1Mmz_QpYk9s",
-      "url": "https://www.youtube.com/watch?v=1Mmz_QpYk9s"
-    },
-    {
-      "@type": "VideoObject",
-      "@id": "/cviceni/#video-1UPJuzGC1UY",
-      "name": "13 slov tchaj-ťi",
-      "description": "13 slov tchaj-ťi",
-      "thumbnailUrl": "/wp-content/uploads/yt-1UPJuzGC1UY.webp",
-      "uploadDate": "2024-03-13T01:18:28-07:00",
-      "embedUrl": "https://www.youtube-nocookie.com/embed/1UPJuzGC1UY",
-      "url": "https://www.youtube.com/watch?v=1UPJuzGC1UY"
     }
   ],
   "domu": [
@@ -691,8 +862,14 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
         "addressLocality": "Praha 4",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
       },
       "priceRange": "350–3 250 Kč",
       "currenciesAccepted": "CZK",
@@ -706,14 +883,20 @@
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
       "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
-      "url": "/kurzy-a-lekce/#zlin",
+      "url": "/cviceni-ve-zline/",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
         "addressLocality": "Zlín",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
       },
       "priceRange": "400 Kč",
       "currenciesAccepted": "CZK",
@@ -810,6 +993,208 @@
       }
     }
   ],
+  "cviceni-na-horach": [
+    {
+      "@type": "Organization",
+      "@id": "/#organization",
+      "name": "Radost v pohybu",
+      "alternateName": "Čchi-kung a tchaj-ťi Radost v pohybu",
+      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "url": "/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "areaServed": [
+        "Praha 4",
+        "Zlín"
+      ],
+      "founder": {
+        "@id": "/#daniel"
+      },
+      "location": [
+        {
+          "@id": "/#praha"
+        },
+        {
+          "@id": "/#zlin"
+        }
+      ],
+      "legalName": "Mgr. Daniel Tkadlčík",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "IČO",
+        "value": "75979390"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pod vinohradem 68/18",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4 – Braník",
+        "addressCountry": "CZ"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#praha",
+      "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
+      "url": "/kurzy-a-lekce/#praha",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
+      },
+      "priceRange": "350–3 250 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Jeremenkova%201003%2F66A%2C%20Praha%204",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#zlin",
+      "name": "Radost v pohybu – Centrum Jiný svět",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
+      "url": "/cviceni-ve-zline/",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
+        "addressLocality": "Zlín",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
+      },
+      "priceRange": "400 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "/#daniel",
+      "name": "Daniel Tkadlčík",
+      "honorificPrefix": "Mgr.",
+      "jobTitle": "Lektor tchaj-ťi a čchi-kungu",
+      "description": "Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.",
+      "url": "/o-mne/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "worksFor": {
+        "@id": "/#organization"
+      },
+      "knows": {
+        "@id": "/#vincent-chu"
+      },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
+      "knowsAbout": [
+        "Tchaj-ťi",
+        "Tai chi",
+        "Čchi-kung",
+        "Qigong",
+        "Tchaj-ťi stylu Yang",
+        "Osm kusů brokátu",
+        "13 slov tchaj-ťi",
+        "Meditace"
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
+    },
+    {
+      "@type": "Person",
+      "@id": "/#vincent-chu",
+      "name": "Vincent Chu",
+      "honorificPrefix": "Mistr",
+      "jobTitle": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation",
+      "description": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation. Jeho otec Chu Gin Soon byl osobním žákem mistra Yang Sau Chunga.",
+      "affiliation": {
+        "@type": "SportsOrganization",
+        "name": "Gin Soon Tai Chi Chuan Federation",
+        "url": "https://www.gstaichi.org/"
+      },
+      "parent": {
+        "@type": "Person",
+        "name": "Chu Gin Soon"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "/#website",
+      "url": "/",
+      "name": "Radost v pohybu",
+      "inLanguage": "cs-CZ",
+      "publisher": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "/cviceni-na-horach/#webpage",
+      "url": "/cviceni-na-horach/",
+      "name": "Cvičení na horách – Strážné, Krkonoše | Radost v pohybu",
+      "description": "Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) na horách ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov a 12 forem Yang tchaj-ťi.",
+      "inLanguage": "cs-CZ",
+      "isPartOf": {
+        "@id": "/#website"
+      },
+      "about": {
+        "@id": "/#organization"
+      },
+      "author": {
+        "@id": "/#daniel"
+      },
+      "breadcrumb": {
+        "@id": "/cviceni-na-horach/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "/cviceni-na-horach/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domů",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cvičení na horách",
+          "item": "/cviceni-na-horach/"
+        }
+      ]
+    }
+  ],
   "kontakt": [
     {
       "@type": "Organization",
@@ -860,8 +1245,14 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
         "addressLocality": "Praha 4",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
       },
       "priceRange": "350–3 250 Kč",
       "currenciesAccepted": "CZK",
@@ -875,14 +1266,20 @@
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
       "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
-      "url": "/kurzy-a-lekce/#zlin",
+      "url": "/cviceni-ve-zline/",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
         "addressLocality": "Zlín",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
       },
       "priceRange": "400 Kč",
       "currenciesAccepted": "CZK",
@@ -1053,8 +1450,14 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
         "addressLocality": "Praha 4",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
       },
       "priceRange": "350–3 250 Kč",
       "currenciesAccepted": "CZK",
@@ -1068,14 +1471,20 @@
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
       "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
-      "url": "/kurzy-a-lekce/#zlin",
+      "url": "/cviceni-ve-zline/",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
         "addressLocality": "Zlín",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
       },
       "priceRange": "400 Kč",
       "currenciesAccepted": "CZK",
@@ -1243,8 +1652,14 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
         "addressLocality": "Praha 4",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
       },
       "priceRange": "350–3 250 Kč",
       "currenciesAccepted": "CZK",
@@ -1258,14 +1673,20 @@
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
       "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
-      "url": "/kurzy-a-lekce/#zlin",
+      "url": "/cviceni-ve-zline/",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
         "addressLocality": "Zlín",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
       },
       "priceRange": "400 Kč",
       "currenciesAccepted": "CZK",
@@ -1348,7 +1769,7 @@
       "@type": "ProfilePage",
       "@id": "/o-mne/#webpage",
       "url": "/o-mne/",
-      "name": "Mgr. Daniel Tkadlčík – lektor tchaj-ťi od 1997 | Radost v pohybu",
+      "name": "Mgr. Daniel Tkadlčík – tchaj-ťi od roku 1997 | Radost v pohybu",
       "description": "Mgr. Daniel Tkadlčík se věnuje tchaj-ťi (tai chi) od roku 1997, od roku 2007 rodinnému stylu Yang u mistra Vincenta Chu. Učí i čchi-kung (qigong).",
       "inLanguage": "cs-CZ",
       "isPartOf": {
@@ -1392,6 +1813,494 @@
           "item": "/o-mne/"
         }
       ]
+    }
+  ],
+  "seminar-vincent-chu": [
+    {
+      "@type": "Organization",
+      "@id": "/#organization",
+      "name": "Radost v pohybu",
+      "alternateName": "Čchi-kung a tchaj-ťi Radost v pohybu",
+      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "url": "/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "areaServed": [
+        "Praha 4",
+        "Zlín"
+      ],
+      "founder": {
+        "@id": "/#daniel"
+      },
+      "location": [
+        {
+          "@id": "/#praha"
+        },
+        {
+          "@id": "/#zlin"
+        }
+      ],
+      "legalName": "Mgr. Daniel Tkadlčík",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "IČO",
+        "value": "75979390"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pod vinohradem 68/18",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4 – Braník",
+        "addressCountry": "CZ"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#praha",
+      "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
+      "url": "/kurzy-a-lekce/#praha",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
+      },
+      "priceRange": "350–3 250 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Jeremenkova%201003%2F66A%2C%20Praha%204",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#zlin",
+      "name": "Radost v pohybu – Centrum Jiný svět",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
+      "url": "/cviceni-ve-zline/",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
+        "addressLocality": "Zlín",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
+      },
+      "priceRange": "400 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "/#daniel",
+      "name": "Daniel Tkadlčík",
+      "honorificPrefix": "Mgr.",
+      "jobTitle": "Lektor tchaj-ťi a čchi-kungu",
+      "description": "Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.",
+      "url": "/o-mne/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "worksFor": {
+        "@id": "/#organization"
+      },
+      "knows": {
+        "@id": "/#vincent-chu"
+      },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
+      "knowsAbout": [
+        "Tchaj-ťi",
+        "Tai chi",
+        "Čchi-kung",
+        "Qigong",
+        "Tchaj-ťi stylu Yang",
+        "Osm kusů brokátu",
+        "13 slov tchaj-ťi",
+        "Meditace"
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
+    },
+    {
+      "@type": "Person",
+      "@id": "/#vincent-chu",
+      "name": "Vincent Chu",
+      "honorificPrefix": "Mistr",
+      "jobTitle": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation",
+      "description": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation. Jeho otec Chu Gin Soon byl osobním žákem mistra Yang Sau Chunga.",
+      "affiliation": {
+        "@type": "SportsOrganization",
+        "name": "Gin Soon Tai Chi Chuan Federation",
+        "url": "https://www.gstaichi.org/"
+      },
+      "parent": {
+        "@type": "Person",
+        "name": "Chu Gin Soon"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "/#website",
+      "url": "/",
+      "name": "Radost v pohybu",
+      "inLanguage": "cs-CZ",
+      "publisher": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "/seminar-vincent-chu/#webpage",
+      "url": "/seminar-vincent-chu/",
+      "name": "Seminář s mistrem Vincentem Chu v Praze | Radost v pohybu",
+      "description": "Seminář tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze: korektura dlouhé formy středního řádu stylu Yang a DaoYinový čchi-kung Hrátky pěti zvířat.",
+      "inLanguage": "cs-CZ",
+      "isPartOf": {
+        "@id": "/#website"
+      },
+      "about": {
+        "@id": "/#organization"
+      },
+      "author": {
+        "@id": "/#daniel"
+      },
+      "breadcrumb": {
+        "@id": "/seminar-vincent-chu/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "/seminar-vincent-chu/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domů",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Seminář s Vincentem Chu",
+          "item": "/seminar-vincent-chu/"
+        }
+      ]
+    }
+  ],
+  "videogalerie": [
+    {
+      "@type": "Organization",
+      "@id": "/#organization",
+      "name": "Radost v pohybu",
+      "alternateName": "Čchi-kung a tchaj-ťi Radost v pohybu",
+      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "url": "/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "areaServed": [
+        "Praha 4",
+        "Zlín"
+      ],
+      "founder": {
+        "@id": "/#daniel"
+      },
+      "location": [
+        {
+          "@id": "/#praha"
+        },
+        {
+          "@id": "/#zlin"
+        }
+      ],
+      "legalName": "Mgr. Daniel Tkadlčík",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "IČO",
+        "value": "75979390"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pod vinohradem 68/18",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4 – Braník",
+        "addressCountry": "CZ"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#praha",
+      "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
+      "url": "/kurzy-a-lekce/#praha",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
+      },
+      "priceRange": "350–3 250 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Jeremenkova%201003%2F66A%2C%20Praha%204",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#zlin",
+      "name": "Radost v pohybu – Centrum Jiný svět",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
+      "url": "/cviceni-ve-zline/",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
+        "addressLocality": "Zlín",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
+      },
+      "priceRange": "400 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "/#daniel",
+      "name": "Daniel Tkadlčík",
+      "honorificPrefix": "Mgr.",
+      "jobTitle": "Lektor tchaj-ťi a čchi-kungu",
+      "description": "Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.",
+      "url": "/o-mne/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "worksFor": {
+        "@id": "/#organization"
+      },
+      "knows": {
+        "@id": "/#vincent-chu"
+      },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
+      "knowsAbout": [
+        "Tchaj-ťi",
+        "Tai chi",
+        "Čchi-kung",
+        "Qigong",
+        "Tchaj-ťi stylu Yang",
+        "Osm kusů brokátu",
+        "13 slov tchaj-ťi",
+        "Meditace"
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
+    },
+    {
+      "@type": "Person",
+      "@id": "/#vincent-chu",
+      "name": "Vincent Chu",
+      "honorificPrefix": "Mistr",
+      "jobTitle": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation",
+      "description": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation. Jeho otec Chu Gin Soon byl osobním žákem mistra Yang Sau Chunga.",
+      "affiliation": {
+        "@type": "SportsOrganization",
+        "name": "Gin Soon Tai Chi Chuan Federation",
+        "url": "https://www.gstaichi.org/"
+      },
+      "parent": {
+        "@type": "Person",
+        "name": "Chu Gin Soon"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "/#website",
+      "url": "/",
+      "name": "Radost v pohybu",
+      "inLanguage": "cs-CZ",
+      "publisher": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "/videogalerie/#webpage",
+      "url": "/videogalerie/",
+      "name": "Videogalerie tchaj-ťi a čchi-kungu | Radost v pohybu",
+      "description": "Videa sestav tchaj-ťi (tai chi) stylu Yang a čchi-kungu (qigong): 12 forem pro začátečníky, 43 forem mistra Vincenta Chu, sestava s holí, Osm kusů brokátu.",
+      "inLanguage": "cs-CZ",
+      "isPartOf": {
+        "@id": "/#website"
+      },
+      "about": {
+        "@id": "/#organization"
+      },
+      "author": {
+        "@id": "/#daniel"
+      },
+      "breadcrumb": {
+        "@id": "/videogalerie/#breadcrumb"
+      },
+      "video": [
+        {
+          "@id": "/videogalerie/#video-1nFm6-XwGpU"
+        },
+        {
+          "@id": "/videogalerie/#video-NeVzb5hGM7A"
+        },
+        {
+          "@id": "/videogalerie/#video-oZB6Gq4QzC4"
+        },
+        {
+          "@id": "/videogalerie/#video-1Mmz_QpYk9s"
+        },
+        {
+          "@id": "/videogalerie/#video-1UPJuzGC1UY"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "/videogalerie/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domů",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Videogalerie",
+          "item": "/videogalerie/"
+        }
+      ]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/videogalerie/#video-1nFm6-XwGpU",
+      "name": "Začátečnická sestava 12 forem Yang tchaj-ťi",
+      "description": "Začátečnická sestava 12 forem Yang tchaj-ťi",
+      "thumbnailUrl": "/wp-content/uploads/yt-1nFm6-XwGpU.webp",
+      "uploadDate": "2020-07-10T04:27:49-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/1nFm6-XwGpU",
+      "url": "https://www.youtube.com/watch?v=1nFm6-XwGpU",
+      "duration": "PT5M36S",
+      "author": {
+        "@id": "/#daniel"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/videogalerie/#video-NeVzb5hGM7A",
+      "name": "Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu",
+      "description": "Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu",
+      "thumbnailUrl": "/wp-content/uploads/yt-NeVzb5hGM7A.webp",
+      "uploadDate": "2007-07-27T09:25:16-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/NeVzb5hGM7A",
+      "url": "https://www.youtube.com/watch?v=NeVzb5hGM7A",
+      "duration": "PT10M13S"
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/videogalerie/#video-oZB6Gq4QzC4",
+      "name": "Ukázka sestavy s holí",
+      "description": "Ukázka sestavy s holí",
+      "thumbnailUrl": "/wp-content/uploads/yt-oZB6Gq4QzC4.webp",
+      "uploadDate": "2019-08-02T02:39:59-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/oZB6Gq4QzC4",
+      "url": "https://www.youtube.com/watch?v=oZB6Gq4QzC4",
+      "duration": "PT1M5S",
+      "author": {
+        "@id": "/#daniel"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/videogalerie/#video-1Mmz_QpYk9s",
+      "name": "Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje",
+      "description": "Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje",
+      "thumbnailUrl": "/wp-content/uploads/yt-1Mmz_QpYk9s.webp",
+      "uploadDate": "2024-03-13T00:31:56-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/1Mmz_QpYk9s",
+      "url": "https://www.youtube.com/watch?v=1Mmz_QpYk9s",
+      "duration": "PT10M45S",
+      "author": {
+        "@id": "/#daniel"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "/videogalerie/#video-1UPJuzGC1UY",
+      "name": "13 slov tchaj-ťi",
+      "description": "13 slov tchaj-ťi",
+      "thumbnailUrl": "/wp-content/uploads/yt-1UPJuzGC1UY.webp",
+      "uploadDate": "2024-03-13T01:18:28-07:00",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/1UPJuzGC1UY",
+      "url": "https://www.youtube.com/watch?v=1UPJuzGC1UY",
+      "duration": "PT4M25S",
+      "author": {
+        "@id": "/#daniel"
+      }
     }
   ],
   "zasady-ochrany-osobnich-udaju": [
@@ -1444,8 +2353,14 @@
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
         "addressLocality": "Praha 4",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
       },
       "priceRange": "350–3 250 Kč",
       "currenciesAccepted": "CZK",
@@ -1459,14 +2374,20 @@
       "@id": "/#zlin",
       "name": "Radost v pohybu – Centrum Jiný svět",
       "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
-      "url": "/kurzy-a-lekce/#zlin",
+      "url": "/cviceni-ve-zline/",
       "telephone": "+4207732871113",
       "email": "tkadlcik@centrum.cz",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
         "addressLocality": "Zlín",
         "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
       },
       "priceRange": "400 Kč",
       "currenciesAccepted": "CZK",
@@ -1580,6 +2501,208 @@
           "position": 2,
           "name": "Zásady ochrany osobních údajů",
           "item": "/zasady-ochrany-osobnich-udaju/"
+        }
+      ]
+    }
+  ],
+  "cviceni-ve-zline": [
+    {
+      "@type": "Organization",
+      "@id": "/#organization",
+      "name": "Radost v pohybu",
+      "alternateName": "Čchi-kung a tchaj-ťi Radost v pohybu",
+      "description": "Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.",
+      "url": "/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "areaServed": [
+        "Praha 4",
+        "Zlín"
+      ],
+      "founder": {
+        "@id": "/#daniel"
+      },
+      "location": [
+        {
+          "@id": "/#praha"
+        },
+        {
+          "@id": "/#zlin"
+        }
+      ],
+      "legalName": "Mgr. Daniel Tkadlčík",
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "IČO",
+        "value": "75979390"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Pod vinohradem 68/18",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4 – Braník",
+        "addressCountry": "CZ"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#praha",
+      "name": "Radost v pohybu – Tělocvična ZŠ Jeremenkova",
+      "description": "Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.",
+      "url": "/kurzy-a-lekce/#praha",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jeremenkova 1003/66A",
+        "postalCode": "147 00",
+        "addressLocality": "Praha 4",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.04301,
+        "longitude": 14.42334
+      },
+      "priceRange": "350–3 250 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Jeremenkova%201003%2F66A%2C%20Praha%204",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "SportsActivityLocation",
+      "@id": "/#zlin",
+      "name": "Radost v pohybu – Centrum Jiný svět",
+      "description": "Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.",
+      "url": "/cviceni-ve-zline/",
+      "telephone": "+4207732871113",
+      "email": "tkadlcik@centrum.cz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Osvoboditelů 484",
+        "postalCode": "760 01",
+        "addressLocality": "Zlín",
+        "addressCountry": "CZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 49.22279,
+        "longitude": 17.66965
+      },
+      "priceRange": "400 Kč",
+      "currenciesAccepted": "CZK",
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn",
+      "parentOrganization": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "/#daniel",
+      "name": "Daniel Tkadlčík",
+      "honorificPrefix": "Mgr.",
+      "jobTitle": "Lektor tchaj-ťi a čchi-kungu",
+      "description": "Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.",
+      "url": "/o-mne/",
+      "email": "tkadlcik@centrum.cz",
+      "telephone": "+4207732871113",
+      "worksFor": {
+        "@id": "/#organization"
+      },
+      "knows": {
+        "@id": "/#vincent-chu"
+      },
+      "image": {
+        "@id": "/#portrait"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@daniello2151974",
+        "https://www.youtube.com/@danieltkadlcik7684"
+      ],
+      "knowsAbout": [
+        "Tchaj-ťi",
+        "Tai chi",
+        "Čchi-kung",
+        "Qigong",
+        "Tchaj-ťi stylu Yang",
+        "Osm kusů brokátu",
+        "13 slov tchaj-ťi",
+        "Meditace"
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "/#portrait",
+      "url": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "contentUrl": "/wp-content/uploads/daniel-tkadlcik-portret.webp",
+      "width": 1200,
+      "height": 1600,
+      "caption": "Daniel Tkadlčík, lektor tchaj-ťi"
+    },
+    {
+      "@type": "Person",
+      "@id": "/#vincent-chu",
+      "name": "Vincent Chu",
+      "honorificPrefix": "Mistr",
+      "jobTitle": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation",
+      "description": "Hlavní instruktor a mistr bostonské školy Gin Soon Tai Chi Chuan Federation. Jeho otec Chu Gin Soon byl osobním žákem mistra Yang Sau Chunga.",
+      "affiliation": {
+        "@type": "SportsOrganization",
+        "name": "Gin Soon Tai Chi Chuan Federation",
+        "url": "https://www.gstaichi.org/"
+      },
+      "parent": {
+        "@type": "Person",
+        "name": "Chu Gin Soon"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "/#website",
+      "url": "/",
+      "name": "Radost v pohybu",
+      "inLanguage": "cs-CZ",
+      "publisher": {
+        "@id": "/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "/cviceni-ve-zline/#webpage",
+      "url": "/cviceni-ve-zline/",
+      "name": "Tai chi (tchaj-ťi) a čchi-kung ve Zlíně | Radost v pohybu",
+      "description": "Cvičení čchi-kungu (qigong) a tchaj-ťi (tai chi) ve Zlíně jednou měsíčně v pátek v Centru Jiný svět, Osvoboditelů 484: Osm kusů brokátu a 13 slov tchaj-ťi.",
+      "inLanguage": "cs-CZ",
+      "isPartOf": {
+        "@id": "/#website"
+      },
+      "about": {
+        "@id": "/#organization"
+      },
+      "author": {
+        "@id": "/#daniel"
+      },
+      "breadcrumb": {
+        "@id": "/cviceni-ve-zline/#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "/cviceni-ve-zline/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Domů",
+          "item": "/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Cvičení ve Zlíně",
+          "item": "/cviceni-ve-zline/"
         }
       ]
     }

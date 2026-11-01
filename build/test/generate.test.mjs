@@ -4,19 +4,20 @@ import assert from 'node:assert/strict';
 import { buildPages, definePage, phoneWarning, SCRIPTS, siteJson } from '../generate.mjs';
 import { createFinalizer } from '../lib/finalize.mjs';
 import { VIDEO_NOTE } from '../fragments.mjs';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { buildSeo, OG_IMAGE, OG_IMAGES } from '../seo.mjs';
 
 const { pages, fin } = buildPages();
 
-test('the seven design pages + the privacy page, one front page (domu)', () => {
-  assert.deepEqual(pages.map((p) => p.slug).sort(), ['akce', 'clanky', 'cviceni', 'domu', 'kontakt', 'kurzy-a-lekce', 'o-mne', 'zasady-ochrany-osobnich-udaju']);
+test('the thirteen pages (the old site’s routes restored, the merged seminar page, the privacy page), one front page', () => {
+  assert.deepEqual(pages.map((p) => p.slug).sort(), ['akce', 'clanky', 'cviceni', 'cviceni-na-horach', 'cviceni-ve-zline', 'domu', 'kontakt', 'kurzy-a-lekce', 'o-mne', 'osm-kusu-brokatu', 'seminar-vincent-chu', 'videogalerie', 'zasady-ochrany-osobnich-udaju']);
   assert.deepEqual(pages.filter((p) => p.front_page).map((p) => p.slug), ['domu']);
 });
 
 test('page definitions have the page-upsert shape', () => {
   for (const p of pages) {
-    assert.deepEqual(Object.keys(p), ['slug', 'title', 'status', 'template', 'scripts', 'front_page', 'elements']);
+    // `preload` is optional (Domů preloads its stage picture, the phone LCP element).
+    assert.deepEqual(Object.keys(p).filter((k) => k !== 'preload'), ['slug', 'title', 'status', 'template', 'scripts', 'front_page', 'elements']);
     assert.equal(p.status, 'publish');
     assert.equal(p.template, 'elementor_header_footer');
     for (const s of p.scripts) assert.ok(SCRIPTS.has(s));
@@ -37,8 +38,8 @@ test('exactly one <h1> per page, no inline styles, no prototype links', () => {
   }
 });
 
-test('tabs only on Nabídka kurzů a lekcí, the click-to-load map there and on Kontakt, videos on Cvičení', () => {
-  const want = { 'kurzy-a-lekce': ['tabs', 'map'], kontakt: ['map'], cviceni: ['video'] };
+test('page scripts: breathing + tabs on Domů, maps and videos where they are', () => {
+  const want = { domu: ['breath', 'plate', 'video'], 'kurzy-a-lekce': ['map'], kontakt: ['map', 'form'], cviceni: ['video'], videogalerie: ['video'], 'cviceni-ve-zline': ['map', 'video'], 'o-mne': ['video'], 'osm-kusu-brokatu': ['video'] };
   for (const p of pages) assert.deepEqual(p.scripts, want[p.slug] || [], p.slug);
 });
 
@@ -68,42 +69,39 @@ test('the page-upsert preload option: upload path used on the page, { src, sizes
 const htmlOf = (slug) => pages.find((p) => p.slug === slug).elements.map((e) => e.elements[0].settings.html).join('\n');
 const all = pages.map((p) => htmlOf(p.slug)).join('\n');
 
-test('videos on Cvičení: click-to-load facades, self-hosted thumbnails, no YouTube request before the click', () => {
-  const html = htmlOf('cviceni');
-  assert.doesNotMatch(html, /\[(?:Video )?YouTube/);
-  assert.doesNotMatch(html, /<iframe\b|<script\b|\ssrc="https?:\/\/[^"]*(?:youtube|ytimg|google)/);
-  const boxes = [...html.matchAll(/<div data-tk-video-box data-src="https:\/\/www\.youtube-nocookie\.com\/embed\/([\w-]{11})\?autoplay=1" data-title="([^"]+)"/g)].map((m) => [m[1], m[2]]);
-  assert.deepEqual(boxes, [
-    ['1Mmz_QpYk9s', 'Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje'],
-    ['1UPJuzGC1UY', '13 slov tchaj-ťi'],
-    ['1nFm6-XwGpU', 'Začátečnická sestava 12 forem Yang tchaj-ťi'],
-    ['NeVzb5hGM7A', 'Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu'],
-    ['oZB6Gq4QzC4', 'Ukázka sestavy s holí'],
-    ['1Mmz_QpYk9s', 'Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje'],
-    ['1UPJuzGC1UY', '13 slov tchaj-ťi'],
-  ]);
-  // Each box carries the notice (VIDEO_NOTE, the map box's twin), removed with the box on click.
-  assert.equal(html.split(`>${VIDEO_NOTE}</span>`).length - 1, boxes.length);
-  for (const [id] of boxes) {
-    assert.ok(html.includes(`src="/wp-content/uploads/yt-${id}.webp"`), id);
-    assert.ok(html.includes(`href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener"`), id);
+test('videos: click-to-load facades, self-hosted thumbnails, no YouTube request before the click', () => {
+  for (const slug of ['cviceni', 'videogalerie', 'cviceni-ve-zline']) {
+    const html = htmlOf(slug);
+    assert.doesNotMatch(html, /<iframe\b|<script\b|\ssrc="https?:\/\/[^"]*(?:youtube|ytimg|google)/, slug);
+    const boxes = [...html.matchAll(/<div data-tk-video-box data-src="https:\/\/www\.youtube-nocookie\.com\/embed\/([\w-]{11})\?autoplay=1" data-title="([^"]+)" class="tk-video">/g)].map((m) => [m[1], m[2]]);
+    assert.ok(boxes.length >= 2, slug);
+    assert.equal(html.split(`>${VIDEO_NOTE}</span>`).length - 1, boxes.length, slug);
+    for (const [id, title] of boxes) {
+      assert.ok(html.includes(`src="/wp-content/uploads/yt-${id}.webp" alt="Náhled videa: ${title}"`), id);
+      assert.ok(html.includes(`href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener"`), id);
+    }
   }
-  // Gallery: each caption follows its own video.
-  for (const [id, title] of boxes.slice(2)) assert.match(html, new RegExp(`embed/${id}[\\s\\S]*?</div><figcaption[^>]*>${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}</figcaption>`), id);
-  assert.equal((html.match(/data-tk-video\b(?!-)/g) || []).length, boxes.length);
+  // The gallery has all five videos, in the old site's order.
+  const ids = [...htmlOf('videogalerie').matchAll(/embed\/([\w-]{11})/g)].map((m) => m[1]);
+  assert.deepEqual(ids, ['1nFm6-XwGpU', 'NeVzb5hGM7A', 'oZB6Gq4QzC4', '1Mmz_QpYk9s', '1UPJuzGC1UY']);
 });
 
-test('media.json lists the images the pages use: the two client photos + the five self-hosted YouTube thumbnails', () => {
-  assert.deepEqual(fin.media().map((m) => m.file), ['daniel-tkadlcik-portret.jpg', 'louka-strom.jpg', 'yt-1Mmz_QpYk9s.jpg', 'yt-1nFm6-XwGpU.jpg', 'yt-1UPJuzGC1UY.jpg', 'yt-NeVzb5hGM7A.jpg', 'yt-oZB6Gq4QzC4.jpg']);
-  for (const m of fin.media()) assert.ok(existsSync(new URL(`../../client-img/${m.file}`, import.meta.url)), m.file);
+test('media.json lists the images the pages use, each with alt text and a credit when it is not the client’s own', async () => {
+  const { imageCredits } = await import('../content.mjs');
+  const files = fin.media().map((m) => m.file);
+  for (const f of ['daniel-tkadlcik-portret.jpg', 'tk-ink-hory.jpg', 'tk-peking-1988.jpg', 'tk-strazne.jpg', 'tk-zlin.jpg', 'yt-1Mmz_QpYk9s.jpg']) assert.ok(files.includes(f), f);
+  assert.ok(!files.includes('louka-strom.jpg'), 'the stock spring photo is retired');
+  for (const m of fin.media()) {
+    assert.ok(existsSync(new URL(`../../client-img/${m.file}`, import.meta.url)), m.file);
+    assert.ok(m.alt, `${m.file} has alt text`);
+    if (m.file.startsWith('tk-')) assert.ok(imageCredits[m.file], `${m.file} is credited`);
+  }
   for (const f of [OG_IMAGE, ...Object.values(OG_IMAGES)]) assert.ok(/\.jpg$/.test(f) && existsSync(new URL(`../../client-files/${f}`, import.meta.url)), f);
-  assert.equal(fin.media().find((m) => m.file === 'daniel-tkadlcik-portret.jpg').alt, 'Daniel Tkadlčík, lektor tchaj-ťi');
-  assert.doesNotMatch(all, /\[Foto\][\s\S]{0,0}<\/span><\/div>\s*<div class="card stack" style="position: absolute/);
 });
 
 test('no old Webnode CDN links; the files are root-relative uploads with download', () => {
   assert.doesNotMatch(all, /cbaul-cdnwnd/);
-  assert.match(htmlOf('domu'), /<a href="\/wp-content\/uploads\/letak-savle\.jpg" download class="btn btn-ghost">Stáhnout leták na Šavli<\/a>/);
+  assert.match(htmlOf('domu'), /<a href="\/wp-content\/uploads\/letak-savle\.jpg" download class="more">Stáhnout leták na Šavli<\/a>/);
   for (const f of ['10-principu-mistra-yang-chen-fu.docx', 'pojednani-o-wu-ti.docx']) assert.match(htmlOf('clanky'), new RegExp(`href="/wp-content/uploads/${f.replace(/\./g, '\\.')}" download`));
   const fin2 = createFinalizer();
   assert.throws(() => definePage(fin2, { slug: 't', title: 'T', sections: ['<section><h1>x</h1><a href="https://9d8f1c78e7.cbaul-cdnwnd.com/a.docx">a</a></section>'] }), /Webnode CDN/);
@@ -116,17 +114,13 @@ test('every target="_blank" link has rel noopener; nofollow only on third-party 
       if (/nofollow/.test(a)) assert.match(a, /href="https?:\/\//, `${p.slug}: ${a}`);
     }
   }
-  assert.match(htmlOf('akce'), /href="https:\/\/penzion-exnar\.ubytovani-strazne-krkonose\.cz\/" rel="nofollow noopener" target="_blank"[^>]*>penzion-exnar\.ubytovani-strazne-krkonose\.cz\/cs\/<\/a>/);
+  assert.match(htmlOf('cviceni-na-horach'), /href="https:\/\/penzion-exnar\.ubytovani-strazne-krkonose\.cz\/" rel="nofollow noopener" target="_blank"[^>]*>penzion-exnar\.ubytovani-strazne-krkonose\.cz<\/a>/);
 });
 
-test('Zlín: tab panels carry the place ids, the home Zlín card links straight to #zlin', () => {
-  const html = htmlOf('kurzy-a-lekce');
-  assert.match(html, /role="tab" id="tab-praha" aria-controls="praha"/);
-  assert.match(html, /role="tab" id="tab-zlin" aria-controls="zlin"/);
-  assert.match(html, /role="tabpanel" id="praha" data-panel="praha"/);
-  assert.match(html, /role="tabpanel" id="zlin" data-panel="zlin"/);
-  assert.doesNotMatch(html, /panel-(?:praha|zlin)/);
-  assert.match(htmlOf('domu'), /href="\/kurzy-a-lekce\/#zlin" class="card card-link reveal">\n<span class="chip chip-neutral">1x měsíčně vždy v pátek<\/span>\n<h3[^>]*>Cvičení ve Zlíně/);
+test('anchors other pages link to exist once: #praha #zlin #kurz-* on Nabídka kurzů, #brokat #slov #yang #videa on Cvičení', () => {
+  for (const [slug, ids] of Object.entries({ 'kurzy-a-lekce': ['praha', 'zlin', 'kurz-brokat', 'kurz-slov', 'kurz-yang', 'cena', 'misto'], cviceni: ['brokat', 'slov', 'yang', 'videa'], akce: ['chu', 'hory'], clanky: ['co-je'] })) {
+    for (const id of ids) assert.equal(htmlOf(slug).split(` id="${id}"`).length - 1, 1, `${slug}#${id}`);
+  }
 });
 
 test('headings: no duplicate h2–h4 texts on a page (screen-reader text included)', () => {
@@ -135,9 +129,6 @@ test('headings: no duplicate h2–h4 texts on a page (screen-reader text include
     const dupes = heads.filter((h, i) => heads.indexOf(h) !== i);
     assert.deepEqual(dupes, [], p.slug);
   }
-  const akce = htmlOf('akce');
-  for (const day of ['Čtvrtek 27. 11. 2025', 'Pátek 28. 11. 2025', 'Sobota 29. 11. 2025']) assert.match(akce, new RegExp(`<h4 class="mono[^"]*">${day}</h4>\n<p class="h3[^"]*">`));
-  assert.match(htmlOf('clanky'), /<span aria-hidden="true" class="[^"]*">10<\/span>/);
 });
 
 test('seo.json covers every page: brand suffix, title ≤ 64, description 120–155 chars, og image, no phone/prices', () => {
@@ -159,12 +150,14 @@ test('seo.json covers every page: brand suffix, title ≤ 64, description 120–
 
 test('site.json carries the header/footer data, the business identification and the privacy link', () => {
   const s = siteJson();
-  assert.equal(s.nav.length, 7);
+  assert.equal(s.nav.length, 11);
   assert.deepEqual(s.business, { name: 'Mgr. Daniel Tkadlčík', ico: '75979390', address: 'Pod vinohradem 68/18, 147 00 Praha 4 – Braník', register: 'Zapsán v živnostenském rejstříku, Úřad městské části Praha 4' });
-  assert.deepEqual(s.footer.links.map((l) => l.href), ['/', '/cviceni/', '/kurzy-a-lekce/', '/akce/', '/o-mne/', '/clanky/', '/zasady-ochrany-osobnich-udaju/']);
+  assert.deepEqual(s.nav.map((l) => l.label), ['Domů', 'Cvičení', 'Videogalerie', 'Nabídka kurzů a lekcí', 'Cvičení ve Zlíně', 'Akce', 'Seminář s Vincentem Chu', 'Cvičení na horách', 'O mně', 'Články', 'Kontakt']);
+  assert.deepEqual(s.footer.links.map((l) => l.href), [...s.nav.slice(0, 2).map((l) => l.href), '/osm-kusu-brokatu/', ...s.nav.slice(2).map((l) => l.href), '/zasady-ochrany-osobnich-udaju/']);
+  assert.ok(s.credits.length >= 9 && s.credits.every((c) => c.title && c.license && c.page), 'picture credits');
   assert.equal(s.footer.links.at(-1).label, 'Zásady ochrany osobních údajů');
   // The register also lists the date of birth: never published.
-  assert.doesNotMatch(JSON.stringify(s), /narozen|datum narození|\b19\d\d-\d\d-\d\d\b/i);
+  assert.doesNotMatch(JSON.stringify({ business: s.business, contact: s.contact, footer: s.footer }), /narozen|datum narození|\b19\d\d-\d\d-\d\d\b/i);
   assert.equal(s.nav.at(-1).href, '/kontakt/');
   assert.equal(s.places.length, 2);
   assert.match(s.contact.phoneHref, /^tel:\+420\d+$/);
@@ -178,8 +171,22 @@ test('privacy page: one <h1>, the operator\'s register data, the e-mail only (no
     'čl. 6 odst. 1 písm. a)', 'čl. 6 odst. 1 písm. b)', 'čl. 6 odst. 1 písm. c)', 'čl. 6 odst. 1 písm. f)', '[HOSTING – doplnit', '[doplnit:']) assert.ok(html.includes(t), t);
   assert.doesNotMatch(html, /Consent Mode/, 'Consent Mode is off: the privacy text must not claim it');
   assert.doesNotMatch(html, /tel:|773 287|narozen/);
-  assert.doesNotMatch(html, /kontaktní formulář(?! nemá)/i);
+  // Since 2026-11-01 the site has a contact form (mu-plugins/tk-form.php): the privacy text describes it.
+  assert.match(html, /kontaktním formulářem na stránce Kontakt/);
+  assert.match(html, /web odešle e-mailem do mé schránky a sám ji neukládá/);
   for (const p of pages) if (p.slug !== 'zasady-ochrany-osobnich-udaju') assert.doesNotMatch(htmlOf(p.slug), /\[doplnit|\[HOSTING/, p.slug);
+});
+
+test('contact form: the builders’ topic list equals the PHP form’s, sign-up links preset a valid topic', async () => {
+  const { FORM_TOPICS, signupHref } = await import('../builders/kurzy-a-lekce.mjs');
+  const php = readFileSync(new URL('../../wp-content/mu-plugins/tk-form.php', import.meta.url), 'utf8');
+  const m = /const TK_FORM_TOPICS = array\( ([^)]*) \);/.exec(php);
+  assert.ok(m, 'TK_FORM_TOPICS found');
+  assert.deepEqual([...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]), FORM_TOPICS);
+  assert.equal(signupHref('Cvičení ve Zlíně'), '/kontakt/?tema=4#formular');
+  assert.throws(() => signupHref('Nope'), /unknown topic/);
+  for (const p of pages) assert.doesNotMatch(htmlOf(p.slug), /mailto:[^"]*\?subject=/, p.slug);
+  assert.match(htmlOf('kontakt'), /<!--tk-contact-form-->/);
 });
 
 test('phone guard: a WARNING (not an error) while the phone is not +420 + 9 digits', () => {

@@ -24,7 +24,7 @@ import { buildLlms, buildSchema, buildSeo, OG_IMAGE, OG_IMAGES } from './seo.mjs
 const HERE = dirname(fileURLToPath(import.meta.url));
 const THEME = join(HERE, '..', 'wp-content', 'themes', 'tkadlcik');
 /** Allowed _tk_scripts values (theme: inc/data.php tk_page_scripts(); wp tk page-upsert validates the same list). */
-export const SCRIPTS = new Set(['tabs', 'map', 'video']);
+export const SCRIPTS = new Set(['map', 'video', 'breath', 'plate', 'form']);
 
 /**
  * Page definition in the format wp tk page-upsert reads (martinadamus format without `branch`).
@@ -80,7 +80,9 @@ export function phoneWarning(contact = content.contact) {
 
 export function siteJson() {
   // business: the operator's identification (trade register), printed in the footer (footer.php).
-  return { brand: content.brand, contact: content.contact, business: content.business, places: content.places, nav: content.nav, footer: content.footer };
+  // credits: the found pictures (build/image-credits.json), credited in the footer of every page.
+  const credits = Object.values(content.imageCredits).map((c) => ({ title: c.title, creator: c.creator, date: c.date, license: c.license, page: c.page }));
+  return { brand: content.brand, contact: content.contact, business: content.business, places: content.places, nav: content.nav, footer: content.footer, credits };
 }
 
 const write = (file, data) => {

@@ -4,7 +4,8 @@
   "status": "publish",
   "template": "elementor_header_footer",
   "scripts": [
-    "map"
+    "map",
+    "form"
   ],
   "front_page": false,
   "elements": [
@@ -36,7 +37,177 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section class=\"wrap tk-s-665a2c2f\">\n<div class=\"grid tk-s-2fb1fd0f\">\n<div class=\"stack tk-s-8f5d1a54\">\n<div class=\"stack tk-s-ca026a49\">\n<span class=\"eyebrow rise\">Kontakt</span>\n<h1 class=\"h1 rise d1 tk-s-1e47c985\">Kontakt – tchaj-ťi <span class=\"serif\">Praha 4 a Zlín</span></h1>\n<p class=\"lead rise d2\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<ul class=\"card rise d3 tk-s-410db2ea\">\n<li class=\"tk-s-394bbc6d\">Mgr. Daniel Tkadlčík</li>\n<li class=\"tk-s-7be0e493\"><a href=\"tel:+4207732871113\" class=\"lnk\">+420 773 287 1113</a></li>\n<li class=\"tk-s-45b0af64\"><a href=\"mailto:tkadlcik@centrum.cz\" class=\"lnk\">tkadlcik@centrum.cz</a></li>\n</ul>\n</div>\n<div class=\"stack rise d4 tk-s-f6ce4d1e\">\n<h2 class=\"h3\">Kde cvičíme: Praha 4 a Zlín</h2>\n<div class=\"card stack tk-s-9a49f57a\">\n<div data-tk-map-box data-src=\"https://maps.google.com/maps?q=Jeremenkova%201003%2F66A%2C%20Praha%204&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near\" data-title=\"Mapa – Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4\" class=\"tk-map tk-s-d31be0a1\">\n<span class=\"tk-map-pin\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"9.5\" r=\"2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"></circle></svg></span>\n<button type=\"button\" data-tk-map class=\"btn btn-jade btn-sm\">Zobrazit mapu</button>\n<span class=\"small muted tk-map-note\">Mapu načteme od Google až po kliknutí. <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Jeremenkova%201003%2F66A%2C%20Praha%204\" target=\"_blank\" rel=\"noopener\" class=\"lnk tk-map-link\">Otevřít v Google Maps</a></span>\n</div>\n<div class=\"stack tk-s-13fa9231\"><strong class=\"tk-s-501a067d\">Tělocvična ZŠ Jeremenkova</strong><span class=\"small muted\">Jeremenkova 1003/66A</span><a href=\"/kurzy-a-lekce/#praha\" class=\"lnk small tk-s-c9adc42e\">Rozvrh a ceny</a></div>\n</div>\n<div class=\"card stack tk-s-9a49f57a\">\n<div data-tk-map-box data-src=\"https://maps.google.com/maps?q=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near\" data-title=\"Mapa – Centrum Jiný svět, Osvoboditelů 484, Zlín\" class=\"tk-map tk-s-d31be0a1\">\n<span class=\"tk-map-pin\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"9.5\" r=\"2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"></circle></svg></span>\n<button type=\"button\" data-tk-map class=\"btn btn-jade btn-sm\">Zobrazit mapu</button>\n<span class=\"small muted tk-map-note\">Mapu načteme od Google až po kliknutí. <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn\" target=\"_blank\" rel=\"noopener\" class=\"lnk tk-map-link\">Otevřít v Google Maps</a></span>\n</div>\n<div class=\"stack tk-s-13fa9231\"><strong class=\"tk-s-501a067d\">Centrum Jiný svět</strong><span class=\"small muted\">Osvoboditelů 484, Zlín</span><a href=\"/kurzy-a-lekce/#zlin\" class=\"lnk small tk-s-c9adc42e\">Rozvrh a ceny</a></div>\n</div>\n</div>\n</div>\n</section>"
+            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"svitek\" data-cap=\"Gong Xian, Krajina, dynastie Čching\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-svitek.webp\" alt=\"Čínská tušová malba: hory a stromy v mlze na svitku\" width=\"1600\" height=\"788\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b14f18c2\">\n</figure>\n<figure data-stage-fig=\"peking\" data-cap=\"Ranní tchaj-ťi v Pekingu, 1988\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-peking-1988.webp\" alt=\"Skupina lidí cvičí ranní tchaj-ťi v pekingském parku\" width=\"1300\" height=\"713\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b048b3ad\">\n</figure>\n<figure data-stage-fig=\"zlin\" data-cap=\"Zlín z Baťova mrakodrapu\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-zlin.webp\" alt=\"Zlín z výšky, pohled z Baťova mrakodrapu\" width=\"1600\" height=\"1200\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-6bd6fedc\">\n</figure>\n<figure data-stage-fig=\"hory\" data-cap=\"Xiang Shengmo, Krajina, dynastie Ming\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-hory.webp\" alt=\"Čínská tušová malba: hory, borovice a pavilon u vody\" width=\"1600\" height=\"2960\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-588d04d7\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Gong Xian, Krajina, dynastie Čching</p>\n</div>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "9e8321f",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "6be67fa",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section data-stage=\"svitek\" class=\"sec hero hero-sub\">\n<div class=\"hero-text\">\n<h1 class=\"h1 rise\">Kontakt: <span class=\"nw\">tchaj-ťi</span> Praha 4 a Zlín</h1>\n<p class=\"lead rise d1\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n\n\n<ul class=\"rows rise d2\">\n<li><span class=\"r-name\">Mgr. Daniel Tkadlčík</span></li>\n<li><a href=\"tel:+4207732871113\" class=\"r-name\">+420 773 287 1113</a><span class=\"r-val\">Telefon</span></li>\n<li><a href=\"mailto:tkadlcik@centrum.cz\" class=\"r-name\">tkadlcik@centrum.cz</a><span class=\"r-val\">E-mail</span></li>\n</ul>\n</div>\n\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "fac000b",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "3aa24df",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"formular\" data-stage=\"svitek\" aria-labelledby=\"formular-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"formular-h\" class=\"h2 reveal\">Napište mi</h2>\n\n</div>\n<div class=\"reveal\"><!--tk-contact-form--></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "8085780",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "be09e1a",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"praha\" data-stage=\"peking\" aria-labelledby=\"praha-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"praha-h\" class=\"h2 reveal\">Tělocvična ZŠ Jeremenkova, Praha 4</h2>\n<p class=\"body reveal\">Jeremenkova 1003/66A, 147 00 Praha 4</p>\n</div>\n<div class=\"media reveal\"><div data-tk-map-box data-src=\"https://maps.google.com/maps?q=Jeremenkova%201003%2F66A%2C%20Praha%204&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near\" data-title=\"Mapa – Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4\" class=\"tk-map\">\n<span class=\"tk-map-pin\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"9.5\" r=\"2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"></circle></svg></span>\n<button type=\"button\" data-tk-map class=\"btn btn-primary\">Zobrazit mapu</button>\n<span class=\"tk-map-note\">Mapu načteme od Google až po kliknutí. <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Jeremenkova%201003%2F66A%2C%20Praha%204\" target=\"_blank\" rel=\"noopener\" class=\"tk-map-link\">Otevřít v Google Maps</a></span>\n</div></div>\n<div class=\"actions reveal tk-s-a26bda7d\"><a href=\"/kurzy-a-lekce/#praha\" class=\"more\">Rozvrh a ceny <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "d34c25c",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "e6493b5",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"zlin\" data-stage=\"zlin\" aria-labelledby=\"zlin-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"zlin-h\" class=\"h2 reveal\">Centrum Jiný svět, Zlín</h2>\n<p class=\"body reveal\">Osvoboditelů 484, 760 01 Zlín</p>\n</div>\n<div class=\"media reveal\"><div data-tk-map-box data-src=\"https://maps.google.com/maps?q=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near\" data-title=\"Mapa – Centrum Jiný svět, Osvoboditelů 484, Zlín\" class=\"tk-map\">\n<span class=\"tk-map-pin\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"9.5\" r=\"2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"></circle></svg></span>\n<button type=\"button\" data-tk-map class=\"btn btn-primary\">Zobrazit mapu</button>\n<span class=\"tk-map-note\">Mapu načteme od Google až po kliknutí. <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn\" target=\"_blank\" rel=\"noopener\" class=\"tk-map-link\">Otevřít v Google Maps</a></span>\n</div></div>\n<div class=\"actions reveal tk-s-a26bda7d\"><a href=\"/cviceni-ve-zline/\" class=\"more\">Cvičení ve Zlíně <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "eaa2b1f",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "28cf388",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"napiste\" aria-labelledby=\"napiste-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"napiste-h\" class=\"statement-h\">E-mail</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+4207732871113\">+420 773 287 1113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
           },
           "elements": []
         }

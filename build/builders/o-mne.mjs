@@ -1,50 +1,54 @@
-import { photo, PHOTOS } from '../fragments.mjs';
-import { applyUx } from './ux.mjs';
 /**
- * O mně — port of OMne.dc.html <main>, one Elementor section per <section>. Markup verbatim from the
- * prototype; lib/finalize.mjs turns the style attributes into tk-s-* classes and the *.dc.html links into site paths.
+ * O mně (redesign 2026-11-01): the "founder's letter" in the teacher's own first-person words (old site text).
  */
+import { stage, contactStatement, more, videoBox, video } from '../fragments.mjs';
+import { hero, sec } from './parts.mjs';
+
 export function build({ content, page }) {
   return page({
     slug: 'o-mne',
     title: 'O mně',
-    scripts: [],
+    scripts: ['video'],
     frontPage: false,
-    sections: applyUx('o-mne', [
-      `<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: clamp(72px, 10vw, 128px)">
-<div class="grid" style="--min: 440px; gap: 48px 72px; align-items: center">
-<div class="stack" style="gap: 28px">
-<span class="eyebrow rise">O mně</span>
-<h1 class="h1 rise d1" style="font-size: clamp(44px, 6vw, 88px)">Daniel Tkadlčík, <span class="serif">lektor tchaj-ťi od roku 1997</span></h1>
-<p class="lead rise d2">Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Prvotním důvodem, proč jsem se začal zajímat o cvičení tchaj-ťi, byly mé vleklé zdravotní problémy způsobené vrcholovým tréninkem atletiky. Tchaj-ťi mě natolik ovlivnilo, že jsem pozměnil svůj pohled na mnoho věcí, které se týkají nejen těla, ale i myšlení.</p>
+    sections: [
+      stage(['portret', 'wangmeng', 'peking']),
+
+      hero({
+        h1: 'Daniel Tkadlčík: tchaj-ťi od roku 1997',
+        lead: 'Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997.',
+        stageKey: 'portret',
+      }),
+
+      sec({
+        id: 'cesta', stageKey: 'portret',
+        h2: 'Cesta k tchaj-ťi a mistr Vincent Chu',
+        body: `<div class="letter reveal">
+<p>Prvotním důvodem, proč jsem se začal zajímat o cvičení tchaj-ťi, byly mé vleklé zdravotní problémy způsobené vrcholovým tréninkem atletiky. Tchaj-ťi mě natolik ovlivnilo, že jsem pozměnil svůj pohled na mnoho věcí, které se týkají nejen těla, ale i myšlení.</p>
+<p>V průběhu času jsem se věnoval různým stylům tchaj-ťi u různých učitelů a mistrů (wudangskému tchaj-ťi, Yang tchaj-ťi, čchi-kungovým masážím a různým stylům meditace).</p>
+<p>Od roku 2007 se intenzivně věnuji zejména <a class="lnk" href="/cviceni/#yang">rodinnému stylu Yang</a> tchaj-ťi u <a class="lnk" href="/seminar-vincent-chu/">mistra Vincenta Chu</a>, který vyučuje komplexní systém rodiny Yang. Mimo jiné mě naučil rodinné předání <a class="lnk" href="/cviceni/#brokat">Osmi kusů brokátu</a> a <a class="lnk" href="/cviceni/#slov">13 slov tchaj-ťi</a>.</p>
+<p>Několik let jsem se také věnoval zdravotním energetickým masážím tuina. Civilním povoláním jsem učitel tělesné výchovy na II. stupni základní školy.</p>
+<div class="sign"><span class="sign-name">Daniel Tkadlčík</span><span class="sign-role">Mgr. Daniel Tkadlčík, lektor tchaj-ťi a čchi-kungu</span></div>
 </div>
-<div class="rise d3" style="position: relative">
-${photo(PHOTOS.portret)}
-<div class="card stack" style="position: absolute; left: -16px; bottom: 28px; gap: 2px; padding: 18px 22px; border-radius: 18px; box-shadow: var(--shadow-lg)"><span style="font-size: 30px; font-weight: 500; letter-spacing: -.04em; line-height: 1.1">od roku 1997</span></div>
-</div>
+<figure class="media reveal" style="margin-top: 48px">${videoBox(video('1nFm6-XwGpU'))}<figcaption>${video('1nFm6-XwGpU').title}</figcaption></figure>`,
+      }),
+
+      `<section class="sec" id="filozofie" data-stage="wangmeng" aria-labelledby="filozofie-h">
+<div class="field reveal">
+<h2 class="h2" id="filozofie-h">Moje filozofie</h2>
+<blockquote class="lead" style="margin: 24px 0; font-weight: 500"><p>„Každá forma cvičení je prázdná, pokud není spojena s radostí, tichostí a klidem mysli, které jsou podstatou našeho bytí a které se snažím ve cvičení rozvíjet.“</p></blockquote>
+<p class="body">Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.</p>
 </div>
 </section>`,
 
-      `<section class="wrap" style="padding-bottom: clamp(72px, 10vw, 128px)">
-<div class="sec-head"><h2 class="h2">Cesta k tchaj-ťi <span class="serif">a mistr Vincent Chu</span></h2></div>
-<ol class="stack" style="max-width: 900px">
-<li class="reveal" style="display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--ink)"><span class="idx">01</span><div class="stack" style="gap: 6px"><h3 class="h3">Různé styly tchaj-ťi a meditace</h3><p class="body small">V průběhu času jsem se věnoval různým stylům tchaj-ťi u různých učitelů a mistrů (wudangskému tchaj-ťi, Yang tchaj-ťi, čchi-kungovým masážím a různým stylům meditace).</p></div></li>
-<li class="reveal" style="display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--line)"><span class="idx">02</span><div class="stack" style="gap: 6px"><h3 class="h3">Rodinný styl Yang u mistra Vincenta Chu</h3><p class="body small">Od roku 2007 se intenzivně věnuji zejména rodinnému stylu Yang tchaj-ťi u mistra Vincenta Chu, který vyučuje komplexní systém rodiny Yang. Mimo jiné mě naučil rodinné předání Osmi kusů brokátu a 13 slov tchaj-ťi.</p></div></li>
-<li class="reveal" style="display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 26px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)"><span class="idx">03</span><div class="stack" style="gap: 6px"><h3 class="h3">Masáže tuina a učitel tělesné výchovy</h3><p class="body small">Několik let jsem se také věnoval zdravotním energetickým masážím tuina. Civilním povoláním jsem učitel tělesné výchovy na II. stupni základní školy.</p></div></li>
-</ol>
-</section>`,
+      sec({
+        id: 'linie', stageKey: 'peking',
+        h2: 'Linie předání stylu Yang',
+        intro: 'Výuka probíhá dle instrukcí a předání od mistra Vincenta Chu, který je hlavním instruktorem a mistrem bostonské školy <a class="lnk" href="https://www.gstaichi.org/" rel="nofollow" target="_blank">Gin Soon Tai Chi Chuan Federation</a>. Jeho otec Chu Gin Soon byl osobním žákem mistra Yang Sau Chunga.',
+        body: `<ol class="chain reveal" aria-label="Linie předání"><li>Yang Sau Chung</li><li>Chu Gin Soon</li><li>Vincent Chu</li><li>Daniel Tkadlčík</li></ol>
+<div class="actions reveal" style="margin-top: 32px">${more('/cviceni/', 'Cvičení')}${more('/kurzy-a-lekce/', 'Nabídka kurzů a lekcí')}</div>`,
+      }),
 
-      `<section class="wrap" style="padding-bottom: clamp(72px, 10vw, 136px)">
-<div class="panel-dark on-dark reveal" style="padding: clamp(36px, 6vw, 88px)">
-<div class="grid" style="--min: 420px; gap: 40px 72px; align-items: end">
-<div class="stack" style="gap: 20px">
-<h2 class="eyebrow">Moje filozofie</h2>
-<p class="serif" style="font-size: clamp(30px, 3.6vw, 50px); line-height: 1.12; text-wrap: balance">„Každá forma cvičení je prázdná, pokud není spojena s radostí, tichostí a klidem mysli, které jsou podstatou našeho bytí a které se snažím ve cvičení rozvíjet.“</p>
-</div>
-<p style="color: var(--on-dark-2); text-wrap: pretty">Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.</p>
-</div>
-</div>
-</section>`,
-    ], content.today),
+      contactStatement(content),
+    ],
   });
 }

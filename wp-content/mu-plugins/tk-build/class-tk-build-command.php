@@ -51,7 +51,7 @@ class TK_Build_Command {
 	const FRONT = 'domu';
 
 	/** Allowed _tk_scripts values (consumed by the theme). */
-	const SCRIPTS = array( 'nav', 'tabs', 'reveal', 'map', 'video' );
+	const SCRIPTS = array( 'nav', 'reveal', 'stage', 'map', 'video', 'breath', 'plate', 'form' );
 
 	/** Post meta that marks the Elementor kit kit-setup created and owns. */
 	const TK_KIT_META = '_tk_kit';

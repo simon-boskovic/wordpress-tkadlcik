@@ -1,0 +1,250 @@
+{
+  "slug": "osm-kusu-brokatu",
+  "title": "Osm kusů brokátu",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [
+    "video"
+  ],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "ac719cb",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "fc7a5ea",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"snih\" data-cap=\"Tchaj-ťi stylu Yang ve sněhu\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-snih-yang.webp\" alt=\"Cvičenec v bílém provádí tchaj-ťi stylu Yang ve sněhu\" width=\"1920\" height=\"1308\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-91b5b67a\">\n</figure>\n<figure data-stage-fig=\"weiqi\" data-cap=\"Dai Jin, Krajina s taoistickými nesmrtelnými, dynastie Ming\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-weiqi.webp\" alt=\"Čínská malba: taoističtí nesmrtelní hrají pod stromy hru weiqi\" width=\"1306\" height=\"2250\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-f7333170\">\n</figure>\n<figure data-stage-fig=\"peking\" data-cap=\"Ranní tchaj-ťi v Pekingu, 1988\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-peking-1988.webp\" alt=\"Skupina lidí cvičí ranní tchaj-ťi v pekingském parku\" width=\"1300\" height=\"713\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b048b3ad\">\n</figure>\n<figure data-stage-fig=\"hory\" data-cap=\"Xiang Shengmo, Krajina, dynastie Ming\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-hory.webp\" alt=\"Čínská tušová malba: hory, borovice a pavilon u vody\" width=\"1600\" height=\"2960\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-588d04d7\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Tchaj-ťi stylu Yang ve sněhu</p>\n</div>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "1c35dc5",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "7187d54",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section data-stage=\"snih\" class=\"sec hero hero-sub\">\n<div class=\"hero-text\">\n<h1 class=\"h1 rise\">Osm kusů brokátu: <span class=\"nw\">čchi-kung</span> pro zdraví</h1>\n<p class=\"lead rise d1\">Je to velmi jednoduché a velmi účinné cvičení, prospěšné pro zdraví.</p>\n\n<div class=\"actions rise d3\"><a href=\"/kurzy-a-lekce/#kurz-brokat\" class=\"btn btn-primary\">Rozvrh a ceny <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"#cviky\" class=\"more\">Názvy jednotlivých brokátů <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n\n</div>\n\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "3db24b2",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "32c78b5",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"co-to-je\" data-stage=\"snih\" aria-labelledby=\"co-to-je-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"co-to-je-h\" class=\"h2 reveal\">Cvičení ze skupiny Daoyin</h2>\n\n</div>\n<div class=\"prose reveal\">\n<p>Osm kusů brokátu je cvičení řadící se do skupiny Daoyin (dao znamená manipulaci s tělem a jeho částmi a yin znamená ovládání nebo vedení qi). Je to velmi jednoduché a velmi účinné cvičení, prospěšné pro zdraví. Staří Číňané tuto sestavu praktikovali po dlouhou dobu jako formu cvičení pro udržení zdraví. Je to nejlepší z tradičních čínských kultivačních metod. Pro svou jednoduchost a přínos ji praktikovalo mnoho lidí a vyvinula se do mnoha variací. V základu se rozděluje na formu v sedě a ve stoje. Cílem v sedě je kultivace mysli a zdraví, cílem sestavy procvičované ve stoje je trénink fyzického těla a jeho části. Ačkoli neexistují žádné důkazy, lidé dospěli k závěru, že sedící formu vytvořil Zong Li Quan, jeden z legendárních osmi nesmrtelných v čínské mytologii. Statickou formu vytvořil generál Yue Fei v dynastii Song (960–1279) jako bojové umění a využíval ho při výcviku svých vojáků.</p>\n<p>Celá sestava nás dovede k harmonizaci energie qi v těle. Když je qi v harmonii, všechny složky Yin a Yang v těle jsou vyvážené. Když jsou složky Yin a Yang vyvážené, tělo je zdravé. Osm kusů brokátu je cvičení rozdělené do osmi jednotlivých cviků. Každý z osmi cviků je speciálně navržen tak, aby pracoval na konkrétní části těla.</p>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "a387d7b",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "e6b9bf9",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"cviky\" data-stage=\"weiqi\" aria-labelledby=\"cviky-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"cviky-h\" class=\"h2 reveal\">Názvy jednotlivých brokátů</h2>\n\n</div>\n<ol class=\"rows reveal\">\n<li><span class=\"r-name\">Podpírání nebes oběma pažemi</span><span class=\"r-desc\">Zvedáme nebesa a aktivujeme san tiao (tři ohřívače).</span></li>\n<li><span class=\"r-name\">Napínání luku</span><span class=\"r-desc\">Učíme se správně uvolňovat napětí v hrudi, posilujeme srdce a stabilizujeme vnitřní oheň.</span></li>\n<li><span class=\"r-name\">Odtlačování nebes a země</span><span class=\"r-desc\">Uvolňujeme žaludek a slezinu (oblasti podžebří).</span></li>\n<li><span class=\"r-name\">Ohlédnutí se dozadu</span><span class=\"r-desc\">Zaháníme patero vyčerpání a sedmero zranění.</span></li>\n<li><span class=\"r-name\">Vrtění hlavou a kroužení páteří</span><span class=\"r-desc\">Uvolňujeme bedra, ramena a zádové svaly.</span></li>\n<li><span class=\"r-name\">Oběma rukama se dotýkáme chodidel</span><span class=\"r-desc\">Posilujeme ledviny, třísla a bedra.</span></li>\n<li><span class=\"r-name\">Posilovací cvičení</span><span class=\"r-desc\">Zatínání pěstí, uvědomujeme si napětí v těle, v kotnících, kolenou, kyčlích, trupu a pažích.</span></li>\n<li><span class=\"r-name\">Dopadem na paty masírujeme páteř</span><span class=\"r-desc\">Třesením se zbavujeme nemocí.</span></li>\n</ol>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "9992d00",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "bfb2021",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"video\" data-stage=\"peking\" aria-labelledby=\"video-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"video-h\" class=\"h2 reveal\">Osm kusů brokátu na videu</h2>\n\n</div>\n<figure class=\"media reveal\"><div data-tk-video-box data-src=\"https://www.youtube-nocookie.com/embed/1Mmz_QpYk9s?autoplay=1\" data-title=\"Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje\" class=\"tk-video\">\n<img src=\"/wp-content/uploads/yt-1Mmz_QpYk9s.webp\" alt=\"Náhled videa: Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje\" width=\"1280\" height=\"720\" loading=\"lazy\" decoding=\"async\">\n<button type=\"button\" data-tk-video aria-label=\"Přehrát video: Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje\" class=\"tk-video-play\"><svg width=\"68\" height=\"68\" viewBox=\"0 0 68 68\" aria-hidden=\"true\"><circle cx=\"34\" cy=\"34\" r=\"34\" fill=\"currentColor\"></circle><path d=\"M28 22.5v23l18-11.5z\" fill=\"#161C1A\"></path></svg></button>\n<span class=\"tk-video-note\">Video načteme z YouTube až po kliknutí.</span>\n<a href=\"https://www.youtube.com/watch?v=1Mmz_QpYk9s\" target=\"_blank\" rel=\"noopener\" class=\"tk-video-link\">Přehrát na YouTube</a>\n</div><figcaption>Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje</figcaption></figure>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "25feda4",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "d007d9c",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"kurz\" data-stage=\"hory\" aria-labelledby=\"kurz-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"kurz-h\" class=\"h2 reveal\">Kurz Osm kusů brokátu v Praze 4</h2>\n<p class=\"body reveal\">Známé čchi-kungové cvičení zaměřující se na rozvoj základních dovedností, posílení těla, protažení, otevření energetických kanálů a získání základních návyků a dovedností.</p>\n</div>\n<div class=\"reveal\">\n<dl class=\"facts\"><div><dt>Pravidelné cvičení</dt><dd>Úterý 18:00 - 20:00h</dd></div><div><dt>Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div><div><dt>Cena</dt><dd>350 Kč lekce 120 minut, 10 lekcí 3 250 Kč</dd></div></dl>\n</div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kontakt/?tema=1#formular\" class=\"btn btn-primary\">Přihlásit se <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/cviceni-ve-zline/\" class=\"more\">Cvičení ve Zlíně <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/cviceni/\" class=\"more\">Cvičení <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "6c08390",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "6c080c6",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+4207732871113\">+420 773 287 1113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

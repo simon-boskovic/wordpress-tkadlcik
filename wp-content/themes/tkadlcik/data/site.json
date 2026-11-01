@@ -24,7 +24,13 @@
       "city": "Praha 4",
       "locality": "Praha 4",
       "line": "Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A",
-      "map": "Jeremenkova 1003/66A, Praha 4"
+      "map": "Jeremenkova 1003/66A, Praha 4",
+      "postalCode": "147 00",
+      "geo": [
+        50.04301,
+        14.42334
+      ],
+      "url": "/kurzy-a-lekce/#praha"
     },
     {
       "key": "zlin",
@@ -33,7 +39,13 @@
       "city": "Zlín",
       "locality": "Zlín",
       "line": "Centrum Jiný svět, Osvoboditelů 484, Zlín",
-      "map": "Osvoboditelů 484, Zlín"
+      "map": "Osvoboditelů 484, Zlín",
+      "postalCode": "760 01",
+      "geo": [
+        49.22279,
+        17.66965
+      ],
+      "url": "/cviceni-ve-zline/"
     }
   ],
   "nav": [
@@ -43,19 +55,39 @@
     },
     {
       "href": "/cviceni/",
-      "label": "Cvičení"
+      "label": "Cvičení",
+      "bar": true
+    },
+    {
+      "href": "/videogalerie/",
+      "label": "Videogalerie"
     },
     {
       "href": "/kurzy-a-lekce/",
-      "label": "Nabídka kurzů a lekcí"
+      "label": "Nabídka kurzů a lekcí",
+      "bar": true
+    },
+    {
+      "href": "/cviceni-ve-zline/",
+      "label": "Cvičení ve Zlíně"
     },
     {
       "href": "/akce/",
-      "label": "Akce"
+      "label": "Akce",
+      "bar": true
+    },
+    {
+      "href": "/seminar-vincent-chu/",
+      "label": "Seminář s Vincentem Chu"
+    },
+    {
+      "href": "/cviceni-na-horach/",
+      "label": "Cvičení na horách"
     },
     {
       "href": "/o-mne/",
-      "label": "O mně"
+      "label": "O mně",
+      "bar": true
     },
     {
       "href": "/clanky/",
@@ -76,23 +108,52 @@
       },
       {
         "href": "/cviceni/",
-        "label": "Cvičení"
+        "label": "Cvičení",
+        "bar": true
+      },
+      {
+        "href": "/osm-kusu-brokatu/",
+        "label": "Osm kusů brokátu"
+      },
+      {
+        "href": "/videogalerie/",
+        "label": "Videogalerie"
       },
       {
         "href": "/kurzy-a-lekce/",
-        "label": "Nabídka kurzů a lekcí"
+        "label": "Nabídka kurzů a lekcí",
+        "bar": true
+      },
+      {
+        "href": "/cviceni-ve-zline/",
+        "label": "Cvičení ve Zlíně"
       },
       {
         "href": "/akce/",
-        "label": "Akce"
+        "label": "Akce",
+        "bar": true
+      },
+      {
+        "href": "/seminar-vincent-chu/",
+        "label": "Seminář s Vincentem Chu"
+      },
+      {
+        "href": "/cviceni-na-horach/",
+        "label": "Cvičení na horách"
       },
       {
         "href": "/o-mne/",
-        "label": "O mně"
+        "label": "O mně",
+        "bar": true
       },
       {
         "href": "/clanky/",
         "label": "Články"
+      },
+      {
+        "href": "/kontakt/",
+        "label": "Kontakt",
+        "cta": true
       },
       {
         "href": "/zasady-ochrany-osobnich-udaju/",
@@ -100,5 +161,70 @@
       }
     ],
     "copyright": "© Mgr. Daniel Tkadlčík"
-  }
+  },
+  "credits": [
+    {
+      "title": "Krkonoše National Park, Strážné, Czech Republic (Unsplash)",
+      "creator": "Jakub Kriz jakubkriz",
+      "date": "2016-08-03",
+      "license": "CC0",
+      "page": "https://commons.wikimedia.org/wiki/File:Krkono%C5%A1e_National_Park,_Str%C3%A1%C5%BEn%C3%A9,_Czech_Republic_(Unsplash).jpg"
+    },
+    {
+      "title": "Zlín, výhled z Baťova mrakodrapu, 062",
+      "creator": "ŠJů",
+      "date": "Taken on 25 April 2016",
+      "license": "CC BY 4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Zl%C3%ADn,_v%C3%BDhled_z_Ba%C5%A5ova_mrakodrapu,_062.jpg"
+    },
+    {
+      "title": "Peking, Tai Chi i morgontimmarna",
+      "creator": "Foto: Lars Mongs, Arxfoto",
+      "date": "1988-08-01",
+      "license": "CC BY 4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Peking,_Tai_Chi_i_morgontimmarna.jpg"
+    },
+    {
+      "title": "Tai Chi in the Snow",
+      "creator": "ShorelineTaiji",
+      "date": "2019-02-09",
+      "license": "CC BY-SA 4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Tai_Chi_in_the_Snow.jpg"
+    },
+    {
+      "title": "Landscape",
+      "creator": "Xiang Shengmo",
+      "date": "Ming dynasty (1368–1644)",
+      "license": "public domain (CC0)",
+      "page": "https://www.artic.edu/artworks/76267"
+    },
+    {
+      "title": "Landscape with Daoist Immortals Playing Weiqi",
+      "creator": "Dai Jin",
+      "date": "Ming dynasty (1368–1644), 15th-16th century",
+      "license": "public domain (CC0)",
+      "page": "https://www.artic.edu/artworks/150406"
+    },
+    {
+      "title": "Landscape after Wang Meng",
+      "creator": "Wang Shimin",
+      "date": "Qing dynasty (1644–1911), 1664",
+      "license": "public domain (CC0)",
+      "page": "https://www.artic.edu/artworks/86233"
+    },
+    {
+      "title": "Landscape with Figures",
+      "creator": "Ren Yi",
+      "date": "Qing dynasty (1644–1911), dated 1883",
+      "license": "public domain (CC0)",
+      "page": "https://www.artic.edu/artworks/217541"
+    },
+    {
+      "title": "Landscape",
+      "creator": "Gong Xian",
+      "date": "Qing dynasty/early Republican period, 19th/early 20th century",
+      "license": "public domain (CC0)",
+      "page": "https://www.artic.edu/artworks/86451"
+    }
+  ]
 }

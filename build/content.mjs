@@ -17,27 +17,44 @@ export const contact = {
 /**
  * The two places the lessons happen (`key` = the place's tab panel id on /kurzy-a-lekce/: #praha, #zlin;
  * `city` as the site prints it, `locality` = the JSON-LD addressLocality, `street` = its streetAddress). `map` is the address the click-to-load Google map and the "Otevřít
- * v Google Maps" link search for (fragments.mjs mapBox; also the JSON-LD hasMap).
+ * v Google Maps" link search for (fragments.mjs mapBox; also the JSON-LD hasMap). `postalCode` and `geo` (5 decimals) from
+ * OpenStreetMap Nominatim, house-level matches for both addresses (looked up 1. 11. 2026); `url` = the venue's page.
  */
 export const places = [
-  { key: 'praha', name: 'Tělocvična ZŠ Jeremenkova', street: 'Jeremenkova 1003/66A', city: 'Praha 4', locality: 'Praha 4', line: 'Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A', map: 'Jeremenkova 1003/66A, Praha 4' },
-  { key: 'zlin', name: 'Centrum Jiný svět', street: 'Osvoboditelů 484', city: 'Zlín', locality: 'Zlín', line: 'Centrum Jiný svět, Osvoboditelů 484, Zlín', map: 'Osvoboditelů 484, Zlín' },
+  { key: 'praha', name: 'Tělocvična ZŠ Jeremenkova', street: 'Jeremenkova 1003/66A', city: 'Praha 4', locality: 'Praha 4', line: 'Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A', map: 'Jeremenkova 1003/66A, Praha 4', postalCode: '147 00', geo: [50.04301, 14.42334], url: '/kurzy-a-lekce/#praha' },
+  { key: 'zlin', name: 'Centrum Jiný svět', street: 'Osvoboditelů 484', city: 'Zlín', locality: 'Zlín', line: 'Centrum Jiný svět, Osvoboditelů 484, Zlín', map: 'Osvoboditelů 484, Zlín', postalCode: '760 01', geo: [49.22279, 17.66965], url: '/cviceni-ve-zline/' },
 ];
 
 /** Google Maps URLs for an address: the embed (requested only after the visitor's click) and the plain link. */
 export const mapsEmbedUrl = (address) => `https://maps.google.com/maps?q=${encodeURIComponent(address)}&t=m&z=16&output=embed&iwloc=near`;
 export const mapsLinkUrl = (address) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
-/** Header nav (desktop + mobile menu); the last item is the Kontakt button. */
+/**
+ * Site navigation. Every label of the old Webnode menu stays (SEO constraint of the redesign brief, 2026-11-01),
+ * plus "Domů" (approved). `bar` = shown in the header bar on desktop; all items are in the Menu panel (header) and
+ * the footer. The Kontakt item is the header's one action button (`cta`). Order = the menu panel's order.
+ */
 export const nav = [
   { href: '/', label: 'Domů' },
-  { href: '/cviceni/', label: 'Cvičení' },
-  { href: '/kurzy-a-lekce/', label: 'Nabídka kurzů a lekcí' },
-  { href: '/akce/', label: 'Akce' },
-  { href: '/o-mne/', label: 'O mně' },
+  { href: '/cviceni/', label: 'Cvičení', bar: true },
+  { href: '/videogalerie/', label: 'Videogalerie' },
+  { href: '/kurzy-a-lekce/', label: 'Nabídka kurzů a lekcí', bar: true },
+  { href: '/cviceni-ve-zline/', label: 'Cvičení ve Zlíně' },
+  { href: '/akce/', label: 'Akce', bar: true },
+  { href: '/seminar-vincent-chu/', label: 'Seminář s Vincentem Chu' },
+  { href: '/cviceni-na-horach/', label: 'Cvičení na horách' },
+  { href: '/o-mne/', label: 'O mně', bar: true },
   { href: '/clanky/', label: 'Články' },
   { href: '/kontakt/', label: 'Kontakt', cta: true },
 ];
+
+/**
+ * Pictures from open collections (downloaded with tasteskill assets.mjs, credits in build/image-credits.json):
+ * shown in the pages' picture stage, credited in the footer (footer.php, data/site.json `credits`). They show the
+ * world of the practice (Chinese ink landscapes, morning tai chi in Beijing 1988, Strážné, Zlín), never the
+ * client's own lessons or students.
+ */
+export { default as imageCredits } from './image-credits.json' with { type: 'json' };
 
 export const brand = { name: 'Radost v pohybu', tagline: 'Čchi-kung a tchaj-ťi' };
 
@@ -61,9 +78,9 @@ export const privacy = { href: '/zasady-ochrany-osobnich-udaju/', label: 'Zásad
 
 export const footer = {
   about: 'Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.',
-  // The design's footer nav ends with Články (Kontakt has its own column); the privacy page link is appended
-  // (not in the design: every page must reach it, it is not in the header nav).
-  links: [...nav.filter((l) => !l.cta), { href: privacy.href, label: privacy.label }],
+  // Every nav label (Kontakt included) plus the privacy page, which is not in the header menu.
+  // The Osm kusů brokátu guide (SEO audit 2026-11-01) is not a header label (the old site's menu stays as it was).
+  links: [...nav.slice(0, 2), { href: '/osm-kusu-brokatu/', label: 'Osm kusů brokátu' }, ...nav.slice(2), { href: privacy.href, label: privacy.label }],
   copyright: '© Mgr. Daniel Tkadlčík',
 };
 
@@ -81,6 +98,9 @@ export const personSameAs = ['https://www.youtube.com/@daniello2151974', 'https:
  * https://www.youtube.com/watch?v=<id>, <meta itemprop="uploadDate" content="…"> (= "uploadDate" in its page JSON),
  * fetched 31. 10. 2026. A video without a date here gets no VideoObject (uploadDate is required).
  */
+/** Video lengths in seconds ("lengthSeconds" in the watch page JSON, fetched 1. 11. 2026): JSON-LD VideoObject duration. */
+export const videoDurations = { '1nFm6-XwGpU': 336, 'NeVzb5hGM7A': 613, 'oZB6Gq4QzC4': 65, '1Mmz_QpYk9s': 645, '1UPJuzGC1UY': 265 };
+
 export const videoUploadDates = {
   '1nFm6-XwGpU': '2020-07-10T04:27:49-07:00',
   'NeVzb5hGM7A': '2007-07-27T09:25:16-07:00',

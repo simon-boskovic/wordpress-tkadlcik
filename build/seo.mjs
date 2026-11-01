@@ -9,7 +9,8 @@
  */
 import { EVENTS, mapsLinkUrl } from './content.mjs';
 import { VIDEOS } from './builders/cviceni.mjs';
-import { PHOTOS, youtubeEmbedUrl, youtubeWatchUrl } from './fragments.mjs';
+import { PICTURES, youtubeEmbedUrl, youtubeWatchUrl } from './fragments.mjs';
+const PHOTOS = PICTURES;
 
 /** Brand suffix of every title (= WordPress blogname = og:site_name = the JSON-LD WebSite/Organization name). */
 export const TITLE_SUFFIX = ' | Radost v pohybu';
@@ -42,6 +43,26 @@ export const SEO = {
     title: `Osm kusů brokátu, 13 slov a styl Yang${TITLE_SUFFIX}`,
     description: 'Cvičení, která vyučujeme: čchi-kung (qigong) Osm kusů brokátu, 13 slov tchaj-ťi a tchaj-ťi (tai chi) stylu Yang – popis, sestavy a videogalerie.',
   },
+  'osm-kusu-brokatu': {
+    title: `Osm kusů brokátu – čchi-kung (qigong) cvičení${TITLE_SUFFIX}`,
+    description: 'Osm kusů brokátu, čchi-kungové (qigong) cvičení ze skupiny Daoyin: názvy všech osmi cviků, video a pravidelný úterní kurz v Praze 4.',
+  },
+  videogalerie: {
+    title: `Videogalerie tchaj-ťi a čchi-kungu${TITLE_SUFFIX}`,
+    description: 'Videa sestav tchaj-ťi (tai chi) stylu Yang a čchi-kungu (qigong): 12 forem pro začátečníky, 43 forem mistra Vincenta Chu, sestava s holí, Osm kusů brokátu.',
+  },
+  'cviceni-ve-zline': {
+    title: `Tai chi (tchaj-ťi) a čchi-kung ve Zlíně${TITLE_SUFFIX}`,
+    description: 'Cvičení čchi-kungu (qigong) a tchaj-ťi (tai chi) ve Zlíně jednou měsíčně v pátek v Centru Jiný svět, Osvoboditelů 484: Osm kusů brokátu a 13 slov tchaj-ťi.',
+  },
+  'seminar-vincent-chu': {
+    title: `Seminář s mistrem Vincentem Chu v Praze${TITLE_SUFFIX}`,
+    description: 'Seminář tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze: korektura dlouhé formy středního řádu stylu Yang a DaoYinový čchi-kung Hrátky pěti zvířat.',
+  },
+  'cviceni-na-horach': {
+    title: `Cvičení na horách – Strážné, Krkonoše${TITLE_SUFFIX}`,
+    description: 'Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) na horách ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov a 12 forem Yang tchaj-ťi.',
+  },
   'kurzy-a-lekce': {
     title: `Kurzy tai chi a čchi-kungu Praha 4 a Zlín${TITLE_SUFFIX}`,
     description: 'Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong): lekce 90 a 120 minut v tělocvičně ZŠ Jeremenkova v Praze 4 a jednou měsíčně ve Zlíně.',
@@ -51,7 +72,7 @@ export const SEO = {
     description: 'Semináře tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze a cvičení tchaj-ťi a čchi-kungu (qigong) na horách v Krkonoších – Strážné, Penzion Exnar.',
   },
   'o-mne': {
-    title: `Mgr. Daniel Tkadlčík – lektor tchaj-ťi od 1997${TITLE_SUFFIX}`,
+    title: `Mgr. Daniel Tkadlčík – tchaj-ťi od roku 1997${TITLE_SUFFIX}`,
     description: 'Mgr. Daniel Tkadlčík se věnuje tchaj-ťi (tai chi) od roku 1997, od roku 2007 rodinnému stylu Yang u mistra Vincenta Chu. Učí i čchi-kung (qigong).',
   },
   clanky: {
@@ -106,7 +127,7 @@ const pathOf = (p) => (p.front_page ? '/' : `/${p.slug}/`);
  */
 export const SEMINARS = [
   { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS.chu.startDate, endDate: EVENTS.chu.endDate, place: 'praha', text: EVENTS.chu.text },
-  { name: 'Jarní cvičení na horách', startDate: EVENTS['hory-jaro'].startDate, endDate: EVENTS['hory-jaro'].endDate, price: 3800, location: { name: 'Penzion Exnar', addressLocality: 'Strážné', streetAddress: 'Strážné 2' }, text: `Termín: ${EVENTS['hory-jaro'].text}` },
+  { name: 'Jarní cvičení na horách', startDate: EVENTS['hory-jaro'].startDate, endDate: EVENTS['hory-jaro'].endDate, price: 3800, location: { name: 'Penzion Exnar', addressLocality: 'Strážné', streetAddress: 'Strážné 2' }, text: EVENTS['hory-jaro'].text },
 ];
 
 /** Page text (tags stripped, entities decoded, whitespace collapsed) — what the visitor reads. */
@@ -132,7 +153,7 @@ export const PLACE_DESCRIPTION = {
   zlin: ['Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek.', 'Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.'],
 };
 /** VideoObject description where the page has a fuller sentence next to the video (else the caption). */
-const VIDEO_DESCRIPTION = { '1Mmz_QpYk9s': 'Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje.' };
+const VIDEO_DESCRIPTION = {};
 
 /** The portrait on O mně as an image node (media-import: WebP, longest edge 1600 px). Person image + ProfilePage primaryImageOfPage. */
 const portraitSize = (({ w, h }) => { const k = Math.min(1, 1600 / Math.max(w, h)); return { width: Math.round(w * k), height: Math.round(h * k) }; })(PHOTOS.portret);
@@ -150,7 +171,7 @@ export function taughtForms(pages) {
   const p = pages.find((x) => x.slug === 'cviceni');
   if (!p) return [];
   const html = p.elements.map((e) => e.elements[0].settings.html).join('\n');
-  return [...html.matchAll(/<li\b[^>]*><span>([^<]+)<\/span><span class="chip">Vyučuji<\/span><\/li>/g)].map((m) => m[1]);
+  return [...html.matchAll(/<li><span class="r-name">([^<]+)<\/span><span class="r-val"><span class="badge badge-on">Vyučuji<\/span><\/span><\/li>/g)].map((m) => m[1]);
 }
 
 /**
@@ -200,8 +221,9 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
     price.facts.forEach(fact);
     return {
       '@type': 'SportsActivityLocation', '@id': `/#${pl.key}`, name: `${content.brand.name} – ${pl.name}`,
-      description: PLACE_DESCRIPTION[pl.key].map(fact).join(' '), url: `/kurzy-a-lekce/#${pl.key}`, telephone: phone, email: c.email,
-      address: { '@type': 'PostalAddress', streetAddress: fact(pl.street), addressLocality: pl.locality, addressCountry: 'CZ' },
+      description: PLACE_DESCRIPTION[pl.key].map(fact).join(' '), url: pl.url, telephone: phone, email: c.email,
+      address: { '@type': 'PostalAddress', streetAddress: fact(pl.street), postalCode: fact(pl.postalCode), addressLocality: pl.locality, addressCountry: 'CZ' },
+      geo: { '@type': 'GeoCoordinates', latitude: pl.geo[0], longitude: pl.geo[1] },
       priceRange: price.range, currenciesAccepted: 'CZK',
       hasMap: mapsLinkUrl(pl.map), parentOrganization: { '@id': '/#organization' },
     };
@@ -239,11 +261,14 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
     for (const t of [e.name, e.text]) if (!text.includes(t)) throw new Error(`schema: seminar "${t}" is not on the pages (keep SEMINARS in step with Akce)`);
   }
 
-  const cviceniHtml = pages.filter((p) => p.slug === 'cviceni').flatMap((p) => p.elements.map((e) => e.elements[0].settings.html)).join('\n');
-  const videos = VIDEOS.filter((v) => cviceniHtml.includes(`data-src="${youtubeEmbedUrl(v.id)}"`) && content.videoUploadDates?.[v.id]).map((v) => ({
-    '@type': 'VideoObject', '@id': `/cviceni/#video-${v.id}`, name: fact(v.title), description: fact(VIDEO_DESCRIPTION[v.id] || v.title),
+  const galleryHtml = pages.filter((p) => p.slug === 'videogalerie').flatMap((p) => p.elements.map((e) => e.elements[0].settings.html)).join('\n');
+  const videos = VIDEOS.filter((v) => galleryHtml.includes(`data-src="${youtubeEmbedUrl(v.id)}"`) && content.videoUploadDates?.[v.id]).map((v) => ({
+    '@type': 'VideoObject', '@id': `/videogalerie/#video-${v.id}`, name: fact(v.title), description: fact(VIDEO_DESCRIPTION[v.id] || v.title),
     thumbnailUrl: `/wp-content/uploads/yt-${v.id}.webp`, uploadDate: content.videoUploadDates[v.id],
     embedUrl: youtubeEmbedUrl(v.id).replace(/\?.*$/, ''), url: youtubeWatchUrl(v.id),
+    // SEO audit 2026-11-01: ISO 8601 duration (content.videoDurations); his own channels' videos credit him.
+    ...(content.videoDurations?.[v.id] ? { duration: `PT${Math.floor(content.videoDurations[v.id] / 60)}M${content.videoDurations[v.id] % 60}S` } : {}),
+    ...(v.id !== 'NeVzb5hGM7A' ? { author: { '@id': '/#daniel' } } : {}),
   }));
 
   const schema = {};
@@ -259,7 +284,7 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
       isPartOf: { '@id': '/#website' }, about: { '@id': '/#organization' }, author: { '@id': '/#daniel' },
       ...(path !== '/' ? { breadcrumb: { '@id': `${path}#breadcrumb` } } : {}),
       ...(p.slug === 'o-mne' ? { mainEntity: { '@id': '/#daniel' }, primaryImageOfPage: { '@id': PORTRAIT['@id'] } } : {}),
-      ...(p.slug === 'cviceni' && videos.length ? { video: videos.map((v) => ({ '@id': v['@id'] })) } : {}),
+      ...(p.slug === 'videogalerie' && videos.length ? { video: videos.map((v) => ({ '@id': v['@id'] })) } : {}),
       ...(p.slug === 'kontakt' ? { mainEntity: { '@id': '/#organization' } } : {}),
       ...(mentionsVincent ? { mentions: [{ '@id': '/#vincent-chu' }] } : {}),
     }];
@@ -279,7 +304,7 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
         });
       }
     }
-    if (p.slug === 'cviceni') graph.push(...videos);
+    if (p.slug === 'videogalerie') graph.push(...videos);
     schema[p.slug] = graph;
   }
   return schema;
@@ -299,10 +324,10 @@ export function buildLlms(pages, { content, today = new Date().toISOString().sli
     if (!text.includes(s)) throw new Error(`llms.txt: "${s}" is not in the page text`);
     return s;
   };
-  const label = Object.fromEntries(content.nav.map((l) => [l.href, l.label]));
+  const label = Object.fromEntries([...content.footer.links, ...content.nav].map((l) => [l.href, l.label]));
   const url = (path) => `{{home}}${path}`;
   const pageLine = (p) => `- [${label[pathOf(p)]}](${url(pathOf(p))}): ${SEO[p.slug].description}`;
-  const order = content.nav.map((l) => l.href);
+  const order = content.footer.links.map((l) => l.href);
   const sorted = pages.filter((p) => !NOINDEX.has(p.slug)).sort((a, b) => order.indexOf(pathOf(a)) - order.indexOf(pathOf(b)));
   const [praha, zlin] = content.places;
   for (const pl of content.places) fact(pl.name);
@@ -318,17 +343,18 @@ export function buildLlms(pages, { content, today = new Date().toISOString().sli
     `- Linie předání stylu Yang: ${LINEAGE.map(fact).join(' → ')}.`,
     `- ${fact(VINCENT_DESCRIPTION)} ([${FEDERATION.url.replace(/^https:\/\/|\/$/g, '')}](${FEDERATION.url})). ${fact('Jeho otec Chu Gin Soon byl osobním žákem mistra Yang Sau Chunga.')}`, '',
     '## Vyučované sestavy a cvičení', '',
-    ...forms.map((f) => `- ${f}`), `- Popis cvičení a videogalerie: ${url('/cviceni/')}`, '',
+    ...forms.map((f) => `- ${f}`), `- Popis cvičení: ${url('/cviceni/')}`, `- Videogalerie: ${url('/videogalerie/')}`, '',
     '## Pravidelné cvičení', '',
     `- Praha 4, ${praha.name}, ${praha.street}: ${fact('Pondělí 18:00 - 19:30h')} – ${fact('Sestava Yang 12 forem pro začátečníky, 13 Words of Tchaj-ťi')}; ${fact('Úterý 18:00 - 20:00h')} – ${fact('Osm kusů brokátu')}.`,
-    `- Zlín, ${zlin.name}, ${zlin.street}: ${fact('Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek.')} ${fact('Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.')} (${url('/kurzy-a-lekce/#zlin')})`,
+    `- Zlín, ${zlin.name}, ${zlin.street}: ${fact('Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek.')} ${fact('Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.')} (${url('/cviceni-ve-zline/')})`,
     `- ${fact('Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku.')}`,
     `- Rozvrh a ceny: ${url('/kurzy-a-lekce/')}`, '',
     '## Ceny', '',
     `- ${fact('350 Kč lekce 90 minut')}, ${fact('350 Kč lekce 120 minut')}, ${fact('3 250 Kč 10 lekcí')}, ${fact('400 Kč Cvičení ve Zlíně')}.`, '',
     '## Akce', '',
-    `- ${fact('Semináře tchaj-ťi s mistrem Vincentem Chu a cvičení na horách')}: ${url('/akce/')}`,
-    `- ${fact('Cvičení na horách v Krkonoších')}: ${fact('Strážné v Krkonoších, Strážné 2. Penzion Exnar')}. ${fact('Polopenze, ubytování ve 2 až 3 lůžkových pokojích, výborná strava, možnost výletů po okolí, pokoje jsou se soc. zařízením.')}`, '',
+    `- ${fact('Semináře tchaj-ťi a cvičení na horách')}: ${url('/akce/')}`,
+    `- ${fact('Seminář s mistrem Vincentem Chu v Praze')}: ${url('/seminar-vincent-chu/')}`,
+    `- ${fact('Cvičení na horách v Krkonoších')}: ${fact('Strážné v Krkonoších, Strážné 2. Penzion Exnar')} (${url('/cviceni-na-horach/')}). ${fact('Polopenze, ubytování ve 2 až 3 lůžkových pokojích, výborná strava, možnost výletů po okolí, pokoje jsou se soc. zařízením.')}`, '',
     '## Kontakt', '',
     `${c.name}`, `Telefon: ${c.phone}`, `E-mail: ${c.email}`,
     ...content.places.map((pl) => `Místo: ${pl.line}${pl.line.includes(pl.city) ? '' : `, ${pl.city}`}`),

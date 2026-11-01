@@ -5,14 +5,19 @@
 Lektor: Mgr. Daniel Tkadlčík. Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Od roku 2007 se intenzivně věnuji zejména rodinnému stylu Yang tchaj-ťi u mistra Vincenta Chu.
 Web: {{home}}/
 Jazyk obsahu: čeština
-Aktualizováno: 2026-10-31
+Aktualizováno: 2026-11-01
 
 ## Stránky
 
 - [Domů]({{home}}/): Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.
 - [Cvičení]({{home}}/cviceni/): Cvičení, která vyučujeme: čchi-kung (qigong) Osm kusů brokátu, 13 slov tchaj-ťi a tchaj-ťi (tai chi) stylu Yang – popis, sestavy a videogalerie.
+- [Osm kusů brokátu]({{home}}/osm-kusu-brokatu/): Osm kusů brokátu, čchi-kungové (qigong) cvičení ze skupiny Daoyin: názvy všech osmi cviků, video a pravidelný úterní kurz v Praze 4.
+- [Videogalerie]({{home}}/videogalerie/): Videa sestav tchaj-ťi (tai chi) stylu Yang a čchi-kungu (qigong): 12 forem pro začátečníky, 43 forem mistra Vincenta Chu, sestava s holí, Osm kusů brokátu.
 - [Nabídka kurzů a lekcí]({{home}}/kurzy-a-lekce/): Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong): lekce 90 a 120 minut v tělocvičně ZŠ Jeremenkova v Praze 4 a jednou měsíčně ve Zlíně.
+- [Cvičení ve Zlíně]({{home}}/cviceni-ve-zline/): Cvičení čchi-kungu (qigong) a tchaj-ťi (tai chi) ve Zlíně jednou měsíčně v pátek v Centru Jiný svět, Osvoboditelů 484: Osm kusů brokátu a 13 slov tchaj-ťi.
 - [Akce]({{home}}/akce/): Semináře tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze a cvičení tchaj-ťi a čchi-kungu (qigong) na horách v Krkonoších – Strážné, Penzion Exnar.
+- [Seminář s Vincentem Chu]({{home}}/seminar-vincent-chu/): Seminář tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze: korektura dlouhé formy středního řádu stylu Yang a DaoYinový čchi-kung Hrátky pěti zvířat.
+- [Cvičení na horách]({{home}}/cviceni-na-horach/): Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) na horách ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov a 12 forem Yang tchaj-ťi.
 - [O mně]({{home}}/o-mne/): Mgr. Daniel Tkadlčík se věnuje tchaj-ťi (tai chi) od roku 1997, od roku 2007 rodinnému stylu Yang u mistra Vincenta Chu. Učí i čchi-kung (qigong).
 - [Články]({{home}}/clanky/): Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Cheng Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.
 - [Kontakt]({{home}}/kontakt/): Kontakt na lektora tchaj-ťi (tai chi) a čchi-kungu (qigong) Mgr. Daniela Tkadlčíka. Cvičíme v ZŠ Jeremenkova v Praze 4 a v Centru Jiný svět ve Zlíně.
@@ -34,12 +39,13 @@ Aktualizováno: 2026-10-31
 - Čchi-kung tří kruhů
 - Cvičení tří kruhů
 - Tchaj-ťi kung – průpravná cvičení
-- Popis cvičení a videogalerie: {{home}}/cviceni/
+- Popis cvičení: {{home}}/cviceni/
+- Videogalerie: {{home}}/videogalerie/
 
 ## Pravidelné cvičení
 
 - Praha 4, Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A: Pondělí 18:00 - 19:30h – Sestava Yang 12 forem pro začátečníky, 13 Words of Tchaj-ťi; Úterý 18:00 - 20:00h – Osm kusů brokátu.
-- Zlín, Centrum Jiný svět, Osvoboditelů 484: Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi. ({{home}}/kurzy-a-lekce/#zlin)
+- Zlín, Centrum Jiný svět, Osvoboditelů 484: Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi. ({{home}}/cviceni-ve-zline/)
 - Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku.
 - Rozvrh a ceny: {{home}}/kurzy-a-lekce/
 
@@ -49,8 +55,9 @@ Aktualizováno: 2026-10-31
 
 ## Akce
 
-- Semináře tchaj-ťi s mistrem Vincentem Chu a cvičení na horách: {{home}}/akce/
-- Cvičení na horách v Krkonoších: Strážné v Krkonoších, Strážné 2. Penzion Exnar. Polopenze, ubytování ve 2 až 3 lůžkových pokojích, výborná strava, možnost výletů po okolí, pokoje jsou se soc. zařízením.
+- Semináře tchaj-ťi a cvičení na horách: {{home}}/akce/
+- Seminář s mistrem Vincentem Chu v Praze: {{home}}/seminar-vincent-chu/
+- Cvičení na horách v Krkonoších: Strážné v Krkonoších, Strážné 2. Penzion Exnar ({{home}}/cviceni-na-horach/). Polopenze, ubytování ve 2 až 3 lůžkových pokojích, výborná strava, možnost výletů po okolí, pokoje jsou se soc. zařízením.
 
 ## Kontakt
 

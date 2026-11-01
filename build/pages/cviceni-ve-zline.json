@@ -1,0 +1,183 @@
+{
+  "slug": "cviceni-ve-zline",
+  "title": "Cvičení ve Zlíně",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [
+    "map",
+    "video"
+  ],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "d411f7b",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "35f938c",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"zlin\" data-cap=\"Zlín z Baťova mrakodrapu\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-zlin.webp\" alt=\"Zlín z výšky, pohled z Baťova mrakodrapu\" width=\"1600\" height=\"1200\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-6bd6fedc\">\n</figure>\n<figure data-stage-fig=\"vejir\" data-cap=\"Ren Yi, Krajina s postavami, 1883\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-vejir.webp\" alt=\"Čínská malba v kruhu: poutník s chlapcem pod borovicí\" width=\"843\" height=\"954\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-6bd6fedc\">\n</figure>\n<figure data-stage-fig=\"svitek\" data-cap=\"Gong Xian, Krajina, dynastie Čching\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-svitek.webp\" alt=\"Čínská tušová malba: hory a stromy v mlze na svitku\" width=\"1600\" height=\"788\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b14f18c2\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Zlín z Baťova mrakodrapu</p>\n</div>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "e939209",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "c4099d9",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section data-stage=\"zlin\" class=\"sec hero hero-sub\">\n<div class=\"hero-text\">\n<h1 class=\"h1 rise\"><span class=\"nw\">Tchaj-ťi</span> a <span class=\"nw\">čchi-kung</span> ve Zlíně</h1>\n<p class=\"lead rise d1\">Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.</p>\n\n<div class=\"actions rise d3\"><a href=\"/kontakt/?tema=4#formular\" class=\"btn btn-primary\">Přihlásit se <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n\n</div>\n\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "e31b88f",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "955a44c",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"terminy\" data-stage=\"zlin\" aria-labelledby=\"terminy-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"terminy-h\" class=\"h2 reveal\">Místo, termíny a cena</h2>\n\n</div>\n<div class=\"reveal\"><dl class=\"facts\"><div><dt>Místo</dt><dd>Centrum Jiný svět, Osvoboditelů 484, Zlín</dd></div><div><dt>Termíny</dt><dd>pátek 19. 4. 2024, od 17:30 do 20:00h <span class=\"badge\">Proběhlo</span></dd></div><div><dt>Cena</dt><dd>400 Kč</dd></div></dl></div>\n<div class=\"media reveal tk-s-d9f14975\"><div data-tk-map-box data-src=\"https://maps.google.com/maps?q=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn&amp;t=m&amp;z=16&amp;output=embed&amp;iwloc=near\" data-title=\"Mapa – Centrum Jiný svět, Osvoboditelů 484, Zlín\" class=\"tk-map\">\n<span class=\"tk-map-pin\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"></path><circle cx=\"12\" cy=\"9.5\" r=\"2.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"></circle></svg></span>\n<button type=\"button\" data-tk-map class=\"btn btn-primary\">Zobrazit mapu</button>\n<span class=\"tk-map-note\">Mapu načteme od Google až po kliknutí. <a href=\"https://www.google.com/maps/search/?api=1&amp;query=Osvoboditel%C5%AF%20484%2C%20Zl%C3%ADn\" target=\"_blank\" rel=\"noopener\" class=\"tk-map-link\">Otevřít v Google Maps</a></span>\n</div></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "d1e70ac",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "16805a5",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"naplne\" data-stage=\"vejir\" aria-labelledby=\"naplne-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"naplne-h\" class=\"h2 reveal\">Osm kusů brokátu a 13 slov <span class=\"nw\">tchaj-ťi</span></h2>\n\n</div>\n<div class=\"pair\">\n<figure class=\"media reveal\"><div data-tk-video-box data-src=\"https://www.youtube-nocookie.com/embed/1Mmz_QpYk9s?autoplay=1\" data-title=\"Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje\" class=\"tk-video\">\n<img src=\"/wp-content/uploads/yt-1Mmz_QpYk9s.webp\" alt=\"Náhled videa: Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje\" width=\"1280\" height=\"720\" loading=\"lazy\" decoding=\"async\">\n<button type=\"button\" data-tk-video aria-label=\"Přehrát video: Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje\" class=\"tk-video-play\"><svg width=\"68\" height=\"68\" viewBox=\"0 0 68 68\" aria-hidden=\"true\"><circle cx=\"34\" cy=\"34\" r=\"34\" fill=\"currentColor\"></circle><path d=\"M28 22.5v23l18-11.5z\" fill=\"#161C1A\"></path></svg></button>\n<span class=\"tk-video-note\">Video načteme z YouTube až po kliknutí.</span>\n<a href=\"https://www.youtube.com/watch?v=1Mmz_QpYk9s\" target=\"_blank\" rel=\"noopener\" class=\"tk-video-link\">Přehrát na YouTube</a>\n</div><figcaption>Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje</figcaption></figure>\n<figure class=\"media reveal\"><div data-tk-video-box data-src=\"https://www.youtube-nocookie.com/embed/1UPJuzGC1UY?autoplay=1\" data-title=\"13 slov tchaj-ťi\" class=\"tk-video\">\n<img src=\"/wp-content/uploads/yt-1UPJuzGC1UY.webp\" alt=\"Náhled videa: 13 slov tchaj-ťi\" width=\"1280\" height=\"720\" loading=\"lazy\" decoding=\"async\">\n<button type=\"button\" data-tk-video aria-label=\"Přehrát video: 13 slov tchaj-ťi\" class=\"tk-video-play\"><svg width=\"68\" height=\"68\" viewBox=\"0 0 68 68\" aria-hidden=\"true\"><circle cx=\"34\" cy=\"34\" r=\"34\" fill=\"currentColor\"></circle><path d=\"M28 22.5v23l18-11.5z\" fill=\"#161C1A\"></path></svg></button>\n<span class=\"tk-video-note\">Video načteme z YouTube až po kliknutí.</span>\n<a href=\"https://www.youtube.com/watch?v=1UPJuzGC1UY\" target=\"_blank\" rel=\"noopener\" class=\"tk-video-link\">Přehrát na YouTube</a>\n</div><figcaption>13 slov tchaj-ťi</figcaption></figure>\n</div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/cviceni/\" class=\"more\">Cvičení <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/kurzy-a-lekce/#zlin\" class=\"more\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "fc62f0c",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "a4c9d17",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Centrum Jiný svět, Osvoboditelů 484, Zlín.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+4207732871113\">+420 773 287 1113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

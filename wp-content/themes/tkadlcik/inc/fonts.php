@@ -1,8 +1,7 @@
 <?php
 /**
- * Self-hosted fonts: Geist 400/500/600 (text, headings, labels) and Geist Mono 400 (.mono, .eyebrow, .idx),
- * each in the latin and latin-ext subsets (Czech letters such as č ř ť ě ů live in latin-ext).
- * Files: @fontsource/geist 5.3.0 and @fontsource/geist-mono 5.3.0, SIL OFL 1.1 (assets/fonts/*-OFL.txt).
+ * Self-hosted fonts: Fira Sans 400 and 500, latin and latin-ext subsets (Czech letters such as č ř ť ě ů
+ * live in latin-ext). Files: @fontsource/fira-sans 5.2.7, SIL OFL 1.1 (assets/fonts/FiraSans-OFL.txt).
  * No Google Fonts request anywhere.
  *
  * The @font-face rules are printed from PHP (not site.css) so their URLs carry the same ?ver=<mtime>
@@ -17,18 +16,18 @@ const TK_UR_LATIN     = 'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02D
 const TK_UR_LATIN_EXT = 'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF';
 
 /**
- * Font faces: [family, weight, file stem, subset].
+ * Font faces: [family, weight, file stem, subset, style]. Fira Sans (the old site's typeface, kept as the brand
+ * face in the redesign of 2026-11-01): 400 and 500 only (SEO audit 2026-11-01: fewer font files on the mobile
+ * LCP path; <strong> and the header name use 500, the letter's sign-off italic is synthesised).
  *
- * @return array<int, array{0: string, 1: int, 2: string, 3: string}>
+ * @return array<int, array{0: string, 1: int, 2: string, 3: string, 4: string}>
  */
 function tk_font_faces() {
 	$faces = array();
-	foreach ( array( 400, 500, 600 ) as $w ) {
-		$faces[] = array( 'Geist', $w, 'geist-latin-ext-' . $w . '-normal', 'latin-ext' );
-		$faces[] = array( 'Geist', $w, 'geist-latin-' . $w . '-normal', 'latin' );
+	foreach ( array( 400, 500 ) as $w ) {
+		$faces[] = array( 'Fira Sans', $w, 'fira-sans-latin-ext-' . $w . '-normal', 'latin-ext', 'normal' );
+		$faces[] = array( 'Fira Sans', $w, 'fira-sans-latin-' . $w . '-normal', 'latin', 'normal' );
 	}
-	$faces[] = array( 'Geist Mono', 400, 'geist-mono-latin-ext-400-normal', 'latin-ext' );
-	$faces[] = array( 'Geist Mono', 400, 'geist-mono-latin-400-normal', 'latin' );
 	return $faces;
 }
 
@@ -44,20 +43,14 @@ function tk_font_url( $stem ) {
 }
 
 /**
- * Every face that renders above the fold on every page, so none of them swaps in late (measured at 390 and
- * 1440 px on all 7 pages): the text face (Geist 400) and the heading face (Geist 500, the H1 is the LCP
- * element), both subsets — practically every Czech line needs latin-ext too; Geist 600 latin (the header
- * wordmark "Radost v pohybu", ASCII only, so not its latin-ext file); Geist Mono 400 in both subsets (the
- * eyebrow above every H1, e.g. "Výuka tchaj-ťi a čchi-kungu"). LCP faces first.
+ * Faces above the fold on every page: the heading face (500, the H1 is the LCP element) and the text face (400),
+ * both subsets (Czech letters live in latin-ext).
  */
 const TK_FONT_PRELOADS = array(
-	'geist-latin-500-normal',
-	'geist-latin-ext-500-normal',
-	'geist-latin-400-normal',
-	'geist-latin-ext-400-normal',
-	'geist-latin-600-normal',
-	'geist-mono-latin-400-normal',
-	'geist-mono-latin-ext-400-normal',
+	'fira-sans-latin-500-normal',
+	'fira-sans-latin-ext-500-normal',
+	'fira-sans-latin-400-normal',
+	'fira-sans-latin-ext-400-normal',
 );
 
 /**
@@ -71,8 +64,9 @@ function tk_font_preloads() {
 	$css = '';
 	foreach ( tk_font_faces() as $f ) {
 		$css .= sprintf(
-			"@font-face{font-family:'%s';font-style:normal;font-weight:%d;font-display:swap;src:url(%s) format('woff2');unicode-range:%s}",
+			"@font-face{font-family:'%s';font-style:%s;font-weight:%d;font-display:swap;src:url(%s) format('woff2');unicode-range:%s}",
 			$f[0],
+			$f[4],
 			$f[1],
 			esc_url_raw( tk_font_url( $f[2] ) ),
 			'latin' === $f[3] ? TK_UR_LATIN : TK_UR_LATIN_EXT

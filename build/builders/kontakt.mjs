@@ -1,45 +1,54 @@
 /**
- * Kontakt — port of Kontakt.dc.html <main>, one Elementor section per <section>. Markup verbatim from the
- * prototype; lib/finalize.mjs turns the style attributes into tk-s-* classes and the *.dc.html links into site paths.
- * The two "[Mapa Google]" placeholders are click-to-load maps (fragments.mjs mapBox, _tk_scripts "map").
+ * Kontakt (redesign 2026-11-01). Phone kept exactly as the old site prints it (10 digits, awaits the client).
  */
-import { mapBox } from '../fragments.mjs';
-import { applyUx } from './ux.mjs';
+import { stage, mapBox, contactStatement, more } from '../fragments.mjs';
+import { hero, sec } from './parts.mjs';
 
 export function build({ content, page }) {
+  const c = content.contact;
+  const [praha, zlin] = content.places;
   return page({
     slug: 'kontakt',
     title: 'Kontakt',
-    scripts: ['map'],
+    scripts: ['map', 'form'],
     frontPage: false,
-    sections: applyUx('kontakt', [
-      `<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: clamp(72px, 10vw, 128px)">
-<div class="grid" style="--min: 440px; gap: 48px 72px; align-items: start">
-<div class="stack" style="gap: 32px">
-<div class="stack" style="gap: 24px">
-<span class="eyebrow rise">Kontakt</span>
-<h1 class="h1 rise d1" style="font-size: clamp(44px, 6vw, 84px)">Kontakt – tchaj-ťi <span class="serif">ZŠ Jeremenkova, Praha 4</span></h1>
-<p class="lead rise d2">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>
-</div>
-<ul class="card rise d3" style="padding: 6px 24px">
-<li style="padding: 16px 0; border-bottom: 1px solid var(--line); font-weight: 500">Mgr. Daniel Tkadlčík</li>
-<li style="padding: 16px 0; border-bottom: 1px solid var(--line)"><a class="lnk" href="tel:+4207732871113">+420 773 287 1113</a></li>
-<li style="padding: 16px 0"><a class="lnk" href="mailto:tkadlcik@centrum.cz">tkadlcik@centrum.cz</a></li>
-</ul>
-</div>
-<div class="stack rise d4" style="gap: 16px">
-<h2 class="h3">Kde cvičíme: Praha 4 a Zlín</h2>
-<div class="card stack" style="gap: 20px; padding: 12px">
-${mapBox(content.places[0], content.mapsEmbedUrl, content.mapsLinkUrl)}
-<div class="stack" style="gap: 2px; padding: 4px 12px 12px"><strong style="font-weight: 500; font-size: 19px">Tělocvična ZŠ Jeremenkova</strong><span class="small muted">Jeremenkova 1003/66A</span></div>
-</div>
-<div class="card stack" style="gap: 20px; padding: 12px">
-${mapBox(content.places[1], content.mapsEmbedUrl, content.mapsLinkUrl)}
-<div class="stack" style="gap: 2px; padding: 4px 12px 12px"><strong style="font-weight: 500; font-size: 19px">Centrum Jiný svět</strong><span class="small muted">Osvoboditelů 484, Zlín</span></div>
-</div>
-</div>
-</div>
-</section>`,
-    ], content.today),
+    sections: [
+      stage(['svitek', 'peking', 'zlin', 'hory']),
+
+      hero({
+        h1: 'Kontakt: tchaj-ťi Praha 4 a Zlín',
+        lead: 'Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.',
+        extra: `<ul class="rows rise d2">
+<li><span class="r-name">${c.name}</span></li>
+<li><a class="r-name" href="${c.phoneHref}">${c.phone}</a><span class="r-val">Telefon</span></li>
+<li><a class="r-name" href="mailto:${c.email}">${c.email}</a><span class="r-val">E-mail</span></li>
+</ul>`,
+        stageKey: 'svitek',
+      }),
+
+      sec({
+        id: 'formular', stageKey: 'svitek',
+        h2: 'Napište mi',
+        body: `<div class="reveal"><!--tk-contact-form--></div>`,
+      }),
+
+      sec({
+        id: 'praha', stageKey: 'peking',
+        h2: 'Tělocvična ZŠ Jeremenkova, Praha 4',
+        intro: `${praha.street}, ${praha.postalCode} ${praha.city}`,
+        body: `<div class="media reveal">${mapBox(praha, content.mapsEmbedUrl, content.mapsLinkUrl)}</div>
+<div class="actions reveal" style="margin-top: 20px">${more('/kurzy-a-lekce/#praha', 'Rozvrh a ceny')}</div>`,
+      }),
+
+      sec({
+        id: 'zlin', stageKey: 'zlin',
+        h2: 'Centrum Jiný svět, Zlín',
+        intro: `${zlin.street}, ${zlin.postalCode} ${zlin.city}`,
+        body: `<div class="media reveal">${mapBox(zlin, content.mapsEmbedUrl, content.mapsLinkUrl)}</div>
+<div class="actions reveal" style="margin-top: 20px">${more('/cviceni-ve-zline/', 'Cvičení ve Zlíně')}</div>`,
+      }),
+
+      contactStatement(content, { id: 'napiste', heading: 'E-mail' }),
+    ],
   });
 }

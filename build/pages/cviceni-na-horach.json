@@ -1,0 +1,214 @@
+{
+  "slug": "cviceni-na-horach",
+  "title": "Cvičení na horách",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "d441384",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "2ed4144",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"strazne\" data-cap=\"Krkonoše nad Strážným\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-strazne.webp\" alt=\"Cesta na hřebeni nad Strážným v Krkonoších při západu slunce\" width=\"1600\" height=\"806\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-ea5bf839\">\n</figure>\n<figure data-stage-fig=\"snih\" data-cap=\"Tchaj-ťi stylu Yang ve sněhu\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-snih-yang.webp\" alt=\"Cvičenec v bílém provádí tchaj-ťi stylu Yang ve sněhu\" width=\"1920\" height=\"1308\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-91b5b67a\">\n</figure>\n<figure data-stage-fig=\"hory\" data-cap=\"Xiang Shengmo, Krajina, dynastie Ming\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-hory.webp\" alt=\"Čínská tušová malba: hory, borovice a pavilon u vody\" width=\"1600\" height=\"2960\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-588d04d7\">\n</figure>\n<figure data-stage-fig=\"svitek\" data-cap=\"Gong Xian, Krajina, dynastie Čching\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-svitek.webp\" alt=\"Čínská tušová malba: hory a stromy v mlze na svitku\" width=\"1600\" height=\"788\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b14f18c2\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Krkonoše nad Strážným</p>\n</div>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "e7dda36",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "02ad5db",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section data-stage=\"strazne\" class=\"sec hero hero-sub\">\n<div class=\"hero-text\">\n<h1 class=\"h1 rise\">Cvičení na horách: Strážné v Krkonoších</h1>\n\n<p class=\"body rise d2\">Cvičíme v příjemném prostředí Krkonoš, náplní semináře je ranní cvičení Osm kusů brokátu, dopolední průpravná cvičení tchaj-ťi kung, statické cvičení zhan zhuang a 13 slov tchaj-ťi.</p>\n<div class=\"actions rise d3\"><a href=\"#terminy\" class=\"more\">Termíny a ceny</a><a href=\"#misto\" class=\"more\">Penzion Exnar ve Strážném</a></div>\n\n</div>\n\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "3a907d4",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "e2cd9d4",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"terminy\" data-stage=\"snih\" aria-labelledby=\"terminy-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"terminy-h\" class=\"h2 reveal\">Termíny a ceny</h2>\n\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Jarní cvičení na horách</span><span class=\"r-val\">10. – 12. 5. 2024 <span class=\"badge\">Proběhlo</span></span><span class=\"r-desc\">Cena: 3 800 Kč. Přihlášky: e-mailem, nebo osobně, rezervace místa po zaplacení zálohy 1000 Kč do 20. 4. 2024.</span></li>\n<li><span class=\"r-name\">Letní týdenní kurz na horách</span><span class=\"r-val\">30. 7. neděle – 7. 7. 2024 neděle <span class=\"badge\">Proběhlo</span></span><span class=\"r-desc\">Cena: 10 000 Kč. Přihlášky: e-mailem, nebo osobně, rezervace místa po zaplacení zálohy 1000 Kč.</span></li>\n</ul></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "8a75d14",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "ecac096",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"den\" data-stage=\"hory\" aria-labelledby=\"den-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"den-h\" class=\"h2 reveal\">Denní harmonogram</h2>\n\n</div>\n<div class=\"dayplan-scroll reveal\"><ol aria-label=\"Denní harmonogram\" class=\"dayplan\">\n<li class=\"on\"><span class=\"num\">7:30 - 8:30h</span><span>Ranní cvičení</span></li>\n<li><span class=\"num\">8:30 - 10:00h</span><span>Snídaně</span></li>\n<li class=\"on\"><span class=\"num\">10:30 - 12:30h</span><span>Dopolední cvičení</span></li>\n<li><span class=\"num\">12:30 - 16:30h</span><span>Pauza odpočinek</span></li>\n<li class=\"on\"><span class=\"num\">16:30 - 18:00h</span><span>Odpolední cvičení</span></li>\n<li><span class=\"num\">18:30h</span><span>Večeře</span></li>\n</ol></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "4391bd1",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "0a865f1",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"misto\" data-stage=\"svitek\" aria-labelledby=\"misto-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"misto-h\" class=\"h2 reveal\">Penzion Exnar ve Strážném</h2>\n\n</div>\n<div class=\"reveal\"><dl class=\"facts\"><div><dt>Místo</dt><dd>Strážné v Krkonoších, Strážné 2. Penzion Exnar<br><a href=\"https://penzion-exnar.ubytovani-strazne-krkonose.cz/\" rel=\"nofollow noopener\" target=\"_blank\" class=\"lnk\">penzion-exnar.ubytovani-strazne-krkonose.cz</a></dd></div><div><dt>Ubytování</dt><dd>Polopenze, ubytování ve 2 až 3 lůžkových pokojích, výborná strava, možnost výletů po okolí, pokoje jsou se soc. zařízením.</dd></div><div><dt>Přihlášky</dt><dd>E-mailem, nebo osobně, rezervace místa po zaplacení zálohy 1000 Kč.</dd></div></dl></div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kontakt/?tema=5#formular\" class=\"btn btn-primary\">Přihlásit se <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/akce/\" class=\"more\">Akce <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "bdb8965",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "f19e7ac",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+4207732871113\">+420 773 287 1113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

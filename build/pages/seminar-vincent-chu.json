@@ -1,0 +1,214 @@
+{
+  "slug": "seminar-vincent-chu",
+  "title": "Seminář s Vincentem Chu",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "051e60c",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "2dc86a3",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"weiqi\" data-cap=\"Dai Jin, Krajina s taoistickými nesmrtelnými, dynastie Ming\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-weiqi.webp\" alt=\"Čínská malba: taoističtí nesmrtelní hrají pod stromy hru weiqi\" width=\"1306\" height=\"2250\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-f7333170\">\n</figure>\n<figure data-stage-fig=\"wangmeng\" data-cap=\"Wang Shimin, Krajina podle Wang Menga, 1664\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-wang-meng.webp\" alt=\"Čínská tušová malba: vysoké hory porostlé lesem\" width=\"1071\" height=\"2250\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-cea1bc1e\">\n</figure>\n<figure data-stage-fig=\"peking\" data-cap=\"Ranní tchaj-ťi v Pekingu, 1988\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-peking-1988.webp\" alt=\"Skupina lidí cvičí ranní tchaj-ťi v pekingském parku\" width=\"1300\" height=\"713\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b048b3ad\">\n</figure>\n<figure data-stage-fig=\"svitek\" data-cap=\"Gong Xian, Krajina, dynastie Čching\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-svitek.webp\" alt=\"Čínská tušová malba: hory a stromy v mlze na svitku\" width=\"1600\" height=\"788\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b14f18c2\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Dai Jin, Krajina s taoistickými nesmrtelnými, dynastie Ming</p>\n</div>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "8baa307",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "966ad5b",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section data-stage=\"weiqi\" class=\"sec hero hero-sub\">\n<div class=\"hero-text\">\n<h1 class=\"h1 rise\">Seminář s mistrem Vincentem Chu v Praze</h1>\n<p class=\"lead rise d1\">27. 11. – 29. 11. 2025 <span class=\"badge\">Proběhlo</span></p>\n<p class=\"body rise d2\">Dobrý den, blíží se listopadové cvičení s Vincentem. V Praze bude učit DaoYinový čchi-kung – Hrátky pěti zvířat v sobotu 29. 11.</p>\n\n\n</div>\n\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "c9edca6",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "2d4ba98",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"program\" data-stage=\"wangmeng\" aria-labelledby=\"program-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"program-h\" class=\"h2 reveal\">Korektura dlouhé formy středního řádu</h2>\n<p class=\"body reveal\">Ve čtvrtek celý den a pátek celý den je korektura dlouhé formy středního řádu. Střední řád se bude cvičit ve čtvrtek dopoledne na Dobešce a jinak na ZŠ Jeremenkova, tedy čtvrtek 27. 11. odpoledne a pátek 28. 11. celý den.</p>\n</div>\n\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "f75173b",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "c440def",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"harmonogram\" data-stage=\"peking\" aria-labelledby=\"harmonogram-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"harmonogram-h\" class=\"h2 reveal\">Denní harmonogram</h2>\n\n</div>\n<div class=\"rows-group reveal\"><p class=\"rows-label\">Čtvrtek 27. 11. 2025</p><ul class=\"rows\">\n<li><span class=\"r-name\">Dopolední cvičení, 9:30 - 12:00</span><span class=\"r-val\">Dobeška</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n<li><span class=\"r-name\">Odpolední cvičení, 15:00 - 17:30</span><span class=\"r-val\">Jeremenkova</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n</ul></div>\n<div class=\"rows-group reveal\"><p class=\"rows-label\">Pátek 28. 11. 2025</p><ul class=\"rows\">\n<li><span class=\"r-name\">Dopolední cvičení, 9:30 - 12:30</span><span class=\"r-val\">Jeremenkova</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n<li><span class=\"r-name\">Odpolední cvičení, 15:00 - 17:30</span><span class=\"r-val\">ZŠ Jeremenkova</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n</ul></div>\n<div class=\"rows-group reveal\"><p class=\"rows-label\">Sobota 29. 11. 2025</p><ul class=\"rows\">\n<li><span class=\"r-name\">Dopolední cvičení, 10:00 - 12:30</span><span class=\"r-val\">ZŠ Jeremenkova</span><span class=\"r-desc\">Hrátky pěti zvířat</span></li>\n<li><span class=\"r-name\">Odpolední cvičení, 15:30 - 18:00</span><span class=\"r-val\">ZŠ Jeremenkova</span><span class=\"r-desc\">Hrátky pěti zvířat</span></li>\n</ul></div>\n<p class=\"small muted reveal tk-s-49fcd855\">ZŠ Jeremenkova – Jeremenkova 1003/66A</p>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "c9c0f5c",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "8658190",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"prihlaseni\" data-stage=\"svitek\" aria-labelledby=\"prihlaseni-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"prihlaseni-h\" class=\"h2 reveal\">Přihlášení na seminář</h2>\n\n</div>\n<p class=\"body reveal muted\"><strong>Pro přihlášení na seminář v Praze posílejte zálohu 1500 Kč do 15. 11. 2025 na účet 1035195033/0800.</strong></p>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kontakt/\" class=\"more\">Kontakt - ZŠ Jeremenkova <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/akce/\" class=\"more\">Akce <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "1b52d2f",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "dca9692",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+4207732871113\">+420 773 287 1113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

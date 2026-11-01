@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /** Allowed _tk_scripts values (build/generate.mjs SCRIPTS; wp tk page-upsert validates the same list). */
-const TK_PAGE_SCRIPTS = array( 'tabs', 'map', 'video' );
+const TK_PAGE_SCRIPTS = array( 'map', 'video', 'breath', 'plate', 'form' );
 
 /**
  * Decoded data/<name>, cached per request. Missing or broken file -> empty array.

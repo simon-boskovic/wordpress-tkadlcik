@@ -3,7 +3,9 @@
   "title": "O mně",
   "status": "publish",
   "template": "elementor_header_footer",
-  "scripts": [],
+  "scripts": [
+    "video"
+  ],
   "front_page": false,
   "elements": [
     {
@@ -34,7 +36,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section class=\"wrap tk-s-665a2c2f\">\n<div class=\"grid tk-s-dc1f9f4d\">\n<div class=\"stack tk-s-07e2d976\">\n<span class=\"eyebrow rise\">O mně</span>\n<h1 class=\"h1 rise d1 tk-s-cae07755\">Daniel Tkadlčík, <span class=\"serif\">lektor tchaj-ťi od roku 1997</span></h1>\n<p class=\"lead rise d2\">Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Prvotním důvodem, proč jsem se začal zajímat o cvičení tchaj-ťi, byly mé vleklé zdravotní problémy způsobené vrcholovým tréninkem atletiky. Tchaj-ťi mě natolik ovlivnilo, že jsem pozměnil svůj pohled na mnoho věcí, které se týkají nejen těla, ale i myšlení.</p>\n</div>\n<div class=\"rise d3 tk-s-d461c96d\">\n<img src=\"/wp-content/uploads/daniel-tkadlcik-portret.webp\" alt=\"Daniel Tkadlčík, lektor tchaj-ťi\" width=\"1440\" height=\"1920\" fetchpriority=\"high\" decoding=\"async\" class=\"tk-s-ab19e889\">\n<div class=\"card stack tk-s-01f145d7\"><span class=\"tk-s-3bde290e\">od roku 1997</span></div>\n</div>\n</div>\n</section>"
+            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"portret\" data-cap=\"Daniel Tkadlčík\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/daniel-tkadlcik-portret.webp\" alt=\"Daniel Tkadlčík, lektor tchaj-ťi\" width=\"1440\" height=\"1920\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-5deda0c2\">\n</figure>\n<figure data-stage-fig=\"wangmeng\" data-cap=\"Wang Shimin, Krajina podle Wang Menga, 1664\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-wang-meng.webp\" alt=\"Čínská tušová malba: vysoké hory porostlé lesem\" width=\"1071\" height=\"2250\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-cea1bc1e\">\n</figure>\n<figure data-stage-fig=\"peking\" data-cap=\"Ranní tchaj-ťi v Pekingu, 1988\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-peking-1988.webp\" alt=\"Skupina lidí cvičí ranní tchaj-ťi v pekingském parku\" width=\"1300\" height=\"713\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b048b3ad\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Daniel Tkadlčík</p>\n</div>"
           },
           "elements": []
         }
@@ -68,7 +70,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section class=\"wrap tk-s-b0d37139\">\n<div class=\"sec-head\"><h2 class=\"h2\">Cesta k tchaj-ťi <span class=\"serif\">a mistr Vincent Chu</span></h2></div>\n<ol class=\"stack tk-s-1d34c094\">\n<li class=\"reveal tk-s-ff837e4c\"><span class=\"idx\">01</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Různé styly tchaj-ťi a meditace</h3><p class=\"body small\">V průběhu času jsem se věnoval různým stylům tchaj-ťi u různých učitelů a mistrů (wudangskému tchaj-ťi, Yang tchaj-ťi, čchi-kungovým masážím a různým stylům meditace).</p></div></li>\n<li class=\"reveal tk-s-906fc147\"><span class=\"idx\">02</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Rodinný styl Yang u mistra Vincenta Chu</h3><p class=\"body small\">Od roku 2007 se intenzivně věnuji zejména <a href=\"/cviceni/#yang\" class=\"lnk\">rodinnému stylu Yang</a> tchaj-ťi u <a href=\"/akce/#chu\" class=\"lnk\">mistra Vincenta Chu</a>, který vyučuje komplexní systém rodiny Yang. Mimo jiné mě naučil rodinné předání <a href=\"/cviceni/#brokat\" class=\"lnk\">Osmi kusů brokátu</a> a <a href=\"/cviceni/#slov\" class=\"lnk\">13 slov tchaj-ťi</a>.</p></div></li>\n<li class=\"reveal tk-s-f607c46f\"><span class=\"idx\">03</span><div class=\"stack tk-s-f0abc1db\"><h3 class=\"h3\">Masáže tuina a učitel tělesné výchovy</h3><p class=\"body small\">Několik let jsem se také věnoval zdravotním energetickým masážím tuina. Civilním povoláním jsem učitel tělesné výchovy na II. stupni základní školy.</p></div></li>\n</ol>\n</section>"
+            "html": "<section data-stage=\"portret\" class=\"sec hero hero-sub\">\n<div class=\"hero-text\">\n<h1 class=\"h1 rise\">Daniel Tkadlčík: <span class=\"nw\">tchaj-ťi</span> od roku 1997</h1>\n<p class=\"lead rise d1\">Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997.</p>\n\n\n\n</div>\n\n</section>"
           },
           "elements": []
         }
@@ -102,7 +104,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section class=\"wrap tk-s-7e3eae42\">\n<div class=\"panel-dark on-dark reveal tk-s-d6c466a2\">\n<div class=\"grid tk-s-69a3450e\">\n<div class=\"stack tk-s-cd289aef\">\n<h2 class=\"eyebrow\">Moje filozofie</h2>\n<p class=\"serif tk-s-64b9a0e3\">„Každá forma cvičení je prázdná, pokud není spojena s radostí, tichostí a klidem mysli, které jsou podstatou našeho bytí a které se snažím ve cvičení rozvíjet.“</p>\n</div>\n<p class=\"tk-s-28f0b2dc\">Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.</p>\n</div>\n</div>\n</section>"
+            "html": "<section id=\"cesta\" data-stage=\"portret\" aria-labelledby=\"cesta-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"cesta-h\" class=\"h2 reveal\">Cesta k <span class=\"nw\">tchaj-ťi</span> a mistr Vincent Chu</h2>\n\n</div>\n<div class=\"letter reveal\">\n<p>Prvotním důvodem, proč jsem se začal zajímat o cvičení tchaj-ťi, byly mé vleklé zdravotní problémy způsobené vrcholovým tréninkem atletiky. Tchaj-ťi mě natolik ovlivnilo, že jsem pozměnil svůj pohled na mnoho věcí, které se týkají nejen těla, ale i myšlení.</p>\n<p>V průběhu času jsem se věnoval různým stylům tchaj-ťi u různých učitelů a mistrů (wudangskému tchaj-ťi, Yang tchaj-ťi, čchi-kungovým masážím a různým stylům meditace).</p>\n<p>Od roku 2007 se intenzivně věnuji zejména <a href=\"/cviceni/#yang\" class=\"lnk\">rodinnému stylu Yang</a> tchaj-ťi u <a href=\"/seminar-vincent-chu/\" class=\"lnk\">mistra Vincenta Chu</a>, který vyučuje komplexní systém rodiny Yang. Mimo jiné mě naučil rodinné předání <a href=\"/cviceni/#brokat\" class=\"lnk\">Osmi kusů brokátu</a> a <a href=\"/cviceni/#slov\" class=\"lnk\">13 slov tchaj-ťi</a>.</p>\n<p>Několik let jsem se také věnoval zdravotním energetickým masážím tuina. Civilním povoláním jsem učitel tělesné výchovy na II. stupni základní školy.</p>\n<div class=\"sign\"><span class=\"sign-name\">Daniel Tkadlčík</span><span class=\"sign-role\">Mgr. Daniel Tkadlčík, lektor tchaj-ťi a čchi-kungu</span></div>\n</div>\n<figure class=\"media reveal tk-s-e2147305\"><div data-tk-video-box data-src=\"https://www.youtube-nocookie.com/embed/1nFm6-XwGpU?autoplay=1\" data-title=\"Začátečnická sestava 12 forem Yang tchaj-ťi\" class=\"tk-video\">\n<img src=\"/wp-content/uploads/yt-1nFm6-XwGpU.webp\" alt=\"Náhled videa: Začátečnická sestava 12 forem Yang tchaj-ťi\" width=\"1280\" height=\"720\" loading=\"lazy\" decoding=\"async\">\n<button type=\"button\" data-tk-video aria-label=\"Přehrát video: Začátečnická sestava 12 forem Yang tchaj-ťi\" class=\"tk-video-play\"><svg width=\"68\" height=\"68\" viewBox=\"0 0 68 68\" aria-hidden=\"true\"><circle cx=\"34\" cy=\"34\" r=\"34\" fill=\"currentColor\"></circle><path d=\"M28 22.5v23l18-11.5z\" fill=\"#161C1A\"></path></svg></button>\n<span class=\"tk-video-note\">Video načteme z YouTube až po kliknutí.</span>\n<a href=\"https://www.youtube.com/watch?v=1nFm6-XwGpU\" target=\"_blank\" rel=\"noopener\" class=\"tk-video-link\">Přehrát na YouTube</a>\n</div><figcaption>Začátečnická sestava 12 forem Yang tchaj-ťi</figcaption></figure>\n</section>"
           },
           "elements": []
         }
@@ -136,7 +138,75 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section class=\"wrap tk-s-7e3eae42\">\n<div class=\"tk-s-104af983\">\n<a href=\"/kurzy-a-lekce/\" class=\"btn btn-dark\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n<a href=\"/kontakt/\" class=\"btn btn-ghost\">Kontakt <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a>\n</div>\n</section>"
+            "html": "<section id=\"filozofie\" data-stage=\"wangmeng\" aria-labelledby=\"filozofie-h\" class=\"sec\">\n<div class=\"field reveal\">\n<h2 id=\"filozofie-h\" class=\"h2\">Moje filozofie</h2>\n<blockquote class=\"lead tk-s-bba1be4e\"><p>„Každá forma cvičení je prázdná, pokud není spojena s radostí, tichostí a klidem mysli, které jsou podstatou našeho bytí a které se snažím ve cvičení rozvíjet.“</p></blockquote>\n<p class=\"body\">Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.</p>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "dfcf326",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "e60a4e6",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"linie\" data-stage=\"peking\" aria-labelledby=\"linie-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"linie-h\" class=\"h2 reveal\">Linie předání stylu Yang</h2>\n<p class=\"body reveal\">Výuka probíhá dle instrukcí a předání od mistra Vincenta Chu, který je hlavním instruktorem a mistrem bostonské školy <a href=\"https://www.gstaichi.org/\" rel=\"nofollow noopener\" target=\"_blank\" class=\"lnk\">Gin Soon Tai Chi Chuan Federation</a>. Jeho otec Chu Gin Soon byl osobním žákem mistra Yang Sau Chunga.</p>\n</div>\n<ol aria-label=\"Linie předání\" class=\"chain reveal\"><li>Yang Sau Chung</li><li>Chu Gin Soon</li><li>Vincent Chu</li><li>Daniel Tkadlčík</li></ol>\n<div class=\"actions reveal tk-s-c2f8546b\"><a href=\"/cviceni/\" class=\"more\">Cvičení <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/kurzy-a-lekce/\" class=\"more\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "4929e35",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "b2c1460",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+4207732871113\">+420 773 287 1113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
           },
           "elements": []
         }

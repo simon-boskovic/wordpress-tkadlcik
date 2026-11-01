@@ -1,0 +1,182 @@
+{
+  "slug": "videogalerie",
+  "title": "Videogalerie",
+  "status": "publish",
+  "template": "elementor_header_footer",
+  "scripts": [
+    "video"
+  ],
+  "front_page": false,
+  "elements": [
+    {
+      "id": "de4bbb9",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "b890691",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"snih\" data-cap=\"Tchaj-ťi stylu Yang ve sněhu\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-snih-yang.webp\" alt=\"Cvičenec v bílém provádí tchaj-ťi stylu Yang ve sněhu\" width=\"1920\" height=\"1308\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-91b5b67a\">\n</figure>\n<figure data-stage-fig=\"wangmeng\" data-cap=\"Wang Shimin, Krajina podle Wang Menga, 1664\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-wang-meng.webp\" alt=\"Čínská tušová malba: vysoké hory porostlé lesem\" width=\"1071\" height=\"2250\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-cea1bc1e\">\n</figure>\n<figure data-stage-fig=\"peking\" data-cap=\"Ranní tchaj-ťi v Pekingu, 1988\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-peking-1988.webp\" alt=\"Skupina lidí cvičí ranní tchaj-ťi v pekingském parku\" width=\"1300\" height=\"713\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b048b3ad\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Tchaj-ťi stylu Yang ve sněhu</p>\n</div>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "2bab41b",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "5c6207a",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section data-stage=\"snih\" class=\"sec hero hero-sub\">\n<div class=\"hero-text\">\n<h1 class=\"h1 rise\">Videogalerie <span class=\"nw\">tchaj-ťi</span> a <span class=\"nw\">čchi-kungu</span></h1>\n<p class=\"lead rise d1\">Začátečnická sestava 12 forem Yang tchaj-ťi</p>\n\n\n<figure class=\"media rise d2\"><div data-tk-video-box data-src=\"https://www.youtube-nocookie.com/embed/1nFm6-XwGpU?autoplay=1\" data-title=\"Začátečnická sestava 12 forem Yang tchaj-ťi\" class=\"tk-video\">\n<img src=\"/wp-content/uploads/yt-1nFm6-XwGpU.webp\" alt=\"Náhled videa: Začátečnická sestava 12 forem Yang tchaj-ťi\" width=\"1280\" height=\"720\" loading=\"lazy\" decoding=\"async\">\n<button type=\"button\" data-tk-video aria-label=\"Přehrát video: Začátečnická sestava 12 forem Yang tchaj-ťi\" class=\"tk-video-play\"><svg width=\"68\" height=\"68\" viewBox=\"0 0 68 68\" aria-hidden=\"true\"><circle cx=\"34\" cy=\"34\" r=\"34\" fill=\"currentColor\"></circle><path d=\"M28 22.5v23l18-11.5z\" fill=\"#161C1A\"></path></svg></button>\n<span class=\"tk-video-note\">Video načteme z YouTube až po kliknutí.</span>\n<a href=\"https://www.youtube.com/watch?v=1nFm6-XwGpU\" target=\"_blank\" rel=\"noopener\" class=\"tk-video-link\">Přehrát na YouTube</a>\n</div></figure>\n</div>\n\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "2c81082",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "4df054a",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"sestavy\" data-stage=\"wangmeng\" aria-labelledby=\"sestavy-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"sestavy-h\" class=\"h2 reveal\">Sestavy stylu Yang</h2>\n\n</div>\n<div class=\"stack-l\">\n<figure class=\"media reveal\"><div data-tk-video-box data-src=\"https://www.youtube-nocookie.com/embed/NeVzb5hGM7A?autoplay=1\" data-title=\"Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu\" class=\"tk-video\">\n<img src=\"/wp-content/uploads/yt-NeVzb5hGM7A.webp\" alt=\"Náhled videa: Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu\" width=\"480\" height=\"360\" loading=\"lazy\" decoding=\"async\">\n<button type=\"button\" data-tk-video aria-label=\"Přehrát video: Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu\" class=\"tk-video-play\"><svg width=\"68\" height=\"68\" viewBox=\"0 0 68 68\" aria-hidden=\"true\"><circle cx=\"34\" cy=\"34\" r=\"34\" fill=\"currentColor\"></circle><path d=\"M28 22.5v23l18-11.5z\" fill=\"#161C1A\"></path></svg></button>\n<span class=\"tk-video-note\">Video načteme z YouTube až po kliknutí.</span>\n<a href=\"https://www.youtube.com/watch?v=NeVzb5hGM7A\" target=\"_blank\" rel=\"noopener\" class=\"tk-video-link\">Přehrát na YouTube</a>\n</div><figcaption>Ukázka sestavy Yang 43 forem v provedení velkého řádu. Mistr Vincent Chu</figcaption></figure>\n<figure class=\"media reveal\"><div data-tk-video-box data-src=\"https://www.youtube-nocookie.com/embed/oZB6Gq4QzC4?autoplay=1\" data-title=\"Ukázka sestavy s holí\" class=\"tk-video\">\n<img src=\"/wp-content/uploads/yt-oZB6Gq4QzC4.webp\" alt=\"Náhled videa: Ukázka sestavy s holí\" width=\"1280\" height=\"720\" loading=\"lazy\" decoding=\"async\">\n<button type=\"button\" data-tk-video aria-label=\"Přehrát video: Ukázka sestavy s holí\" class=\"tk-video-play\"><svg width=\"68\" height=\"68\" viewBox=\"0 0 68 68\" aria-hidden=\"true\"><circle cx=\"34\" cy=\"34\" r=\"34\" fill=\"currentColor\"></circle><path d=\"M28 22.5v23l18-11.5z\" fill=\"#161C1A\"></path></svg></button>\n<span class=\"tk-video-note\">Video načteme z YouTube až po kliknutí.</span>\n<a href=\"https://www.youtube.com/watch?v=oZB6Gq4QzC4\" target=\"_blank\" rel=\"noopener\" class=\"tk-video-link\">Přehrát na YouTube</a>\n</div><figcaption>Ukázka sestavy s holí</figcaption></figure>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "167a314",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "639acef",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"cchi-kung\" data-stage=\"peking\" aria-labelledby=\"cchi-kung-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"cchi-kung-h\" class=\"h2 reveal\">Osm kusů brokátu a 13 slov <span class=\"nw\">tchaj-ťi</span></h2>\n\n</div>\n<div class=\"pair\">\n<figure class=\"media reveal\"><div data-tk-video-box data-src=\"https://www.youtube-nocookie.com/embed/1Mmz_QpYk9s?autoplay=1\" data-title=\"Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje\" class=\"tk-video\">\n<img src=\"/wp-content/uploads/yt-1Mmz_QpYk9s.webp\" alt=\"Náhled videa: Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje\" width=\"1280\" height=\"720\" loading=\"lazy\" decoding=\"async\">\n<button type=\"button\" data-tk-video aria-label=\"Přehrát video: Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje\" class=\"tk-video-play\"><svg width=\"68\" height=\"68\" viewBox=\"0 0 68 68\" aria-hidden=\"true\"><circle cx=\"34\" cy=\"34\" r=\"34\" fill=\"currentColor\"></circle><path d=\"M28 22.5v23l18-11.5z\" fill=\"#161C1A\"></path></svg></button>\n<span class=\"tk-video-note\">Video načteme z YouTube až po kliknutí.</span>\n<a href=\"https://www.youtube.com/watch?v=1Mmz_QpYk9s\" target=\"_blank\" rel=\"noopener\" class=\"tk-video-link\">Přehrát na YouTube</a>\n</div><figcaption>Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje</figcaption></figure>\n<figure class=\"media reveal\"><div data-tk-video-box data-src=\"https://www.youtube-nocookie.com/embed/1UPJuzGC1UY?autoplay=1\" data-title=\"13 slov tchaj-ťi\" class=\"tk-video\">\n<img src=\"/wp-content/uploads/yt-1UPJuzGC1UY.webp\" alt=\"Náhled videa: 13 slov tchaj-ťi\" width=\"1280\" height=\"720\" loading=\"lazy\" decoding=\"async\">\n<button type=\"button\" data-tk-video aria-label=\"Přehrát video: 13 slov tchaj-ťi\" class=\"tk-video-play\"><svg width=\"68\" height=\"68\" viewBox=\"0 0 68 68\" aria-hidden=\"true\"><circle cx=\"34\" cy=\"34\" r=\"34\" fill=\"currentColor\"></circle><path d=\"M28 22.5v23l18-11.5z\" fill=\"#161C1A\"></path></svg></button>\n<span class=\"tk-video-note\">Video načteme z YouTube až po kliknutí.</span>\n<a href=\"https://www.youtube.com/watch?v=1UPJuzGC1UY\" target=\"_blank\" rel=\"noopener\" class=\"tk-video-link\">Přehrát na YouTube</a>\n</div><figcaption>13 slov tchaj-ťi</figcaption></figure>\n</div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/cviceni/\" class=\"more\">Cvičení <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/kurzy-a-lekce/\" class=\"more\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "9390b0c",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "46eab1e",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+4207732871113\">+420 773 287 1113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    }
+  ]
+}

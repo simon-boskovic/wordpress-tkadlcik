@@ -14,8 +14,7 @@
   css.id = 'tk-vt-css';
   css.textContent = [
     '@view-transition{navigation:auto}',
-    '.top>.bar{view-transition-name:site-header}',
-    '.bar .nav .tk-nav-pill{view-transition-name:nav-current}',
+    '.bar{view-transition-name:site-header}',
     '::view-transition-old(root){animation:160ms ' + EASE + ' both tk-vt-out}',
     '::view-transition-new(root){animation:260ms ' + EASE + ' both tk-vt-in}',
     'html:active-view-transition-type(back)::view-transition-new(root){animation-name:tk-vt-in-back}',

@@ -7,18 +7,14 @@
  * The .dc.html files boot through support.js (the Claude Design runtime, React 18 UMD from unpkg.com), which
  * fetches the sibling .dc.html files of a <dc-import>; Chromium refuses that over file://, hence a server.
  *
- * Reference patches (build/lib/reference-patches.mjs): deliberate deviations of the production build from the
- * prototype (font picker removed, self-hosted Geist instead of Google Fonts, click-to-load map boxes, …), each
- * named and justified, are applied to the served HTML only — the files on disk stay untouched. A patch whose
- * anchor does not match exactly once makes the response a 500 with the reason, so prototype drift is caught
- * instead of silently comparing against stale content.
+ * Since the redesign of 2026-11-01 the prototype is no longer the reference for the site (the reference patches
+ * that mapped it onto the build are retired); it is served unpatched, as the historical design handoff.
  * /tk-fonts/* serves the theme's assets/fonts/ (the Geist faces the font patch declares: the site's own files).
  */
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, extname, normalize, sep } from 'node:path';
-import { applyPatches, patchesFor } from './lib/reference-patches.mjs';
 
 const REPO = join(dirname(fileURLToPath(import.meta.url)), '..');
 const ROOT = join(REPO, 'design_handoff_tkadlcik');
@@ -42,11 +38,7 @@ createServer(async (req, res) => {
     const path = decodeURIComponent(new URL(req.url, 'http://x').pathname);
     const font = /^\/tk-fonts\/(.+)$/.exec(path);
     const file = font ? resolve(FONT_ROOT, font[1]) : resolve(ROOT, path === '/' ? '/Main.dc.html' : path);
-    let body = await readFile(file);
-    if (!font && patchesFor(file).length) {
-      try { body = Buffer.from(applyPatches(file, body.toString('utf8')), 'utf8'); }
-      catch (e) { res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' }); res.end(`500 reference patch failed: ${e.message}`); return; }
-    }
+    const body = await readFile(file);
     res.writeHead(200, { 'Content-Type': TYPES[extname(file).toLowerCase()] || 'application/octet-stream', 'Cache-Control': 'no-store' });
     res.end(body);
   } catch {

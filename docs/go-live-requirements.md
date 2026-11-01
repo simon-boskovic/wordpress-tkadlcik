@@ -73,6 +73,12 @@ Google request. Production needs the client's Google account.
 |---|---|---|---|---|
 | 25 | **Go-live blocker: the contact phone is confirmed and no placeholder is visible.** The phone in `build/content.mjs` `contact` (header, footer, Kontakt, JSON-LD `telephone`, llms.txt) must be a real Czech number, `+420` + 9 digits — the design's `+420 773 287 1113` has 10 and awaits the client (`node build/generate.mjs` prints a WARNING while it does not match). No page may show a `[Foto]` placeholder (Akce) or a `[doplnit …]` placeholder (the privacy page: effective date, hosting, …). | A wrong phone number in the footer and the structured data of every page; placeholders read as an unfinished site. | `node build/verify.mjs --golive` (fails on each open item; the default run is unaffected). | `node build/verify.mjs --golive --base=https://<domain>` → passes. |
 
+## Contact form (`mu-plugins/tk-form.php`)
+
+| # | Requirement | Why | Local stand-in | Check on production |
+|---|---|---|---|---|
+| 27 | **`wp_mail` delivers through authenticated SMTP on the site's domain (SPF + DKIM + DMARC aligned)**, e.g. an SMTP plugin or the host's relay; the From address is on the domain (not `@centrum.cz`), the sender's address goes only into `Reply-To`. The recipient `TK_FORM_TO` (`tkadlcik@centrum.cz`) is confirmed by the client. Behind a proxy/CDN, filter `tk_form_client_ip` to the real client IP, or the throttle (5 messages / 10 min per IP) counts every visitor as one. | PHP `mail()` from shared hosting lands in spam or is rejected by Seznam/Centrum; a From on a foreign domain fails DMARC. Without the IP filter one visitor could block the form for everyone. | `tk-local.php` routes all mail to Mailpit (`http://localhost:8025`). | Send the form from `/kontakt/#formular`: the message arrives in the client's inbox (not spam), *Reply* goes to the sender; the sender gets the confirmation. Mail headers show `dkim=pass`, `spf=pass`, `dmarc=pass`. Six quick sends from one IP → the sixth is refused. |
+
 ## PHP and database
 
 | # | Requirement | Why | Check on production |

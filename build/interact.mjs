@@ -34,15 +34,15 @@ async function interceptGoogle(b) {
 }
 
 export const SCENARIOS = {
-  /** Mobile overlay menu: burger, focus, inert page, Escape, link click, back to desktop. */
+  /** Menu (redesign 2026-11-01, the martinadamus menu): burger, full-screen panel on a phone, focus, inert page, Escape, link click, back to desktop. */
   async menu() {
     const b = await openBrowser({ width: 390, height: 844, mobile: true });
     const out = [];
     try {
       await b.goto(BASE + PATH);
       assert(await visible(b, '.menu-btn'), 'menu button not visible on a phone');
-      assert(!(await visible(b, '.bar .nav')), 'desktop nav visible on a phone');
-      const st = () => b.evaluate(`(() => { const p = document.getElementById('mnav'), cs = getComputedStyle(p); return { open: document.querySelector('.top').getAttribute('data-open'), vis: cs.visibility, op: cs.opacity, h: Math.round(p.getBoundingClientRect().height), expanded: document.querySelector('.menu-btn').getAttribute('aria-expanded'), mainInert: document.querySelector('main').hasAttribute('inert'), footInert: !!document.querySelector('.foot[inert]'), focusIn: p.contains(document.activeElement), focusBtn: document.activeElement === document.querySelector('.menu-btn'), focus: document.activeElement && (document.activeElement.textContent || '').trim().slice(0, 30) }; })()`);
+      assert(!(await visible(b, '.nav-link')), 'desktop nav links visible on a phone');
+      const st = () => b.evaluate(`(() => { const p = document.getElementById('menu-panel'), cs = getComputedStyle(p); return { open: String(document.documentElement.classList.contains('tk-menu-open')), vis: cs.visibility, op: cs.opacity, h: Math.round(p.getBoundingClientRect().height), expanded: document.querySelector('.menu-btn').getAttribute('aria-expanded'), mainInert: document.querySelector('main').hasAttribute('inert'), footInert: !!document.querySelector('.foot[inert]'), focusIn: p.contains(document.activeElement), focusBtn: document.activeElement === document.querySelector('.menu-btn'), focus: document.activeElement && (document.activeElement.textContent || '').trim().slice(0, 30) }; })()`);
       await b.click('.menu-btn');
       await sleep(450);
       let s = await st();
@@ -61,8 +61,8 @@ export const SCENARIOS = {
       out.push('Escape: closed, focus back on the button, page not inert');
       await b.click('.menu-btn');
       await sleep(400);
-      await b.evaluate(`document.querySelector('#mnav a[href$="${PATH}"]').addEventListener('click', (e) => e.preventDefault(), { once: true })`);
-      await b.click(`#mnav a[href$="${PATH}"]`);
+      await b.evaluate(`document.querySelector('#menu-panel a[href$="${PATH}"]').addEventListener('click', (e) => e.preventDefault(), { once: true })`);
+      await b.click(`#menu-panel a[href$="${PATH}"]`);
       s = await st();
       assert(s.open === 'false' && !s.mainInert, 'following a menu link did not close the menu: ' + JSON.stringify(s));
       out.push('menu link: closes the menu');
@@ -72,7 +72,7 @@ export const SCENARIOS = {
       await sleep(400);
       s = await st();
       assert(s.open === 'false' && !s.mainInert, 'menu stayed open after widening to desktop: ' + JSON.stringify(s));
-      assert(await visible(b, '.bar .nav') && !(await visible(b, '.menu-btn')), 'desktop nav hidden / burger visible at 1280');
+      assert(await visible(b, '.nav-link'), 'desktop nav links hidden at 1280');
       await b.viewport(820, 1180, true);
       await sleep(300);
       assert(await visible(b, '.menu-btn') || await visible(b, '.bar .nav'), 'tablet 820: neither nav nor burger');
@@ -110,91 +110,41 @@ export const SCENARIOS = {
     } finally { await b.close(); }
   },
 
-  /** Praha 4 / Zlín tabs: click, tap, keyboard (roving tabindex, arrows, Home/End), inert panel, clip-path pill. */
+  /** Course tabs on Domů (redesign 2026-11-01, assets/js/plate.js): click, keyboard (roving tabindex, arrows, Home/End), picture + text switch together. */
   async tabs() {
-    const path = '/kurzy-a-lekce/';
+    const path = '/';
     const state = (b) => b.evaluate(`(() => {
-      const t = (id) => document.getElementById(id), vis = (e) => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden' && parseFloat(getComputedStyle(e).opacity) > 0.5;
-      return { praha: t('tab-praha').getAttribute('aria-selected'), zlin: t('tab-zlin').getAttribute('aria-selected'), ti: [t('tab-praha').tabIndex, t('tab-zlin').tabIndex],
-        list: document.querySelector('.tabs').getAttribute('data-tab'), panels: document.querySelector('.tab-panels').getAttribute('data-tab'),
-        pv: vis(t('praha')), zv: vis(t('zlin')), pi: t('praha').hasAttribute('inert'), zi: t('zlin').hasAttribute('inert'),
-        clip: getComputedStyle(document.querySelector('.tabs-active')).clipPath, focus: document.activeElement && document.activeElement.id };
+      const tabs = [...document.querySelectorAll('[data-plate] [role=tab]')];
+      const shown = (sel) => [...document.querySelectorAll(sel)].filter((e) => !e.hidden && e.getClientRects().length).map((e) => e.getAttribute(sel.slice(1, -1)));
+      return { selected: tabs.map((t) => t.getAttribute('aria-selected')), ti: tabs.map((t) => t.tabIndex), panels: shown('[data-plate-panel]'), pics: shown('[data-plate-pic]'), focus: document.activeElement && document.activeElement.id };
     })()`);
+    const b = await openBrowser({ width: 1440, height: 900 });
     const out = [];
-    let b = await openBrowser({ width: 1440, height: 900 });
     try {
-      await b.goto(BASE + path, 1500);
+      await b.goto(BASE + path);
       let s = await state(b);
-      assert(s.praha === 'true' && s.zlin === 'false' && s.ti.join() === '0,-1' && s.pv && !s.zv && s.zi && !s.pi, 'initial state (Praha selected, Zlín hidden + inert) wrong: ' + JSON.stringify(s));
-      const clip0 = s.clip;
-      await b.click('#tab-zlin');
-      await sleep(400);
+      assert(JSON.stringify(s.selected) === '["true","false","false"]' && JSON.stringify(s.panels) === '["brokat"]' && JSON.stringify(s.pics) === '["brokat"]', 'initial state wrong: ' + JSON.stringify(s));
+      assert(JSON.stringify(s.ti) === '[0,-1,-1]', 'roving tabindex wrong: ' + JSON.stringify(s));
+      await b.click('#tab-slov');
       s = await state(b);
-      assert(s.zlin === 'true' && s.praha === 'false' && s.list === 'zlin' && s.panels === 'zlin' && s.zv && !s.pv && s.pi && !s.zi && s.ti.join() === '-1,0', 'click Zlín failed: ' + JSON.stringify(s));
-      assert(s.clip !== clip0, `the dark pill did not move (clip-path ${clip0} → ${s.clip})`);
-      out.push(`click: Zlín selected, Praha panel hidden + inert, pill clip-path ${clip0} → ${s.clip}`);
-      // Keyboard: focus the selected tab, arrows move AND activate, Home/End, Tab leaves the tab list into the panel.
-      await b.evaluate(`document.getElementById('tab-zlin').focus()`);
-      await b.key('ArrowLeft');
-      s = await state(b);
-      assert(s.praha === 'true' && s.focus === 'tab-praha' && s.pv, 'ArrowLeft did not select + focus Praha: ' + JSON.stringify(s));
+      assert(s.selected[1] === 'true' && s.panels[0] === 'slov' && s.pics[0] === 'slov', 'click did not switch to 13 slov: ' + JSON.stringify(s));
+      out.push('click: picture and text switch together');
+      await b.evaluate(`document.getElementById('tab-slov').focus()`);
       await b.key('ArrowRight');
       s = await state(b);
-      assert(s.zlin === 'true' && s.focus === 'tab-zlin', 'ArrowRight did not select + focus Zlín: ' + JSON.stringify(s));
+      assert(s.focus === 'tab-yang' && s.panels[0] === 'yang', 'ArrowRight did not move to Yang: ' + JSON.stringify(s));
       await b.key('ArrowRight');
       s = await state(b);
-      assert(s.praha === 'true' && s.focus === 'tab-praha', 'ArrowRight did not wrap to Praha: ' + JSON.stringify(s));
-      await b.send('Input.dispatchKeyEvent', { type: 'rawKeyDown', key: 'End', code: 'End', windowsVirtualKeyCode: 35 });
-      await b.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'End', code: 'End', windowsVirtualKeyCode: 35 });
-      await sleep(250);
+      assert(s.focus === 'tab-brokat', 'ArrowRight did not wrap to the first tab: ' + JSON.stringify(s));
+      await b.key('End');
       s = await state(b);
-      assert(s.zlin === 'true' && s.focus === 'tab-zlin', 'End did not select Zlín: ' + JSON.stringify(s));
-      await b.send('Input.dispatchKeyEvent', { type: 'rawKeyDown', key: 'Home', code: 'Home', windowsVirtualKeyCode: 36 });
-      await b.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Home', code: 'Home', windowsVirtualKeyCode: 36 });
-      await sleep(250);
+      assert(s.focus === 'tab-yang' && JSON.stringify(s.ti) === '[-1,-1,0]', 'End / roving tabindex wrong: ' + JSON.stringify(s));
+      await b.key('Home');
       s = await state(b);
-      assert(s.praha === 'true' && s.focus === 'tab-praha', 'Home did not select Praha: ' + JSON.stringify(s));
-      await b.key('Tab');
-      const next = await b.evaluate(`(() => { const a = document.activeElement; return { inPraha: !!a.closest('#praha'), isTab: a.getAttribute('role') === 'tab', text: (a.textContent || '').trim().slice(0, 30) }; })()`);
-      assert(!next.isTab && next.inPraha, 'Tab from the selected tab should skip the other tab and enter the Praha panel: ' + JSON.stringify(next));
-      out.push(`keyboard: ←/→ (wrapping), Home/End select + focus; Tab → “${next.text}” in the panel`);
-      const focusRing = await b.evaluate(`(() => { document.getElementById('tab-praha').focus(); const c = getComputedStyle(document.getElementById('tab-praha')); return c.outlineStyle + ' ' + c.outlineWidth + ' ' + c.outlineColor; })()`);
-      out.push(`focus ring on the tab: ${focusRing}`);
+      assert(s.focus === 'tab-brokat' && s.panels[0] === 'brokat', 'Home did not return to the first tab: ' + JSON.stringify(s));
+      out.push('keyboard: arrows wrap, Home/End, roving tabindex');
+      console.log('tabs: ok\n  ' + out.join('\n  '));
     } finally { await b.close(); }
-
-    b = await openBrowser({ width: 390, height: 844, mobile: true });
-    try {
-      await b.goto(BASE + path, 1500);
-      await b.click('#tab-zlin');
-      await sleep(400);
-      let s = await state(b);
-      assert(s.zlin === 'true' && s.zv && !s.pv, 'tap Zlín failed on the phone: ' + JSON.stringify(s));
-      await b.click('#tab-praha');
-      await sleep(400);
-      s = await state(b);
-      assert(s.praha === 'true' && s.pv && !s.zv, 'tap Praha failed on the phone: ' + JSON.stringify(s));
-      out.push('phone: tap Zlín / Praha switches the panels');
-    } finally { await b.close(); }
-
-    b = await openBrowser({ width: 1440, height: 900, reducedMotion: true });
-    try {
-      await b.goto(BASE + path, 1000);
-      const tr = await b.evaluate(`getComputedStyle(document.querySelector('.tabs-active')).transitionDuration`);
-      await b.click('#tab-zlin');
-      const s = await state(b);
-      assert(s.zlin === 'true' && s.zv, 'reduced motion: Zlín not shown: ' + JSON.stringify(s));
-      assert(/^0s$/.test(tr) || tr.split(',').every((x) => parseFloat(x) === 0), `reduced motion: the pill still transitions (${tr})`);
-      out.push(`reduced motion: pill transition ${tr}, panels switch`);
-    } finally { await b.close(); }
-
-    b = await openBrowser({ width: 1440, height: 900, javascript: false });
-    try {
-      await b.goto(BASE + path, 300);
-      const s = await b.evaluate(`(() => { const vis = (e) => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden' && getComputedStyle(e).display !== 'none'; return { list: vis(document.querySelector('.tabs')), praha: vis(document.getElementById('praha')), zlin: vis(document.getElementById('zlin')), order: document.getElementById('praha').getBoundingClientRect().top < document.getElementById('zlin').getBoundingClientRect().top }; })()`);
-      assert(!s.list && s.praha && s.zlin && s.order, 'no JS: both panels must show one after another, tab list hidden: ' + JSON.stringify(s));
-      out.push('no JS: tab list hidden, Praha then Zlín both shown');
-    } finally { await b.close(); }
-    console.log('tabs: ok\n  ' + out.join('\n  '));
   },
 
   /** prefers-reduced-motion on every page: fade only — nothing moves, nothing loops, everything visible. */
@@ -398,7 +348,8 @@ export const SCENARIOS = {
       await clickAt(b, pt);
       const n = await nav(b);
       const h1 = await b.evaluate(`getComputedStyle(document.querySelector('h1')).opacity`);
-      assert(n.delivery === 'navigational-prefetch' && h1 === '1', 'reduced motion: ' + JSON.stringify({ n, h1 }));
+      // The title may still be finishing its opacity fade (the one transition allowed under reduced motion).
+      assert(n.delivery === 'navigational-prefetch' && parseFloat(h1) > 0.95, 'reduced motion: ' + JSON.stringify({ n, h1 }));
       out.push(`reduced motion: ${n.delivery}, h1 opacity ${h1}`);
     } finally { await b.close(); }
 
@@ -540,7 +491,7 @@ export const SCENARIOS = {
       await b.goto(BASE + '/', 1500);
 
       // 3. The footer's "Nastavení cookies" reopens the banner (focus moves into it).
-      const r = await b.evaluate(`(() => { const r = document.querySelector('.foot-bottom').getBoundingClientRect(); return { x: 0, y: Math.max(0, r.top + scrollY - 20), width: innerWidth, height: r.height + 40 }; })()`);
+      const r = await b.evaluate(`(() => { const r = document.querySelector('.foot-line').getBoundingClientRect(); return { x: 0, y: Math.max(0, r.top + scrollY - 20), width: innerWidth, height: r.height + 40 }; })()`);
       const shot = await b.send('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true, clip: { ...r, scale: 1 } });
       writeFileSync(join(SHOTS, 'footer-link-1440.png'), Buffer.from(shot.data, 'base64'));
       await b.click('[data-tk-consent-open]');

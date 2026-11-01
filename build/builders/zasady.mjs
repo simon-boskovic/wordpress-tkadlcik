@@ -15,12 +15,16 @@
  * (it is disputed, content.mjs). `id="cookies"` = target of the footer's no-JS "Nastavení cookies" fallback.
  * SEO: noindex,follow + self canonical (R21; seo.mjs NOINDEX), not in the sitemap, not in llms.txt.
  */
+import { stage } from '../fragments.mjs';
+
 export const SLUG = 'zasady-ochrany-osobnich-udaju';
 export const H1 = 'Zásady ochrany osobních údajů';
 
-const h2 = (text, id = '') => `<h2 class="h3"${id ? ` id="${id}"` : ''} style="margin-top: 20px">${text}</h2>`;
-const p = (t) => `<p class="body">${t}</p>`;
-const ul = (items) => `<ul class="stack body" style="gap: 12px; padding-left: 22px; list-style: disc">\n${items.map(([b, t]) => `<li><strong style="font-weight: 500; color: var(--ink)">${b}</strong> – ${t}</li>`).join('\n')}\n</ul>`;
+// Redesign 2026-11-01: legal text unchanged; only the markup classes changed (the "Právní informace" label above
+// the h1 removed; cookie names set as <code>).
+const h2 = (text, id = '') => `<h2 class="h3 legal-h reveal"${id ? ` id="${id}"` : ''}>${text}</h2>`;
+const p = (t) => `<p class="body reveal">${t}</p>`;
+const ul = (items) => `<ul class="legal-list body reveal">\n${items.map(([b, t]) => `<li><strong>${b}</strong> – ${t}</li>`).join('\n')}\n</ul>`;
 
 export function build({ content, page }) {
   const b = content.business;
@@ -31,15 +35,16 @@ export function build({ content, page }) {
     scripts: [],
     frontPage: false,
     sections: [
-      `<section class="wrap" style="padding-top: clamp(56px, 9vw, 120px); padding-bottom: clamp(72px, 10vw, 128px)">
-<article class="stack" style="gap: 20px; max-width: 760px">
-<span class="eyebrow rise">Právní informace</span>
-<h1 class="h1 rise d1" style="font-size: clamp(40px, 5.4vw, 72px)">${H1}</h1>
+      stage(['svitek', 'hory', 'wangmeng', 'peking']),
+
+      `<section class="sec hero hero-sub legal" data-stage="svitek">
+<article class="legal-body">
+<h1 class="h1 rise">${H1}</h1>
 <p class="lead rise d2">Tyto zásady popisují, jaké osobní údaje v souvislosti s tímto webem, kurzy a semináři zpracovávám, proč, na jakém základě, jak dlouho a jaká máte práva.</p>
 
 ${h2('1. Správce')}
-<div class="card stack" style="gap: 6px">
-<strong style="font-weight: 500">${b.name}</strong>
+<div class="course legal-card">
+<strong>${b.name}</strong>
 <span class="body">IČO ${b.ico}</span>
 <span class="body">Sídlo: ${b.address}</span>
 <span class="body">Podnikatel zapsaný v živnostenském rejstříku, příslušný živnostenský úřad: Úřad městské části Praha 4</span>
@@ -49,7 +54,7 @@ ${p('Pověřence pro ochranu osobních údajů jsem nejmenoval (jako drobný pod
 
 ${h2('2. Jaké údaje zpracovávám, proč a jak dlouho')}
 ${ul([
-  ['E-mail a telefon', 'když mi napíšete nebo zavoláte (dotaz na kurz, lekci nebo seminář), zpracovávám vaše jméno, e-mailovou adresu nebo telefonní číslo a obsah zprávy. Účel: odpověď a domluva účasti. Právní základ: jednání o smlouvě a její plnění na vaši žádost (čl. 6 odst. 1 písm. b) GDPR). Web kontaktní formulář nemá a nic z toho neukládá. Uchování: [doplnit: lhůta, např. 3 roky od poslední komunikace].'],
+  ['E-mail, telefon a kontaktní formulář', 'když mi napíšete, zavoláte nebo pošlete zprávu kontaktním formulářem na stránce Kontakt (dotaz na kurz, lekci nebo seminář), zpracovávám vaše jméno, e-mailovou adresu, případně telefonní číslo, zvolené téma a obsah zprávy. Účel: odpověď a domluva účasti. Právní základ: jednání o smlouvě a její plnění na vaši žádost (čl. 6 odst. 1 písm. b) GDPR). Zprávu z formuláře web odešle e-mailem do mé schránky a sám ji neukládá; na vaši adresu odešle krátké potvrzení o přijetí. Kvůli ochraně před spamem si web na 10 minut uloží otisk (hash) IP adresy odesílatele; právní základ: oprávněný zájem (čl. 6 odst. 1 písm. f) GDPR). Uchování: [doplnit: lhůta, např. 3 roky od poslední komunikace].'],
   ['Přihlášky na kurzy a semináře', 'jméno, kontakt, zvolený kurz nebo akce a údaje o zaplacení zálohy. Zálohy se platí bankovním převodem na účet uvedený na stránce Akce; z převodu vidím jméno a číslo účtu plátce, částku, datum a zprávu pro příjemce. Účel: evidence přihlášky a zálohy, organizace kurzu nebo akce. Právní základ: plnění smlouvy (čl. 6 odst. 1 písm. b) GDPR). Uchování: po dobu kurzu nebo akce a [doplnit: lhůta po jejím skončení]. Podmínky přihlášení a storna: [doplnit: storno podmínky seminářů].'],
   ['Účetní a daňové doklady', 'doklady o přijatých platbách (zálohy, kurzovné). Právní základ: zákonná povinnost (čl. 6 odst. 1 písm. c) GDPR). Uchování: po dobu, kterou stanoví účetní a daňové předpisy.'],
   ['Záznamy serveru', 'při každé návštěvě webu server automaticky zaznamená IP adresu, datum a čas, adresu stránky, typ prohlížeče a odkazující stránku. Záznamy vede poskytovatel hostingu. Účel: provoz a zabezpečení webu. Právní základ: oprávněný zájem (čl. 6 odst. 1 písm. f) GDPR). Uchování: po dobu stanovenou poskytovatelem hostingu [HOSTING – doplnit].'],
@@ -69,8 +74,8 @@ ${p('Mimo Evropskou unii údaje nepředávám; výjimkou je Google, který můž
 
 ${h2('4. Cookies, statistika a obsah třetích stran', 'cookies')}
 ${ul([
-  ['Nezbytné', 'web sám žádné cookies nenastavuje; ukládá jen vaši volbu z cookie lišty (cookies <span class="mono">cmplz_*</span> nástroje Complianz: <span class="mono">cmplz_functional</span>, <span class="mono">cmplz_statistics</span>, <span class="mono">cmplz_marketing</span>, <span class="mono">cmplz_preferences</span>, <span class="mono">cmplz_banner-status</span>, <span class="mono">cmplz_policy_id</span> a <span class="mono">cmplz_consented_services</span>, platnost 365 dní). Tyto cookies souhlas nevyžadují. Právní základ: zákonná povinnost doložit souhlas (čl. 6 odst. 1 písm. c) GDPR).'],
-  ['Statistické', 'Google Analytics (Google Ireland Limited, na webu přes plugin Google Site Kit) se načte až poté, co v cookie liště povolíte statistiky; do té doby je skript zablokovaný a Googlu se nic neodesílá. Zaznamenává navštívené stránky, čas a délku návštěvy, odkud jste přišli, typ zařízení a prohlížeče a přibližnou polohu odvozenou z IP adresy; vidím jen souhrnné statistiky. Cookies: <span class="mono">_ga</span> (rozlišení návštěvníků) a <span class="mono">_ga_*</span> (stav návštěvy), platnost až 2 roky (výchozí nastavení Google). Google údaje uchovává [doplnit: 2 nebo 14 měsíců podle nastavení Google Analytics] a může je zpracovávat i v USA (bod 3). Právní základ: váš souhlas (čl. 6 odst. 1 písm. a) GDPR).'],
+  ['Nezbytné', 'web sám žádné cookies nenastavuje; ukládá jen vaši volbu z cookie lišty (cookies <code>cmplz_*</code> nástroje Complianz: <code>cmplz_functional</code>, <code>cmplz_statistics</code>, <code>cmplz_marketing</code>, <code>cmplz_preferences</code>, <code>cmplz_banner-status</code>, <code>cmplz_policy_id</code> a <code>cmplz_consented_services</code>, platnost 365 dní). Tyto cookies souhlas nevyžadují. Právní základ: zákonná povinnost doložit souhlas (čl. 6 odst. 1 písm. c) GDPR).'],
+  ['Statistické', 'Google Analytics (Google Ireland Limited, na webu přes plugin Google Site Kit) se načte až poté, co v cookie liště povolíte statistiky; do té doby je skript zablokovaný a Googlu se nic neodesílá. Zaznamenává navštívené stránky, čas a délku návštěvy, odkud jste přišli, typ zařízení a prohlížeče a přibližnou polohu odvozenou z IP adresy; vidím jen souhrnné statistiky. Cookies: <code>_ga</code> (rozlišení návštěvníků) a <code>_ga_*</code> (stav návštěvy), platnost až 2 roky (výchozí nastavení Google). Google údaje uchovává [doplnit: 2 nebo 14 měsíců podle nastavení Google Analytics] a může je zpracovávat i v USA (bod 3). Právní základ: váš souhlas (čl. 6 odst. 1 písm. a) GDPR).'],
   ['Marketingové', 'marketingové ani reklamní cookies web nepoužívá.'],
   ['Mapa Google', 'načte se až po kliknutí na tlačítko „Zobrazit mapu“; Google pak zpracuje vaši IP adresu a může nastavit vlastní cookies. Právní základ: váš souhlas daný kliknutím.'],
   ['Videa YouTube', 'načtou se až po kliknutí na video, v režimu rozšířené ochrany soukromí (youtube-nocookie.com); YouTube (Google) pak zpracuje vaši IP adresu a může do prohlížeče ukládat údaje. Právní základ: váš souhlas daný kliknutím.'],

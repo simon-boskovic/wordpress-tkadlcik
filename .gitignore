@@ -15,3 +15,6 @@ build/shots/
 # Ad-hoc previews sent to the client
 screenshots-pro-klienta/
 *.zip
+
+# tasteskill working files (screenshots, reports)
+.taste-skill/

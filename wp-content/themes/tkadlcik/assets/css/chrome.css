@@ -1,19 +1,12 @@
-/* Header/footer/404 element styles (the prototype's inline style attributes there, R36). UNLAYERED like
-   pages/<slug>.css — see "Cascade layers" in inc/assets.php: one class per element, no class site.css also
-   styles, no !important. Values verbatim from Main.dc.html's footer. */
+/* Header/footer/404 element styles (UNLAYERED, see "Cascade layers" in inc/assets.php: one class per element, no
+   class site.css also styles, no !important). Redesign 2026-11-01. */
 
 /* Footer (footer.php) */
-.tk-ft-about{gap:10px}
-.tk-ft-name{font-weight:600;letter-spacing:-.01em}
-.tk-ft-col{gap:8px}
-/* Footer bar additions (not in the design; reference patch D8 applies the same values): the operator line under the
-   copyright, and "Nastavení cookies" (cookie consent) as a 44 px target. */
-.tk-ft-id{display:flex;flex-direction:column;gap:4px}
-.tk-ft-op{font-size:13px;line-height:1.5}
-.tk-ft-consent{display:inline-flex;align-items:center;align-self:flex-start;min-height:44px;margin-block:-12px;color:var(--ink-2);text-decoration:none}
-@media (hover:hover) and (pointer:fine){.tk-ft-consent:hover{color:var(--ink)}}
+.tk-ft-id{font-size:15px;line-height:1.5}
+.tk-ft-op{font-size:15px}
+.tk-ft-consent{display:inline-flex;align-items:center;min-height:44px;color:var(--ink,#E3E2DA);text-decoration:underline;text-underline-offset:3px}
 
-/* 404 (404.php) */
-.tk-404{padding-top:clamp(56px,9vw,128px);padding-bottom:clamp(72px,10vw,136px)}
-.tk-404-stack{gap:28px;max-width:980px}
+/* 404 (404.php): one quiet screen in the reading column's place */
+.tk-404{position:relative;padding:calc(64px + clamp(56px,9vw,128px)) clamp(20px,4vw,64px) clamp(72px,10vw,136px)}
+.tk-404-stack{display:flex;flex-direction:column;gap:28px;max-width:760px}
 .tk-404-links{display:flex;flex-wrap:wrap;gap:10px}

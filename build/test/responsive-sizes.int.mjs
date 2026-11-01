@@ -16,6 +16,8 @@ const VIEWPORTS = [360, 390, 430, 500, 501, 600, 713, 714, 767, 768, 820, 999, 1
 const SLACK = 4; // px: rounding of vw/calc against the layout
 const DEFAULT = '(max-width: 767px) 100vw, 50vw';
 
+// The slot is the layout width (offsetWidth), not the bounding box: the stage pictures run a short scale-in on
+// load (site.css tk-settle), which would otherwise be measured mid-animation.
 const MEASURE = `(() => {
   const probe = document.body.appendChild(document.createElement('div'));
   probe.style.cssText = 'position:absolute;visibility:hidden;height:0;left:0;top:0';
@@ -31,7 +33,7 @@ const MEASURE = `(() => {
     return null;
   };
   const out = [...document.images].filter((i) => i.srcset && i.src.includes('/wp-content/uploads/') && i.getClientRects().length)
-    .map((i) => ({ file: i.src.split('/').pop(), sizes: i.getAttribute('sizes') || '', w: i.getBoundingClientRect().width, want: resolve(i.getAttribute('sizes') || '') }));
+    .map((i) => ({ file: i.src.split('/').pop(), sizes: i.getAttribute('sizes') || '', w: i.offsetWidth, want: resolve(i.getAttribute('sizes') || '') }));
   probe.remove();
   return out;
 })()`;

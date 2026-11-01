@@ -85,7 +85,7 @@ function tk_enqueue_assets() {
 		'strategy'  => 'defer',
 	);
 
-	foreach ( array_merge( array( 'nav', 'reveal' ), tk_page_scripts() ) as $name ) {
+	foreach ( array_merge( array( 'nav', 'reveal', 'stage' ), tk_page_scripts() ) as $name ) {
 		wp_enqueue_script( 'tk-' . $name, TK_THEME_URI . '/assets/js/' . $name . '.js', array(), tk_asset_ver( 'assets/js/' . $name . '.js' ), $deferred );
 	}
 }
@@ -118,9 +118,9 @@ function tk_head_early() {
 	// The page canvas rides in the same tiny tag (same value as site.css --bg): a navigation, and a view
 	// transition's snapshots, never show a white canvas before the stylesheets apply.
 	if ( tk_layers_enabled() ) {
-		echo "<style id='tk-layers'>@layer tk-important,tk;html{background:#0E0F0E;color-scheme:dark}</style>\n";
+		echo "<style id='tk-layers'>@layer tk-important,tk;html{background:#161C1A;color-scheme:dark}</style>\n";
 	} else {
-		echo "<style id='tk-canvas'>html{background:#0E0F0E;color-scheme:dark}</style>\n";
+		echo "<style id='tk-canvas'>html{background:#161C1A;color-scheme:dark}</style>\n";
 	}
 
 	if ( tk_is_elementor_editing() ) {

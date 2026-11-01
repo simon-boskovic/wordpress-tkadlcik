@@ -29,6 +29,26 @@
     "og": "og-default.jpg",
     "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
   },
+  "cviceni-na-horach": {
+    "title": "Cvičení na horách – Strážné, Krkonoše | Radost v pohybu",
+    "description": "Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) na horách ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov a 12 forem Yang tchaj-ťi.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.jpg",
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+  },
+  "cviceni-ve-zline": {
+    "title": "Tai chi (tchaj-ťi) a čchi-kung ve Zlíně | Radost v pohybu",
+    "description": "Cvičení čchi-kungu (qigong) a tchaj-ťi (tai chi) ve Zlíně jednou měsíčně v pátek v Centru Jiný svět, Osvoboditelů 484: Osm kusů brokátu a 13 slov tchaj-ťi.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.jpg",
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+  },
   "domu": {
     "title": "Tchaj-ťi (tai chi) a čchi-kung Praha 4 a Zlín | Radost v pohybu",
     "description": "Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.",
@@ -60,7 +80,7 @@
     "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
   },
   "o-mne": {
-    "title": "Mgr. Daniel Tkadlčík – lektor tchaj-ťi od 1997 | Radost v pohybu",
+    "title": "Mgr. Daniel Tkadlčík – tchaj-ťi od roku 1997 | Radost v pohybu",
     "description": "Mgr. Daniel Tkadlčík se věnuje tchaj-ťi (tai chi) od roku 1997, od roku 2007 rodinnému stylu Yang u mistra Vincenta Chu. Učí i čchi-kung (qigong).",
     "robots": [
       "index",
@@ -68,6 +88,36 @@
     ],
     "og": "og-o-mne.jpg",
     "og_alt": "Daniel Tkadlčík, lektor tchaj-ťi"
+  },
+  "osm-kusu-brokatu": {
+    "title": "Osm kusů brokátu – čchi-kung (qigong) cvičení | Radost v pohybu",
+    "description": "Osm kusů brokátu, čchi-kungové (qigong) cvičení ze skupiny Daoyin: názvy všech osmi cviků, video a pravidelný úterní kurz v Praze 4.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.jpg",
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+  },
+  "seminar-vincent-chu": {
+    "title": "Seminář s mistrem Vincentem Chu v Praze | Radost v pohybu",
+    "description": "Seminář tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze: korektura dlouhé formy středního řádu stylu Yang a DaoYinový čchi-kung Hrátky pěti zvířat.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.jpg",
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+  },
+  "videogalerie": {
+    "title": "Videogalerie tchaj-ťi a čchi-kungu | Radost v pohybu",
+    "description": "Videa sestav tchaj-ťi (tai chi) stylu Yang a čchi-kungu (qigong): 12 forem pro začátečníky, 43 forem mistra Vincenta Chu, sestava s holí, Osm kusů brokátu.",
+    "robots": [
+      "index",
+      "follow"
+    ],
+    "og": "og-default.jpg",
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
   },
   "zasady-ochrany-osobnich-udaju": {
     "title": "Zásady ochrany osobních údajů | Radost v pohybu",
