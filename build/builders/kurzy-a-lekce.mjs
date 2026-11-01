@@ -54,7 +54,7 @@ export function build({ content, page }) {
     scripts: ['map'],
     frontPage: false,
     sections: [
-      stage(['peking', 'snih', 'zlin', 'svitek']),
+      stage(['peking', 'praha', 'snih', 'zlin', 'svitek']),
 
       hero({
         h1: 'Kurzy tchaj-ťi a čchi-kungu: rozvrh a ceny',
@@ -64,7 +64,7 @@ export function build({ content, page }) {
       }),
 
       sec({
-        id: 'praha', stageKey: 'peking',
+        id: 'praha', stageKey: 'praha',
         h2: 'Rozpis cvičení v Praze 4',
         intro: 'Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A.',
         body: `${rows(SCHEDULE.map((s) => ({ name: s.name, val: `${s.day} ${s.time}`, desc: s.text || '' })), 'Pravidelné cvičení')}

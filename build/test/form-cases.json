@@ -1,0 +1,23 @@
+[
+  { "data": { "name": "Jana Nováková", "email": "jana@email.cz", "phone": "", "message": "Dobrý den, mám zájem o kurz." }, "errors": [] },
+  { "data": { "name": "Ťi", "email": "a.b-c@sub.domena.cz", "phone": "+420 777 123 456", "message": "Prosím o informace k termínům." }, "errors": [] },
+  { "data": { "name": "", "email": "", "phone": "", "message": "" }, "errors": ["name", "email", "message"] },
+  { "data": { "name": "J", "email": "jana@email.cz", "phone": "", "message": "Dobrý den, mám zájem." }, "errors": ["name"] },
+  { "data": { "name": "12345", "email": "jana@email.cz", "phone": "", "message": "Dobrý den, mám zájem." }, "errors": ["name"] },
+  { "data": { "name": "Visit https://spam.example", "email": "jana@email.cz", "phone": "", "message": "Dobrý den, mám zájem." }, "errors": ["name"] },
+  { "data": { "name": "jana@email.cz", "email": "jana@email.cz", "phone": "", "message": "Dobrý den, mám zájem." }, "errors": ["name"] },
+  { "data": { "name": "<b>Jana</b>", "email": "jana@email.cz", "phone": "", "message": "Dobrý den, mám zájem." }, "errors": ["name"] },
+  { "data": { "name": "Jana", "email": "jana@email", "phone": "", "message": "Dobrý den, mám zájem." }, "errors": ["email"] },
+  { "data": { "name": "Jana", "email": "jana email.cz", "phone": "", "message": "Dobrý den, mám zájem." }, "errors": ["email"] },
+  { "data": { "name": "Jana", "email": "jana@@email.cz", "phone": "", "message": "Dobrý den, mám zájem." }, "errors": ["email"] },
+  { "data": { "name": "Jana", "email": "jana@email.cz", "phone": "777 123", "message": "Dobrý den, mám zájem." }, "errors": ["phone"] },
+  { "data": { "name": "Jana", "email": "jana@email.cz", "phone": "777-123-456", "message": "Dobrý den, mám zájem." }, "errors": ["phone"] },
+  { "data": { "name": "Jana", "email": "jana@email.cz", "phone": "+420 777 123 456 789 0", "message": "Dobrý den, mám zájem." }, "errors": ["phone"] },
+  { "data": { "name": "Jana", "email": "jana@email.cz", "phone": "777123456", "message": "Dobrý den, mám zájem." }, "errors": [] },
+  { "data": { "name": "Jana", "email": "jana@email.cz", "phone": "", "message": "Ahoj" }, "errors": ["message"] },
+  { "data": { "name": "Jana", "email": "jana@email.cz", "phone": "", "message": "Levné: https://a.example https://b.example www.c.example" }, "errors": ["message"] },
+  { "data": { "name": "Jana", "email": "jana@email.cz", "phone": "", "message": "Viz https://a.example a www.b.example, díky." }, "errors": [] },
+  { "data": { "name": "Jana", "email": "jana@email.cz", "phone": "", "message": "{{2001}}" }, "errors": ["message"] },
+  { "data": { "name": "Jana", "email": "jana@email.cz", "phone": "", "message": "{{2000}}" }, "errors": [] },
+  { "data": { "name": "Žluťoučký kůň Ďábelský", "email": "kun@email.cz", "phone": "", "message": "Příliš žluťoučký kůň úpěl ďábelské ódy." }, "errors": [] }
+]

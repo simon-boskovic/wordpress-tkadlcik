@@ -96,7 +96,9 @@
     {
       "href": "/kontakt/",
       "label": "Kontakt",
-      "cta": true
+      "cta": true,
+      "button": "Napište mi",
+      "buttonHref": "/kontakt/#formular"
     }
   ],
   "footer": {
@@ -153,7 +155,9 @@
       {
         "href": "/kontakt/",
         "label": "Kontakt",
-        "cta": true
+        "cta": true,
+        "button": "Napište mi",
+        "buttonHref": "/kontakt/#formular"
       },
       {
         "href": "/zasady-ochrany-osobnich-udaju/",
@@ -225,6 +229,13 @@
       "date": "Qing dynasty/early Republican period, 19th/early 20th century",
       "license": "public domain (CC0)",
       "page": "https://www.artic.edu/artworks/86451"
+    },
+    {
+      "title": "Praha Branik Jeremenkova 66a ZS",
+      "creator": "JiriMatejicek",
+      "date": "2021-07-12",
+      "license": "CC BY-SA 4.0",
+      "page": "https://commons.wikimedia.org/wiki/File:Praha_Branik_Jeremenkova_66a_ZS.jpg"
     }
   ]
 }

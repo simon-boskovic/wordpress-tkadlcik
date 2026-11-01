@@ -106,5 +106,17 @@
   "ref": "aic:86451",
   "width": 1600,
   "height": 788
+ },
+ "tk-praha-jeremenkova.jpg": {
+  "title": "Praha Branik Jeremenkova 66a ZS",
+  "creator": "JiriMatejicek",
+  "date": "2021-07-12",
+  "license": "CC BY-SA 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Praha_Branik_Jeremenkova_66a_ZS.jpg",
+  "via": "Wikimedia Commons",
+  "ref": "commons:112480652",
+  "width": 1920,
+  "height": 1440
  }
 }

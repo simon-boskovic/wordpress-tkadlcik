@@ -1,0 +1,36 @@
+{
+  "_": "Contact form rules, the single source for the server (tk-form.php tk_form_validate) and the browser (form.js, from the form's data-rules). Lengths count characters (code points). Patterns are used with the u flag in both. Cases: build/test/form-cases.json.",
+  "name": {
+    "required": "Vyplňte prosím jméno.",
+    "min": 2,
+    "max": 80,
+    "lenMsg": "Jméno musí mít 2 až 80 znaků.",
+    "pattern": "\\p{L}",
+    "patternMsg": "Jméno musí obsahovat písmena.",
+    "forbid": "https?:|www\\.|@|<|>",
+    "forbidMsg": "Do jména nepatří odkaz, e-mail ani značky."
+  },
+  "email": {
+    "required": "Vyplňte prosím e-mail, ať vám mohu odpovědět.",
+    "max": 120,
+    "lenMsg": "E-mail může mít nejvýše 120 znaků.",
+    "pattern": "^[^\\s@<>()\\[\\],;:\"]+@[^\\s@<>()\\[\\],;:\"]+\\.[^\\s@<>()\\[\\],;:\"]{2,}$",
+    "patternMsg": "E-mail nemá správný tvar, například jmeno@email.cz."
+  },
+  "phone": {
+    "max": 20,
+    "lenMsg": "Telefon může mít nejvýše 20 znaků.",
+    "pattern": "^\\+?[0-9 ]+$",
+    "patternMsg": "Telefon zadejte číslicemi, například 777 123 456 nebo +420 777 123 456.",
+    "digits": [9, 15],
+    "digitsMsg": "Telefon musí mít 9 až 15 číslic."
+  },
+  "message": {
+    "required": "Napište prosím zprávu.",
+    "min": 10,
+    "max": 2000,
+    "lenMsg": "Zpráva musí mít 10 až 2000 znaků.",
+    "maxLinks": 2,
+    "linksMsg": "Zpráva může obsahovat nejvýše 2 odkazy."
+  }
+}

@@ -63,33 +63,54 @@ function tk_form_token_age( $token ) {
 }
 
 /**
- * Validation errors per field (Czech).
+ * The field rules (wp-content/mu-plugins/tk-form/rules.json), shared with the browser through the form's data-rules.
+ *
+ * @return array<string,array<string,mixed>>
+ */
+function tk_form_rules() {
+	static $rules = null;
+	if ( null === $rules ) {
+		$rules = json_decode( (string) file_get_contents( __DIR__ . '/tk-form/rules.json' ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- local file.
+		unset( $rules['_'] );
+	}
+	return $rules;
+}
+
+/**
+ * Validation errors per field (Czech), from tk_form_rules(). The same engine runs in form.js (tkFormCheck);
+ * build/test/form-cases.json is checked against both.
  *
  * @param array<string,string> $d Trimmed data.
  * @return array<string,string>
  */
 function tk_form_validate( $d ) {
 	$e   = array();
-	$len = static fn( $s ) => function_exists( 'mb_strlen' ) ? mb_strlen( $s ) : strlen( $s );
-	if ( '' === $d['name'] ) {
-		$e['name'] = 'Vyplňte prosím jméno.';
-	} elseif ( $len( $d['name'] ) < 2 || $len( $d['name'] ) > TK_FORM_LIMITS['name'] ) {
-		$e['name'] = 'Jméno musí mít 2 až 80 znaků.';
+	$len = static fn( $s ) => function_exists( 'mb_strlen' ) ? mb_strlen( $s, 'UTF-8' ) : strlen( $s );
+	$re  = static fn( $p, $v ) => 1 === preg_match( '~' . str_replace( '~', '\~', $p ) . '~u', $v );
+	foreach ( tk_form_rules() as $field => $r ) {
+		$v = (string) ( $d[ $field ] ?? '' );
+		if ( '' === $v ) {
+			if ( isset( $r['required'] ) ) {
+				$e[ $field ] = $r['required'];
+			}
+			continue;
+		}
+		$n = $len( $v );
+		if ( ( isset( $r['min'] ) && $n < $r['min'] ) || ( isset( $r['max'] ) && $n > $r['max'] ) ) {
+			$e[ $field ] = $r['lenMsg'];
+		} elseif ( isset( $r['pattern'] ) && ! $re( $r['pattern'], $v ) ) {
+			$e[ $field ] = $r['patternMsg'];
+		} elseif ( isset( $r['forbid'] ) && $re( $r['forbid'], $v ) ) {
+			$e[ $field ] = $r['forbidMsg'];
+		} elseif ( isset( $r['digits'] ) && ( strlen( (string) preg_replace( '/\D/', '', $v ) ) < $r['digits'][0] || strlen( (string) preg_replace( '/\D/', '', $v ) ) > $r['digits'][1] ) ) {
+			$e[ $field ] = $r['digitsMsg'];
+		} elseif ( isset( $r['maxLinks'] ) && preg_match_all( '~https?://|www\.~iu', $v ) > $r['maxLinks'] ) {
+			$e[ $field ] = $r['linksMsg'];
+		}
 	}
-	if ( '' === $d['email'] ) {
-		$e['email'] = 'Vyplňte prosím e-mail, ať vám mohu odpovědět.';
-	} elseif ( ! is_email( $d['email'] ) || $len( $d['email'] ) > TK_FORM_LIMITS['email'] ) {
-		$e['email'] = 'E-mail nemá správný tvar, například jmeno@email.cz.';
-	}
-	if ( '' !== $d['phone'] && ! preg_match( '/^\+?[0-9 ]{9,20}$/', $d['phone'] ) ) {
-		$e['phone'] = 'Telefon zadejte jen číslicemi, například 777 123 456.';
-	}
-	if ( '' === $d['message'] ) {
-		$e['message'] = 'Napište prosím zprávu.';
-	} elseif ( $len( $d['message'] ) < 10 ) {
-		$e['message'] = 'Zpráva je příliš krátká.';
-	} elseif ( $len( $d['message'] ) > TK_FORM_LIMITS['message'] ) {
-		$e['message'] = 'Zpráva může mít nejvýše 2000 znaků.';
+	// WordPress's own check on top (the pattern is the browser's twin; is_email() is stricter on the domain).
+	if ( ! isset( $e['email'] ) && '' !== ( $d['email'] ?? '' ) && ! is_email( $d['email'] ) ) {
+		$e['email'] = tk_form_rules()['email']['patternMsg'];
 	}
 	return $e;
 }
@@ -116,15 +137,15 @@ function tk_form_markup( $d = array(), $e = array() ) {
 	foreach ( TK_FORM_TOPICS as $t ) {
 		$opts .= '<option' . ( $t === $topic ? ' selected' : '' ) . '>' . esc_html( $t ) . '</option>';
 	}
-	return '<form class="tk-form" method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" data-tk-form novalidate>'
+	return '<form class="tk-form" method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '" data-tk-form novalidate data-rules="' . esc_attr( (string) wp_json_encode( tk_form_rules(), JSON_UNESCAPED_UNICODE ) ) . '">'
 		. '<input type="hidden" name="action" value="tk_contact">'
 		. '<input type="hidden" name="tk_t" value="' . esc_attr( tk_form_token() ) . '">'
 		. '<div class="hp" aria-hidden="true"><label>Nevyplňujte <input type="text" name="' . TK_FORM_HONEYPOT . '" tabindex="-1" autocomplete="off"></label></div>'
-		. '<div class="f-row"><label for="f-name">Jméno</label><input id="f-name" name="name" type="text" autocomplete="name" required maxlength="80" value="' . $v( 'name' ) . '"' . $inv( 'name' ) . '>' . $err( 'name' ) . '</div>'
+		. '<div class="f-row"><label for="f-name">Jméno</label><input id="f-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80" value="' . $v( 'name' ) . '"' . $inv( 'name' ) . '>' . $err( 'name' ) . '</div>'
 		. '<div class="f-row"><label for="f-email">E-mail</label><input id="f-email" name="email" type="email" autocomplete="email" required maxlength="120" value="' . $v( 'email' ) . '"' . $inv( 'email' ) . '>' . $err( 'email' ) . '</div>'
 		. '<div class="f-row"><label for="f-phone">Telefon <span class="opt">(nepovinné)</span></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" maxlength="20" inputmode="tel" value="' . $v( 'phone' ) . '"' . $inv( 'phone' ) . '>' . $err( 'phone' ) . '</div>'
 		. '<div class="f-row"><label for="f-topic">O co máte zájem</label><select id="f-topic" name="topic">' . $opts . '</select></div>'
-		. '<div class="f-row f-wide"><label for="f-message">Zpráva</label><textarea id="f-message" name="message" rows="6" required minlength="10" maxlength="2000"' . $inv( 'message' ) . '>' . esc_textarea( $d['message'] ?? '' ) . '</textarea>' . $err( 'message' ) . '</div>'
+		. '<div class="f-row f-wide"><label for="f-message">Zpráva</label><textarea id="f-message" name="message" rows="6" required minlength="10" maxlength="2000"' . $inv( 'message' ) . '>' . esc_textarea( $d['message'] ?? '' ) . '</textarea>' . $err( 'message' ) . '<span class="f-count" data-tk-count aria-live="polite"></span></div>'
 		. '<p class="form-note f-wide">Zprávu vám pošlu e-mailem zpět; nic z ní web neukládá. Podrobnosti v <a class="lnk" href="' . esc_url( home_url( '/zasady-ochrany-osobnich-udaju/' ) ) . '">zásadách ochrany osobních údajů</a>.</p>'
 		. '<div class="f-wide"><button type="submit" class="btn btn-primary">Odeslat zprávu</button></div>'
 		. '</form>';

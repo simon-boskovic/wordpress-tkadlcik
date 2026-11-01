@@ -398,6 +398,11 @@ code{font-size:.92em}
 .tk-form .opt{color:var(--soft);font-weight:400}
 .tk-form input,.tk-form select,.tk-form textarea{font:inherit;font-size:var(--t-b);color:var(--ink);background:var(--paper-2);border:2px solid transparent;border-radius:8px;padding:12px 14px;min-height:48px;width:100%;transition:border-color 160ms var(--ease-out)}
 .tk-form textarea{resize:vertical;min-height:160px;line-height:1.5}
+/* Validation (form.js / tk-form.php): message under the field, border on the field, characters left in the message. */
+.tk-form .field-err{color:#F2A49B;font-size:var(--t-s);line-height:1.4}
+.tk-form [aria-invalid="true"]{border-color:#F2A49B}
+.tk-form .f-count{align-self:flex-end;color:var(--soft);font-size:var(--t-s);font-variant-numeric:tabular-nums}
+.tk-form .f-count.over{color:#F2A49B}
 .tk-form input:hover,.tk-form select:hover,.tk-form textarea:hover{border-color:#2F3B37}
 .tk-form input:focus-visible,.tk-form select:focus-visible,.tk-form textarea:focus-visible{outline:none;border-color:var(--focus)}
 .tk-form [aria-invalid="true"]{border-color:#E8A598}

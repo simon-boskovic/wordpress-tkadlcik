@@ -13,7 +13,7 @@ export function build({ content, page }) {
     scripts: ['map', 'form'],
     frontPage: false,
     sections: [
-      stage(['svitek', 'peking', 'zlin', 'hory']),
+      stage(['svitek', 'praha', 'zlin', 'hory']),
 
       hero({
         h1: 'Kontakt: tchaj-ťi Praha 4 a Zlín',
@@ -33,7 +33,7 @@ export function build({ content, page }) {
       }),
 
       sec({
-        id: 'praha', stageKey: 'peking',
+        id: 'praha', stageKey: 'praha',
         h2: 'Tělocvična ZŠ Jeremenkova, Praha 4',
         intro: `${praha.street}, ${praha.postalCode} ${praha.city}`,
         body: `<div class="media reveal">${mapBox(praha, content.mapsEmbedUrl, content.mapsLinkUrl)}</div>

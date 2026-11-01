@@ -33,7 +33,7 @@ foreach ( $tk_data['nav'] as $tk_l ) {
 <?php endforeach; ?>
 <button type="button" class="menu-btn" aria-expanded="false" aria-controls="menu-panel" aria-label="Otevřít menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-word">Menu</span></button>
 <?php if ( $tk_cta ) : ?>
-<a class="btn btn-primary" href="<?php echo esc_url( home_url( $tk_cta['href'] ) ); ?>"<?php echo $tk_cur( $tk_cta['href'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed attribute. ?>><?php echo esc_html( $tk_cta['label'] ); ?></a>
+<a class="btn btn-primary" href="<?php echo esc_url( home_url( $tk_cta['buttonHref'] ?? $tk_cta['href'] ) ); ?>"<?php echo $tk_cur( $tk_cta['href'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed attribute. ?>><?php echo esc_html( $tk_cta['button'] ?? $tk_cta['label'] ); ?></a>
 <?php endif; ?>
 </nav>
 <div id="menu-panel" class="menu-panel" aria-hidden="true" inert>

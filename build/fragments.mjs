@@ -33,6 +33,7 @@ export const PICTURES = {
   peking: { src: './client-img/tk-peking-1988.jpg', w: 1300, h: 713, alt: 'Skupina lidí cvičí ranní tchaj-ťi v pekingském parku', cap: 'Ranní tchaj-ťi v Pekingu, 1988', pos: '62% 50%' },
   snih: { src: './client-img/tk-snih-yang.jpg', w: 1920, h: 1308, alt: 'Cvičenec v bílém provádí tchaj-ťi stylu Yang ve sněhu', cap: 'Tchaj-ťi stylu Yang ve sněhu', pos: '40% 50%' },
   strazne: { src: './client-img/tk-strazne.jpg', w: 1600, h: 806, alt: 'Cesta na hřebeni nad Strážným v Krkonoších při západu slunce', cap: 'Krkonoše nad Strážným', pos: '55% 50%' },
+  praha: { src: './client-img/tk-praha-jeremenkova.jpg', w: 1920, h: 1440, alt: 'Základní škola Jeremenkova v Praze-Braníku, průčelí budovy', cap: 'ZŠ Jeremenkova, Praha 4', pos: '50% 45%' },
   zlin: { src: './client-img/tk-zlin.jpg', w: 1600, h: 1200, alt: 'Zlín z výšky, pohled z Baťova mrakodrapu', cap: 'Zlín z Baťova mrakodrapu', pos: '50% 50%' },
   portret: { src: './client-img/daniel-tkadlcik-portret.jpg', w: 1440, h: 1920, alt: 'Daniel Tkadlčík, lektor tchaj-ťi', cap: 'Daniel Tkadlčík', pos: '55% 30%', own: true },
 };
