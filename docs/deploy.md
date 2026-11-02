@@ -1,6 +1,6 @@
 # Nasazení na Webglobe — radostvpohybu.cz
 
-**Stav: nasazeno 2026-11-01** (balík `3178334`, opravy `7d0254f`, `f838fda`, obsah z PDF + „Napište mi“ + validace formuláře `df268d4`). Web běží na
+**Stav: nasazeno 2026-11-01** (balík `3178334`, opravy `7d0254f`, `f838fda`, obsah z PDF + „Napište mi“ + validace formuláře `df268d4`; 2026-11-02 `8180285`: seminář 21.–22. 11. 2026 s letákem, zvětšování obrázků, dechové kolečko, pole událostí). Web běží na
 https://radostvpohybu.cz/ ve stávající instalaci WordPressu od Webglobe.
 
 ## Server (zjištěno 2026-11-01)
