@@ -88,6 +88,6 @@ Zvenku: `node build/interact.mjs all --base=https://radostvpohybu.cz`. `verify.m
 - **Zásady ochrany osobních údajů**: 5× `[doplnit …]` (lhůty, hosting …) od klienta.
 - **HSTS** po týdnu bez problémů na rok: `wp config set TK_HSTS_MAX_AGE 31536000 --raw && wp tk headers-setup`.
 - **Search Console**: ověřit doménu, odeslat `sitemap.xml`. Webnode (`dan24.webnode.cz`): odkaz na nový web, pak vypnout.
-- **Přístup**: po dokončení prací smazat SSH klíč `claude-radostvpohybu-2026-11` z `~/.ssh/authorized_keys` na serveru.
+- **Přístup**: SSH klíč `claude-radostvpohybu-2026-11` smazán 2026-11-02 (na serveru i lokálně; `authorized_keys` je prázdný, přihlášení heslem). Pro další nasazení přes Claude vytvořit nový klíč a po práci ho zase smazat.
 - Wordfence zůstává (ochrana přihlášení); Webglobe Welcome zůstává. LiteSpeed Cache a MonsterInsights jsou vypnuté,
   nesmazané.
