@@ -34,8 +34,9 @@ export function build({ content, page }) {
       sec({
         id: 'chu', stageKey: 'weiqi',
         h2: 'Seminář s mistrem Vincentem Chu v Praze',
-        intro: 'V Praze bude učit DaoYinový čchi-kung – Hrátky pěti zvířat v sobotu 29. 11. Ve čtvrtek celý den a pátek celý den je korektura dlouhé formy středního řádu.',
+        intro: 'V listopadu 2026 Guo Yang Tzu – statický čchi-kung, vhodný i pro začátečníky, a ukázka uvolnění síly fa jin. V roce 2025 učil DaoYinový čchi-kung – Hrátky pěti zvířat a korekturu dlouhé formy středního řádu.',
         body: `${rows([
+  { name: '21. 11. – 22. 11. 2026', val: `Guo Yang Tzu – statický čchi-kung${pastBadge(['chu-2026'], day)}` },
   { name: 'Čtvrtek 27. 11. 2025', val: `Korekce dlouhé sestavy středního řádu${pastBadge(['chu'], day)}` },
   { name: 'Pátek 28. 11. 2025', val: `Korekce dlouhé sestavy středního řádu${pastBadge(['chu'], day)}` },
   { name: 'Sobota 29. 11. 2025', val: `Hrátky pěti zvířat${pastBadge(['chu'], day)}` },
@@ -49,7 +50,7 @@ export function build({ content, page }) {
 <h2 class="h2 reveal" id="letak-h">Výukový seminář se šavlí stylu Yang tchaj-ťi</h2>
 <div class="actions reveal"><a class="btn btn-quiet" href="/wp-content/uploads/letak-savle.jpg" download>Stáhnout leták na Šavli</a></div>
 </div>
-<figure class="media reveal" style="max-width: 440px"><img class="pic" src="/wp-content/uploads/letak-savle.jpg" alt="Leták: Výukový seminář s šavlí stylu Yang tchaj-ťi" width="1587" height="2245" loading="lazy" decoding="async"></figure>
+<figure class="media reveal" style="max-width: 440px"><a class="zoom-link" href="/wp-content/uploads/letak-savle.jpg" data-tk-zoom><img class="pic pic-doc" src="/wp-content/uploads/letak-savle.jpg" alt="Leták: Výukový seminář s šavlí stylu Yang tchaj-ťi" width="1587" height="2245" loading="lazy" decoding="async"></a><figcaption>Kliknutím leták zvětšíte.</figcaption></figure>
 </div>
 </section>`,
 

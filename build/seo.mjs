@@ -58,7 +58,7 @@ export const SEO = {
   },
   'seminar-vincent-chu': {
     title: `Seminář s mistrem Vincentem Chu v Praze${TITLE_SUFFIX}`,
-    description: 'Seminář tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze: korektura dlouhé formy středního řádu stylu Yang a DaoYinový čchi-kung Hrátky pěti zvířat.',
+    description: 'Seminář s mistrem Vincentem Chu v Praze 21.–22. 11. 2026: Guo Yang Tzu, statický čchi-kung (qigong) i pro začátečníky, a ukázka uvolnění síly fa jin.',
   },
   'cviceni-na-horach': {
     title: `Cvičení na horách – Strážné, Krkonoše${TITLE_SUFFIX}`,
@@ -125,13 +125,22 @@ const pathOf = (p) => (p.front_page ? '/' : `/${p.slug}/`);
  * (2024/2025), so none is emitted today; a new seminar added to the Akce page belongs here too.
  * The summer course is left out on purpose: its dates in the design are inconsistent ("30. 7. – 7. 7. 2024").
  * Dates come from content.mjs EVENTS (the same data marks past events "Proběhlo" on the pages, builders/ux.mjs).
+ * description/image (and offers where the page states a price) = Google's recommended Event fields (Search
+ * Console "Vylepšete vzhled položky"); `url` = the event's own page, `performer` defaults to Daniel.
  */
+const EVENT_IMAGE = `/wp-content/uploads/${OG_IMAGE}`;
 export const SEMINARS = [
-  { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS.chu.startDate, endDate: EVENTS.chu.endDate, place: 'praha', text: EVENTS.chu.text },
-  // The owner's all-day Sundays (PDF, 1. 11. 2026); the name is the Akce section heading.
-  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-11'].startDate, endDate: EVENTS['nedele-11'].endDate, place: 'praha', text: EVENTS['nedele-11'].text },
-  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-12'].startDate, endDate: EVENTS['nedele-12'].endDate, place: 'praha', text: EVENTS['nedele-12'].text },
-  { name: 'Jarní cvičení na horách', startDate: EVENTS['hory-jaro'].startDate, endDate: EVENTS['hory-jaro'].endDate, price: 3800, location: { name: 'Penzion Exnar', addressLocality: 'Strážné', streetAddress: 'Strážné 2' }, text: EVENTS['hory-jaro'].text },
+  { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS.chu.startDate, endDate: EVENTS.chu.endDate, place: 'praha', text: EVENTS.chu.text,
+    description: 'Korektura dlouhé formy středního řádu stylu Yang a DaoYinový čchi-kung Hrátky pěti zvířat.', url: '/seminar-vincent-chu/', performer: '/#vincent-chu' },
+  // The owner's all-day Sundays (PDF, 1. 11. 2026); the name is the Akce section heading. No price stated yet.
+  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-11'].startDate, endDate: EVENTS['nedele-11'].endDate, place: 'praha', text: EVENTS['nedele-11'].text, description: SUNDAYS.text, url: '/akce/#nedele' },
+  // The owner's flyer (2. 11. 2026): Guo Yang Tzu with a demonstration by Vincent Chu, 2 500 Kč.
+  { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS['chu-2026'].startDate, endDate: EVENTS['chu-2026'].endDate, place: 'praha', text: EVENTS['chu-2026'].text,
+    description: 'Guo Yang Tzu – statický čchi-kung spojený s procvičováním pojivových tkání, vhodný i pro začátečníky. Mistr Vincent Chu předvede uvolnění síly fa jin.',
+    image: '/wp-content/uploads/letak-gu-yang-tzu.jpg', price: 2500, url: '/seminar-vincent-chu/', performer: '/#vincent-chu' },
+  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-12'].startDate, endDate: EVENTS['nedele-12'].endDate, place: 'praha', text: EVENTS['nedele-12'].text, description: SUNDAYS.text, url: '/akce/#nedele' },
+  { name: 'Jarní cvičení na horách', startDate: EVENTS['hory-jaro'].startDate, endDate: EVENTS['hory-jaro'].endDate, price: 3800, location: { name: 'Penzion Exnar', addressLocality: 'Strážné', streetAddress: 'Strážné 2' }, text: EVENTS['hory-jaro'].text,
+    description: 'Cvičení v Krkonoších: Osm kusů brokátu, průpravná cvičení tchaj-ťi kung, zhan zhuang, 13 slov tchaj-ťi a 12 forem Yang tchaj-ťi.', url: '/cviceni-na-horach/' },
 ];
 
 /** Page text (tags stripped, entities decoded, whitespace collapsed) — what the visitor reads. */
@@ -303,8 +312,9 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
           '@type': 'Event', '@id': `${path}#event-${i + 1}`, name: e.name, startDate: e.startDate, endDate: e.endDate,
           eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode', eventStatus: 'https://schema.org/EventScheduled',
           location: e.place ? { '@id': placeId[e.place] } : { '@type': 'Place', name: e.location.name, address: { '@type': 'PostalAddress', streetAddress: e.location.streetAddress, addressLocality: e.location.addressLocality, addressCountry: 'CZ' } },
-          organizer: { '@id': '/#organization' }, performer: { '@id': '/#daniel' }, url: path,
-          ...(e.price ? { offers: { '@type': 'Offer', price: e.price, priceCurrency: 'CZK', url: path } } : {}),
+          description: e.description, image: [e.image || EVENT_IMAGE],
+          organizer: { '@id': '/#organization' }, performer: { '@id': e.performer || '/#daniel' }, url: e.url || path,
+          ...(e.price ? { offers: { '@type': 'Offer', price: e.price, priceCurrency: 'CZK', availability: 'https://schema.org/InStock', validFrom: '2026-11-01', url: e.url || path } } : {}),
         });
       }
     }

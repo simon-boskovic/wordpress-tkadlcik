@@ -118,6 +118,8 @@ export const videoUploadDates = {
  */
 export const EVENTS = {
   chu: { startDate: '2025-11-27', endDate: '2025-11-29', text: '27. 11. – 29. 11. 2025' },
+  // Owner's flyer (client-files/letak-gu-yang-tzu.jpg, 2. 11. 2026).
+  'chu-2026': { startDate: '2026-11-21', endDate: '2026-11-22', text: '21. 11. – 22. 11. 2026' },
   'hory-jaro': { startDate: '2024-05-10', endDate: '2024-05-12', text: '10. – 12. 5. 2024' },
   // Printed "30. 7. neděle – 7. 7. 2024 neděle" (inconsistent, awaits the client): the stated end date is used;
   // every reading of it ends in summer 2024.

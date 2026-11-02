@@ -1,7 +1,8 @@
 // Breathing guide (the home page's live thing): the disc grows for 5 s (Nádech) and shrinks for 5 s (Výdech); the
 // word follows the disc's own CSS animation (read from its currentTime, so they never drift); the counter counts
 // breaths. The button stops and resumes it. Without JS the disc still breathes (CSS) and the word reads "Nádech";
-// under reduced motion the disc stands still and the button is hidden.
+// under reduced motion the disc stands still and the button is hidden. With JS the disc waits until at least half of
+// it is on screen (the counter starts with the reader, not with the page load) and rests while scrolled away.
 (function () {
   var box = document.querySelector('[data-breath]');
   if (!box) return;
@@ -10,7 +11,20 @@
   var disc = box.querySelector('.breath-disc');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (reduce.matches) { if (btn) btn.hidden = true; return; }
-  var n = 0, last = 'in', paused = false;
+  var n = 0, last = 'in', paused = false, seen = false;
+  // data-away = off screen (independent of the button's data-paused); the first view restarts the cycle at Nádech.
+  if ('IntersectionObserver' in window) {
+    box.setAttribute('data-away', '');
+    new IntersectionObserver(function (entries) {
+      var on = entries[entries.length - 1].isIntersecting;
+      if (on && !seen) {
+        seen = true;
+        var a = disc && disc.getAnimations ? disc.getAnimations()[0] : null;
+        if (a) a.currentTime = 0;
+      }
+      if (on) box.removeAttribute('data-away'); else box.setAttribute('data-away', '');
+    }, { threshold: 0.5 }).observe(box);
+  }
   function label(k) { return k === 1 ? '1 dech' : (k >= 2 && k <= 4 ? k + ' dechy' : k + ' dechů'); }
   function tick() {
     var anim = disc && disc.getAnimations ? disc.getAnimations()[0] : null;

@@ -139,6 +139,7 @@ ${more('/o-mne/', 'O mně')}
         body: `${rows([
   { name: NEW_COURSE.title, href: '/kurzy-a-lekce/#novy-kurz', val: `${NEW_COURSE.day} ${NEW_COURSE.time}`, desc: NEW_COURSE.text },
   { name: SUNDAYS.title, href: '/akce/#nedele', val: `${SUNDAYS.dates.map((d) => d.date.replace(/ 2026$/, '')).join(' a ')} 2026${pastBadge(SUNDAYS.dates.map((d) => d.key), day)}`, desc: SUNDAYS.text },
+  { name: 'Seminář s mistrem Vincentem Chu', href: '/seminar-vincent-chu/', val: `21. 11. – 22. 11. 2026${pastBadge(['chu-2026'], day)}`, desc: 'Guo Yang Tzu – statický čchi-kung, vhodný i pro začátečníky. Ukázka uvolnění síly fa jin.' },
   { name: 'Seminář s mistrem Vincentem Chu', href: '/seminar-vincent-chu/', val: `27. 11. – 29. 11. 2025${pastBadge(['chu'], day)}`, desc: 'Korektura dlouhé formy středního řádu. DaoYinový čchi-kung – Hrátky pěti zvířat.' },
   { name: 'Cvičení na horách', href: '/cviceni-na-horach/', val: 'Strážné v Krkonoších', desc: 'Cvičíme v příjemném prostředí Krkonoš.' },
   { name: 'Cvičení ve Zlíně', href: '/cviceni-ve-zline/', val: '1x měsíčně vždy v pátek', desc: 'Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.' },

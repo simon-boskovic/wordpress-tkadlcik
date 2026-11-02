@@ -34,7 +34,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"weiqi\" data-cap=\"Dai Jin, Krajina s taoistickými nesmrtelnými, dynastie Ming\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-weiqi.webp\" alt=\"Čínská malba: taoističtí nesmrtelní hrají pod stromy hru weiqi\" width=\"1306\" height=\"2250\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-f7333170\">\n</figure>\n<figure data-stage-fig=\"wangmeng\" data-cap=\"Wang Shimin, Krajina podle Wang Menga, 1664\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-wang-meng.webp\" alt=\"Čínská tušová malba: vysoké hory porostlé lesem\" width=\"1071\" height=\"2250\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-cea1bc1e\">\n</figure>\n<figure data-stage-fig=\"peking\" data-cap=\"Ranní tchaj-ťi v Pekingu, 1988\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-peking-1988.webp\" alt=\"Skupina lidí cvičí ranní tchaj-ťi v pekingském parku\" width=\"1300\" height=\"713\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b048b3ad\">\n</figure>\n<figure data-stage-fig=\"svitek\" data-cap=\"Gong Xian, Krajina, dynastie Čching\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-svitek.webp\" alt=\"Čínská tušová malba: hory a stromy v mlze na svitku\" width=\"1600\" height=\"788\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b14f18c2\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Dai Jin, Krajina s taoistickými nesmrtelnými, dynastie Ming</p>\n</div>"
+            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"weiqi\" data-cap=\"Dai Jin, Krajina s taoistickými nesmrtelnými, dynastie Ming\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-weiqi.webp\" alt=\"Čínská malba: taoističtí nesmrtelní hrají pod stromy hru weiqi\" width=\"1306\" height=\"2250\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-f7333170\">\n</figure>\n<figure data-stage-fig=\"wangmeng\" data-cap=\"Wang Shimin, Krajina podle Wang Menga, 1664\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-wang-meng.webp\" alt=\"Čínská tušová malba: vysoké hory porostlé lesem\" width=\"1071\" height=\"2250\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-cea1bc1e\">\n</figure>\n<figure data-stage-fig=\"peking\" data-cap=\"Ranní tchaj-ťi v Pekingu, 1988\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-peking-1988.webp\" alt=\"Skupina lidí cvičí ranní tchaj-ťi v pekingském parku\" width=\"1300\" height=\"713\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b048b3ad\">\n</figure>\n<figure data-stage-fig=\"svitek\" data-cap=\"Gong Xian, Krajina, dynastie Čching\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-svitek.webp\" alt=\"Čínská tušová malba: hory a stromy v mlze na svitku\" width=\"1600\" height=\"788\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-b14f18c2\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Dai Jin, Krajina s taoistickými nesmrtelnými, dynastie Ming</p>\n<button type=\"button\" data-tk-zoom-stage aria-label=\"Zvětšit obrázek\" hidden class=\"stage-zoom\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"></circle><path d=\"M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"></path></svg></button>\n</div>"
           },
           "elements": []
         }
@@ -68,7 +68,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section data-stage=\"weiqi\" class=\"sec hero hero-sub\">\n<div class=\"hero-text\">\n<h1 class=\"h1 rise\">Seminář s mistrem Vincentem Chu v Praze</h1>\n<p class=\"lead rise d1\">27. 11. – 29. 11. 2025 <span class=\"badge\">Proběhlo</span></p>\n<p class=\"body rise d2\">Dobrý den, blíží se listopadové cvičení s Vincentem. V Praze bude učit DaoYinový čchi-kung – Hrátky pěti zvířat v sobotu 29. 11.</p>\n\n\n</div>\n\n</section>"
+            "html": "<section data-stage=\"weiqi\" class=\"sec hero hero-sub\">\n<div class=\"hero-text\">\n<h1 class=\"h1 rise\">Seminář s mistrem Vincentem Chu v Praze</h1>\n<p class=\"lead rise d1\">21. 11. – 22. 11. 2026</p>\n<p class=\"body rise d2\">Guo Yang Tzu – statický čchi-kung, vhodný i pro začátečníky. Mistr Vincent Chu předvede uvolnění síly <em>fa jin</em>.</p>\n<div class=\"actions rise d3\"><a href=\"/kontakt/?tema=5#formular\" class=\"btn btn-primary\">Přihlásit se <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"#letak\" class=\"more\">Leták a podrobnosti <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n\n</div>\n\n</section>"
           },
           "elements": []
         }
@@ -102,7 +102,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"program\" data-stage=\"wangmeng\" aria-labelledby=\"program-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"program-h\" class=\"h2 reveal\">Korektura dlouhé formy středního řádu</h2>\n<p class=\"body reveal\">Ve čtvrtek celý den a pátek celý den je korektura dlouhé formy středního řádu. Střední řád se bude cvičit ve čtvrtek dopoledne na Dobešce a jinak na ZŠ Jeremenkova, tedy čtvrtek 27. 11. odpoledne a pátek 28. 11. celý den.</p>\n</div>\n\n</section>"
+            "html": "<section id=\"letak\" data-stage=\"svitek\" aria-labelledby=\"letak-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"letak-h\" class=\"h2 reveal\">Guo Yang Tzu – statický <span class=\"nw\">čchi-kung</span></h2>\n<p class=\"body reveal\">Guo Yang Tzu je statický čchi-kung spojený s procvičováním pojivových tkání, cvičení patří do skupiny <em>Yi Jin Jing</em>. V pozicích se masírují vnitřní orgány, čímž se podpoří oběh čchi a krve a uvolní se svaly. Cvičení je vhodné i pro začátečníky.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Termín</span><span class=\"r-val\">21. 11. – 22. 11. 2026</span></li>\n<li><span class=\"r-name\">Čas</span><span class=\"r-val\">10:00 – 12:30 a 15:00 – 17:30</span></li>\n<li><span class=\"r-name\">Místo</span><span class=\"r-val\">Praha 4, ZŠ Jeremenkova, tělocvična</span></li>\n<li><span class=\"r-name\">Cena</span><span class=\"r-val\">2 500 Kč</span></li>\n</ul></div>\n<p class=\"body reveal tk-s-49fcd855\">Mistr Vincent Chu předvede uvolnění síly <em>fa jin</em>.</p>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kontakt/?tema=5#formular\" class=\"btn btn-primary\">Přihlásit se <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/wp-content/uploads/letak-gu-yang-tzu.jpg\" download class=\"more\">Stáhnout leták</a></div>\n<figure class=\"media reveal tk-s-b03a0557\"><a href=\"/wp-content/uploads/letak-gu-yang-tzu.jpg\" data-tk-zoom class=\"zoom-link\"><img src=\"/wp-content/uploads/letak-gu-yang-tzu.jpg\" alt=\"Leták: Guo Yang Tzu, statický čchi-kung, ukázka mistra Vincenta Chu, 21.–22. 11. 2026, Praha 4\" width=\"1055\" height=\"1490\" loading=\"lazy\" decoding=\"async\" class=\"pic pic-doc\"></a><figcaption>Kliknutím leták zvětšíte.</figcaption></figure>\n</section>"
           },
           "elements": []
         }
@@ -136,7 +136,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"harmonogram\" data-stage=\"peking\" aria-labelledby=\"harmonogram-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"harmonogram-h\" class=\"h2 reveal\">Denní harmonogram</h2>\n\n</div>\n<div class=\"rows-group reveal\"><p class=\"rows-label\">Čtvrtek 27. 11. 2025</p><ul class=\"rows\">\n<li><span class=\"r-name\">Dopolední cvičení, 9:30 - 12:00</span><span class=\"r-val\">Dobeška</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n<li><span class=\"r-name\">Odpolední cvičení, 15:00 - 17:30</span><span class=\"r-val\">Jeremenkova</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n</ul></div>\n<div class=\"rows-group reveal\"><p class=\"rows-label\">Pátek 28. 11. 2025</p><ul class=\"rows\">\n<li><span class=\"r-name\">Dopolední cvičení, 9:30 - 12:30</span><span class=\"r-val\">Jeremenkova</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n<li><span class=\"r-name\">Odpolední cvičení, 15:00 - 17:30</span><span class=\"r-val\">ZŠ Jeremenkova</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n</ul></div>\n<div class=\"rows-group reveal\"><p class=\"rows-label\">Sobota 29. 11. 2025</p><ul class=\"rows\">\n<li><span class=\"r-name\">Dopolední cvičení, 10:00 - 12:30</span><span class=\"r-val\">ZŠ Jeremenkova</span><span class=\"r-desc\">Hrátky pěti zvířat</span></li>\n<li><span class=\"r-name\">Odpolední cvičení, 15:30 - 18:00</span><span class=\"r-val\">ZŠ Jeremenkova</span><span class=\"r-desc\">Hrátky pěti zvířat</span></li>\n</ul></div>\n<p class=\"small muted reveal tk-s-49fcd855\">ZŠ Jeremenkova – Jeremenkova 1003/66A</p>\n</section>"
+            "html": "<section id=\"program\" data-stage=\"wangmeng\" aria-labelledby=\"program-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"program-h\" class=\"h2 reveal\">Korektura dlouhé formy středního řádu</h2>\n<p class=\"body reveal\"><strong>27. 11. – 29. 11. 2025</strong> <span class=\"badge\">Proběhlo</span><br>Dobrý den, blíží se listopadové cvičení s Vincentem. V Praze bude učit DaoYinový čchi-kung – Hrátky pěti zvířat v sobotu 29. 11. Ve čtvrtek celý den a pátek celý den je korektura dlouhé formy středního řádu. Střední řád se bude cvičit ve čtvrtek dopoledne na Dobešce a jinak na ZŠ Jeremenkova, tedy čtvrtek 27. 11. odpoledne a pátek 28. 11. celý den.</p>\n</div>\n\n</section>"
           },
           "elements": []
         }
@@ -170,7 +170,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"prihlaseni\" data-stage=\"svitek\" aria-labelledby=\"prihlaseni-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"prihlaseni-h\" class=\"h2 reveal\">Přihlášení na seminář</h2>\n\n</div>\n<p class=\"body reveal muted\"><strong>Pro přihlášení na seminář v Praze posílejte zálohu 1500 Kč do 15. 11. 2025 na účet 1035195033/0800.</strong></p>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kontakt/\" class=\"more\">Kontakt - ZŠ Jeremenkova <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/akce/\" class=\"more\">Akce <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+            "html": "<section id=\"harmonogram\" data-stage=\"peking\" aria-labelledby=\"harmonogram-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"harmonogram-h\" class=\"h2 reveal\">Denní harmonogram</h2>\n\n</div>\n<div class=\"rows-group reveal\"><p class=\"rows-label\">Čtvrtek 27. 11. 2025</p><ul class=\"rows\">\n<li><span class=\"r-name\">Dopolední cvičení, 9:30 - 12:00</span><span class=\"r-val\">Dobeška</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n<li><span class=\"r-name\">Odpolední cvičení, 15:00 - 17:30</span><span class=\"r-val\">Jeremenkova</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n</ul></div>\n<div class=\"rows-group reveal\"><p class=\"rows-label\">Pátek 28. 11. 2025</p><ul class=\"rows\">\n<li><span class=\"r-name\">Dopolední cvičení, 9:30 - 12:30</span><span class=\"r-val\">Jeremenkova</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n<li><span class=\"r-name\">Odpolední cvičení, 15:00 - 17:30</span><span class=\"r-val\">ZŠ Jeremenkova</span><span class=\"r-desc\">Korekce dlouhé sestavy středního řádu</span></li>\n</ul></div>\n<div class=\"rows-group reveal\"><p class=\"rows-label\">Sobota 29. 11. 2025</p><ul class=\"rows\">\n<li><span class=\"r-name\">Dopolední cvičení, 10:00 - 12:30</span><span class=\"r-val\">ZŠ Jeremenkova</span><span class=\"r-desc\">Hrátky pěti zvířat</span></li>\n<li><span class=\"r-name\">Odpolední cvičení, 15:30 - 18:00</span><span class=\"r-val\">ZŠ Jeremenkova</span><span class=\"r-desc\">Hrátky pěti zvířat</span></li>\n</ul></div>\n<p class=\"small muted reveal tk-s-49fcd855\">ZŠ Jeremenkova – Jeremenkova 1003/66A</p>\n</section>"
           },
           "elements": []
         }
@@ -201,6 +201,40 @@
       "elements": [
         {
           "id": "dca9692",
+          "elType": "widget",
+          "widgetType": "html",
+          "settings": {
+            "html": "<section id=\"prihlaseni\" data-stage=\"svitek\" aria-labelledby=\"prihlaseni-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"prihlaseni-h\" class=\"h2 reveal\">Přihlášení na seminář 2025</h2>\n\n</div>\n<p class=\"body reveal muted\"><strong>Pro přihlášení na seminář v Praze posílejte zálohu 1500 Kč do 15. 11. 2025 na účet 1035195033/0800.</strong></p>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kontakt/\" class=\"more\">Kontakt - ZŠ Jeremenkova <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a><a href=\"/akce/\" class=\"more\">Akce <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+          },
+          "elements": []
+        }
+      ]
+    },
+    {
+      "id": "fc9065e",
+      "elType": "container",
+      "isInner": false,
+      "settings": {
+        "content_width": "full",
+        "flex_gap": {
+          "unit": "px",
+          "size": 0,
+          "column": "0",
+          "row": "0",
+          "isLinked": true
+        },
+        "padding": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
+      },
+      "elements": [
+        {
+          "id": "6835277",
           "elType": "widget",
           "widgetType": "html",
           "settings": {

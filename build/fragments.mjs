@@ -47,6 +47,8 @@ for (const p of Object.values(PICTURES)) if (!p.own && !imageCredits[fileOf(p)])
  * the screen (assets/js/stage.js). Without JS the first picture stays. On a phone the stage is the picture at the
  * top of the page. aria-hidden is not used: the pictures are content and carry alt text.
  */
+const ZOOM_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"></circle><path d="M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg>';
+
 export function stage(keys) {
   const figs = keys.map((k, i) => {
     const p = PICTURES[k];
@@ -57,7 +59,8 @@ export function stage(keys) {
 </figure>`;
   });
   // One caption for the stage (what the shown picture is); stage.js swaps its text with the picture.
-  return `<div class="stage" data-stage>\n${figs.join('\n')}\n<p class="stage-cap" data-stage-cap>${PICTURES[keys[0]].cap}</p>\n</div>`;
+  // The zoom button (assets/js/zoom.js shows it) opens the shown picture full size, in its own colours.
+  return `<div class="stage" data-stage>\n${figs.join('\n')}\n<p class="stage-cap" data-stage-cap>${PICTURES[keys[0]].cap}</p>\n<button type="button" class="stage-zoom" data-tk-zoom-stage aria-label="Zvětšit obrázek" hidden>${ZOOM_ICON}</button>\n</div>`;
 }
 
 /** The stage keys a page uses, for the credits check (seo/tests). */

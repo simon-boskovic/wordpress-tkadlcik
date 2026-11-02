@@ -85,7 +85,7 @@ function tk_enqueue_assets() {
 		'strategy'  => 'defer',
 	);
 
-	foreach ( array_merge( array( 'nav', 'reveal', 'stage' ), tk_page_scripts() ) as $name ) {
+	foreach ( array_merge( array( 'nav', 'reveal', 'stage', 'zoom' ), tk_page_scripts() ) as $name ) {
 		wp_enqueue_script( 'tk-' . $name, TK_THEME_URI . '/assets/js/' . $name . '.js', array(), tk_asset_ver( 'assets/js/' . $name . '.js' ), $deferred );
 	}
 }

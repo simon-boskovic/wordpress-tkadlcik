@@ -216,17 +216,52 @@
       "location": {
         "@id": "/#praha"
       },
+      "description": "Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích.",
+      "image": [
+        "/wp-content/uploads/og-default.jpg"
+      ],
       "organizer": {
         "@id": "/#organization"
       },
       "performer": {
         "@id": "/#daniel"
       },
-      "url": "/akce/"
+      "url": "/akce/#nedele"
     },
     {
       "@type": "Event",
       "@id": "/akce/#event-3",
+      "name": "Seminář s mistrem Vincentem Chu v Praze",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-22",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@id": "/#praha"
+      },
+      "description": "Guo Yang Tzu – statický čchi-kung spojený s procvičováním pojivových tkání, vhodný i pro začátečníky. Mistr Vincent Chu předvede uvolnění síly fa jin.",
+      "image": [
+        "/wp-content/uploads/letak-gu-yang-tzu.jpg"
+      ],
+      "organizer": {
+        "@id": "/#organization"
+      },
+      "performer": {
+        "@id": "/#vincent-chu"
+      },
+      "url": "/seminar-vincent-chu/",
+      "offers": {
+        "@type": "Offer",
+        "price": 2500,
+        "priceCurrency": "CZK",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-11-01",
+        "url": "/seminar-vincent-chu/"
+      }
+    },
+    {
+      "@type": "Event",
+      "@id": "/akce/#event-4",
       "name": "Celodenní cvičení v neděli",
       "startDate": "2026-12-13",
       "endDate": "2026-12-13",
@@ -235,13 +270,17 @@
       "location": {
         "@id": "/#praha"
       },
+      "description": "Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích.",
+      "image": [
+        "/wp-content/uploads/og-default.jpg"
+      ],
       "organizer": {
         "@id": "/#organization"
       },
       "performer": {
         "@id": "/#daniel"
       },
-      "url": "/akce/"
+      "url": "/akce/#nedele"
     }
   ],
   "osm-kusu-brokatu": [
@@ -2021,7 +2060,7 @@
       "@id": "/seminar-vincent-chu/#webpage",
       "url": "/seminar-vincent-chu/",
       "name": "Seminář s mistrem Vincentem Chu v Praze | Radost v pohybu",
-      "description": "Seminář tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze: korektura dlouhé formy středního řádu stylu Yang a DaoYinový čchi-kung Hrátky pěti zvířat.",
+      "description": "Seminář s mistrem Vincentem Chu v Praze 21.–22. 11. 2026: Guo Yang Tzu, statický čchi-kung (qigong) i pro začátečníky, a ukázka uvolnění síly fa jin.",
       "inLanguage": "cs-CZ",
       "isPartOf": {
         "@id": "/#website"

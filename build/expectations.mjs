@@ -20,7 +20,7 @@ const SIGNUP_SELECTORS = [...COURSES.map((c) => `#${c.id} a[href="${signupHref(c
 /** Theme scripts that only some pages may load. */
 export const PAGE_SCRIPTS = ['map', 'video', 'breath', 'plate'];
 /** Theme scripts every page loads. */
-export const GLOBAL_SCRIPTS = ['nav', 'reveal', 'stage', 'vt'];
+export const GLOBAL_SCRIPTS = ['nav', 'reveal', 'stage', 'zoom', 'vt'];
 
 export default {
   domu: {
@@ -80,8 +80,8 @@ export default {
   'seminar-vincent-chu': {
     h1: 'Seminář s mistrem Vincentem Chu v Praze',
     title: SEO['seminar-vincent-chu'].title,
-    texts: ['Dobrý den, blíží se listopadové cvičení s Vincentem.', 'Denní harmonogram', 'Hrátky pěti zvířat', '1035195033/0800'],
-    selectors: [...COMMON, 'a[href$="/kontakt/"]'],
+    texts: ['Dobrý den, blíží se listopadové cvičení s Vincentem.', 'Denní harmonogram', 'Hrátky pěti zvířat', '1035195033/0800', 'Guo Yang Tzu', '2 500 Kč'],
+    selectors: [...COMMON, 'a[href$="/kontakt/"]', '#letak a[href="/wp-content/uploads/letak-gu-yang-tzu.jpg"][download]', '#letak img.pic-doc[src$="/letak-gu-yang-tzu.jpg"]'],
     scripts: [],
   },
   'cviceni-na-horach': {
