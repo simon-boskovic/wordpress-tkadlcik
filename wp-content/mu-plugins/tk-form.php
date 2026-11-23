@@ -214,6 +214,7 @@ function tk_form_handle() {
 
 	// Honeypot: answer like a success, mail nothing.
 	if ( '' !== $raw( TK_FORM_HONEYPOT ) ) {
+		tk_form_count( 'spam' );
 		tk_form_page( 200, 'Děkuji, zpráva odešla', '<p class="lead">Ozvu se vám co nejdříve.</p>' . $back );
 	}
 	$age = tk_form_token_age( $raw( 'tk_t' ) );
@@ -236,6 +237,7 @@ function tk_form_handle() {
 		$body,
 		array( 'Reply-To: ' . $d['name'] . ' <' . $d['email'] . '>' )
 	);
+	tk_form_count( $sent ? 'sent' : 'failed', $d['topic'] );
 	if ( ! $sent ) {
 		tk_form_page( 500, 'Zprávu se nepodařilo odeslat', '<p class="lead">Omlouvám se, zprávu se nepodařilo odeslat. Napište prosím přímo na <a class="lnk" href="mailto:' . TK_FORM_TO . '">' . TK_FORM_TO . '</a>.</p>' . tk_form_markup( $d ) );
 	}
@@ -249,6 +251,108 @@ function tk_form_handle() {
 }
 add_action( 'admin_post_nopriv_tk_contact', 'tk_form_handle' );
 add_action( 'admin_post_tk_contact', 'tk_form_handle' );
+
+/*
+ * Submission counter (requested 2026-11-23): numbers only, no personal data (no name, address, text or IP), so the
+ * privacy text ("stores nothing" of the message) still holds. One option, not autoloaded:
+ *   since           Y-m-d the counting started
+ *   sent|failed|spam totals (failed = wp_mail() returned false: the message did NOT reach the inbox)
+ *   months[Y-m]     { sent, failed }
+ *   topics[topic]   sent messages per topic ('' = none chosen)
+ *   last_sent       unix time of the last sent message
+ * Shown on the wp-admin dashboard (widget "Formulář Napište mi").
+ */
+const TK_FORM_STATS_OPTION = 'tk_form_stats';
+
+/** The counter as stored (with defaults). */
+function tk_form_stats() {
+	$s = get_option( TK_FORM_STATS_OPTION );
+	$s = is_array( $s ) ? $s : array();
+	return array_merge(
+		array(
+			'since'     => wp_date( 'Y-m-d' ),
+			'sent'      => 0,
+			'failed'    => 0,
+			'spam'      => 0,
+			'months'    => array(),
+			'topics'    => array(),
+			'last_sent' => 0,
+		),
+		$s
+	);
+}
+
+/**
+ * Counts one submission.
+ *
+ * @param string   $event sent|failed|spam.
+ * @param string   $topic The chosen topic (validated against TK_FORM_TOPICS).
+ * @param int|null $now   Unix time (tests).
+ */
+function tk_form_count( $event, $topic = '', $now = null ) {
+	if ( ! in_array( $event, array( 'sent', 'failed', 'spam' ), true ) ) {
+		return;
+	}
+	$now = null === $now ? time() : (int) $now;
+	$s   = tk_form_stats();
+	++$s[ $event ];
+	if ( 'spam' !== $event ) {
+		$m                        = wp_date( 'Y-m', $now );
+		$s['months'][ $m ]        = array_merge( array( 'sent' => 0, 'failed' => 0 ), $s['months'][ $m ] ?? array() );
+		++$s['months'][ $m ][ $event ];
+	}
+	if ( 'sent' === $event ) {
+		$t                  = in_array( $topic, TK_FORM_TOPICS, true ) ? $topic : '';
+		$s['topics'][ $t ]  = ( $s['topics'][ $t ] ?? 0 ) + 1;
+		$s['last_sent']     = $now;
+	}
+	if ( false === get_option( TK_FORM_STATS_OPTION ) ) {
+		add_option( TK_FORM_STATS_OPTION, $s, '', false );
+	} else {
+		update_option( TK_FORM_STATS_OPTION, $s, false );
+	}
+}
+
+/** wp-admin dashboard widget: the counter, for anyone who can edit pages. */
+function tk_form_stats_widget() {
+	$s     = tk_form_stats();
+	$month = static fn( $m ) => $s['months'][ $m ]['sent'] ?? 0;
+	$this_m = wp_date( 'Y-m' );
+	$prev_m = wp_date( 'Y-m', strtotime( 'first day of last month', time() ) );
+	echo '<p style="font-size:14px;margin-top:0">Odesláno celkem: <strong>' . (int) $s['sent'] . '</strong> &nbsp;·&nbsp; tento měsíc: <strong>' . (int) $month( $this_m ) . '</strong> &nbsp;·&nbsp; minulý měsíc: <strong>' . (int) $month( $prev_m ) . '</strong></p>';
+	echo '<p>Poslední zpráva: ' . ( $s['last_sent'] ? esc_html( wp_date( 'j. n. Y, H:i', (int) $s['last_sent'] ) ) : 'zatím žádná' ) . '</p>';
+	if ( $s['failed'] > 0 ) {
+		echo '<p style="color:#b32d2e"><strong>Nepodařilo se odeslat e-mailem: ' . (int) $s['failed'] . '×.</strong> Tyto zprávy do schránky nedorazily (návštěvník viděl chybu a e-mailovou adresu). Zkontrolujte odesílání pošty z webu.</p>';
+	}
+	$months = $s['months'];
+	krsort( $months );
+	$months = array_slice( $months, 0, 6, true );
+	if ( $months ) {
+		echo '<table class="widefat striped" style="margin:8px 0"><thead><tr><th>Měsíc</th><th>Odesláno</th>' . ( $s['failed'] ? '<th>Chyba e-mailu</th>' : '' ) . '</tr></thead><tbody>';
+		foreach ( $months as $m => $c ) {
+			$label = wp_date( 'n/Y', (int) strtotime( $m . '-01' ) );
+			echo '<tr><td>' . esc_html( $label ) . '</td><td>' . (int) $c['sent'] . '</td>' . ( $s['failed'] ? '<td>' . (int) $c['failed'] . '</td>' : '' ) . '</tr>';
+		}
+		echo '</tbody></table>';
+	}
+	if ( $s['topics'] ) {
+		arsort( $s['topics'] );
+		echo '<p style="margin-bottom:4px"><strong>Podle tématu</strong></p><ul style="margin-top:0">';
+		foreach ( $s['topics'] as $t => $n ) {
+			echo '<li>' . esc_html( '' === $t ? 'bez tématu' : $t ) . ': ' . (int) $n . '</li>';
+		}
+		echo '</ul>';
+	}
+	echo '<p class="description">Zachyceno jako spam: ' . (int) $s['spam'] . '. Počítá se od ' . esc_html( wp_date( 'j. n. Y', (int) strtotime( $s['since'] ) ) ) . '; ukládají se jen počty, žádné osobní údaje ani texty zpráv.</p>';
+}
+
+/** Registers the widget. */
+function tk_form_stats_dashboard() {
+	if ( current_user_can( 'edit_pages' ) ) {
+		wp_add_dashboard_widget( 'tk_form_stats', 'Formulář „Napište mi“', 'tk_form_stats_widget' );
+	}
+}
+add_action( 'wp_dashboard_setup', 'tk_form_stats_dashboard' );
 
 /** admin-ajax.php?action=tk_form_token (POST): a fresh token for a form served from the page cache. */
 function tk_form_token_endpoint() {
