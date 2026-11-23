@@ -73,7 +73,7 @@ export const business = {
 export const businessAddress = { streetAddress: 'Pod vinohradem 68/18', postalCode: '147 00', addressLocality: 'Praha 4 – Braník', addressCountry: 'CZ' };
 
 /** The privacy page (builders/zasady.mjs): path, link label (footer) and the date the text takes effect. */
-export const privacy = { href: '/zasady-ochrany-osobnich-udaju/', label: 'Zásady ochrany osobních údajů', effectiveDate: '[doplnit: datum spuštění webu]' };
+export const privacy = { href: '/zasady-ochrany-osobnich-udaju/', label: 'Zásady ochrany osobních údajů', effectiveDate: '1. 11. 2026' };
 
 export const footer = {
   about: 'Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.',

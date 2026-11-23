@@ -49,15 +49,15 @@ font-family:'Fira Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-se
 .cmplz-cookiebanner .cmplz-buttons .cmplz-btn{flex:1 1 calc(50% - 4px);width:auto;min-width:0}
 .cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-view-preferences,.cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-save-preferences,.cmplz-cookiebanner .cmplz-buttons .cmplz-btn.cmplz-manage-options{flex-basis:100%}
 }
-/* Desktop (split stage): the banner lies over the picture half at the top of the page and scrolls away with the
-   first screen, so it never covers the reading column or the closing statement. It stays until a choice is made. */
+/* Desktop (split stage): the banner stays on screen (fixed, the user's call 23. 11. 2026) at the bottom of the
+   picture half, which is fixed too, so it never covers the reading column. It stays until a choice is made. */
 @media (min-width:900px){
-.cmplz-cookiebanner.cmplz-show,.cmplz-cookiebanner.cmplz-bottom-right,.cmplz-cookiebanner.cmplz-bottom-left{position:absolute!important;left:36px!important;right:auto!important;top:100px!important;bottom:auto!important;width:min(470px,calc(47vw - 72px))!important;max-width:none!important;transform:none!important}
+.cmplz-cookiebanner.cmplz-show,.cmplz-cookiebanner.cmplz-bottom-right,.cmplz-cookiebanner.cmplz-bottom-left{position:fixed!important;left:36px!important;right:auto!important;top:auto!important;bottom:36px!important;width:min(470px,calc(47vw - 72px))!important;max-width:none!important;transform:none!important}
 }
-/* Phone and tablet portrait: the banner lies over the picture at the top of the page (the stage) and scrolls away
-   with it, so it never covers the title or the reading column. It stays until a choice is made (on every page). */
+/* Phone and tablet portrait: the banner stays on screen at the bottom (fixed, the user's call 23. 11. 2026) until a
+   choice is made (on every page); its height is capped so the page above it stays readable. */
 @media (max-width:899px){
-.cmplz-cookiebanner.cmplz-show,.cmplz-cookiebanner.cmplz-bottom-right,.cmplz-cookiebanner.cmplz-bottom-left,.cmplz-cookiebanner.cmplz-bottom{position:absolute!important;top:72px!important;bottom:auto!important;left:20px!important;right:20px!important;width:auto!important;max-width:none!important;transform:none!important}
+.cmplz-cookiebanner.cmplz-show,.cmplz-cookiebanner.cmplz-bottom-right,.cmplz-cookiebanner.cmplz-bottom-left,.cmplz-cookiebanner.cmplz-bottom{position:fixed!important;top:auto!important;bottom:12px!important;max-height:calc(100svh - 96px)!important;overflow-y:auto!important;left:20px!important;right:20px!important;width:auto!important;max-width:none!important;transform:none!important}
 }
 /* Filled surfaces, no 1px outlines (house style): the card floats on its shadow, categories sit on a tone step. */
 .cmplz-cookiebanner{border:0!important}

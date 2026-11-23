@@ -111,7 +111,7 @@ export default {
   'zasady-ochrany-osobnich-udaju': {
     h1: 'Zásady ochrany osobních údajů',
     title: SEO['zasady-ochrany-osobnich-udaju'].title,
-    texts: ['Mgr. Daniel Tkadlčík', 'IČO 75979390', 'Pod vinohradem 68/18, 147 00 Praha 4 – Braník', 'Úřad městské části Praha 4', 'tkadlcik@centrum.cz', 'Google Analytics', '_ga', 'cmplz_*', 'EU–US Data Privacy Framework', 'youtube-nocookie.com', 'Nastavení cookies', 'Úřadu pro ochranu osobních údajů', '[HOSTING – doplnit'],
+    texts: ['Mgr. Daniel Tkadlčík', 'IČO 75979390', 'Pod vinohradem 68/18, 147 00 Praha 4 – Braník', 'Úřad městské části Praha 4', 'tkadlcik@centrum.cz', 'Google Analytics', '_ga', 'cmplz_*', 'EU–US Data Privacy Framework', 'youtube-nocookie.com', 'Nastavení cookies', 'Úřadu pro ochranu osobních údajů', 'Webglobe, s.r.o.', 'Platnost od 1. 11. 2026.'],
     selectors: ['main a[href="mailto:tkadlcik@centrum.cz"]', 'main a[href="https://www.uoou.gov.cz/"]'],
     unique: ['[id="cookies"]'],
     scripts: [],

@@ -167,18 +167,20 @@ test('site.json carries the header/footer data, the business identification and 
   assert.match(s.contact.phoneHref, /^tel:\+420\d+$/);
 });
 
-test('privacy page: one <h1>, the operator\'s register data, the e-mail only (no phone), visible placeholders, no date of birth', () => {
+test('privacy page: one <h1>, the operator\'s register data, the e-mail only (no phone), no placeholders left, no date of birth', () => {
   const html = htmlOf('zasady-ochrany-osobnich-udaju');
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   for (const t of ['Mgr. Daniel Tkadlčík', 'IČO 75979390', 'Pod vinohradem 68/18, 147 00 Praha 4 – Braník', 'Úřad městské části Praha 4', 'href="mailto:tkadlcik@centrum.cz"', 'id="cookies"',
     '_ga', '_ga_*', 'cmplz_*', 'EU–US Data Privacy Framework', 'Google Site Kit', 'cmplz_banner-status', 'cmplz_consented_services', 'platnost 365 dní', 'až 2 roky', 'se načte až poté, co v cookie liště povolíte statistiky', 'youtube-nocookie.com', '„Zobrazit mapu“', 'Nastavení cookies', 'href="https://www.uoou.gov.cz/"',
-    'čl. 6 odst. 1 písm. a)', 'čl. 6 odst. 1 písm. b)', 'čl. 6 odst. 1 písm. c)', 'čl. 6 odst. 1 písm. f)', '[HOSTING – doplnit', '[doplnit:']) assert.ok(html.includes(t), t);
+    'čl. 6 odst. 1 písm. a)', 'čl. 6 odst. 1 písm. b)', 'čl. 6 odst. 1 písm. c)', 'čl. 6 odst. 1 písm. f)', 'Webglobe, s.r.o., Pobřežní 620/3, 186 00 Praha 8, IČO 26159708', '3 roky od poslední komunikace', '10 let po jejím skončení', 'uchovává 2 měsíce', 'Platnost od 1. 11. 2026.']) assert.ok(html.includes(t), t);
+  // Every placeholder was filled on 23. 11. 2026 (the user's answers; the hosting from webglobe.cz/kontakty).
+  assert.doesNotMatch(html, /\[doplnit|\[HOSTING|storna/);
   assert.doesNotMatch(html, /Consent Mode/, 'Consent Mode is off: the privacy text must not claim it');
   assert.doesNotMatch(html, /tel:|773 287|narozen/);
   // Since 2026-11-01 the site has a contact form (mu-plugins/tk-form.php): the privacy text describes it.
   assert.match(html, /kontaktním formulářem na stránce Kontakt/);
   assert.match(html, /web odešle e-mailem do mé schránky a sám ji neukládá/);
-  for (const p of pages) if (p.slug !== 'zasady-ochrany-osobnich-udaju') assert.doesNotMatch(htmlOf(p.slug), /\[doplnit|\[HOSTING/, p.slug);
+  for (const p of pages) assert.doesNotMatch(htmlOf(p.slug), /\[doplnit|\[HOSTING/, p.slug);
 });
 
 test('contact form: the builders’ topic list equals the PHP form’s, sign-up links preset a valid topic', async () => {
