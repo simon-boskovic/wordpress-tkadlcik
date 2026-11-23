@@ -1,26 +1,25 @@
-# Radost v pohybu — tchaj-ťi (tai chi) a čchi-kung (qigong), Praha 4 a Zlín
+# Radost v pohybu — tchaj-ťi (tai chi) a čchi-kung (qigong), Praha 4
 
 > Čchi-kung a tchaj-ťi Radost v pohybu nabízí kurzy, víkendové semináře a individuální cvičení.
 
 Lektor: Mgr. Daniel Tkadlčík. Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997. Od roku 2007 se intenzivně věnuji zejména rodinnému stylu Yang tchaj-ťi u mistra Vincenta Chu.
 Web: {{home}}/
 Jazyk obsahu: čeština
-Aktualizováno: 2026-11-02
+Aktualizováno: 2026-11-23
 
 ## Stránky
 
-- [Domů]({{home}}/): Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.
+- [Domů]({{home}}/): Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 na ZŠ Jeremenkova: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.
 - [Cvičení]({{home}}/cviceni/): Cvičení, která vyučujeme: čchi-kung (qigong) Osm kusů brokátu, 13 slov tchaj-ťi a tchaj-ťi (tai chi) stylu Yang – popis, sestavy a videogalerie.
 - [Osm kusů brokátu]({{home}}/osm-kusu-brokatu/): Osm kusů brokátu, čchi-kungové (qigong) cvičení ze skupiny Daoyin: názvy všech osmi cviků, video a pravidelný úterní kurz v Praze 4.
 - [Videogalerie]({{home}}/videogalerie/): Videa sestav tchaj-ťi (tai chi) stylu Yang a čchi-kungu (qigong): 12 forem pro začátečníky, 43 forem mistra Vincenta Chu, sestava s holí, Osm kusů brokátu.
-- [Nabídka kurzů a lekcí]({{home}}/kurzy-a-lekce/): Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: lekce 120 minut, nový kurz pro začátečníky od 7. 12. 2026.
-- [Cvičení ve Zlíně]({{home}}/cviceni-ve-zline/): Cvičení čchi-kungu (qigong) a tchaj-ťi (tai chi) ve Zlíně jednou měsíčně v pátek v Centru Jiný svět, Osvoboditelů 484: Osm kusů brokátu a 13 slov tchaj-ťi.
+- [Nabídka kurzů a lekcí]({{home}}/kurzy-a-lekce/): Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4: lekce 90 a 120 minut, nový kurz pro začátečníky v pondělí od 7. 12. 2026.
 - [Akce]({{home}}/akce/): Semináře tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze a cvičení tchaj-ťi a čchi-kungu (qigong) na horách v Krkonoších – Strážné, Penzion Exnar.
-- [Seminář s Vincentem Chu]({{home}}/seminar-vincent-chu/): Seminář s mistrem Vincentem Chu v Praze 21.–22. 11. 2026: Guo Yang Tzu, statický čchi-kung (qigong) i pro začátečníky, a ukázka uvolnění síly fa jin.
-- [Cvičení na horách]({{home}}/cviceni-na-horach/): Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) na horách ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov a 12 forem Yang tchaj-ťi.
+- [Seminář s Vincentem Chu]({{home}}/seminar-vincent-chu/): Seminář s mistrem Vincentem Chu v Praze 28.–29. 11. 2026: Hrátky pěti zvířat, čchi-kung (qigong), a Tchaj-ťi kung pro začátečníky i pokročilé.
+- [Cvičení na horách]({{home}}/cviceni-na-horach/): Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov tchaj-ťi a 12 forem Yang.
 - [O mně]({{home}}/o-mne/): Mgr. Daniel Tkadlčík se věnuje tchaj-ťi (tai chi) od roku 1997, od roku 2007 rodinnému stylu Yang u mistra Vincenta Chu. Učí i čchi-kung (qigong).
 - [Články]({{home}}/clanky/): Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Cheng Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.
-- [Kontakt]({{home}}/kontakt/): Kontakt na lektora tchaj-ťi (tai chi) a čchi-kungu (qigong) Mgr. Daniela Tkadlčíka. Cvičíme v ZŠ Jeremenkova v Praze 4 a v Centru Jiný svět ve Zlíně.
+- [Kontakt]({{home}}/kontakt/): Kontakt na lektora tchaj-ťi (tai chi) a čchi-kungu (qigong) Mgr. Daniela Tkadlčíka. Cvičíme v tělocvičně ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4.
 
 ## Linie a škola
 
@@ -44,21 +43,22 @@ Aktualizováno: 2026-11-02
 
 ## Pravidelné cvičení
 
-- Praha 4, Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A: Pondělí 18:00 - 20:00 – Procvičování sestavy Yang 22 pohybů; Úterý 18:00 - 20:00 – Taichi-kung, procvičování dlouhá sestava; Čtvrtek 18:00 - 20:00 – Taichi-kung, procvičování dlouhá sestava.
-- Nový kurz od 7. 12. 2026: Pondělí 19:00 - 21:30 – Výuka Hrátky pěti zvířat, stání v pozicích Guo Yang Tzu, procvičování sestavy Yang tchaj-ťi 8 pohybů. Pro začátečníky. ({{home}}/kurzy-a-lekce/#novy-kurz)
+- Praha 4, Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A: Úterý 18:00 - 20:00 – Taichi-kung, procvičování dlouhá sestava; Čtvrtek 18:00 - 20:00 – Taichi-kung, procvičování dlouhá sestava.
+- Nový kurz od 7. 12. 2026: Pondělí 19:00 - 20:30 – Výuka Hrátky pěti zvířat, stání v pozicích Guo Yang Tzu, procvičování sestavy Yang tchaj-ťi 8 pohybů. Pro začátečníky. ({{home}}/kurzy-a-lekce/#novy-kurz)
 - Celodenní cvičení v neděli: 15. 11. 2026, 13. 12. 2026, 10:00 - 12:30 a 15:00 - 17:30. Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích.
-- Zlín, Centrum Jiný svět, Osvoboditelů 484: Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi. ({{home}}/cviceni-ve-zline/)
 - Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku.
 - Rozvrh a ceny: {{home}}/kurzy-a-lekce/
 
 ## Ceny
 
-- 350 Kč lekce 120 minut, 3 250 Kč 10 lekcí, 400 Kč Cvičení ve Zlíně. Platby za lekci nebo 10 lekcí za 3 250 Kč, platba předem, platí na 3 měsíce od data zaplacení na účet.
+- 350 Kč lekce 120 minut, 3 250 Kč 10 lekcí. Platby za lekci nebo 10 lekcí za 3 250 Kč, platba předem, platí na 3 měsíce od data zaplacení na účet.
 
 ## Akce
 
 - Semináře tchaj-ťi a cvičení na horách: {{home}}/akce/
 - Seminář s mistrem Vincentem Chu v Praze: {{home}}/seminar-vincent-chu/
+  - Sobota 28. 11. 2026: Hrátky pěti zvířat – Posilující čchi-kungová sestava prohlubující principy tchaj-ťi. Určeno pro úplné začátečníky i pokročilé cvičence. Dopoledne 10:00 – 12:30, odpoledne 15:00 – 17:30, 2 500 Kč za den, pokud možno platba na místě v hotovosti.
+  - Neděle 29. 11. 2026: Tchaj-ťi kung – Průpravná cvičení prohlubující základy pochopení tchaj-ťi. Cvičení pro úplné začátečníky i pokročilé. Dopoledne 10:00 – 12:30, odpoledne 15:00 – 17:30, 2 500 Kč za den, pokud možno platba na místě v hotovosti.
 - Cvičení na horách v Krkonoších: Strážné v Krkonoších, Strážné 2. Penzion Exnar ({{home}}/cviceni-na-horach/). Polopenze, ubytování ve 2 až 3 lůžkových pokojích, výborná strava, možnost výletů po okolí, pokoje jsou se soc. zařízením.
 
 ## Kontakt
@@ -67,5 +67,4 @@ Mgr. Daniel Tkadlčík
 Telefon: +420 773 287 113
 E-mail: tkadlcik@centrum.cz
 Místo: Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4
-Místo: Centrum Jiný svět, Osvoboditelů 484, Zlín
 Kontakt: {{home}}/kontakt/

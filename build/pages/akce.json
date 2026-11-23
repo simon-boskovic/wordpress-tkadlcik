@@ -34,7 +34,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"wangmeng\" data-cap=\"Wang Shimin, Krajina podle Wang Menga, 1664\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-wang-meng.webp\" alt=\"Čínská tušová malba: vysoké hory porostlé lesem\" width=\"1071\" height=\"2250\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-cea1bc1e\">\n</figure>\n<figure data-stage-fig=\"weiqi\" data-cap=\"Dai Jin, Krajina s taoistickými nesmrtelnými, dynastie Ming\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-weiqi.webp\" alt=\"Čínská malba: taoističtí nesmrtelní hrají pod stromy hru weiqi\" width=\"1306\" height=\"2250\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-f7333170\">\n</figure>\n<figure data-stage-fig=\"strazne\" data-cap=\"Krkonoše nad Strážným\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-strazne.webp\" alt=\"Cesta na hřebeni nad Strážným v Krkonoších při západu slunce\" width=\"1600\" height=\"806\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-ea5bf839\">\n</figure>\n<figure data-stage-fig=\"zlin\" data-cap=\"Zlín z Baťova mrakodrapu\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-zlin.webp\" alt=\"Zlín z výšky, pohled z Baťova mrakodrapu\" width=\"1600\" height=\"1200\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-6bd6fedc\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Wang Shimin, Krajina podle Wang Menga, 1664</p>\n<button type=\"button\" data-tk-zoom-stage aria-label=\"Zvětšit obrázek\" hidden class=\"stage-zoom\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"></circle><path d=\"M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"></path></svg></button>\n</div>"
+            "html": "<div data-stage class=\"stage\">\n<figure data-active data-stage-first data-stage-fig=\"wangmeng\" data-cap=\"Wang Shimin, Krajina podle Wang Menga, 1664\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-wang-meng.webp\" alt=\"Čínská tušová malba: vysoké hory porostlé lesem\" width=\"1071\" height=\"2250\" fetchpriority=\"high\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-cea1bc1e\">\n</figure>\n<figure data-stage-fig=\"weiqi\" data-cap=\"Dai Jin, Krajina s taoistickými nesmrtelnými, dynastie Ming\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-ink-weiqi.webp\" alt=\"Čínská malba: taoističtí nesmrtelní hrají pod stromy hru weiqi\" width=\"1306\" height=\"2250\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-f7333170\">\n</figure>\n<figure data-stage-fig=\"strazne\" data-cap=\"Krkonoše nad Strážným\" class=\"stage-fig\">\n<img src=\"/wp-content/uploads/tk-strazne.webp\" alt=\"Cesta na hřebeni nad Strážným v Krkonoších při západu slunce\" width=\"1600\" height=\"806\" loading=\"lazy\" decoding=\"async\" sizes=\"(max-width: 899px) calc(104vw - 25px), calc(48.9vw - 21px)\" class=\"tk-s-ea5bf839\">\n</figure>\n<p data-stage-cap class=\"stage-cap\">Wang Shimin, Krajina podle Wang Menga, 1664</p>\n<button type=\"button\" data-tk-zoom-stage aria-label=\"Zvětšit obrázek\" hidden class=\"stage-zoom\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\"></circle><path d=\"M15.5 15.5 21 21M10.5 7.5v6M7.5 10.5h6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"></path></svg></button>\n</div>"
           },
           "elements": []
         }
@@ -102,7 +102,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"nedele\" data-stage=\"wangmeng\" aria-labelledby=\"nedele-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"nedele-h\" class=\"h2 reveal\">Celodenní cvičení v neděli</h2>\n<p class=\"body reveal\">Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích. Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Neděle 15. 11. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30</span></li>\n<li><span class=\"r-name\">Neděle 13. 12. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30</span></li>\n</ul></div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kurzy-a-lekce/#nedele\" class=\"more\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+            "html": "<section id=\"nedele\" data-stage=\"wangmeng\" aria-labelledby=\"nedele-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"nedele-h\" class=\"h2 reveal\">Celodenní cvičení v neděli</h2>\n<p class=\"body reveal\">Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích. Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Neděle 15. 11. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30 <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Neděle 13. 12. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30</span></li>\n</ul></div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kurzy-a-lekce/#nedele\" class=\"more\">Nabídka kurzů a lekcí <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
           },
           "elements": []
         }
@@ -136,7 +136,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"chu\" data-stage=\"weiqi\" aria-labelledby=\"chu-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"chu-h\" class=\"h2 reveal\">Seminář s mistrem Vincentem Chu v Praze</h2>\n<p class=\"body reveal\">V listopadu 2026 Guo Yang Tzu – statický čchi-kung, vhodný i pro začátečníky, a ukázka uvolnění síly fa jin. V roce 2025 učil DaoYinový čchi-kung – Hrátky pěti zvířat a korekturu dlouhé formy středního řádu.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">21. 11. – 22. 11. 2026</span><span class=\"r-val\">Guo Yang Tzu – statický čchi-kung</span></li>\n<li><span class=\"r-name\">Čtvrtek 27. 11. 2025</span><span class=\"r-val\">Korekce dlouhé sestavy středního řádu <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Pátek 28. 11. 2025</span><span class=\"r-val\">Korekce dlouhé sestavy středního řádu <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Sobota 29. 11. 2025</span><span class=\"r-val\">Hrátky pěti zvířat <span class=\"badge\">Proběhlo</span></span></li>\n</ul></div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/seminar-vincent-chu/\" class=\"more\">Seminář s Vincentem Chu <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
+            "html": "<section id=\"chu\" data-stage=\"weiqi\" aria-labelledby=\"chu-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"chu-h\" class=\"h2 reveal\">Seminář s mistrem Vincentem Chu v Praze</h2>\n<p class=\"body reveal\">Mistr Vincent Chu učí v Praze v sobotu 28. 11. 2026 Hrátky pěti zvířat a v neděli 29. 11. 2026 Tchaj-ťi kung, pro úplné začátečníky i pokročilé cvičence. Cena 2 500 Kč za den, ZŠ Jeremenkova.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Sobota 28. 11. 2026</span><span class=\"r-val\">Hrátky pěti zvířat</span></li>\n<li><span class=\"r-name\">Neděle 29. 11. 2026</span><span class=\"r-val\">Tchaj-ťi kung</span></li>\n<li><span class=\"r-name\">21. 11. – 22. 11. 2026</span><span class=\"r-val\">Guo Yang Tzu – statický čchi-kung <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Čtvrtek 27. 11. 2025</span><span class=\"r-val\">Korekce dlouhé sestavy středního řádu <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Pátek 28. 11. 2025</span><span class=\"r-val\">Korekce dlouhé sestavy středního řádu <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Sobota 29. 11. 2025</span><span class=\"r-val\">Hrátky pěti zvířat <span class=\"badge\">Proběhlo</span></span></li>\n</ul></div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/seminar-vincent-chu/\" class=\"more\">Seminář s Vincentem Chu <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
           },
           "elements": []
         }
@@ -238,41 +238,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"zlin\" data-stage=\"zlin\" aria-labelledby=\"zlin-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"zlin-h\" class=\"h2 reveal\">Cvičení ve Zlíně</h2>\n<p class=\"body reveal\">Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.</p>\n</div>\n<div class=\"actions reveal\"><a href=\"/cviceni-ve-zline/\" class=\"more\">Cvičení ve Zlíně <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" class=\"arr\"><path d=\"M3 8h10M9 4l4 4-4 4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"></path></svg></a></div>\n</section>"
-          },
-          "elements": []
-        }
-      ]
-    },
-    {
-      "id": "da81ab9",
-      "elType": "container",
-      "isInner": false,
-      "settings": {
-        "content_width": "full",
-        "flex_gap": {
-          "unit": "px",
-          "size": 0,
-          "column": "0",
-          "row": "0",
-          "isLinked": true
-        },
-        "padding": {
-          "unit": "px",
-          "top": "0",
-          "right": "0",
-          "bottom": "0",
-          "left": "0",
-          "isLinked": true
-        }
-      },
-      "elements": [
-        {
-          "id": "a09b9f6",
-          "elType": "widget",
-          "widgetType": "html",
-          "settings": {
-            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+420773287113\">+420 773 287 113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A<br>Centrum Jiný svět, Osvoboditelů 484, Zlín</p>\n</div>\n</div>\n</section>"
+            "html": "<section id=\"kontakt-paticka\" aria-labelledby=\"kontakt-paticka-h\" class=\"statement\">\n<div class=\"statement-in\">\n<div class=\"statement-top\">\n<h2 id=\"kontakt-paticka-h\" class=\"statement-h\">Kontakt</h2>\n<p class=\"statement-lead\">Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.</p>\n</div>\n<a href=\"mailto:tkadlcik@centrum.cz\" class=\"statement-mail\">tkadlcik<wbr>@centrum.cz</a>\n<div class=\"statement-foot\">\n<p><a href=\"tel:+420773287113\">+420 773 287 113</a><br><a href=\"/kontakt/#formular\">Kontaktní formulář</a><br>Mgr. Daniel Tkadlčík</p>\n<p>Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A</p>\n</div>\n</div>\n</section>"
           },
           "elements": []
         }

@@ -15,6 +15,8 @@ const TK_REDIRECTS = array(
 	'/cviceni-na-akci-s-jirim-ledvinou/'  => '/seminar-vincent-chu/',
 	'/reference/'                         => '/clanky/#co-je',
 	'/home/'                              => '/',
+	// The owner ended the Zlín lessons (23. 11. 2026): the old page's visitors land on the course offer.
+	'/cviceni-ve-zline/'                  => '/kurzy-a-lekce/',
 );
 
 /** Old paths that are gone for good (410): the template placeholder page. */

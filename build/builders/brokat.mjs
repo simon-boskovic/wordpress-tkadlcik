@@ -55,7 +55,7 @@ ${BROCADES.map(([n, d]) => `<li><span class="r-name">${n}</span><span class="r-d
         body: `<div class="reveal">
 <dl class="facts"><div><dt>Pravidelné cvičení</dt><dd><a class="lnk" href="/kurzy-a-lekce/#praha">Rozpis cvičení v Praze 4</a></dd></div><div><dt>Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div><div><dt>Cena</dt><dd>350 Kč lekce 120 minut, 10 lekcí 3 250 Kč</dd></div></dl>
 </div>
-<div class="actions reveal" style="margin-top: 28px">${btn(signupHref('Osm kusů brokátu'), 'Přihlásit se')}${more('/cviceni-ve-zline/', 'Cvičení ve Zlíně')}${more('/cviceni/', 'Cvičení')}</div>`,
+<div class="actions reveal" style="margin-top: 28px">${btn(signupHref('Osm kusů brokátu'), 'Přihlásit se')}${more('/cviceni/', 'Cvičení')}</div>`,
       }),
 
       contactStatement(content),

@@ -11,11 +11,11 @@ const TODAY = '2026-10-31';
 const schema = buildSchema(pages, { content, today: TODAY });
 const byType = (graph, type) => graph.filter((n) => n['@type'] === type);
 
-test('a graph for every page: Organization, both places, Person, WebSite, the page node', () => {
+test('a graph for every page: Organization, its place, Person, WebSite, the page node', () => {
   assert.deepEqual(Object.keys(schema).sort(), pages.map((p) => p.slug).sort());
   for (const [slug, graph] of Object.entries(schema)) {
     assert.equal(byType(graph, 'Organization').length, 1, slug);
-    assert.deepEqual(byType(graph, 'SportsActivityLocation').map((n) => n.address.streetAddress), ['Jeremenkova 1003/66A', 'Osvoboditelů 484'], slug);
+    assert.deepEqual(byType(graph, 'SportsActivityLocation').map((n) => n.address.streetAddress), ['Jeremenkova 1003/66A'], slug);
     assert.deepEqual(byType(graph, 'Person').map((n) => n.name), ['Daniel Tkadlčík', 'Vincent Chu'], slug);
     assert.equal(byType(graph, 'WebSite').length, 1, slug);
     const page = graph.find((n) => /#webpage$/.test(n['@id']));
@@ -43,9 +43,14 @@ test('Events only for seminars that have not started yet (the owner\'s Sundays 1
   const at = (today) => byType(buildSchema(pages, { content, today }).akce, 'Event');
   const early = buildSchema(pages, { content, today: '2024-01-01' });
   assert.deepEqual(byType(early.akce, 'Event').map((e) => e.startDate), SEMINARS.map((e) => e.startDate));
-  assert.deepEqual(at('2025-01-01').map((e) => e.name), ['Seminář s mistrem Vincentem Chu v Praze', 'Celodenní cvičení v neděli', 'Seminář s mistrem Vincentem Chu v Praze', 'Celodenní cvičení v neděli']);
-  assert.deepEqual(at('2026-11-01').map((e) => e.startDate), ['2026-11-15', '2026-11-21', '2026-12-13']);
-  assert.deepEqual(at('2026-11-16').map((e) => e.startDate), ['2026-11-21', '2026-12-13']);
+  const CHU = 'Seminář s mistrem Vincentem Chu v Praze', SUN = 'Celodenní cvičení v neděli';
+  assert.deepEqual(at('2025-01-01').map((e) => e.name), [CHU, SUN, CHU, CHU, CHU, SUN]);
+  assert.deepEqual(at('2026-11-01').map((e) => e.startDate), ['2026-11-15', '2026-11-21', '2026-11-28', '2026-11-29', '2026-12-13']);
+  assert.deepEqual(at('2026-11-16').map((e) => e.startDate), ['2026-11-21', '2026-11-28', '2026-11-29', '2026-12-13']);
+  assert.deepEqual(at('2026-11-23').map((e) => e.startDate), ['2026-11-28', '2026-11-29', '2026-12-13']);
+  // The owner's programme of 23. 11. 2026: one Event per day, 2 500 Kč each, linked to the day on the seminar page.
+  const days = at('2026-11-23').filter((e) => e.name === CHU);
+  assert.deepEqual(days.map((e) => [e.url, e.offers.price, e.performer['@id'], e.description.split(':')[0]]), [['/seminar-vincent-chu/#sobota', 2500, '/#vincent-chu', 'Hrátky pěti zvířat'], ['/seminar-vincent-chu/#nedele', 2500, '/#vincent-chu', 'Tchaj-ťi kung']]);
   // Google's recommended fields (Search Console): every Event has a description and an image; a stated price = offers.
   for (const e of at('2026-11-01')) assert.ok(e.description && e.image.length, e.name);
   const chu = at('2026-11-01').find((e) => e.startDate === '2026-11-21');
@@ -56,18 +61,15 @@ test('Events only for seminars that have not started yet (the owner\'s Sundays 1
 });
 
 test('places: street, postcode, geo, locality (Praha 4), verbatim own description, priceRange from the Ceny section, own url, map', () => {
-  const [praha, zlin] = byType(schema.domu, 'SportsActivityLocation');
+  const [praha, other] = byType(schema.domu, 'SportsActivityLocation');
+  assert.equal(other, undefined, 'Zlín left the site (23. 11. 2026)');
   assert.deepEqual([praha.address.streetAddress, praha.address.addressLocality, praha.priceRange, praha.url], ['Jeremenkova 1003/66A', 'Praha 4', '350–3 250 Kč', '/kurzy-a-lekce/#praha']);
   assert.equal(praha.description, 'Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.');
-  assert.equal(zlin.description, 'Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.');
-  assert.doesNotMatch(zlin.description, /víkendové semináře/);
-  assert.deepEqual([zlin.address.addressLocality, zlin.priceRange, zlin.url], ['Zlín', '400 Kč', '/cviceni-ve-zline/']);
   // Postcodes and coordinates: OpenStreetMap house-level matches (content.mjs places); still no opening hours (the
   // timetable awaits the client).
   assert.deepEqual([praha.address.postalCode, praha.geo.latitude, praha.geo.longitude], ['147 00', 50.04301, 14.42334]);
-  assert.deepEqual([zlin.address.postalCode, zlin.geo.latitude, zlin.geo.longitude], ['760 01', 49.22279, 17.66965]);
-  for (const pl of [praha, zlin]) for (const k of ['openingHours', 'openingHoursSpecification']) assert.ok(!(k in pl), k);
-  assert.deepEqual(byType(schema.domu, 'Organization')[0].areaServed, ['Praha 4', 'Zlín']);
+  for (const pl of [praha]) for (const k of ['openingHours', 'openingHoursSpecification']) assert.ok(!(k in pl), k);
+  assert.deepEqual(byType(schema.domu, 'Organization')[0].areaServed, ['Praha 4']);
 });
 
 test('Person: verbatim O mně description, knowsAbout, knows Vincent Chu (Gin Soon Tai Chi Chuan Federation)', () => {
@@ -134,10 +136,11 @@ test('llms.txt: {{home}} links to every page, AI-readable sections, no own host'
   assert.match(llms, /Yang Sau Chung → Chu Gin Soon → Vincent Chu → Daniel Tkadlčík/);
   assert.match(llms, /Gin Soon Tai Chi Chuan Federation \(\[www\.gstaichi\.org\]\(https:\/\/www\.gstaichi\.org\/\)\)/);
   assert.match(llms, /Strážné v Krkonoších, Strážné 2\. Penzion Exnar/);
-  assert.match(llms, /1x měsíčně vždy v pátek/);
+  assert.doesNotMatch(llms, /Zlín|cviceni-ve-zline/);
+  assert.match(llms, /Pondělí 19:00 - 20:30/);
+  assert.match(llms, /Sobota 28\. 11\. 2026: Hrátky pěti zvířat/);
   assert.match(llms, /Yang Cheng Fu/);
   assert.doesNotMatch(llms, /Yang Chen Fu/);
-  assert.match(llms, /\{\{home\}\}\/cviceni-ve-zline\//);
   assert.deepEqual(taughtForms(pages).length, 10);
   for (const f of taughtForms(pages)) assert.ok(llms.includes(`- ${f}\n`), f);
   assert.ok(!taughtForms(pages).includes('Sestava s mečem'));
@@ -156,7 +159,7 @@ test('Organization carries the legal data from the trade register; the venues st
     assert.deepEqual(org.identifier, { '@type': 'PropertyValue', propertyID: 'IČO', value: '75979390' }, slug);
     assert.deepEqual(org.address, { '@type': 'PostalAddress', streetAddress: 'Pod vinohradem 68/18', postalCode: '147 00', addressLocality: 'Praha 4 – Braník', addressCountry: 'CZ' }, slug);
     assert.ok(!('vatID' in org) && !('addressRegion' in org.address), slug);
-    assert.equal(byType(graph, 'SportsActivityLocation').length, 2, slug);
+    assert.equal(byType(graph, 'SportsActivityLocation').length, 1, slug);
   }
   assert.throws(() => legalData({ ...content, businessAddress: { ...content.businessAddress, postalCode: '140 00' } }), /does not match/);
   assert.throws(() => legalData(content, (s) => { if (s === '75979390') throw new Error('not on the pages'); return s; }), /not on the pages/);

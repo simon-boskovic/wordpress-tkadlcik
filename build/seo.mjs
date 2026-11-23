@@ -10,6 +10,7 @@
 import { EVENTS, mapsLinkUrl } from './content.mjs';
 import { SCHEDULE, NEW_COURSE, SUNDAYS, PRICE_NOTE } from './builders/kurzy-a-lekce.mjs';
 import { VIDEOS } from './builders/cviceni.mjs';
+import { DAYS_2026 } from './builders/seminar.mjs';
 import { PICTURES, youtubeEmbedUrl, youtubeWatchUrl } from './fragments.mjs';
 const PHOTOS = PICTURES;
 
@@ -23,7 +24,7 @@ export const TITLE_SUFFIX = ' | Radost v pohybu';
 export const OG_IMAGE = 'og-default.jpg';
 export const OG_IMAGES = { 'o-mne': 'og-o-mne.jpg' };
 /** og:image:alt per share image (seo-setup writes it to the attachment's alt text). */
-export const OG_ALT = { 'og-default.jpg': 'Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín', 'og-o-mne.jpg': 'Daniel Tkadlčík, lektor tchaj-ťi' };
+export const OG_ALT = { 'og-default.jpg': 'Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4', 'og-o-mne.jpg': 'Daniel Tkadlčík, lektor tchaj-ťi' };
 /** Title limits: the complete <title> incl. the suffix (Google shows ~60 chars), description 120–155 chars. */
 export const TITLE_MAX = 64;
 export const DESCRIPTION_RANGE = [120, 155];
@@ -32,16 +33,16 @@ export const DESCRIPTION_RANGE = [120, 155];
  * Title + meta description per page slug (written to build/seo.json for `wp tk seo-setup`). Metadata, not design
  * copy: written from facts the pages state (the visible H1s stay the design's). The international spellings
  * "tai chi" / "qigong" appear only here, as variants in brackets ("tchaj-ťi (tai chi)", "čchi-kung (qigong)");
- * Zlín is named where the page covers it. No phone number and no prices (both await the client).
+ * No phone number and no prices in descriptions. (Zlín left the site on 23. 11. 2026.)
  * Every title ends with TITLE_SUFFIX (seo-setup sets _tsf_title_no_blogname, so seo.json holds the complete title).
  */
 export const SEO = {
   domu: {
-    title: `Tchaj-ťi (tai chi) a čchi-kung Praha 4 a Zlín${TITLE_SUFFIX}`,
-    description: 'Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.',
+    title: `Tchaj-ťi (tai chi) a čchi-kung Praha 4${TITLE_SUFFIX}`,
+    description: 'Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 na ZŠ Jeremenkova: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.',
   },
   cviceni: {
-    title: `Osm kusů brokátu, 13 slov a styl Yang${TITLE_SUFFIX}`,
+    title: `Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang${TITLE_SUFFIX}`,
     description: 'Cvičení, která vyučujeme: čchi-kung (qigong) Osm kusů brokátu, 13 slov tchaj-ťi a tchaj-ťi (tai chi) stylu Yang – popis, sestavy a videogalerie.',
   },
   'osm-kusu-brokatu': {
@@ -52,21 +53,17 @@ export const SEO = {
     title: `Videogalerie tchaj-ťi a čchi-kungu${TITLE_SUFFIX}`,
     description: 'Videa sestav tchaj-ťi (tai chi) stylu Yang a čchi-kungu (qigong): 12 forem pro začátečníky, 43 forem mistra Vincenta Chu, sestava s holí, Osm kusů brokátu.',
   },
-  'cviceni-ve-zline': {
-    title: `Tai chi (tchaj-ťi) a čchi-kung ve Zlíně${TITLE_SUFFIX}`,
-    description: 'Cvičení čchi-kungu (qigong) a tchaj-ťi (tai chi) ve Zlíně jednou měsíčně v pátek v Centru Jiný svět, Osvoboditelů 484: Osm kusů brokátu a 13 slov tchaj-ťi.',
-  },
   'seminar-vincent-chu': {
     title: `Seminář s mistrem Vincentem Chu v Praze${TITLE_SUFFIX}`,
-    description: 'Seminář s mistrem Vincentem Chu v Praze 21.–22. 11. 2026: Guo Yang Tzu, statický čchi-kung (qigong) i pro začátečníky, a ukázka uvolnění síly fa jin.',
+    description: 'Seminář s mistrem Vincentem Chu v Praze 28.–29. 11. 2026: Hrátky pěti zvířat, čchi-kung (qigong), a Tchaj-ťi kung pro začátečníky i pokročilé.',
   },
   'cviceni-na-horach': {
     title: `Cvičení na horách – Strážné, Krkonoše${TITLE_SUFFIX}`,
-    description: 'Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) na horách ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov a 12 forem Yang tchaj-ťi.',
+    description: 'Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov tchaj-ťi a 12 forem Yang.',
   },
   'kurzy-a-lekce': {
-    title: `Kurzy tai chi a čchi-kungu Praha 4 a Zlín${TITLE_SUFFIX}`,
-    description: 'Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: lekce 120 minut, nový kurz pro začátečníky od 7. 12. 2026.',
+    title: `Kurzy tchaj-ťi (tai chi) a čchi-kungu Praha 4${TITLE_SUFFIX}`,
+    description: 'Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4: lekce 90 a 120 minut, nový kurz pro začátečníky v pondělí od 7. 12. 2026.',
   },
   akce: {
     title: `Semináře s Vincentem Chu a Krkonoše${TITLE_SUFFIX}`,
@@ -81,8 +78,8 @@ export const SEO = {
     description: 'Co je čchi-kung (qigong) a tchaj-ťi (tai chi), 10 principů mistra Yang Cheng Fu a Pojednání o Wu-ťi (WuChi) – články a texty ke stažení.',
   },
   kontakt: {
-    title: `Kontakt – tchaj-ťi a čchi-kung Praha 4 a Zlín${TITLE_SUFFIX}`,
-    description: 'Kontakt na lektora tchaj-ťi (tai chi) a čchi-kungu (qigong) Mgr. Daniela Tkadlčíka. Cvičíme v ZŠ Jeremenkova v Praze 4 a v Centru Jiný svět ve Zlíně.',
+    title: `Kontakt – tchaj-ťi a čchi-kung Praha 4${TITLE_SUFFIX}`,
+    description: 'Kontakt na lektora tchaj-ťi (tai chi) a čchi-kungu (qigong) Mgr. Daniela Tkadlčíka. Cvičíme v tělocvičně ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4.',
   },
   'zasady-ochrany-osobnich-udaju': {
     title: `Zásady ochrany osobních údajů${TITLE_SUFFIX}`,
@@ -138,6 +135,9 @@ export const SEMINARS = [
   { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS['chu-2026'].startDate, endDate: EVENTS['chu-2026'].endDate, place: 'praha', text: EVENTS['chu-2026'].text,
     description: 'Guo Yang Tzu – statický čchi-kung spojený s procvičováním pojivových tkání, vhodný i pro začátečníky. Mistr Vincent Chu předvede uvolnění síly fa jin.',
     image: '/wp-content/uploads/letak-gu-yang-tzu.jpg', price: 2500, url: '/seminar-vincent-chu/', performer: '/#vincent-chu' },
+  // The owner's programme (23. 11. 2026): Saturday and Sunday, 2 500 Kč a day.
+  ...DAYS_2026.map((d) => ({ name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS[d.key].startDate, endDate: EVENTS[d.key].endDate, place: 'praha', text: EVENTS[d.key].text,
+    description: `${d.title}: ${d.text}`, price: 2500, url: `/seminar-vincent-chu/#${d.id}`, performer: '/#vincent-chu' })),
   { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-12'].startDate, endDate: EVENTS['nedele-12'].endDate, place: 'praha', text: EVENTS['nedele-12'].text, description: SUNDAYS.text, url: '/akce/#nedele' },
   { name: 'Jarní cvičení na horách', startDate: EVENTS['hory-jaro'].startDate, endDate: EVENTS['hory-jaro'].endDate, price: 3800, location: { name: 'Penzion Exnar', addressLocality: 'Strážné', streetAddress: 'Strážné 2' }, text: EVENTS['hory-jaro'].text,
     description: 'Cvičení v Krkonoších: Osm kusů brokátu, průpravná cvičení tchaj-ťi kung, zhan zhuang, 13 slov tchaj-ťi a 12 forem Yang tchaj-ťi.', url: '/cviceni-na-horach/' },
@@ -152,7 +152,7 @@ export function pageText(pages) {
 }
 
 /** Lesson prices per place for the JSON-LD priceRange (as the Ceny section prints them; checked against the page text). */
-export const PRICE_RANGE = { praha: { range: '350–3 250 Kč', facts: ['350 Kč', '3 250 Kč'] }, zlin: { range: '400 Kč', facts: ['400 Kč'] } };
+export const PRICE_RANGE = { praha: { range: '350–3 250 Kč', facts: ['350 Kč', '3 250 Kč'] } };
 
 /** Vincent Chu and his school, as the pages name them (Cvičení #yang, Domů, O mně). */
 export const LINEAGE = ['Yang Sau Chung', 'Chu Gin Soon', 'Vincent Chu', 'Daniel Tkadlčík'];
@@ -160,10 +160,9 @@ export const FEDERATION = { name: 'Gin Soon Tai Chi Chuan Federation', url: 'htt
 
 /** Person description: verbatim sentences from O mně. */
 const PERSON_DESCRIPTION = ['Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997.', 'Mým hlavním tématem je propojení meditací, cvičení tchaj-ťi a čchi-kungu.'];
-/** Place descriptions: verbatim sentences about each place (Kontakt for Praha, the Zlín panel on Nabídka kurzů). */
+/** Place descriptions: verbatim sentences about each place (Kontakt for Praha). */
 export const PLACE_DESCRIPTION = {
   praha: ['Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.'],
-  zlin: ['Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek.', 'Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.'],
 };
 /** VideoObject description where the page has a fuller sentence next to the video (else the caption). */
 const VIDEO_DESCRIPTION = {};
@@ -205,7 +204,7 @@ export function legalData(content, fact = (s) => s) {
 }
 
 /**
- * One JSON-LD @graph per page slug: Organization (Radost v pohybu) + its two places (SportsActivityLocation, a
+ * One JSON-LD @graph per page slug: Organization (Radost v pohybu) + its place (SportsActivityLocation, a
  * LocalBusiness subtype), Person (Daniel Tkadlčík), Vincent Chu (Person, affiliated with his federation),
  * WebSite, the page's WebPage (ContactPage / ProfilePage) and, below the front page, its BreadcrumbList; on Akce
  * the future seminars as Events. inc/seo.php adds the page's dateModified and the organisation logo (the site
@@ -343,12 +342,12 @@ export function buildLlms(pages, { content, today = new Date().toISOString().sli
   const pageLine = (p) => `- [${label[pathOf(p)]}](${url(pathOf(p))}): ${SEO[p.slug].description}`;
   const order = content.footer.links.map((l) => l.href);
   const sorted = pages.filter((p) => !NOINDEX.has(p.slug)).sort((a, b) => order.indexOf(pathOf(a)) - order.indexOf(pathOf(b)));
-  const [praha, zlin] = content.places;
+  const [praha] = content.places;
   for (const pl of content.places) fact(pl.name);
   const forms = taughtForms(pages).map(fact);
   if (!forms.length) throw new Error('llms.txt: no forms marked "Vyučuji" on Cvičení');
   return [
-    `# ${content.brand.name} — tchaj-ťi (tai chi) a čchi-kung (qigong), Praha 4 a Zlín`, '',
+    `# ${content.brand.name} — tchaj-ťi (tai chi) a čchi-kung (qigong), Praha 4`, '',
     `> ${fact(content.footer.about)}`, '',
     `Lektor: ${c.name}. ${fact('Jmenuji se Daniel Tkadlčík, cvičení tchaj-ťi se věnuji od roku 1997.')} ${fact('Od roku 2007 se intenzivně věnuji zejména rodinnému stylu Yang tchaj-ťi u mistra Vincenta Chu')}.`,
     `Web: ${url('/')}`, 'Jazyk obsahu: čeština', `Aktualizováno: ${today}`, '',
@@ -362,14 +361,14 @@ export function buildLlms(pages, { content, today = new Date().toISOString().sli
     `- Praha 4, ${praha.name}, ${praha.street}: ${SCHEDULE.map((s) => `${fact(`${s.day} ${s.time}`)} – ${fact(s.name)}`).join('; ')}.`,
     `- ${fact(NEW_COURSE.title)}: ${fact(`${NEW_COURSE.day} ${NEW_COURSE.time}`)} – ${fact(NEW_COURSE.text)} (${url('/kurzy-a-lekce/#novy-kurz')})`,
     `- ${fact(SUNDAYS.title)}: ${SUNDAYS.dates.map((d) => fact(d.date)).join(', ')}, ${fact(SUNDAYS.time)}. ${fact(SUNDAYS.text)}`,
-    `- Zlín, ${zlin.name}, ${zlin.street}: ${fact('Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek.')} ${fact('Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.')} (${url('/cviceni-ve-zline/')})`,
     `- ${fact('Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku.')}`,
     `- Rozvrh a ceny: ${url('/kurzy-a-lekce/')}`, '',
     '## Ceny', '',
-    `- ${fact('350 Kč lekce 120 minut')}, ${fact('3 250 Kč 10 lekcí')}, ${fact('400 Kč Cvičení ve Zlíně')}. ${fact(PRICE_NOTE)}`, '',
+    `- ${fact('350 Kč lekce 120 minut')}, ${fact('3 250 Kč 10 lekcí')}. ${fact(PRICE_NOTE)}`, '',
     '## Akce', '',
     `- ${fact('Semináře tchaj-ťi a cvičení na horách')}: ${url('/akce/')}`,
     `- ${fact('Seminář s mistrem Vincentem Chu v Praze')}: ${url('/seminar-vincent-chu/')}`,
+    ...DAYS_2026.map((d) => `  - ${fact(EVENTS[d.key].text)}: ${fact(d.title)} – ${fact(d.text)} ${fact('Dopoledne 10:00 – 12:30, odpoledne 15:00 – 17:30')}, ${fact('2 500 Kč za den, pokud možno platba na místě v hotovosti')}.`),
     `- ${fact('Cvičení na horách v Krkonoších')}: ${fact('Strážné v Krkonoších, Strážné 2. Penzion Exnar')} (${url('/cviceni-na-horach/')}). ${fact('Polopenze, ubytování ve 2 až 3 lůžkových pokojích, výborná strava, možnost výletů po okolí, pokoje jsou se soc. zařízením.')}`, '',
     '## Kontakt', '',
     `${c.name}`, `Telefon: ${c.phone}`, `E-mail: ${c.email}`,

@@ -8,14 +8,14 @@ import { SCHEDULE, NEW_COURSE, SUNDAYS, PRICE_NOTE } from './kurzy-a-lekce.mjs';
 
 /**
  * The three courses (home showcase). Thumbnails = the client's own videos of each exercise. `when` follows the
- * owner's timetable of 1. 11. 2026, which has no separate lesson for Osm kusů brokátu or 13 Words (none shown).
+ * owner's timetable of 1. 11. 2026, which has no separate lesson for Osm kusů brokátu or 13 slov tchaj-ťi (none shown).
  */
 const COURSES = [
   { key: 'brokat', tab: 'Osm kusů brokátu', title: 'Osm kusů brokátu', when: '', thumb: 'yt-1Mmz_QpYk9s', alt: 'Osm kusů brokátu, jedno z provedení, které se v naší škole vyučuje',
     text: 'Známé čchi-kungové cvičení zaměřující se na rozvoj základních dovedností, posílení těla, protažení, otevření energetických kanálů a získání základních návyků a dovedností.' },
-  { key: 'slov', tab: '13 Words of Tchaj-ťi', title: '13 Words of Tchaj-ťi', when: '', thumb: 'yt-1UPJuzGC1UY', alt: '13 slov tchaj-ťi',
+  { key: 'slov', tab: '13 slov tchaj-ťi', title: '13 slov tchaj-ťi', when: '', thumb: 'yt-1UPJuzGC1UY', alt: '13 slov tchaj-ťi',
     text: 'Krátké a jednoduché cvičení zlepšující vnímání energie čchi, je zaměřeno zejména na otevírání energetických meridiánů.' },
-  { key: 'yang', tab: 'Yang Tchaj-ťi', title: 'Yang Tchaj-ťi', when: `${SCHEDULE[0].day} ${SCHEDULE[0].time}, sestava Yang 22 pohybů`, thumb: 'yt-1nFm6-XwGpU', alt: 'Začátečnická sestava 12 forem Yang tchaj-ťi',
+  { key: 'yang', tab: 'Yang tchaj-ťi', title: 'Yang tchaj-ťi', when: `${SCHEDULE.map((s, i) => (i ? s.day.toLowerCase() : s.day)).join(' a ')} ${SCHEDULE[0].time}, dlouhá sestava`, thumb: 'yt-1nFm6-XwGpU', alt: 'Začátečnická sestava 12 forem Yang tchaj-ťi',
     text: 'Styl Yang tchaj-ťi je pojmenován podle členů rodiny Yang, kteří tento styl dosti proslavili. Vyučujeme tento styl podle tradice a rodinného předání mistra Vincenta Chu.' },
 ];
 
@@ -54,7 +54,7 @@ ${c.when ? `<p class="small muted">${c.when}</p>` : ''}
       stage(['hory', 'peking', 'portret', 'strazne']),
 
       hero({
-        h1: 'Tchaj-ťi a čchi-kung v Praze 4 a ve Zlíně',
+        h1: 'Tchaj-ťi a čchi-kung v Praze 4',
         lead: 'Najít klid v pohybu a v klidu zase pohyb je jeden z mnoha pohledů na cvičení tchaj-ťi a čchi-kungu, stejně tak i jiných forem hledajících klid a harmonii.',
         actions: `${btn('/kurzy-a-lekce/', 'Nabídka kurzů a lekcí')}${`<a class="more" href="/wp-content/uploads/letak-savle.jpg" download>Stáhnout leták na Šavli</a>`}`,
         wordmark: true,
@@ -102,6 +102,10 @@ ${rows([
 <div class="sheet">
 <h2 class="sheet-title" id="rozvrh-h">Pravidelné cvičení</h2>
 <p class="sheet-note">Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4</p>
+${SCHEDULE.some((s) => s.day === NEW_COURSE.day) ? '' : `<div class="sheet-group">
+<h3>${NEW_COURSE.day}</h3>
+<div class="sheet-item"><span class="si-name">${NEW_COURSE.title}</span><span class="si-val">${NEW_COURSE.time}</span><span class="si-desc">${NEW_COURSE.text}</span></div>
+</div>`}
 ${SCHEDULE.map((s) => `<div class="sheet-group">
 <h3>${s.day}</h3>
 <div class="sheet-item"><span class="si-name">${s.name}</span><span class="si-val">${s.time}</span>${s.text ? `<span class="si-desc">${s.text}</span>` : ''}</div>
@@ -114,7 +118,6 @@ ${SUNDAYS.dates.map((d) => `<div class="sheet-item"><span class="si-name">${d.da
 <h3>Cena</h3>
 <div class="sheet-item"><span class="si-name">Lekce 120 minut</span><span class="si-val">350 Kč</span></div>
 <div class="sheet-item"><span class="si-name">10 lekcí</span><span class="si-val">3 250 Kč</span><span class="si-desc">${PRICE_NOTE}</span></div>
-<div class="sheet-item"><span class="si-name">Cvičení ve Zlíně</span><span class="si-val">400 Kč</span><span class="si-desc">1x měsíčně vždy v pátek, Centrum Jiný svět</span></div>
 </div>
 <p class="sheet-end"><a href="/kurzy-a-lekce/">Nabídka kurzů a lekcí</a></p>
 </div>
@@ -139,10 +142,10 @@ ${more('/o-mne/', 'O mně')}
         body: `${rows([
   { name: NEW_COURSE.title, href: '/kurzy-a-lekce/#novy-kurz', val: `${NEW_COURSE.day} ${NEW_COURSE.time}`, desc: NEW_COURSE.text },
   { name: SUNDAYS.title, href: '/akce/#nedele', val: `${SUNDAYS.dates.map((d) => d.date.replace(/ 2026$/, '')).join(' a ')} 2026${pastBadge(SUNDAYS.dates.map((d) => d.key), day)}`, desc: SUNDAYS.text },
+  { name: 'Seminář s mistrem Vincentem Chu', href: '/seminar-vincent-chu/', val: `28. 11. – 29. 11. 2026${pastBadge(['chu-2026-so', 'chu-2026-ne'], day)}`, desc: 'Sobota Hrátky pěti zvířat, neděle Tchaj-ťi kung. Pro úplné začátečníky i pokročilé cvičence.' },
   { name: 'Seminář s mistrem Vincentem Chu', href: '/seminar-vincent-chu/', val: `21. 11. – 22. 11. 2026${pastBadge(['chu-2026'], day)}`, desc: 'Guo Yang Tzu – statický čchi-kung, vhodný i pro začátečníky. Ukázka uvolnění síly fa jin.' },
   { name: 'Seminář s mistrem Vincentem Chu', href: '/seminar-vincent-chu/', val: `27. 11. – 29. 11. 2025${pastBadge(['chu'], day)}`, desc: 'Korektura dlouhé formy středního řádu. DaoYinový čchi-kung – Hrátky pěti zvířat.' },
   { name: 'Cvičení na horách', href: '/cviceni-na-horach/', val: 'Strážné v Krkonoších', desc: 'Cvičíme v příjemném prostředí Krkonoš.' },
-  { name: 'Cvičení ve Zlíně', href: '/cviceni-ve-zline/', val: '1x měsíčně vždy v pátek', desc: 'Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.' },
 ])}
 <div class="actions reveal" style="margin-top: 28px">${more('/akce/', 'Akce')}</div>`,
       }),

@@ -14,14 +14,13 @@ export const contact = {
 };
 
 /**
- * The two places the lessons happen (`key` = the place's tab panel id on /kurzy-a-lekce/: #praha, #zlin;
+ * The place the lessons happen (`key` = its section id on /kurzy-a-lekce/: #praha; Zlín ended 23. 11. 2026;
  * `city` as the site prints it, `locality` = the JSON-LD addressLocality, `street` = its streetAddress). `map` is the address the click-to-load Google map and the "Otevřít
  * v Google Maps" link search for (fragments.mjs mapBox; also the JSON-LD hasMap). `postalCode` and `geo` (5 decimals) from
- * OpenStreetMap Nominatim, house-level matches for both addresses (looked up 1. 11. 2026); `url` = the venue's page.
+ * OpenStreetMap Nominatim, house-level match (looked up 1. 11. 2026); `url` = the venue's page.
  */
 export const places = [
   { key: 'praha', name: 'Tělocvična ZŠ Jeremenkova', street: 'Jeremenkova 1003/66A', city: 'Praha 4', locality: 'Praha 4', line: 'Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A', map: 'Jeremenkova 1003/66A, Praha 4', postalCode: '147 00', geo: [50.04301, 14.42334], url: '/kurzy-a-lekce/#praha' },
-  { key: 'zlin', name: 'Centrum Jiný svět', street: 'Osvoboditelů 484', city: 'Zlín', locality: 'Zlín', line: 'Centrum Jiný svět, Osvoboditelů 484, Zlín', map: 'Osvoboditelů 484, Zlín', postalCode: '760 01', geo: [49.22279, 17.66965], url: '/cviceni-ve-zline/' },
 ];
 
 /** Google Maps URLs for an address: the embed (requested only after the visitor's click) and the plain link. */
@@ -30,7 +29,8 @@ export const mapsLinkUrl = (address) => `https://www.google.com/maps/search/?api
 
 /**
  * Site navigation. Every label of the old Webnode menu stays (SEO constraint of the redesign brief, 2026-11-01),
- * plus "Domů" (approved). `bar` = shown in the header bar on desktop; all items are in the Menu panel (header) and
+ * plus "Domů" (approved), minus "Cvičení ve Zlíně" (the owner ended the Zlín lessons, 23. 11. 2026; the page 301s to
+ * /kurzy-a-lekce/, mu-plugins/tk-redirects.php). `bar` = shown in the header bar on desktop; all items are in the Menu panel (header) and
  * the footer. The Kontakt item is the header's one action button (`cta`). Order = the menu panel's order.
  */
 export const nav = [
@@ -38,7 +38,6 @@ export const nav = [
   { href: '/cviceni/', label: 'Cvičení', bar: true },
   { href: '/videogalerie/', label: 'Videogalerie' },
   { href: '/kurzy-a-lekce/', label: 'Nabídka kurzů a lekcí', bar: true },
-  { href: '/cviceni-ve-zline/', label: 'Cvičení ve Zlíně' },
   { href: '/akce/', label: 'Akce', bar: true },
   { href: '/seminar-vincent-chu/', label: 'Seminář s Vincentem Chu' },
   { href: '/cviceni-na-horach/', label: 'Cvičení na horách' },
@@ -51,7 +50,7 @@ export const nav = [
 /**
  * Pictures from open collections (downloaded with tasteskill assets.mjs, credits in build/image-credits.json):
  * shown in the pages' picture stage, credited in the footer (footer.php, data/site.json `credits`). They show the
- * world of the practice (Chinese ink landscapes, morning tai chi in Beijing 1988, Strážné, Zlín), never the
+ * world of the practice (Chinese ink landscapes, morning tai chi in Beijing 1988, Strážné), never the
  * client's own lessons or students.
  */
 export { default as imageCredits } from './image-credits.json' with { type: 'json' };
@@ -110,9 +109,9 @@ export const videoUploadDates = {
 };
 
 /**
- * Dated events the pages show (Akce, the home "Semináře a akce" teaser, the Zlín term on Nabídka kurzů), keyed
- * for builders/ux.mjs: an event whose endDate is before the build date is "past" — its date is muted and gets the
- * "Proběhlo" chip, and past blocks sort after upcoming ones. The build date is fixed at generate time, so after
+ * Dated events the pages show (Akce, the home "Semináře a akce" teaser, Nabídka kurzů, the seminar page): an event
+ * whose endDate is before the build date is "past" and gets the "Proběhlo" badge (parts.mjs pastBadge). The
+ * builders list rows in a fixed order (upcoming first, by hand). The build date is fixed at generate time, so after
  * an event date passes the site must be regenerated (`./build/rebuild.sh --pages`, docs/HANDOVER.md).
  * Dates exactly as the pages print them (`text`); nothing inferred beyond them.
  */
@@ -120,11 +119,13 @@ export const EVENTS = {
   chu: { startDate: '2025-11-27', endDate: '2025-11-29', text: '27. 11. – 29. 11. 2025' },
   // Owner's flyer (client-files/letak-gu-yang-tzu.jpg, 2. 11. 2026).
   'chu-2026': { startDate: '2026-11-21', endDate: '2026-11-22', text: '21. 11. – 22. 11. 2026' },
+  // Owner's programme (23. 11. 2026): one day each, 2 500 Kč a day, ZŠ Jeremenkova.
+  'chu-2026-so': { startDate: '2026-11-28', endDate: '2026-11-28', text: 'Sobota 28. 11. 2026' },
+  'chu-2026-ne': { startDate: '2026-11-29', endDate: '2026-11-29', text: 'Neděle 29. 11. 2026' },
   'hory-jaro': { startDate: '2024-05-10', endDate: '2024-05-12', text: '10. – 12. 5. 2024' },
   // Printed "30. 7. neděle – 7. 7. 2024 neděle" (inconsistent, awaits the client): the stated end date is used;
   // every reading of it ends in summer 2024.
   'hory-leto': { endDate: '2024-07-07', text: '30. 7. neděle – 7. 7. 2024 neděle' },
-  'zlin-termin': { startDate: '2024-04-19', endDate: '2024-04-19', text: 'pátek 19. 4. 2024, od 17:30 do 20:00h' },
   // Owner's "Rozpis cvičení" (PDF, 1. 11. 2026): all-day Sunday sessions in Praha 4.
   'nedele-11': { startDate: '2026-11-15', endDate: '2026-11-15', text: '15. 11. 2026' },
   'nedele-12': { startDate: '2026-12-13', endDate: '2026-12-13', text: '13. 12. 2026' },

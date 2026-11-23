@@ -1,6 +1,6 @@
 /**
  * Akce (redesign 2026-11-01): the overview of events; each has its own page again (/seminar-vincent-chu/,
- * /cviceni-na-horach/, /cviceni-ve-zline/). Anchors #chu and #hory kept. The flyer (client-files/letak-savle.jpg)
+ * /cviceni-na-horach/). Anchors #chu and #hory kept (#zlin removed with the Zlín lessons, 23. 11. 2026). The flyer (client-files/letak-savle.jpg)
  * is the client's own picture.
  */
 import { stage, contactStatement, more } from '../fragments.mjs';
@@ -15,7 +15,7 @@ export function build({ content, page }) {
     scripts: [],
     frontPage: false,
     sections: [
-      stage(['wangmeng', 'weiqi', 'strazne', 'zlin']),
+      stage(['wangmeng', 'weiqi', 'strazne']),
 
       hero({
         h1: 'Semináře tchaj-ťi a cvičení na horách',
@@ -34,8 +34,10 @@ export function build({ content, page }) {
       sec({
         id: 'chu', stageKey: 'weiqi',
         h2: 'Seminář s mistrem Vincentem Chu v Praze',
-        intro: 'V listopadu 2026 Guo Yang Tzu – statický čchi-kung, vhodný i pro začátečníky, a ukázka uvolnění síly fa jin. V roce 2025 učil DaoYinový čchi-kung – Hrátky pěti zvířat a korekturu dlouhé formy středního řádu.',
+        intro: 'Mistr Vincent Chu učí v Praze v sobotu 28. 11. 2026 Hrátky pěti zvířat a v neděli 29. 11. 2026 Tchaj-ťi kung, pro úplné začátečníky i pokročilé cvičence. Cena 2 500 Kč za den, ZŠ Jeremenkova.',
         body: `${rows([
+  { name: 'Sobota 28. 11. 2026', val: `Hrátky pěti zvířat${pastBadge(['chu-2026-so'], day)}` },
+  { name: 'Neděle 29. 11. 2026', val: `Tchaj-ťi kung${pastBadge(['chu-2026-ne'], day)}` },
   { name: '21. 11. – 22. 11. 2026', val: `Guo Yang Tzu – statický čchi-kung${pastBadge(['chu-2026'], day)}` },
   { name: 'Čtvrtek 27. 11. 2025', val: `Korekce dlouhé sestavy středního řádu${pastBadge(['chu'], day)}` },
   { name: 'Pátek 28. 11. 2025', val: `Korekce dlouhé sestavy středního řádu${pastBadge(['chu'], day)}` },
@@ -62,13 +64,6 @@ export function build({ content, page }) {
   { name: 'Jarní cvičení na horách', href: '/cviceni-na-horach/', val: `10. – 12. 5. 2024${pastBadge(['hory-jaro'], day)}`, desc: 'Strážné v Krkonoších, Strážné 2. Penzion Exnar. Cena: 3 800 Kč' },
   { name: 'Letní týdenní kurz na horách', href: '/cviceni-na-horach/', val: `30. 7. neděle – 7. 7. 2024 neděle${pastBadge(['hory-leto'], day)}`, desc: 'Strážné v Krkonoších, Strážné 2. Penzion Exnar. Cena: 10 000 Kč' },
 ])}`,
-      }),
-
-      sec({
-        id: 'zlin', stageKey: 'zlin',
-        h2: 'Cvičení ve Zlíně',
-        intro: 'Pravidelná cvičení ve Zlíně se konají 1x měsíčně vždy v pátek. Náplní kurzu je Osm kusů brokátu a 13 slov tchaj-ťi.',
-        body: `<div class="actions reveal">${more('/cviceni-ve-zline/', 'Cvičení ve Zlíně')}</div>`,
       }),
 
       contactStatement(content),

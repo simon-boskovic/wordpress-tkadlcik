@@ -9,8 +9,8 @@ import { buildSeo, OG_IMAGE, OG_IMAGES } from '../seo.mjs';
 
 const { pages, fin } = buildPages();
 
-test('the thirteen pages (the old site’s routes restored, the merged seminar page, the privacy page), one front page', () => {
-  assert.deepEqual(pages.map((p) => p.slug).sort(), ['akce', 'clanky', 'cviceni', 'cviceni-na-horach', 'cviceni-ve-zline', 'domu', 'kontakt', 'kurzy-a-lekce', 'o-mne', 'osm-kusu-brokatu', 'seminar-vincent-chu', 'videogalerie', 'zasady-ochrany-osobnich-udaju']);
+test('the twelve pages (the old site’s routes restored minus Zlín, the merged seminar page, the privacy page), one front page', () => {
+  assert.deepEqual(pages.map((p) => p.slug).sort(), ['akce', 'clanky', 'cviceni', 'cviceni-na-horach', 'domu', 'kontakt', 'kurzy-a-lekce', 'o-mne', 'osm-kusu-brokatu', 'seminar-vincent-chu', 'videogalerie', 'zasady-ochrany-osobnich-udaju']);
   assert.deepEqual(pages.filter((p) => p.front_page).map((p) => p.slug), ['domu']);
 });
 
@@ -39,7 +39,7 @@ test('exactly one <h1> per page, no inline styles, no prototype links', () => {
 });
 
 test('page scripts: breathing + tabs on Domů, maps and videos where they are', () => {
-  const want = { domu: ['breath', 'plate', 'video'], 'kurzy-a-lekce': ['map'], kontakt: ['map', 'form'], cviceni: ['video'], videogalerie: ['video'], 'cviceni-ve-zline': ['map', 'video'], 'o-mne': ['video'], 'osm-kusu-brokatu': ['video'] };
+  const want = { domu: ['breath', 'plate', 'video'], 'kurzy-a-lekce': ['map'], kontakt: ['map', 'form'], cviceni: ['video'], videogalerie: ['video'], 'o-mne': ['video'], 'osm-kusu-brokatu': ['video'] };
   for (const p of pages) assert.deepEqual(p.scripts, want[p.slug] || [], p.slug);
 });
 
@@ -47,10 +47,10 @@ test('map pages: no Google request in the markup before the click, a Google Maps
   for (const slug of ['kurzy-a-lekce', 'kontakt']) {
     const html = pages.find((p) => p.slug === slug).elements.map((e) => e.elements[0].settings.html).join('\n');
     assert.doesNotMatch(html, /\[Mapa/, slug);
-    assert.equal((html.match(/data-tk-map-box/g) || []).length, 2, slug);
+    assert.equal((html.match(/data-tk-map-box/g) || []).length, 1, slug);
     assert.doesNotMatch(html, /<iframe\b|\ssrc="https:\/\/maps\./, slug);
     assert.match(html, /data-src="https:\/\/maps\.google\.com\/maps\?q=Jeremenkova%201003%2F66A%2C%20Praha%204&amp;[^"]*output=embed/, slug);
-    assert.match(html, /data-src="https:\/\/maps\.google\.com\/maps\?q=Osvobodite/, slug);
+    assert.doesNotMatch(html, /Osvobodite|Zlín|cviceni-ve-zline/, slug);
     assert.match(html, /href="https:\/\/www\.google\.com\/maps\/search\/\?api=1&amp;query=Jeremenkova/, slug);
   }
 });
@@ -70,7 +70,7 @@ const htmlOf = (slug) => pages.find((p) => p.slug === slug).elements.map((e) => 
 const all = pages.map((p) => htmlOf(p.slug)).join('\n');
 
 test('videos: click-to-load facades, self-hosted thumbnails, no YouTube request before the click', () => {
-  for (const slug of ['cviceni', 'videogalerie', 'cviceni-ve-zline']) {
+  for (const slug of ['cviceni', 'videogalerie']) {
     const html = htmlOf(slug);
     assert.doesNotMatch(html, /<iframe\b|<script\b|\ssrc="https?:\/\/[^"]*(?:youtube|ytimg|google)/, slug);
     const boxes = [...html.matchAll(/<div data-tk-video-box data-src="https:\/\/www\.youtube-nocookie\.com\/embed\/([\w-]{11})\?autoplay=1" data-title="([^"]+)" class="tk-video">/g)].map((m) => [m[1], m[2]]);
@@ -89,8 +89,9 @@ test('videos: click-to-load facades, self-hosted thumbnails, no YouTube request 
 test('media.json lists the images the pages use, each with alt text and a credit when it is not the client’s own', async () => {
   const { imageCredits } = await import('../content.mjs');
   const files = fin.media().map((m) => m.file);
-  for (const f of ['daniel-tkadlcik-portret.jpg', 'tk-ink-hory.jpg', 'tk-peking-1988.jpg', 'tk-strazne.jpg', 'tk-zlin.jpg', 'yt-1Mmz_QpYk9s.jpg']) assert.ok(files.includes(f), f);
+  for (const f of ['daniel-tkadlcik-portret.jpg', 'tk-ink-hory.jpg', 'tk-peking-1988.jpg', 'tk-strazne.jpg', 'yt-1Mmz_QpYk9s.jpg']) assert.ok(files.includes(f), f);
   assert.ok(!files.includes('louka-strom.jpg'), 'the stock spring photo is retired');
+  assert.ok(!files.includes('tk-zlin.jpg'), 'Zlín left the site (23. 11. 2026)');
   for (const m of fin.media()) {
     assert.ok(existsSync(new URL(`../../client-img/${m.file}`, import.meta.url)), m.file);
     assert.ok(m.alt, `${m.file} has alt text`);
@@ -117,8 +118,8 @@ test('every target="_blank" link has rel noopener; nofollow only on third-party 
   assert.match(htmlOf('cviceni-na-horach'), /href="https:\/\/penzion-exnar\.ubytovani-strazne-krkonose\.cz\/" rel="nofollow noopener" target="_blank"[^>]*>penzion-exnar\.ubytovani-strazne-krkonose\.cz<\/a>/);
 });
 
-test('anchors other pages link to exist once: #praha #zlin #kurz-* on Nabídka kurzů, #brokat #slov #yang #videa on Cvičení', () => {
-  for (const [slug, ids] of Object.entries({ 'kurzy-a-lekce': ['praha', 'zlin', 'kurz-brokat', 'kurz-slov', 'kurz-yang', 'cena', 'misto'], cviceni: ['brokat', 'slov', 'yang', 'videa'], akce: ['chu', 'hory'], clanky: ['co-je'] })) {
+test('anchors other pages link to exist once: #praha #kurz-* on Nabídka kurzů, #brokat #slov #yang #videa on Cvičení', () => {
+  for (const [slug, ids] of Object.entries({ 'kurzy-a-lekce': ['praha', 'kurz-brokat', 'kurz-slov', 'kurz-yang', 'cena', 'misto'], cviceni: ['brokat', 'slov', 'yang', 'videa'], akce: ['chu', 'hory'], clanky: ['co-je'], 'seminar-vincent-chu': ['listopad-2026', 'sobota', 'nedele'] })) {
     for (const id of ids) assert.equal(htmlOf(slug).split(` id="${id}"`).length - 1, 1, `${slug}#${id}`);
   }
 });
@@ -143,23 +144,26 @@ test('seo.json covers every page: brand suffix, title ≤ 64, description 120–
     assert.doesNotMatch(s.description, /\d{3} \d{3}|Kč/, slug);
     assert.match(s.description, /\(tai chi\)|\(qigong\)/, slug);
   }
-  for (const slug of ['domu', 'kurzy-a-lekce', 'kontakt']) assert.match(`${seo[slug].title} ${seo[slug].description}`, /Zlín/, slug);
+  // Zlín left the site (23. 11. 2026): no page names it any more.
+  for (const [slug, s] of Object.entries(seo)) assert.doesNotMatch(`${s.title} ${s.description} ${s.og_alt}`, /Zlín/, slug);
+  for (const p of pages) assert.doesNotMatch(htmlOf(p.slug), /Zlín|cviceni-ve-zline|13 Words/, p.slug);
   assert.equal(new Set(Object.values(seo).map((s) => s.title)).size, pages.length);
   assert.throws(() => buildSeo(pages.concat({ slug: 'nope' })), /no title/);
 });
 
 test('site.json carries the header/footer data, the business identification and the privacy link', () => {
   const s = siteJson();
-  assert.equal(s.nav.length, 11);
+  assert.equal(s.nav.length, 10);
   assert.deepEqual(s.business, { name: 'Mgr. Daniel Tkadlčík', ico: '75979390', address: 'Pod vinohradem 68/18, 147 00 Praha 4 – Braník', register: 'Zapsán v živnostenském rejstříku, Úřad městské části Praha 4' });
-  assert.deepEqual(s.nav.map((l) => l.label), ['Domů', 'Cvičení', 'Videogalerie', 'Nabídka kurzů a lekcí', 'Cvičení ve Zlíně', 'Akce', 'Seminář s Vincentem Chu', 'Cvičení na horách', 'O mně', 'Články', 'Kontakt']);
+  assert.deepEqual(s.nav.map((l) => l.label), ['Domů', 'Cvičení', 'Videogalerie', 'Nabídka kurzů a lekcí', 'Akce', 'Seminář s Vincentem Chu', 'Cvičení na horách', 'O mně', 'Články', 'Kontakt']);
   assert.deepEqual(s.footer.links.map((l) => l.href), [...s.nav.slice(0, 2).map((l) => l.href), '/osm-kusu-brokatu/', ...s.nav.slice(2).map((l) => l.href), '/zasady-ochrany-osobnich-udaju/']);
   assert.ok(s.credits.length >= 9 && s.credits.every((c) => c.title && c.license && c.page), 'picture credits');
   assert.equal(s.footer.links.at(-1).label, 'Zásady ochrany osobních údajů');
   // The register also lists the date of birth: never published.
   assert.doesNotMatch(JSON.stringify({ business: s.business, contact: s.contact, footer: s.footer }), /narozen|datum narození|\b19\d\d-\d\d-\d\d\b/i);
   assert.equal(s.nav.at(-1).href, '/kontakt/');
-  assert.equal(s.places.length, 2);
+  assert.equal(s.places.length, 1);
+  assert.ok(!s.credits.some((c) => /Zlín/.test(c.title)), 'the Zlín picture is no longer credited');
   assert.match(s.contact.phoneHref, /^tel:\+420\d+$/);
 });
 
@@ -183,7 +187,8 @@ test('contact form: the builders’ topic list equals the PHP form’s, sign-up 
   const m = /const TK_FORM_TOPICS = array\( ([^)]*) \);/.exec(php);
   assert.ok(m, 'TK_FORM_TOPICS found');
   assert.deepEqual([...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]), FORM_TOPICS);
-  assert.equal(signupHref('Cvičení ve Zlíně'), '/kontakt/?tema=4#formular');
+  assert.equal(signupHref('Semináře a akce'), '/kontakt/?tema=4#formular');
+  assert.throws(() => signupHref('Cvičení ve Zlíně'), /unknown topic/);
   assert.throws(() => signupHref('Nope'), /unknown topic/);
   for (const p of pages) assert.doesNotMatch(htmlOf(p.slug), /mailto:[^"]*\?subject=/, p.slug);
   assert.match(htmlOf('kontakt'), /<!--tk-contact-form-->/);

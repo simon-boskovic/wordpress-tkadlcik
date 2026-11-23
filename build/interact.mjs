@@ -55,6 +55,8 @@ export const SCENARIOS = {
       for (let i = 0; i < 14; i++) await b.key('Tab');
       const escaped = await b.evaluate(`!!document.activeElement.closest('main, .foot')`);
       assert(!escaped, 'Tab reached the inert page behind the open menu');
+      // The trap cycles through the header and the panel; Escape is tested from inside the panel (the item count varies).
+      for (let i = 0; i < 30 && !(await b.evaluate(`!!document.activeElement.closest('#menu-panel')`)); i++) await b.key('Tab');
       await b.key('Escape');
       s = await st();
       assert(s.open === 'false' && s.focusBtn && !s.mainInert && !s.footInert && s.expanded === 'false', 'Escape did not close cleanly / return focus to the button: ' + JSON.stringify(s));
@@ -376,25 +378,23 @@ export const SCENARIOS = {
         await b.evaluate(`(async () => { for (let y = 0; y <= document.documentElement.scrollHeight; y += 500) { scrollTo(0, y); await new Promise((r) => setTimeout(r, 120)); } })()`);
         await sleep(800);
         const boxes = await b.evaluate(`document.querySelectorAll('[data-tk-map-box]').length`);
-        assert(boxes === 2, `${path}: expected 2 map boxes, found ${boxes}`);
+        assert(boxes === 1, `${path}: expected 1 map box, found ${boxes}`);
         assert(google.length === 0, `${path}: Google requests before any click: ${JSON.stringify(google)}`);
         assert(await b.evaluate(`document.querySelectorAll('iframe').length`) === 0, `${path}: an iframe exists before the click`);
-        // Mouse click on the first box.
-        await b.click('[data-tk-map-box] [data-tk-map]');
+        // One map per page since Zlín left (23. 11. 2026): a mouse click on Nabídka kurzů, Enter on Kontakt.
+        if (path === '/kontakt/') {
+          await b.evaluate(`document.querySelector('[data-tk-map-box] [data-tk-map]').focus()`);
+          await b.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, text: '\r' });
+          await b.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+        } else {
+          await b.click('[data-tk-map-box] [data-tk-map]');
+        }
         await sleep(800);
         let r = await b.evaluate(`(() => { const f = document.querySelector('iframe.tk-map-frame'); return { n: document.querySelectorAll('iframe.tk-map-frame').length, src: f && f.getAttribute('src'), title: f && f.title, focus: document.activeElement === f, boxes: document.querySelectorAll('[data-tk-map-box]').length, h: f ? Math.round(f.getBoundingClientRect().height) : 0 }; })()`);
-        assert(r.n === 1 && /^https:\/\/maps\.google\.com\/maps\?/.test(r.src) && /output=embed/.test(r.src), `${path}: the click did not load the map iframe: ` + JSON.stringify(r));
-        assert(r.focus && /^Mapa – /.test(r.title) && r.boxes === 1 && r.h >= 200, `${path}: iframe focus/title/size or the other box wrong: ` + JSON.stringify(r));
+        assert(r.n === 1 && /^https:\/\/maps\.google\.com\/maps\?/.test(r.src) && /output=embed/.test(r.src), `${path}: the click/Enter did not load the map iframe: ` + JSON.stringify(r));
+        assert(r.focus && /^Mapa – /.test(r.title) && r.boxes === 0 && r.h >= 200, `${path}: iframe focus/title/size or the box left behind: ` + JSON.stringify(r));
         assert(google.length >= 1 && google.every((u) => /maps\.google\.com|google\.com\/maps|gstatic|googleapis/.test(u)), `${path}: unexpected Google requests: ${JSON.stringify(google)}`);
-        const after1 = google.length;
-        // Keyboard on the second box: focus the button, Enter.
-        await b.evaluate(`document.querySelector('[data-tk-map-box] [data-tk-map]').focus()`);
-        await b.send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, text: '\r' });
-        await b.send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
-        await sleep(800);
-        r = await b.evaluate(`({ n: document.querySelectorAll('iframe.tk-map-frame').length, boxes: document.querySelectorAll('[data-tk-map-box]').length })`);
-        assert(r.n === 2 && r.boxes === 0, `${path}: Enter on the second button did not load its map: ` + JSON.stringify(r));
-        out.push(`${path}: 0 Google requests before the click; click → iframe (focused, ${after1} request(s), intercepted); Enter → second map`);
+        out.push(`${path}: 0 Google requests before the ${path === '/kontakt/' ? 'Enter' : 'click'}; then iframe (focused, ${google.length} request(s), intercepted)`);
       } finally { await b.close(); }
     }
     // The link fallback (no JS): button hidden, Google Maps link in a new tab.
@@ -402,7 +402,7 @@ export const SCENARIOS = {
     try {
       await b.goto(BASE + '/kontakt/', 300);
       const r = await b.evaluate(`[...document.querySelectorAll('[data-tk-map-box]')].map((box) => { const btn = box.querySelector('[data-tk-map]'), a = box.querySelector('a'); return { btn: !!btn && getComputedStyle(btn).display !== 'none', href: a && a.href, target: a && a.target, rel: a && a.rel, h: Math.round(a ? a.getBoundingClientRect().height : 0) }; })`);
-      assert(r.length === 2 && r.every((x) => !x.btn && /^https:\/\/www\.google\.com\/maps\/search\//.test(x.href) && x.target === '_blank' && /noopener/.test(x.rel) && x.h >= 44), 'no-JS map fallback wrong: ' + JSON.stringify(r));
+      assert(r.length === 1 && r.every((x) => !x.btn && /^https:\/\/www\.google\.com\/maps\/search\//.test(x.href) && x.target === '_blank' && /noopener/.test(x.rel) && x.h >= 44), 'no-JS map fallback wrong: ' + JSON.stringify(r));
       out.push('no JS: button hidden, "Otevřít v Google Maps" links (new tab, noopener, ≥ 44 px)');
     } finally { await b.close(); }
     console.log('map: ok\n  ' + out.join('\n  '));

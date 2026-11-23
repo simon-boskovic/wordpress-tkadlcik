@@ -7,7 +7,7 @@
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "clanky": {
     "title": "Články o tchaj-ťi a čchi-kungu | Radost v pohybu",
@@ -17,67 +17,57 @@
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "cviceni": {
-    "title": "Osm kusů brokátu, 13 slov a styl Yang | Radost v pohybu",
+    "title": "Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang | Radost v pohybu",
     "description": "Cvičení, která vyučujeme: čchi-kung (qigong) Osm kusů brokátu, 13 slov tchaj-ťi a tchaj-ťi (tai chi) stylu Yang – popis, sestavy a videogalerie.",
     "robots": [
       "index",
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "cviceni-na-horach": {
     "title": "Cvičení na horách – Strážné, Krkonoše | Radost v pohybu",
-    "description": "Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) na horách ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov a 12 forem Yang tchaj-ťi.",
+    "description": "Cvičení tchaj-ťi (tai chi) a čchi-kungu (qigong) ve Strážném v Krkonoších: Osm kusů brokátu, zhan zhuang, 13 slov tchaj-ťi a 12 forem Yang.",
     "robots": [
       "index",
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
-  },
-  "cviceni-ve-zline": {
-    "title": "Tai chi (tchaj-ťi) a čchi-kung ve Zlíně | Radost v pohybu",
-    "description": "Cvičení čchi-kungu (qigong) a tchaj-ťi (tai chi) ve Zlíně jednou měsíčně v pátek v Centru Jiný svět, Osvoboditelů 484: Osm kusů brokátu a 13 slov tchaj-ťi.",
-    "robots": [
-      "index",
-      "follow"
-    ],
-    "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "domu": {
-    "title": "Tchaj-ťi (tai chi) a čchi-kung Praha 4 a Zlín | Radost v pohybu",
-    "description": "Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.",
+    "title": "Tchaj-ťi (tai chi) a čchi-kung Praha 4 | Radost v pohybu",
+    "description": "Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 na ZŠ Jeremenkova: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.",
     "robots": [
       "index",
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "kontakt": {
-    "title": "Kontakt – tchaj-ťi a čchi-kung Praha 4 a Zlín | Radost v pohybu",
-    "description": "Kontakt na lektora tchaj-ťi (tai chi) a čchi-kungu (qigong) Mgr. Daniela Tkadlčíka. Cvičíme v ZŠ Jeremenkova v Praze 4 a v Centru Jiný svět ve Zlíně.",
+    "title": "Kontakt – tchaj-ťi a čchi-kung Praha 4 | Radost v pohybu",
+    "description": "Kontakt na lektora tchaj-ťi (tai chi) a čchi-kungu (qigong) Mgr. Daniela Tkadlčíka. Cvičíme v tělocvičně ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4.",
     "robots": [
       "index",
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "kurzy-a-lekce": {
-    "title": "Kurzy tai chi a čchi-kungu Praha 4 a Zlín | Radost v pohybu",
-    "description": "Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 a ve Zlíně: lekce 120 minut, nový kurz pro začátečníky od 7. 12. 2026.",
+    "title": "Kurzy tchaj-ťi (tai chi) a čchi-kungu Praha 4 | Radost v pohybu",
+    "description": "Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4: lekce 90 a 120 minut, nový kurz pro začátečníky v pondělí od 7. 12. 2026.",
     "robots": [
       "index",
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "o-mne": {
     "title": "Mgr. Daniel Tkadlčík – tchaj-ťi od roku 1997 | Radost v pohybu",
@@ -97,17 +87,17 @@
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "seminar-vincent-chu": {
     "title": "Seminář s mistrem Vincentem Chu v Praze | Radost v pohybu",
-    "description": "Seminář s mistrem Vincentem Chu v Praze 21.–22. 11. 2026: Guo Yang Tzu, statický čchi-kung (qigong) i pro začátečníky, a ukázka uvolnění síly fa jin.",
+    "description": "Seminář s mistrem Vincentem Chu v Praze 28.–29. 11. 2026: Hrátky pěti zvířat, čchi-kung (qigong), a Tchaj-ťi kung pro začátečníky i pokročilé.",
     "robots": [
       "index",
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "videogalerie": {
     "title": "Videogalerie tchaj-ťi a čchi-kungu | Radost v pohybu",
@@ -117,7 +107,7 @@
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   },
   "zasady-ochrany-osobnich-udaju": {
     "title": "Zásady ochrany osobních údajů | Radost v pohybu",
@@ -127,6 +117,6 @@
       "follow"
     ],
     "og": "og-default.jpg",
-    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4 a Zlín"
+    "og_alt": "Radost v pohybu – čchi-kung a tchaj-ťi, Praha 4"
   }
 }

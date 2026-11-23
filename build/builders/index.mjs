@@ -4,7 +4,6 @@ export * as cviceni from './cviceni.mjs';
 export * as videogalerie from './videogalerie.mjs';
 export * as brokat from './brokat.mjs';
 export * as kurzyALekce from './kurzy-a-lekce.mjs';
-export * as zlin from './zlin.mjs';
 export * as akce from './akce.mjs';
 export * as seminar from './seminar.mjs';
 export * as hory from './hory.mjs';

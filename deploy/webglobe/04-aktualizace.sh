@@ -24,6 +24,14 @@ ok "šablona a mu-pluginy"
 say "Obsah"
 wp tk media-import --dir="$BUNDLE/client-img" --manifest="$BUNDLE/build/media.json" --files-dir="$BUNDLE/client-files" | grep -vE '^\[ok\]' || stop "media-import"
 wp tk page-upsert --dir="$BUNDLE/build/pages" | grep -vE '^\[ok\]' || stop "page-upsert"
+# Our pages (page-upsert sets _tk_scripts) that the bundle no longer has go to draft, e.g. /cviceni-ve-zline/
+# (23. 11. 2026; its URL 301s via tk-redirects.php). Nothing is deleted; the IDs are logged in $B/pages-drafted.txt.
+P=$(wp db prefix); S=$(our_slugs | sed "s/.*/'&'/" | paste -sd, -)
+[ -n "$S" ] || stop "balík bez stránek"
+GONE=$(wp db query "SELECT p.ID FROM ${P}posts p JOIN ${P}postmeta m ON m.post_id = p.ID AND m.meta_key = '_tk_scripts' WHERE p.post_type = 'page' AND p.post_status = 'publish' AND p.post_name NOT IN ($S)" --skip-column-names | paste -sd' ' -)
+for id in $GONE; do
+  wp post update "$id" --post_status=draft >/dev/null && echo "$(date -Iseconds) $id" >> "$B/pages-drafted.txt" && echo "koncept (už není v balíku): #$id"
+done
 wp tk seo-setup --file="$BUNDLE/build/seo.json" | tail -1 || stop "seo-setup"
 wp tk consent-setup --dry-run | tail -2
 

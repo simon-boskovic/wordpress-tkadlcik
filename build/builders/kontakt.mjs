@@ -6,17 +6,17 @@ import { hero, sec } from './parts.mjs';
 
 export function build({ content, page }) {
   const c = content.contact;
-  const [praha, zlin] = content.places;
+  const [praha] = content.places;
   return page({
     slug: 'kontakt',
     title: 'Kontakt',
     scripts: ['map', 'form'],
     frontPage: false,
     sections: [
-      stage(['svitek', 'praha', 'zlin', 'hory']),
+      stage(['svitek', 'snih', 'praha', 'hory']),
 
       hero({
-        h1: 'Kontakt: tchaj-ťi Praha 4 a Zlín',
+        h1: 'Kontakt: tchaj-ťi a čchi-kung v Praze 4',
         lead: 'Kurzy probíhají na adrese ZŠ Jeremenkova, Jeremenkova 1003/66A.',
         extra: `<ul class="rows rise d2">
 <li><span class="r-name">${c.name}</span></li>
@@ -27,7 +27,7 @@ export function build({ content, page }) {
       }),
 
       sec({
-        id: 'formular', stageKey: 'svitek',
+        id: 'formular', stageKey: 'snih',
         h2: 'Napište mi',
         body: `<div class="reveal"><!--tk-contact-form--></div>`,
       }),
@@ -38,14 +38,6 @@ export function build({ content, page }) {
         intro: `${praha.street}, ${praha.postalCode} ${praha.city}`,
         body: `<div class="media reveal">${mapBox(praha, content.mapsEmbedUrl, content.mapsLinkUrl)}</div>
 <div class="actions reveal" style="margin-top: 20px">${more('/kurzy-a-lekce/#praha', 'Rozvrh a ceny')}</div>`,
-      }),
-
-      sec({
-        id: 'zlin', stageKey: 'zlin',
-        h2: 'Centrum Jiný svět, Zlín',
-        intro: `${zlin.street}, ${zlin.postalCode} ${zlin.city}`,
-        body: `<div class="media reveal">${mapBox(zlin, content.mapsEmbedUrl, content.mapsLinkUrl)}</div>
-<div class="actions reveal" style="margin-top: 20px">${more('/cviceni-ve-zline/', 'Cvičení ve Zlíně')}</div>`,
       }),
 
       contactStatement(content, { id: 'napiste', heading: 'E-mail' }),

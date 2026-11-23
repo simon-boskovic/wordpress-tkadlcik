@@ -79,7 +79,7 @@ export function build({ content, page }) {
       stage(['snih', 'peking', 'weiqi', 'hory']),
 
       hero({
-        h1: 'Osm kusů brokátu, 13 slov a styl Yang',
+        h1: 'Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang',
         lead: 'Cvičení, která vyučujeme.',
         actions: `<nav class="actions" aria-label="Na této stránce">${more('#brokat', 'Osm kusů brokátu')}${more('#slov', '13 slov tchaj-ťi')}${more('#yang', 'Tchaj-ťi stylu Yang')}</nav>`,
         stageKey: 'snih',

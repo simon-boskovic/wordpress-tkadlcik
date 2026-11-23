@@ -29,12 +29,13 @@ chk() { got=$(curl -s -o /dev/null -w '%{http_code} %{redirect_url}' "$1"); prin
 case "$H" in https://*) chk "http://$DOMAIN/" "301 $H/"; chk "https://www.$DOMAIN/" "301 $H/";; esac
 chk "$H/prazdna-stranka/" "410*"
 chk "$H/cviceni-na-akci-s-jirim-ledvinou/" "301 $H/seminar-vincent-chu/"
+chk "$H/cviceni-ve-zline/" "301 $H/kurzy-a-lekce/"
 chk "$H/neexistuje-$(date +%s)/" "404*"
 chk "$H/wp-content/uploads/letak-savle.jpg" "200*"
 chk "$H/robots.txt" "200*"
 chk "$H/llms.txt" "200*"
 chk "$H/sitemap.xml" "200*"
-echo "sitemap <loc>: $(curl -s "$H/sitemap.xml" | grep -o '<loc>' | wc -l)   (čeká se 12: 13 stránek bez zásad)"
+echo "sitemap <loc>: $(curl -s "$H/sitemap.xml" | grep -o '<loc>' | wc -l)   (čeká se 11: 12 stránek bez zásad)"
 chk "$H/?author=1" "404*"
 chk "$H/wp-json/wp/v2/users" "404*"
 
