@@ -1,6 +1,6 @@
 # Nasazení na Webglobe — radostvpohybu.cz
 
-**Stav: nasazeno 2026-11-01** (balík `3178334`, opravy `7d0254f`, `f838fda`, obsah z PDF + „Napište mi“ + validace formuláře `df268d4`; 2026-11-02 `8180285`: seminář 21.–22. 11. 2026 s letákem, zvětšování obrázků, dechové kolečko, pole událostí). Web běží na
+**Stav: nasazeno 2026-11-01** (balík `3178334`, opravy `7d0254f`, `f838fda`, obsah z PDF + „Napište mi“ + validace formuláře `df268d4`; 2026-11-02 `8180285`: seminář 21.–22. 11. 2026 s letákem, zvětšování obrázků, dechové kolečko, pole událostí; 2026-11-23 `2c5310d`: seminář 28.–29. 11. 2026, pondělí 19:00–20:30, „13 slov tchaj-ťi“, bez Zlína — `/cviceni-ve-zline/` 301, stránka #32 v konceptu). Web běží na
 https://radostvpohybu.cz/ ve stávající instalaci WordPressu od Webglobe.
 
 ## Server (zjištěno 2026-11-01)
@@ -88,6 +88,7 @@ Zvenku: `node build/interact.mjs all --base=https://radostvpohybu.cz`. `verify.m
 - **Zásady ochrany osobních údajů**: 5× `[doplnit …]` (lhůty, hosting …) od klienta.
 - **HSTS** po týdnu bez problémů na rok: `wp config set TK_HSTS_MAX_AGE 31536000 --raw && wp tk headers-setup`.
 - **Search Console**: ověřit doménu, odeslat `sitemap.xml`. Webnode (`dan24.webnode.cz`): odkaz na nový web, pak vypnout.
-- **Přístup**: SSH klíč `claude-radostvpohybu-2026-11` smazán 2026-11-02 (na serveru i lokálně; `authorized_keys` je prázdný, přihlášení heslem). Pro další nasazení přes Claude vytvořit nový klíč a po práci ho zase smazat.
+- **Přístup**: dočasné klíče Clauda (`claude-radostvpohybu-2026-11`, `…-2026-11-23`) smazány po nasazení (na serveru i lokálně; `authorized_keys` je prázdný, přihlášení heslem). Pro další nasazení vytvořit nový klíč a po práci ho zase smazat.
+- **SSH od 2026-11-23**: Webglobe SSH přestavěl (port byl zavřený, pak nové klíče serveru). Ověřený otisk ED25519: `SHA256:EIULvMRqWcVQ+rq7nlaFPoIkI5wE8owJo1vqYuDrEkM` (`ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub` ve WebSSH). Pluginy se aktualizují samy: Complianz 7.5.7, Site Kit 1.192.0 (doctor hlásí jinou verzi, souhlas funguje: consent-setup 0 změn).
 - Wordfence zůstává (ochrana přihlášení); Webglobe Welcome zůstává. LiteSpeed Cache a MonsterInsights jsou vypnuté,
   nesmazané.
