@@ -139,6 +139,17 @@ function tk_sec_htaccess_block() {
 
 	$lines[] = 'Header unset X-Powered-By';
 	$lines[] = 'Header always unset X-Powered-By';
+	// Browser caching of static files (SEO audit 2026-11-23: uploads had no Cache-Control on the host). Images
+	// 30 days; fonts a year (never change under one name); theme CSS/JS carry ?ver=<mtime>, so 30 days is safe.
+	$lines[] = '<FilesMatch "\.(?:webp|avif|jpe?g|png|gif|svg|ico)$">';
+	$lines[] = 'Header set Cache-Control "public, max-age=2592000"';
+	$lines[] = '</FilesMatch>';
+	$lines[] = '<FilesMatch "\.woff2$">';
+	$lines[] = 'Header set Cache-Control "public, max-age=31536000, immutable"';
+	$lines[] = '</FilesMatch>';
+	$lines[] = '<FilesMatch "\.(?:css|js)$">';
+	$lines[] = 'Header set Cache-Control "public, max-age=2592000"';
+	$lines[] = '</FilesMatch>';
 	$lines[] = '</IfModule>';
 
 	// WordPress's own readme.html/license.txt name the version; wp-config-sample.php is noise; xmlrpc.php is

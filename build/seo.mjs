@@ -7,7 +7,7 @@
  * localhost and on the production domain. Nothing is invented: every fact in llms.txt is checked against
  * the generated page text (buildLlms throws on a fact the pages do not contain).
  */
-import { EVENTS, mapsLinkUrl } from './content.mjs';
+import { EVENTS, isPast, mapsLinkUrl } from './content.mjs';
 import { SCHEDULE, NEW_COURSE, SUNDAYS, PRICE_NOTE } from './builders/kurzy-a-lekce.mjs';
 import { VIDEOS } from './builders/cviceni.mjs';
 import { DAYS_2026 } from './builders/seminar.mjs';
@@ -47,7 +47,7 @@ export const SEO = {
   },
   'osm-kusu-brokatu': {
     title: `Osm kusů brokátu – čchi-kung (qigong) cvičení${TITLE_SUFFIX}`,
-    description: 'Osm kusů brokátu, čchi-kungové (qigong) cvičení ze skupiny Daoyin: názvy všech osmi cviků, video a pravidelný úterní kurz v Praze 4.',
+    description: 'Osm kusů brokátu, čchi-kungové (qigong) cvičení ze skupiny Daoyin: názvy všech osmi cviků, video a rozvrh pravidelných lekcí v Praze 4.',
   },
   videogalerie: {
     title: `Videogalerie tchaj-ťi a čchi-kungu${TITLE_SUFFIX}`,
@@ -130,15 +130,15 @@ export const SEMINARS = [
   { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS.chu.startDate, endDate: EVENTS.chu.endDate, place: 'praha', text: EVENTS.chu.text,
     description: 'Korektura dlouhé formy středního řádu stylu Yang a DaoYinový čchi-kung Hrátky pěti zvířat.', url: '/seminar-vincent-chu/', performer: '/#vincent-chu' },
   // The owner's all-day Sundays (PDF, 1. 11. 2026); the name is the Akce section heading. No price stated yet.
-  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-11'].startDate, endDate: EVENTS['nedele-11'].endDate, place: 'praha', text: EVENTS['nedele-11'].text, description: SUNDAYS.text, url: '/akce/#nedele' },
+  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-11'].startDate, endDate: EVENTS['nedele-11'].endDate, place: 'praha', text: EVENTS['nedele-11'].text, description: SUNDAYS.text, url: '/akce/#nedele', offers: SUNDAYS.offers },
   // The owner's flyer (2. 11. 2026): Guo Yang Tzu with a demonstration by Vincent Chu, 2 500 Kč.
   { name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS['chu-2026'].startDate, endDate: EVENTS['chu-2026'].endDate, place: 'praha', text: EVENTS['chu-2026'].text,
     description: 'Guo Yang Tzu – statický čchi-kung spojený s procvičováním pojivových tkání, vhodný i pro začátečníky. Mistr Vincent Chu předvede uvolnění síly fa jin.',
     image: '/wp-content/uploads/letak-gu-yang-tzu.jpg', price: 2500, url: '/seminar-vincent-chu/', performer: '/#vincent-chu' },
   // The owner's programme (23. 11. 2026): Saturday and Sunday, 2 500 Kč a day.
-  ...DAYS_2026.map((d) => ({ name: 'Seminář s mistrem Vincentem Chu v Praze', startDate: EVENTS[d.key].startDate, endDate: EVENTS[d.key].endDate, place: 'praha', text: EVENTS[d.key].text,
+  ...DAYS_2026.map((d) => ({ name: `${d.title} s mistrem Vincentem Chu`, startDate: EVENTS[d.key].startDate, endDate: EVENTS[d.key].endDate, place: 'praha', text: EVENTS[d.key].text,
     description: `${d.title}: ${d.text}`, price: 2500, url: `/seminar-vincent-chu/#${d.id}`, performer: '/#vincent-chu' })),
-  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-12'].startDate, endDate: EVENTS['nedele-12'].endDate, place: 'praha', text: EVENTS['nedele-12'].text, description: SUNDAYS.text, url: '/akce/#nedele' },
+  { name: 'Celodenní cvičení v neděli', startDate: EVENTS['nedele-12'].startDate, endDate: EVENTS['nedele-12'].endDate, place: 'praha', text: EVENTS['nedele-12'].text, description: SUNDAYS.text, url: '/akce/#nedele', offers: SUNDAYS.offers },
   { name: 'Jarní cvičení na horách', startDate: EVENTS['hory-jaro'].startDate, endDate: EVENTS['hory-jaro'].endDate, price: 3800, location: { name: 'Penzion Exnar', addressLocality: 'Strážné', streetAddress: 'Strážné 2' }, text: EVENTS['hory-jaro'].text,
     description: 'Cvičení v Krkonoších: Osm kusů brokátu, průpravná cvičení tchaj-ťi kung, zhan zhuang, 13 slov tchaj-ťi a 12 forem Yang tchaj-ťi.', url: '/cviceni-na-horach/' },
 ];
@@ -271,6 +271,8 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
   const placeId = Object.fromEntries(content.places.map((pl) => [pl.key, `/#${pl.key}`]));
   for (const e of SEMINARS) {
     for (const t of [e.name, e.text]) if (!text.includes(t)) throw new Error(`schema: seminar "${t}" is not on the pages (keep SEMINARS in step with Akce)`);
+    // Every Event price must be printed on the pages (e.g. "1 000 Kč").
+    for (const p of [e.price, ...(e.offers || []).map((o) => o.price)].filter(Boolean)) fact(`${p.toLocaleString('cs-CZ').replace(/\s/g, ' ')} Kč`);
   }
 
   const galleryHtml = pages.filter((p) => p.slug === 'videogalerie').flatMap((p) => p.elements.map((e) => e.elements[0].settings.html)).join('\n');
@@ -313,7 +315,9 @@ export function buildSchema(pages, { content, today = new Date().toISOString().s
           location: e.place ? { '@id': placeId[e.place] } : { '@type': 'Place', name: e.location.name, address: { '@type': 'PostalAddress', streetAddress: e.location.streetAddress, addressLocality: e.location.addressLocality, addressCountry: 'CZ' } },
           description: e.description, image: [e.image || EVENT_IMAGE],
           organizer: { '@id': '/#organization' }, performer: { '@id': e.performer || '/#daniel' }, url: e.url || path,
+          // One price = one Offer; several (the Sundays: morning / whole day) = an Offer each, named.
           ...(e.price ? { offers: { '@type': 'Offer', price: e.price, priceCurrency: 'CZK', availability: 'https://schema.org/InStock', validFrom: '2026-11-01', url: e.url || path } } : {}),
+          ...(e.offers ? { offers: e.offers.map((o) => ({ '@type': 'Offer', name: o.name, price: o.price, priceCurrency: 'CZK', availability: 'https://schema.org/InStock', validFrom: '2026-11-01', url: e.url || path })) } : {}),
         });
       }
     }
@@ -360,11 +364,12 @@ export function buildLlms(pages, { content, today = new Date().toISOString().sli
     '## Pravidelné cvičení', '',
     `- Praha 4, ${praha.name}, ${praha.street}: ${SCHEDULE.map((s) => `${fact(`${s.day} ${s.time}`)} – ${fact(s.name)}`).join('; ')}.`,
     `- ${fact(NEW_COURSE.title)}: ${fact(`${NEW_COURSE.day} ${NEW_COURSE.time}`)} – ${fact(NEW_COURSE.text)} (${url('/kurzy-a-lekce/#novy-kurz')})`,
-    `- ${fact(SUNDAYS.title)}: ${SUNDAYS.dates.map((d) => fact(d.date)).join(', ')}, ${fact(SUNDAYS.time)}. ${fact(SUNDAYS.text)}`,
+    // Only the Sundays still ahead (SEO audit 2026-11-23: a past date read as upcoming).
+    ...(SUNDAYS.dates.some((d) => !isPast([d.key], today)) ? [`- ${fact(SUNDAYS.title)}: ${SUNDAYS.dates.filter((d) => !isPast([d.key], today)).map((d) => fact(d.date)).join(', ')}, ${fact(SUNDAYS.time)}. ${fact(SUNDAYS.text)}`] : []),
     `- ${fact('Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku.')}`,
     `- Rozvrh a ceny: ${url('/kurzy-a-lekce/')}`, '',
     '## Ceny', '',
-    `- ${fact('350 Kč lekce 120 minut')}, ${fact('3 250 Kč 10 lekcí')}. ${fact(PRICE_NOTE)}`, '',
+    `- ${fact('350 Kč lekce 90 nebo 120 minut')}, ${fact('3 250 Kč 10 lekcí')}. ${fact(PRICE_NOTE)}`, '',
     '## Akce', '',
     `- ${fact('Semináře tchaj-ťi a cvičení na horách')}: ${url('/akce/')}`,
     `- ${fact('Seminář s mistrem Vincentem Chu v Praze')}: ${url('/seminar-vincent-chu/')}`,

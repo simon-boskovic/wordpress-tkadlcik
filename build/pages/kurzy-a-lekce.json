@@ -138,7 +138,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"novy-kurz\" data-stage=\"snih\" aria-labelledby=\"novy-kurz-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"novy-kurz-h\" class=\"h2 reveal\">Nový kurz od 7. 12. 2026</h2>\n\n</div>\n<div class=\"course reveal\">\n<p class=\"body\">Výuka Hrátky pěti zvířat, stání v pozicích Guo Yang Tzu, procvičování sestavy Yang tchaj-ťi 8 pohybů. Pro začátečníky.</p>\n<dl class=\"facts\"><div><dt>Pravidelné cvičení</dt><dd>Pondělí 19:00 - 20:30</dd></div><div><dt>Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div></dl>\n<div class=\"actions\"><a href=\"/kontakt/?tema=5#formular\" class=\"more\">Přihlásit se</a></div>\n</div>\n</section>"
+            "html": "<section id=\"novy-kurz\" data-stage=\"snih\" aria-labelledby=\"novy-kurz-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"novy-kurz-h\" class=\"h2 reveal\">Nový kurz od 7. 12. 2026</h2>\n\n</div>\n<div class=\"course reveal\">\n<p class=\"body\">Výuka Hrátky pěti zvířat, stání v pozicích Guo Yang Tzu, procvičování sestavy Yang tchaj-ťi 8 pohybů. Pro začátečníky.</p>\n<dl class=\"facts\"><div><dt>Pravidelné cvičení</dt><dd>Pondělí 19:00 - 20:30</dd></div><div><dt>Místo</dt><dd>Tělocvična ZŠ Jeremenkova</dd></div><div><dt>Cena</dt><dd>350 Kč lekce 90 minut</dd></div></dl>\n<div class=\"actions\"><a href=\"/kontakt/?tema=5#formular\" class=\"more\">Přihlásit se</a></div>\n</div>\n</section>"
           },
           "elements": []
         }
@@ -172,7 +172,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"nedele\" data-stage=\"snih\" aria-labelledby=\"nedele-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"nedele-h\" class=\"h2 reveal\">Celodenní cvičení v neděli</h2>\n<p class=\"body reveal\">Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Neděle 15. 11. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30 <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Neděle 13. 12. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30</span></li>\n</ul></div>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kontakt/?tema=4#formular\" class=\"more\">Přihlásit se</a></div>\n</section>"
+            "html": "<section id=\"nedele\" data-stage=\"snih\" aria-labelledby=\"nedele-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"nedele-h\" class=\"h2 reveal\">Celodenní cvičení v neděli</h2>\n<p class=\"body reveal\">Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích.</p>\n</div>\n<div class=\"rows-group reveal\"><ul class=\"rows\">\n<li><span class=\"r-name\">Neděle 15. 11. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30 <span class=\"badge\">Proběhlo</span></span></li>\n<li><span class=\"r-name\">Neděle 13. 12. 2026</span><span class=\"r-val\">10:00 - 12:30 a 15:00 - 17:30</span></li>\n</ul></div>\n<p class=\"body reveal tk-s-a26bda7d\"><strong>Cena:</strong> dopoledne 500 Kč, celý den 1 000 Kč.</p>\n<div class=\"actions reveal tk-s-583f758b\"><a href=\"/kontakt/?tema=4#formular\" class=\"more\">Přihlásit se</a></div>\n</section>"
           },
           "elements": []
         }
@@ -240,7 +240,7 @@
           "elType": "widget",
           "widgetType": "html",
           "settings": {
-            "html": "<section id=\"cena\" data-stage=\"svitek\" aria-labelledby=\"cena-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"cena-h\" class=\"h2 reveal\">Ceny lekcí</h2>\n\n</div>\n<div class=\"figures reveal\">\n<div><span class=\"figure-n\">350 Kč</span><span class=\"figure-l\">lekce 120 minut</span></div>\n<div><span class=\"figure-n\">3 250 Kč</span><span class=\"figure-l\">10 lekcí</span></div>\n</div>\n<p class=\"body reveal tk-s-583f758b\">Platby za lekci nebo 10 lekcí za 3 250 Kč, platba předem, platí na 3 měsíce od data zaplacení na účet.</p>\n</section>"
+            "html": "<section id=\"cena\" data-stage=\"svitek\" aria-labelledby=\"cena-h\" class=\"sec\">\n<div class=\"sec-head\">\n<h2 id=\"cena-h\" class=\"h2 reveal\">Ceny lekcí</h2>\n\n</div>\n<div class=\"figures reveal\">\n<div><span class=\"figure-n\">350 Kč</span><span class=\"figure-l\">lekce 90 nebo 120 minut</span></div>\n<div><span class=\"figure-n\">3 250 Kč</span><span class=\"figure-l\">10 lekcí</span></div>\n</div>\n<p class=\"body reveal tk-s-583f758b\">Platby za lekci nebo 10 lekcí za 3 250 Kč, platba předem, platí na 3 měsíce od data zaplacení na účet.</p>\n</section>"
           },
           "elements": []
         }

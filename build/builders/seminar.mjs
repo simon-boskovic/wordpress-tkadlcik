@@ -49,7 +49,7 @@ export function build({ content, page }) {
         h2: 'Hrátky pěti zvířat a Tchaj-ťi kung',
         intro: 'Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4.',
         body: `${DAYS_2026.map((d) => `<article class="course reveal" id="${d.id}" aria-labelledby="${d.id}-h">
-<h3 class="h3" id="${d.id}-h">${d.title}</h3>
+<h3 class="h3" id="${d.id}-h">${d.title} s mistrem Vincentem Chu</h3>
 <p class="small muted">${EVENTS[d.key].text}${pastBadge([d.key], day)}</p>
 <p class="body">${d.text}</p>
 ${facts([['Čas', TIME_2026], ['Místo', 'ZŠ Jeremenkova, Jeremenkova 1003/66A'], ['Cena', PRICE_2026]])}
@@ -70,7 +70,7 @@ ${pastNov ? '' : `<p class="body reveal" style="margin-top: 28px">Přihlašujte 
 ])}
 <p class="body reveal" style="margin-top: 24px">Mistr Vincent Chu předvede uvolnění síly <em>fa jin</em>.</p>
 <div class="actions reveal" style="margin-top: 28px">${past26 ? '' : signup}<a class="more" href="${FLYER}" download>Stáhnout leták</a></div>
-<figure class="media reveal" style="max-width: 440px; margin-top: 32px"><a class="zoom-link" href="${FLYER}" data-tk-zoom><img class="pic pic-doc" src="${FLYER}" alt="Leták: Guo Yang Tzu, statický čchi-kung, ukázka mistra Vincenta Chu, 21.–22. 11. 2026, Praha 4" width="1055" height="1490" loading="lazy" decoding="async"></a><figcaption>Kliknutím leták zvětšíte.</figcaption></figure>`,
+<figure class="media reveal" style="max-width: 440px; margin-top: 32px"><a class="zoom-link" href="${FLYER}" data-tk-zoom><img class="pic pic-doc" src="./client-img/letak-gu-yang-tzu-nahled.jpg" alt="Leták: Guo Yang Tzu, statický čchi-kung, ukázka mistra Vincenta Chu, 21.–22. 11. 2026, Praha 4" width="880" height="1243" loading="lazy" decoding="async"></a><figcaption>Kliknutím leták zvětšíte.</figcaption></figure>`,
       }),
 
       sec({
@@ -101,8 +101,8 @@ ${rows([
       sec({
         id: 'prihlaseni', stageKey: 'svitek',
         h2: 'Přihlášení na seminář 2025',
-        body: `<p class="body reveal${past ? ' muted' : ''}"><strong>Pro přihlášení na seminář v Praze posílejte zálohu 1500 Kč do 15. 11. 2025 na účet 1035195033/0800.</strong></p>
-<div class="actions reveal" style="margin-top: 28px">${past ? more('/kontakt/', 'Kontakt - ZŠ Jeremenkova') : btn('/kontakt/', 'Kontakt - ZŠ Jeremenkova')}${more('/akce/', 'Akce')}</div>`,
+        body: `<p class="body reveal${past ? ' muted' : ''}"><strong>Pro přihlášení na seminář v Praze posílejte zálohu 1500 Kč do 15. 11. 2025 na účet 1035195033/0800.</strong>${past}</p>
+<div class="actions reveal" style="margin-top: 28px">${past ? '' : btn('/kontakt/', 'Kontakt - ZŠ Jeremenkova')}${more('/akce/', 'Akce')}</div>`,
       }),
 
       contactStatement(content),

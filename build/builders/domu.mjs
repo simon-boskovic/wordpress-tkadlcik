@@ -56,7 +56,8 @@ ${c.when ? `<p class="small muted">${c.when}</p>` : ''}
       hero({
         h1: 'Tchaj-ťi a čchi-kung v Praze 4',
         lead: 'Najít klid v pohybu a v klidu zase pohyb je jeden z mnoha pohledů na cvičení tchaj-ťi a čchi-kungu, stejně tak i jiných forem hledajících klid a harmonii.',
-        actions: `${btn('/kurzy-a-lekce/', 'Nabídka kurzů a lekcí')}${`<a class="more" href="/wp-content/uploads/letak-savle.jpg" download>Stáhnout leták na Šavli</a>`}`,
+        // SEO audit 2026-11-23: the old sabre flyer (no year, 28.–29. 11.) is no longer advertised here (Akce keeps it, marked past).
+        actions: `${btn('/kurzy-a-lekce/', 'Nabídka kurzů a lekcí')}${more('/seminar-vincent-chu/', 'Seminář s Vincentem Chu 28.–29. 11.')}`,
         wordmark: true,
         stageKey: 'hory',
       }),
@@ -116,8 +117,9 @@ ${SUNDAYS.dates.map((d) => `<div class="sheet-item"><span class="si-name">${d.da
 </div>
 <div class="sheet-group">
 <h3>Cena</h3>
-<div class="sheet-item"><span class="si-name">Lekce 120 minut</span><span class="si-val">350 Kč</span></div>
+<div class="sheet-item"><span class="si-name">Lekce 90 nebo 120 minut</span><span class="si-val">350 Kč</span></div>
 <div class="sheet-item"><span class="si-name">10 lekcí</span><span class="si-val">3 250 Kč</span><span class="si-desc">${PRICE_NOTE}</span></div>
+${SUNDAYS.offers.map((o) => `<div class="sheet-item"><span class="si-name">Neděle – ${o.name.toLowerCase()}</span><span class="si-val">${o.price.toLocaleString('cs-CZ').replace(/\s/g, ' ')} Kč</span></div>`).join('\n')}
 </div>
 <p class="sheet-end"><a href="/kurzy-a-lekce/">Nabídka kurzů a lekcí</a></p>
 </div>

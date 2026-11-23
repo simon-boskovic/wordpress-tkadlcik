@@ -85,7 +85,16 @@ add_action( 'template_redirect', 'tk_no_taxonomy_archives', 1 );
 /**
  * /.well-known/security.txt (RFC 9116): where to report a security problem. Contact = the operator's e-mail
  * (the only published address); Expires one year after the file was last checked; change both with the domain.
+ * On Webglobe nginx answers /.well-known/ itself (never reaches PHP), so 04-aktualizace.sh also writes this body
+ * to public_html/.well-known/security.txt (SEO audit 2026-11-23).
  */
+function tk_security_txt_body() {
+	return "Contact: mailto:tkadlcik@centrum.cz\n"
+		. "Expires: 2027-11-01T00:00:00.000Z\n"
+		. 'Canonical: ' . esc_url_raw( home_url( '/.well-known/security.txt' ) ) . "\n"
+		. "Preferred-Languages: cs, en\n";
+}
+
 function tk_security_txt() {
 	$path = (string) wp_parse_url( isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '', PHP_URL_PATH ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- compared to a fixed path.
 	if ( '/.well-known/security.txt' !== $path ) {
@@ -94,10 +103,7 @@ function tk_security_txt() {
 	status_header( 200 );
 	header( 'Content-Type: text/plain; charset=utf-8' );
 	header( 'Cache-Control: public, max-age=86400' );
-	echo "Contact: mailto:tkadlcik@centrum.cz\n";
-	echo "Expires: 2027-11-01T00:00:00.000Z\n";
-	echo 'Canonical: ' . esc_url_raw( home_url( '/.well-known/security.txt' ) ) . "\n";
-	echo "Preferred-Languages: cs, en\n";
+	echo tk_security_txt_body(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- plain text, URL escaped above.
 	exit;
 }
 add_action( 'parse_request', 'tk_security_txt', 0 );

@@ -44,12 +44,12 @@ test('Events only for seminars that have not started yet (the owner\'s Sundays 1
   const early = buildSchema(pages, { content, today: '2024-01-01' });
   assert.deepEqual(byType(early.akce, 'Event').map((e) => e.startDate), SEMINARS.map((e) => e.startDate));
   const CHU = 'Seminář s mistrem Vincentem Chu v Praze', SUN = 'Celodenní cvičení v neděli';
-  assert.deepEqual(at('2025-01-01').map((e) => e.name), [CHU, SUN, CHU, CHU, CHU, SUN]);
+  assert.deepEqual(at('2025-01-01').map((e) => e.name), [CHU, SUN, CHU, 'Hrátky pěti zvířat s mistrem Vincentem Chu', 'Tchaj-ťi kung s mistrem Vincentem Chu', SUN]);
   assert.deepEqual(at('2026-11-01').map((e) => e.startDate), ['2026-11-15', '2026-11-21', '2026-11-28', '2026-11-29', '2026-12-13']);
   assert.deepEqual(at('2026-11-16').map((e) => e.startDate), ['2026-11-21', '2026-11-28', '2026-11-29', '2026-12-13']);
   assert.deepEqual(at('2026-11-23').map((e) => e.startDate), ['2026-11-28', '2026-11-29', '2026-12-13']);
   // The owner's programme of 23. 11. 2026: one Event per day, 2 500 Kč each, linked to the day on the seminar page.
-  const days = at('2026-11-23').filter((e) => e.name === CHU);
+  const days = at('2026-11-23').filter((e) => e.url.startsWith('/seminar-vincent-chu/#'));
   assert.deepEqual(days.map((e) => [e.url, e.offers.price, e.performer['@id'], e.description.split(':')[0]]), [['/seminar-vincent-chu/#sobota', 2500, '/#vincent-chu', 'Hrátky pěti zvířat'], ['/seminar-vincent-chu/#nedele', 2500, '/#vincent-chu', 'Tchaj-ťi kung']]);
   // Google's recommended fields (Search Console): every Event has a description and an image; a stated price = offers.
   for (const e of at('2026-11-01')) assert.ok(e.description && e.image.length, e.name);
@@ -57,6 +57,10 @@ test('Events only for seminars that have not started yet (the owner\'s Sundays 1
   assert.deepEqual([chu.offers.price, chu.offers.priceCurrency, chu.performer, chu.url, chu.image], [2500, 'CZK', { '@id': '/#vincent-chu' }, '/seminar-vincent-chu/', ['/wp-content/uploads/letak-gu-yang-tzu.jpg']]);
   assert.equal(at('2026-12-14').length, 0);
   for (const e of at('2026-11-01')) assert.deepEqual(e.location, { '@id': '/#praha' });
+  // The Sundays (owner's prices, 23. 11. 2026): morning 500 Kč, whole day 1 000 Kč, every Event now has offers.
+  const sun = at('2026-11-23').find((e) => e.startDate === '2026-12-13');
+  assert.deepEqual(sun.offers.map((o) => [o.name, o.price, o.priceCurrency]), [['Dopoledne', 500, 'CZK'], ['Celý den', 1000, 'CZK']]);
+  for (const e of at('2026-11-01')) assert.ok(e.offers, `${e.name} ${e.startDate} has offers`);
   for (const slug of Object.keys(early)) if (slug !== 'akce') assert.equal(byType(early[slug], 'Event').length, 0, slug);
 });
 
@@ -138,6 +142,10 @@ test('llms.txt: {{home}} links to every page, AI-readable sections, no own host'
   assert.match(llms, /Strážné v Krkonoších, Strážné 2\. Penzion Exnar/);
   assert.doesNotMatch(llms, /Zlín|cviceni-ve-zline/);
   assert.match(llms, /Pondělí 19:00 - 20:30/);
+  // Past Sundays are left out (SEO audit 2026-11-23).
+  assert.match(llms, /Celodenní cvičení v neděli: 15\. 11\. 2026, 13\. 12\. 2026/);
+  assert.match(buildLlms(pages, { content, today: '2026-11-23' }), /Celodenní cvičení v neděli: 13\. 12\. 2026,/);
+  assert.doesNotMatch(buildLlms(pages, { content, today: '2026-12-14' }), /Celodenní cvičení v neděli/);
   assert.match(llms, /Sobota 28\. 11\. 2026: Hrátky pěti zvířat/);
   assert.match(llms, /Yang Cheng Fu/);
   assert.doesNotMatch(llms, /Yang Chen Fu/);

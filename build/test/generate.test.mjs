@@ -102,7 +102,10 @@ test('media.json lists the images the pages use, each with alt text and a credit
 
 test('no old Webnode CDN links; the files are root-relative uploads with download', () => {
   assert.doesNotMatch(all, /cbaul-cdnwnd/);
-  assert.match(htmlOf('domu'), /<a href="\/wp-content\/uploads\/letak-savle\.jpg" download class="more">Stáhnout leták na Šavli<\/a>/);
+  // The old sabre flyer: no longer on Domů (SEO audit 2026-11-23), still downloadable on Akce, marked past.
+  assert.doesNotMatch(htmlOf('domu'), /letak-savle/);
+  assert.match(htmlOf('akce'), /href="\/wp-content\/uploads\/letak-savle\.jpg" download/);
+  assert.match(htmlOf('akce'), /id="letak"[\s\S]*Proběhlo/);
   for (const f of ['10-principu-mistra-yang-chen-fu.docx', 'pojednani-o-wu-ti.docx']) assert.match(htmlOf('clanky'), new RegExp(`href="/wp-content/uploads/${f.replace(/\./g, '\\.')}" download`));
   const fin2 = createFinalizer();
   assert.throws(() => definePage(fin2, { slug: 't', title: 'T', sections: ['<section><h1>x</h1><a href="https://9d8f1c78e7.cbaul-cdnwnd.com/a.docx">a</a></section>'] }), /Webnode CDN/);

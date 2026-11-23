@@ -34,6 +34,9 @@ for id in $GONE; do
 done
 wp tk seo-setup --file="$BUNDLE/build/seo.json" | tail -1 || stop "seo-setup"
 wp tk consent-setup --dry-run | tail -2
+wp tk headers-setup | tail -1 || stop "headers-setup"
+# nginx at Webglobe serves /.well-known/ itself (never PHP): the security.txt body as a static file.
+mkdir -p "$W/.well-known" && wp eval 'echo tk_security_txt_body();' > "$W/.well-known/security.txt.new" && mv "$W/.well-known/security.txt.new" "$W/.well-known/security.txt" && ok "security.txt"
 
 say "Cache"
 ls_cache_off

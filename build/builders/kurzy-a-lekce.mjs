@@ -35,8 +35,12 @@ export const SUNDAYS = {
   title: 'Celodenní cvičení v neděli', time: '10:00 - 12:30 a 15:00 - 17:30',
   text: 'Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích.',
   dates: [{ key: 'nedele-11', date: '15. 11. 2026' }, { key: 'nedele-12', date: '13. 12. 2026' }],
+  // Owner, 23. 11. 2026. `offers` = the Event offers (seo.mjs).
+  price: 'dopoledne 500 Kč, celý den 1 000 Kč',
+  offers: [{ name: 'Dopoledne', price: 500 }, { name: 'Celý den', price: 1000 }],
 };
-export const PRICE = '350 Kč lekce 120 minut, 10 lekcí 3 250 Kč';
+// A lesson costs 350 Kč whether it is 90 or 120 minutes (owner, 23. 11. 2026: the new course has 90-minute lessons).
+export const PRICE = '350 Kč lekce 90 nebo 120 minut, 10 lekcí 3 250 Kč';
 export const PRICE_NOTE = 'Platby za lekci nebo 10 lekcí za 3 250 Kč, platba předem, platí na 3 měsíce od data zaplacení na účet.';
 
 export const COURSES = [
@@ -79,7 +83,7 @@ export function build({ content, page }) {
         h2: NEW_COURSE.title,
         body: `<div class="course reveal">
 <p class="body">${NEW_COURSE.text}</p>
-${facts([['Pravidelné cvičení', `${NEW_COURSE.day} ${NEW_COURSE.time}`], ['Místo', 'Tělocvična ZŠ Jeremenkova']])}
+${facts([['Pravidelné cvičení', `${NEW_COURSE.day} ${NEW_COURSE.time}`], ['Místo', 'Tělocvična ZŠ Jeremenkova'], ['Cena', '350 Kč lekce 90 minut']])}
 <div class="actions"><a class="more" href="${signupHref('Nový kurz pro začátečníky')}">${SIGNUP_LABEL}</a></div>
 </div>`,
       }),
@@ -89,6 +93,7 @@ ${facts([['Pravidelné cvičení', `${NEW_COURSE.day} ${NEW_COURSE.time}`], ['M�
         h2: SUNDAYS.title,
         intro: SUNDAYS.text,
         body: `${rows(SUNDAYS.dates.map((d) => ({ name: `Neděle ${d.date}`, val: `${SUNDAYS.time}${pastBadge([d.key], day)}` })))}
+<p class="body reveal" style="margin-top: 20px"><strong>Cena:</strong> ${SUNDAYS.price}.</p>
 <div class="actions reveal" style="margin-top: 28px"><a class="more" href="${signupHref('Semináře a akce')}">${SIGNUP_LABEL}</a></div>`,
       }),
 
@@ -106,7 +111,7 @@ ${facts([['Pravidelné cvičení', `${NEW_COURSE.day} ${NEW_COURSE.time}`], ['M�
         id: 'cena', stageKey: 'svitek',
         h2: 'Ceny lekcí',
         body: `<div class="figures reveal">
-<div><span class="figure-n">350 Kč</span><span class="figure-l">lekce 120 minut</span></div>
+<div><span class="figure-n">350 Kč</span><span class="figure-l">lekce 90 nebo 120 minut</span></div>
 <div><span class="figure-n">3 250 Kč</span><span class="figure-l">10 lekcí</span></div>
 </div>
 <p class="body reveal" style="margin-top: 28px">${PRICE_NOTE}</p>`,

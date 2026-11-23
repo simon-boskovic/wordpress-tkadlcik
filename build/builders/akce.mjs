@@ -28,6 +28,7 @@ export function build({ content, page }) {
         h2: SUNDAYS.title,
         intro: `${SUNDAYS.text} Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A, Praha 4.`,
         body: `${rows(SUNDAYS.dates.map((d) => ({ name: `Neděle ${d.date}`, val: `${SUNDAYS.time}${pastBadge([d.key], day)}` })))}
+<p class="body reveal" style="margin-top: 20px"><strong>Cena:</strong> ${SUNDAYS.price}.</p>
 <div class="actions reveal" style="margin-top: 28px">${more('/kurzy-a-lekce/#nedele', 'Nabídka kurzů a lekcí')}</div>`,
       }),
 
@@ -50,9 +51,10 @@ export function build({ content, page }) {
 <div class="stack-l">
 <div class="sec-head">
 <h2 class="h2 reveal" id="letak-h">Výukový seminář se šavlí stylu Yang tchaj-ťi</h2>
+<p class="body reveal muted">Starší seminář, leták ponecháváme pro informaci. <span class="badge">Proběhlo</span></p>
 <div class="actions reveal"><a class="btn btn-quiet" href="/wp-content/uploads/letak-savle.jpg" download>Stáhnout leták na Šavli</a></div>
 </div>
-<figure class="media reveal" style="max-width: 440px"><a class="zoom-link" href="/wp-content/uploads/letak-savle.jpg" data-tk-zoom><img class="pic pic-doc" src="/wp-content/uploads/letak-savle.jpg" alt="Leták: Výukový seminář s šavlí stylu Yang tchaj-ťi" width="1587" height="2245" loading="lazy" decoding="async"></a><figcaption>Kliknutím leták zvětšíte.</figcaption></figure>
+<figure class="media reveal" style="max-width: 440px"><a class="zoom-link" href="/wp-content/uploads/letak-savle.jpg" data-tk-zoom><img class="pic pic-doc" src="./client-img/letak-savle-nahled.jpg" alt="Leták: Výukový seminář se šavlí stylu Yang tchaj-ťi" width="880" height="1245" loading="lazy" decoding="async"></a><figcaption>Kliknutím leták zvětšíte.</figcaption></figure>
 </div>
 </section>`,
 

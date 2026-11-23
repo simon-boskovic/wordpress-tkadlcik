@@ -11,7 +11,7 @@ Aktualizováno: 2026-11-23
 
 - [Domů]({{home}}/): Kurzy tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4 na ZŠ Jeremenkova: Osm kusů brokátu, 13 slov tchaj-ťi a styl Yang podle mistra Vincenta Chu.
 - [Cvičení]({{home}}/cviceni/): Cvičení, která vyučujeme: čchi-kung (qigong) Osm kusů brokátu, 13 slov tchaj-ťi a tchaj-ťi (tai chi) stylu Yang – popis, sestavy a videogalerie.
-- [Osm kusů brokátu]({{home}}/osm-kusu-brokatu/): Osm kusů brokátu, čchi-kungové (qigong) cvičení ze skupiny Daoyin: názvy všech osmi cviků, video a pravidelný úterní kurz v Praze 4.
+- [Osm kusů brokátu]({{home}}/osm-kusu-brokatu/): Osm kusů brokátu, čchi-kungové (qigong) cvičení ze skupiny Daoyin: názvy všech osmi cviků, video a rozvrh pravidelných lekcí v Praze 4.
 - [Videogalerie]({{home}}/videogalerie/): Videa sestav tchaj-ťi (tai chi) stylu Yang a čchi-kungu (qigong): 12 forem pro začátečníky, 43 forem mistra Vincenta Chu, sestava s holí, Osm kusů brokátu.
 - [Nabídka kurzů a lekcí]({{home}}/kurzy-a-lekce/): Rozvrh a ceny kurzů tchaj-ťi (tai chi) a čchi-kungu (qigong) v Praze 4: lekce 90 a 120 minut, nový kurz pro začátečníky v pondělí od 7. 12. 2026.
 - [Akce]({{home}}/akce/): Semináře tchaj-ťi (tai chi) s mistrem Vincentem Chu v Praze a cvičení tchaj-ťi a čchi-kungu (qigong) na horách v Krkonoších – Strážné, Penzion Exnar.
@@ -45,13 +45,13 @@ Aktualizováno: 2026-11-23
 
 - Praha 4, Tělocvična ZŠ Jeremenkova, Jeremenkova 1003/66A: Úterý 18:00 - 20:00 – Taichi-kung, procvičování dlouhá sestava; Čtvrtek 18:00 - 20:00 – Taichi-kung, procvičování dlouhá sestava.
 - Nový kurz od 7. 12. 2026: Pondělí 19:00 - 20:30 – Výuka Hrátky pěti zvířat, stání v pozicích Guo Yang Tzu, procvičování sestavy Yang tchaj-ťi 8 pohybů. Pro začátečníky. ({{home}}/kurzy-a-lekce/#novy-kurz)
-- Celodenní cvičení v neděli: 15. 11. 2026, 13. 12. 2026, 10:00 - 12:30 a 15:00 - 17:30. Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích.
+- Celodenní cvičení v neděli: 13. 12. 2026, 10:00 - 12:30 a 15:00 - 17:30. Dopoledne procvičování Hrátky pěti zvířat a taichi-kung. Odpoledne procvičování sestav a stání v pozicích.
 - Výuka probíhá formou lekcí 90 minut nebo 120 minut, cvičíme v tělocvičně a v létě venku.
 - Rozvrh a ceny: {{home}}/kurzy-a-lekce/
 
 ## Ceny
 
-- 350 Kč lekce 120 minut, 3 250 Kč 10 lekcí. Platby za lekci nebo 10 lekcí za 3 250 Kč, platba předem, platí na 3 měsíce od data zaplacení na účet.
+- 350 Kč lekce 90 nebo 120 minut, 3 250 Kč 10 lekcí. Platby za lekci nebo 10 lekcí za 3 250 Kč, platba předem, platí na 3 měsíce od data zaplacení na účet.
 
 ## Akce
 
